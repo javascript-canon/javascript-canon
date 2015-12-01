@@ -7,9 +7,6 @@
     "grunt-cli": "^0.1.13",
     "grunt-firebase": "^0.1.5"
   },
-  "scripts": {
-    "grunt": "grunt"
-  },
   "keywords": [
     "grunt",
     "firebase"
