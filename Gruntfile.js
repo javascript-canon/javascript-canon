@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
 
   // Authorization key for saving "resources.json" to Firebase
-  var authConfig = grunt.file.readJSON('./config/auth.json');
+  var authConfig = grunt.file.readJSON("./config/auth.json");
 
   // Project config
   grunt.initConfig({
@@ -12,21 +12,23 @@ module.exports = function(grunt) {
       options: {
 
         // reference to start with (full firebase url)
-        reference: 'https://javascriptcanon.firebaseio.com/',
+        reference: "https://javascriptcanon.firebaseio.com/",
 
         // token: the secret key used for connecting to firebase 
-        token: '<%= authConfig.token %>'
+        token: "<%= authConfig.token %>"
       },
       load: {
         files: [
           {
-            src: './resources.json'
+            src: "./resources.json"
           }
         ]
       }
     }
   });
 
-  grunt.loadNpmTasks('grunt-firebase');
+  grunt.loadNpmTasks( "grunt-firebase" );
+
+  grunt.registerTask("default", ["firebase"]);
 
 };
