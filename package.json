@@ -1,0 +1,19 @@
+{
+  "name": "javascript-canon",
+  "version": "1.0.0",
+  "description": "grunt task for uploading resource info to firebase",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-firebase": "^0.1.5"
+  },
+  "scripts": {
+    "grunt": "grunt"
+  },
+  "keywords": [
+    "grunt",
+    "firebase"
+  ],
+  "author": "kaidez",
+  "license": "ISC"
+}
