@@ -1,0 +1,27 @@
+{
+  "name": "javascript-canon",
+  "version": "1.0.0",
+  "description": "a presentation of the most important learning JavaScript resources",
+  "main": "n/a",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-sass": "node-sass css-build/style.scss | cleancss -o build/css/style.css",
+    "watch-sass": "nodemon -e scss -w css-build -x 'npm run build-sass'",
+    "build-css": "cat css-build/*.css > build/css/style.css",
+    "build-js": "browserify js-build/*.js -o build/js/scripts.js",
+    "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
+    "watch": "npm run watch-js & npm run watch-sass",
+    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
+  },
+  "author": "kaidez",
+  "license": "ISC",
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "browserify": "^12.0.1",
+    "clean-css": "^3.4.8",
+    "firebase": "^2.3.2",
+    "node-sass": "^3.4.2",
+    "uglifyjs": "^2.4.10",  
+    "watchify": "^3.6.1"
+  }
+}
