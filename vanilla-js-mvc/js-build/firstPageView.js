@@ -8,20 +8,17 @@
 "use strict";
 
 var
-    // "require" the model data
+    // "require" the model data so the view can access it
     Resources = require( "./model" ),
 
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // create a short-hand reference to the data model
+    // reference to the data model
     resourcesData = Resources.ResourceModel,
 
-    // Create a view object for the homepage view
-    SingleResourceView = {},
-
-    // Create a view controller object for the homepage view
-    SingleResourceController = {};
+    // create a view object for the homepage view...export it out later
+    SingleResourceView = {};
 
 /* 
  * "render()" method" renders info for single resource component.
@@ -55,7 +52,7 @@ SingleResourceView.render = function( model ) {
           resourceAuthor = document.createElement( "h3" );
 
       resourceHeader.innerHTML = data[key].title;
-      $( resourceImage ).attr("src", "/img/book-images/" + data[key].image_large);
+      $( resourceImage ).attr( "src", "/img/book-images/" + data[key].image_large );
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
       resourceContainer.appendChild( resourceHeader );
@@ -72,4 +69,9 @@ SingleResourceView.render = function( model ) {
   });
    
 }
-SingleResourceView.render( resourcesData );
+
+// Export the view out so it's available to the controller
+exports.SingleResourceView = SingleResourceView;
+
+// Export the view out so it's available to the controller
+exports.resourcesData = resourcesData;
