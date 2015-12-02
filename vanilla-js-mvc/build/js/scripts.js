@@ -51,7 +51,7 @@ SingleResourceView.render = function( model ) {
           resourceAuthor = document.createElement( "h3" );
 
       resourceHeader.innerHTML = data[key].title;
-      $(resourceImage).attr("src", "/img/book-images/" + data[key].image_large);
+      $( resourceImage ).attr("src", "/img/book-images/" + data[key].image_large);
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
       resourceContainer.appendChild( resourceHeader );
