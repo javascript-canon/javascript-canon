@@ -41,11 +41,20 @@ SingleResourceView.render = function( model ) {
     data = snapshot.val();
 
     for ( var key in data ) {
-      var pageTarget = document.getElementById( "container" ),resourceContainer = document.createElement( "div" ),
-        resourceHeader = document.createElement( "h2" );
+      var pageTarget = document.getElementById( "container-element" ),
+          resourceContainer = document.createElement( "div" ),
+          resourceHeader = document.createElement( "h2" ),
+          resourceImage = document.createElement( "img" ),
+          resourceAuthor = document.createElement( "h3" );
 
       resourceHeader.innerHTML = data[key].title;
-      pageTarget.appendChild( resourceHeader );
+      $(resourceImage).attr("src", "/img/book-images/" + data[key].image_large);
+      resourceAuthor.innerHTML =  "by " + data[key].author;
+
+      resourceContainer.appendChild( resourceHeader );
+      resourceContainer.appendChild( resourceImage );
+      resourceContainer.appendChild( resourceAuthor );
+      pageTarget.appendChild( resourceContainer );
       componentArray.push( resourceHeader );    
     }
     
