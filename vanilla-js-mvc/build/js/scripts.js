@@ -28,11 +28,36 @@ var
  * the model data
  */
 SingleResourceView.render = function( model ) {
+
   return resourcesData.on( "value", function( snapshot ) {
-    var data = snapshot.val();
-    console.log( data );
+
+    var
+        data, // the resource data
+        title,
+        image,
+        author,
+        componentArray = [];
+        
+    data = snapshot.val();
+
+    for ( var key in data ) {
+      var pageTarget = document.getElementById( "container" ),resourceContainer = document.createElement( "div" ),
+        resourceHeader = document.createElement( "h2" );
+
+      resourceHeader.innerHTML = data[key].title;
+      pageTarget.appendChild( resourceHeader );
+      componentArray.push( resourceHeader );    
+    }
+    
+    // Not needed now, but keep it for future reference
+    // console.log( componentArray );
+
   });
+   
+   
 }
+SingleResourceView.render( resourcesData );
+
 },{"./model":2,"jquery":4}],2:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
