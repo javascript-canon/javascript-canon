@@ -129,10 +129,10 @@ var
     // require Firebase library
     firebase = require( "firebase" ),
     
-    // create a new model of data Firebase library
+    // create a new data model from object that's up on Firebase
     ResourceModel = new firebase( "https://javascriptcanon.firebaseio.com/resources/" );
 
-// Export out the model data
+// Export out the data model
 exports.ResourceModel = ResourceModel;
 },{"firebase":4}],4:[function(require,module,exports){
 /*! @license Firebase v2.3.2
