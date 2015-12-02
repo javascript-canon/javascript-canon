@@ -60,7 +60,7 @@ var
     SingleResourceView = {};
 
 /* 
- * "render()" method" renders info for single resource component.
+ * "render()" method renders info for single resource component.
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
