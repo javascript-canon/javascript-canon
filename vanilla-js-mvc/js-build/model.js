@@ -2,6 +2,8 @@
 /* | MODEL DATA                                                      */
 /* ================================================================= */
 
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
 // use strict mode
 "use strict";
 
