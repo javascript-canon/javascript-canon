@@ -24,7 +24,6 @@ var
     // Create a view controller object for the homepage view
     SingleResourceController = {};
 
-
 /* 
  * "render()" method" renders info for single resource component.
  * The "model" parameter will represent whatever variable is storing
@@ -35,15 +34,21 @@ SingleResourceView.render = function( model ) {
   return resourcesData.on( "value", function( snapshot ) {
 
     var
-        data, // the resource data
-        title,
-        image,
-        author,
+        data, // will be a reference to the resource data on Firebase
+        title, // will be a reference to all the resource data title
+        image, // will be a reference to all the resource data image
+        author, // will be a reference to all the resource data author
         componentArray = [];
         
+    /*
+     * Grab the Firebase data with a snapshot. Read more about this
+     * at: http://bit.ly/firebase-snapshot
+     */
     data = snapshot.val();
 
+    // Loop through the Firebase data to build elements
     for ( var key in data ) {
+
       var pageTarget = document.getElementById( "container-element" ),
           resourceContainer = document.createElement( "div" ),
           resourceHeader = document.createElement( "h2" ),
@@ -58,7 +63,8 @@ SingleResourceView.render = function( model ) {
       resourceContainer.appendChild( resourceImage );
       resourceContainer.appendChild( resourceAuthor );
       pageTarget.appendChild( resourceContainer );
-      componentArray.push( resourceHeader );    
+      componentArray.push( resourceHeader );
+
     }
     
     // Not needed now, but keep it for future reference
@@ -66,10 +72,8 @@ SingleResourceView.render = function( model ) {
 
   });
    
-   
 }
 SingleResourceView.render( resourcesData );
-
 },{"./model":2,"jquery":4}],2:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
