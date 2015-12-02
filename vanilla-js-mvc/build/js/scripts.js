@@ -19,7 +19,10 @@ var
     resourcesData = Resources.ResourceModel,
 
     // Create a view object for the homepage view
-    SingleResourceView = {};
+    SingleResourceView = {},
+
+    // Create a view controller object for the homepage view
+    SingleResourceController = {};
 
 
 /* 
