@@ -12,7 +12,7 @@ var
     // require Firebase library
     firebase = require( "firebase" ),
     
-    // create a new data model from object that's up on Firebase
+    // create a new data model from data object that's up on Firebase
     ResourceModel = new firebase( "https://javascriptcanon.firebaseio.com/resources/" );
 
 // Export out the data model
