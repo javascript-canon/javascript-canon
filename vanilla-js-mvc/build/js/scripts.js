@@ -3,6 +3,8 @@
 /* | VIEW FOR THE FRONT PAGE                                         */
 /* ================================================================= */
 
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
 // use strict mode
 "use strict";
 
@@ -20,8 +22,12 @@ var
     SingleResourceView = {};
 
 
-// "render()" method" renders info for single resource component
-SingleResourceView.render = function() {
+/* 
+ * "render()" method" renders info for single resource component.
+ * The "model" parameter will represent whatever variable is storing
+ * the model data
+ */
+SingleResourceView.render = function( model ) {
   return resourcesData.on( "value", function( snapshot ) {
     var data = snapshot.val();
     console.log( data );
