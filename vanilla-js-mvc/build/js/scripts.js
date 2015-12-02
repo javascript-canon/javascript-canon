@@ -1,5 +1,43 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /* ================================================================= */
+/* | CONTROLLER FOR THE FRONT PAGE                                   */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
+// use strict mode
+"use strict";
+
+var
+
+    // "require" the view code so the controller can access it
+    HomePageView = require( "./firstPageView" ),
+
+    // reference to Firebase model data in the view
+    modelData = HomePageView.resourcesData,
+
+    // reference to the view object in the view
+    homepageView = HomePageView.SingleResourceView,
+
+    // create a controller object for the homepage view
+    SingleResourceController = {};
+
+/* 
+ * "displayHomePage()" method renders the model data that's
+ * passed to view object's "render()" method. The "getData" parameter
+ * represents the model data.
+ */
+SingleResourceController.displayHomePage = function( getData ) {
+  return homepageView.render( getData );
+};
+
+/*
+ * Run the "displayHomePage()" method & pass the Firebase model data,
+ * which is represented by the "modelData" variable defined above.
+ */
+SingleResourceController.displayHomePage( modelData );
+},{"./firstPageView":2}],2:[function(require,module,exports){
+/* ================================================================= */
 /* | VIEW FOR THE FRONT PAGE                                         */
 /* ================================================================= */
 
@@ -9,20 +47,17 @@
 "use strict";
 
 var
-    // "require" the model data
+    // "require" the model data so the view can access it
     Resources = require( "./model" ),
 
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // create a short-hand reference to the data model
+    // reference to the data model
     resourcesData = Resources.ResourceModel,
 
-    // Create a view object for the homepage view
-    SingleResourceView = {},
-
-    // Create a view controller object for the homepage view
-    SingleResourceController = {};
+    // create a view object for the homepage view...export it out later
+    SingleResourceView = {};
 
 /* 
  * "render()" method" renders info for single resource component.
@@ -56,7 +91,7 @@ SingleResourceView.render = function( model ) {
           resourceAuthor = document.createElement( "h3" );
 
       resourceHeader.innerHTML = data[key].title;
-      $( resourceImage ).attr("src", "/img/book-images/" + data[key].image_large);
+      $( resourceImage ).attr( "src", "/img/book-images/" + data[key].image_large );
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
       resourceContainer.appendChild( resourceHeader );
@@ -73,11 +108,18 @@ SingleResourceView.render = function( model ) {
   });
    
 }
-SingleResourceView.render( resourcesData );
-},{"./model":2,"jquery":4}],2:[function(require,module,exports){
+
+// Export the view out so it's available to the controller
+exports.SingleResourceView = SingleResourceView;
+
+// Export the view out so it's available to the controller
+exports.resourcesData = resourcesData;
+},{"./model":3,"jquery":5}],3:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
 
 // use strict mode
 "use strict";
@@ -92,7 +134,7 @@ var
 
 // Export out the model data
 exports.ResourceModel = ResourceModel;
-},{"firebase":3}],3:[function(require,module,exports){
+},{"firebase":4}],4:[function(require,module,exports){
 /*! @license Firebase v2.3.2
     License: https://www.firebase.com/terms/terms-of-service.html */
 (function() {var g,aa=this;function n(a){return void 0!==a}function ba(){}function ca(a){a.ub=function(){return a.uf?a.uf:a.uf=new a}}
@@ -362,7 +404,7 @@ U.prototype.Ve=function(a,b){x("Firebase.resetPassword",2,2,arguments.length);ng
 
 module.exports = Firebase;
 
-},{}],4:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9574,4 +9616,4 @@ return jQuery;
 
 }));
 
-},{}]},{},[1,2]);
+},{}]},{},[1,2,3]);
