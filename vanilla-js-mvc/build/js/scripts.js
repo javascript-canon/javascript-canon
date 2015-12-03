@@ -73,8 +73,9 @@ SingleResourceView.render = function( model ) {
         title, // will be a reference to all the resource data title
         image, // will be a reference to all the resource data image
         author, // will be a reference to all the resource data author
+        link, // will be a reference to a link to the resource
         componentArray = [];
-        
+
     /*
      * Grab the Firebase data with a snapshot. Read more about this
      * at: http://bit.ly/firebase-snapshot
@@ -106,6 +107,7 @@ SingleResourceView.render = function( model ) {
 
       // Set attributes for the resource image
       resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
+      resourceImage.setAttribute( "class", "gl-book-image" );
 
       // Add the resource author to the inside of the <h3>
       resourceAuthor.innerHTML =  "by " + data[key].author;
