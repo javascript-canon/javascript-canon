@@ -84,7 +84,7 @@ SingleResourceView.render = function( model ) {
     // Loop through the Firebase data to build elements
     for ( var key in data ) {
 
-      var pageTarget = document.getElementById( "container-element" ),
+      var pageTarget = document.getElementById( "targetEl" ),
           resourceContainer = document.createElement( "div" ),
           resourceHeader = document.createElement( "h2" ),
           resourceImage = document.createElement( "img" ),
