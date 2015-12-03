@@ -1,0 +1,67 @@
+button {
+  margin: 0 4px;
+}
+
+// Style the <h2> tag
+.gl-subheader {
+  margin:0;
+
+  font-size: 16px;
+}
+
+// Shared classes for the <h1> & <h2> classes
+.gl-header-class {
+  margin-left: 16px;
+}
+
+// Style the <hr> inside of <header>
+.gl-hr {
+  height: 6px;
+  border-top: 0;
+  margin-top: 0;
+  margin-bottom: 8px;
+
+  background: rgba(0, 0, 0, 1);
+}
+
+// Shared classes for the <h1> & <h2> classes
+.gl-nav-class {
+  margin: 10px;
+
+  text-align: center;
+}
+
+// Style the Twitter link in <header>
+.gl-twitter-link {
+  color: rgba(0, 0, 0, 1);
+  font-weight: 900;
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+    color: rgba(174, 158, 48, 1);
+  }
+  &:visited {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+.book-link {
+  text-align: center;
+  display: block;
+  color: rgba(0, 0, 0, 1);
+  font-weight: 900;
+  font-size: 20px;
+  &:hover {
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 1);
+  }
+  &:visited {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 1);
+  }
+}
+
+.gl-book-image {
+  width: 100%
+}
