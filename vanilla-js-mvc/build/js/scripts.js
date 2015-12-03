@@ -90,18 +90,31 @@ SingleResourceView.render = function( model ) {
           resourceImage = document.createElement( "img" ),
           resourceAuthor = document.createElement( "h3" );
 
+      /*
+       * Setting attributes one-by-one instead of using something like 
+       * $.attr(). You can say that this code isn't cool, but it's 
+       * certainly faster.
+       * Check this at: http://bit.ly/set-attribute-test
+       */
+     
+      // Set attributes for the containing element
+      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
+      resourceContainer.setAttribute("data-resource-type", data[key].type);
+
+      // Add the resource title to the inside of the <h2>
       resourceHeader.innerHTML = data[key].title;
-      $( resourceImage ).attr( "src", "/img/book-images/" + data[key].image_large );
+
+      // Set attributes for the resource image
+      resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
+
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
-      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
-      (resourceContainer).setAttribute("data-resource-type", data[key].type);
-
+      // 
       resourceContainer.appendChild( resourceHeader );
       resourceContainer.appendChild( resourceImage );
       resourceContainer.appendChild( resourceAuthor );
       pageTarget.appendChild( resourceContainer );
-      componentArray.push( resourceHeader );
+      componentArray.push( resourceContainer );
 
     }
     
