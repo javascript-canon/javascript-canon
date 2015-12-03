@@ -46,7 +46,7 @@ SingleResourceView.render = function( model ) {
     for ( var key in data ) {
 
       var pageTarget = document.getElementById( "targetEl" ),
-          resourceContainer = document.createElement( "div" ),
+          resourceContainer = document.createElement( "article" ),
           resourceHeader = document.createElement( "h2" ),
           resourceImage = document.createElement( "img" ),
           resourceAuthor = document.createElement( "h3" );
@@ -54,6 +54,9 @@ SingleResourceView.render = function( model ) {
       resourceHeader.innerHTML = data[key].title;
       $( resourceImage ).attr( "src", "/img/book-images/" + data[key].image_large );
       resourceAuthor.innerHTML =  "by " + data[key].author;
+
+      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
+      (resourceContainer).setAttribute("data-resource-type", data[key].type);
 
       resourceContainer.appendChild( resourceHeader );
       resourceContainer.appendChild( resourceImage );
