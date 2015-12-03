@@ -121,7 +121,6 @@ SingleResourceView.render = function( model ) {
        * the page
        */
       resourceContainer.appendChild( resourceLink );
-      resourceContainer.appendChild( resourceTitle );
       resourceContainer.appendChild( resourceImage );
       resourceContainer.appendChild( resourceAuthor );
       pageTarget.appendChild( resourceContainer );
