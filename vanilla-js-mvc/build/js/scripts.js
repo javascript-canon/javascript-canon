@@ -86,7 +86,7 @@ SingleResourceView.render = function( model ) {
 
       var pageTarget = document.getElementById( "targetEl" ),
           resourceContainer = document.createElement( "article" ),
-          resourceHeader = document.createElement( "h2" ),
+          resourceTitle = document.createElement( "h2" ),
           resourceImage = document.createElement( "img" ),
           resourceAuthor = document.createElement( "h3" );
 
@@ -102,15 +102,18 @@ SingleResourceView.render = function( model ) {
       resourceContainer.setAttribute("data-resource-type", data[key].type);
 
       // Add the resource title to the inside of the <h2>
-      resourceHeader.innerHTML = data[key].title;
+      resourceTitle.innerHTML = data[key].title;
 
       // Set attributes for the resource image
       resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
 
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
-      // 
-      resourceContainer.appendChild( resourceHeader );
+      /*
+       * Arrange elements for an individual resource, then place it on
+       * the page
+       */
+      resourceContainer.appendChild( resourceTitle );
       resourceContainer.appendChild( resourceImage );
       resourceContainer.appendChild( resourceAuthor );
       pageTarget.appendChild( resourceContainer );
