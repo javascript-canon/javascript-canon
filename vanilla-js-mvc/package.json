@@ -11,7 +11,9 @@
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch": "npm run watch-js & npm run watch-sass",
-    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
+    "build-css": "cat css-build/*.css > build/css/style.css",
+    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css",
+    "grunt": "grunt"
   },
   "author": "kaidez",
   "license": "ISC",
@@ -19,7 +21,9 @@
     "bootstrap": "^3.3.6",
     "browserify": "^12.0.1",
     "clean-css": "^3.4.8",
-    "firebase": "^2.3.2",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-uncss": "^0.4.4",
     "jquery": "^2.1.4",
     "node-sass": "^3.4.2",
     "uglifyjs": "^2.4.10",
