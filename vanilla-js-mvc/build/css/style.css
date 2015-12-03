@@ -213,6 +213,23 @@ h2 {
   }
 }
 
+.col-md-4 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+@media (min-width: 992px) {
+  .col-md-4 {
+    float: left;
+  }
+
+  .col-md-4 {
+    width: 33.33333333%;
+  }
+}
+
 .form-control::-moz-placeholder {
   color: #999;
   opacity: 1;
@@ -304,6 +321,19 @@ h2 {
   background-image: none;
 }
 
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel-default {
+  border-color: #ddd;
+}
+
 .container:before,
 .container:after {
   display: table;
@@ -320,6 +350,22 @@ h2 {
 
 /*# sourceMappingURL=bootstrap.css.map */
 
+@media only screen and (min-width:320px) {
+  .header-logo {
+    background: url(../img/image-sprite.png) -304px 3px no-repeat;
+    background-size: 455px 300px;
+    min-height: 150px;
+  }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio:2) and (min-width:320px),only screen and (min--moz-device-pixel-ratio:2) and (min-width:320px),only screen and (-o-min-device-pixel-ratio:2 / 1) and (min-width:320px),only screen and (min-device-pixel-ratio:2) and (min-width:320px),only screen and (min-resolution:192dpi) and (min-width:320px),only screen and (min-resolution:2dppx) and (min-width:320px) {
+  .header-logo {
+    background: url(../img/image-sprite@2x.png) -304px 3px no-repeat;
+    background-size: 455px 300px;
+    min-height: 150px;
+  }
+}
+
 button {
   margin: 0 4px;
 }
@@ -330,7 +376,7 @@ button {
 }
 
 .gl-header-class {
-  margin-left: 16px;
+  margin-left: 160px;
 }
 
 .gl-hr {
@@ -360,4 +406,10 @@ button {
 .gl-twitter-link:visited {
   text-decoration: none;
   color: #000;
+}
+
+.h1-class {
+  font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 900;
 }
