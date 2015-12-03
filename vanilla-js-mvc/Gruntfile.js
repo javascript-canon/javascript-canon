@@ -11,10 +11,16 @@ module.exports = function( grunt ) {
         },
         options: {
           ignore: [
+            "article",
+            ".book-link",
+            ".book-link:hover",
+            ".book-link:visited",
+            ".btn",
+            ".btn-default",
             ".col-md-4",
+            ".gl-book-image",
             ".panel",
-            ".panel-default",
-            ".resource"
+            ".panel-default"
           ]
         },
       }
