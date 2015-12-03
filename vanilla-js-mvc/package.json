@@ -5,13 +5,13 @@
   "main": "n/a",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "jade": "jade jade/index.jade -o build/",
     "build-sass": "node-sass css-build/style.scss | cleancss -o build/css/style.css",
     "watch-sass": "nodemon -e scss -w css-build -x 'npm run build-sass'",
     "build-css": "cat css-build/*.css > build/css/style.css",
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch": "npm run watch-js & npm run watch-sass",
-    "build-css": "cat css-build/*.css > build/css/style.css",
     "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css",
     "grunt": "grunt"
   },
@@ -24,6 +24,7 @@
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-uncss": "^0.4.4",
+    "jade": "^1.11.0",
     "jquery": "^2.1.4",
     "node-sass": "^3.4.2",
     "uglifyjs": "^2.4.10",
