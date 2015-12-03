@@ -68,6 +68,7 @@ SingleResourceView.render = function( model ) {
       // Set attributes for the resource image
       resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
 
+      // Add the resource author to the inside of the <h3>
       resourceAuthor.innerHTML =  "by " + data[key].author;
 
       /*
