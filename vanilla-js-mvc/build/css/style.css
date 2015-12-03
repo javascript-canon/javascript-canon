@@ -18,6 +18,7 @@ body {
   margin: 0;
 }
 
+article,
 footer,
 header,
 main,
@@ -406,6 +407,28 @@ button {
 .gl-twitter-link:visited {
   text-decoration: none;
   color: #000;
+}
+
+.book-link {
+  text-align: center;
+  display: block;
+  color: #000;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.book-link:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.book-link:visited {
+  text-decoration: none;
+  color: #000;
+}
+
+.gl-book-image {
+  width: 100%;
 }
 
 .h1-class {
