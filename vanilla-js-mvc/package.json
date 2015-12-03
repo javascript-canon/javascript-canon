@@ -10,7 +10,7 @@
 
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
 
-    "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
+    "build-sass": "node-sass css-build/**/*.scss | cleancss -o css-build/style.css",
 
     "grunt": "grunt",
 
@@ -18,13 +18,13 @@
 
     "uncss": "npm run grunt",
 
-    "css-build": "npm build-sass & npm run concat-css & npm run uncss",
+    "css-build": "npm run build-sass & npm run concat-css & npm run uncss",
 
     "watch-jade": "nodemon -e jade -w jade -x 'npm run build-jade'",
 
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
 
-    "watch-css": "nodemon -e scss -w css-build -x 'npm run css-build'",
+    "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run css-build'",
 
     "watch": "npm run watch-jade & npm run watch-js & npm run watch-css",
 
