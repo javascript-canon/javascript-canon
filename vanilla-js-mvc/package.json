@@ -5,15 +5,30 @@
   "main": "n/a",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "jade": "jade jade/index.jade -o build/",
-    "build-sass": "node-sass css-build/style.scss | cleancss -o build/css/style.css",
-    "watch-sass": "nodemon -e scss -w css-build -x 'npm run build-sass'",
-    "build-css": "cat css-build/*.css > build/css/style.css",
+
+    "build-jade": "jade jade/index.jade -o build/",
+
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
+
+    "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
+
+    "grunt": "grunt",
+
+    "concat-css": "cat css-build/*.css > build/css/style.css",
+
+    "uncss": "npm run grunt",
+
+    "css-build": "npm build-sass & npm run concat-css & npm run uncss",
+
+    "watch-jade": "nodemon -e jade -w jade -x 'npm run build-jade'",
+
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
-    "watch": "npm run watch-js & npm run watch-sass",
-    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css",
-    "grunt": "grunt"
+
+    "watch-css": "nodemon -e scss -w css-build -x 'npm run css-build'",
+
+    "watch": "npm run watch-jade & npm run watch-js & npm run watch-css",
+
+    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
   "license": "ISC",
