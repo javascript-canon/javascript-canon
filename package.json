@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "grunt task for uploading resource info to firebase",
   "devDependencies": {
+    "firebase": "^2.3.2",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-firebase": "^0.1.5"

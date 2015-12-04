@@ -1,166 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-/* ================================================================= */
-/* | CONTROLLER FOR THE FRONT PAGE                                   */
-/* ================================================================= */
-
-// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
-
-// use strict mode
-"use strict";
-
-var
-
-    // "require" the view code so the controller can access it
-    HomePageView = require( "./firstPageView" ),
-
-    // reference to Firebase model data in the view
-    modelData = HomePageView.resourcesData,
-
-    // reference to the view object in the view
-    homepageView = HomePageView.SingleResourceView,
-
-    // create a controller object for the homepage view
-    SingleResourceController = {};
-
-/* 
- * "displayHomePage()" method renders the model data that's
- * passed to view object's "render()" method. The "getData" parameter
- * represents the model data.
- */
-SingleResourceController.displayHomePage = function( getData ) {
-  return homepageView.render( getData );
-};
-
-/*
- * Run the "displayHomePage()" method & pass the Firebase model data,
- * which is represented by the "modelData" variable defined above.
- */
-SingleResourceController.displayHomePage( modelData );
-},{"./firstPageView":2}],2:[function(require,module,exports){
-/* ================================================================= */
-/* | VIEW FOR THE FRONT PAGE                                         */
-/* ================================================================= */
-
-// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
-
-// use strict mode
-"use strict";
-
-var
-    // "require" the model data so the view can access it
-    Resources = require( "./model" ),
-
-    // "require" jQuery core
-    $ = require( "jquery" ),
-
-    // reference to the data model
-    resourcesData = Resources.ResourceModel,
-
-    // create a view object for the homepage view...export it out later
-    SingleResourceView = {};
-
-/* 
- * "render()" method renders info for single resource component.
- * The "model" parameter will represent whatever variable is storing
- * the model data
- */
-SingleResourceView.render = function( model ) {
-
-  return resourcesData.on( "value", function( snapshot ) {
-
-    var
-        data, // will be a reference to the resource data on Firebase
-        componentArray = [];
-
-    /*
-     * Grab the Firebase data with a snapshot and store it in the data
-     * variable. Read more about this at:
-     * http://bit.ly/firebase-snapshot
-     */
-    data = snapshot.val();
-
-    // Loop through the Firebase data to build elements
-    for ( var key in data ) {
-
-      var pageTarget = document.getElementById( "targetEl" ),
-          resourceContainer = document.createElement( "article" ),
-          resourceTitle = document.createElement( "h2" ),
-          resourceImage = document.createElement( "img" ),
-          resourceAuthor = document.createElement( "h3" ),
-          resourceLink = document.createElement( "a" );
-
-      /*
-       * Setting attributes one-by-one instead of using something like 
-       * $.attr(). You can say that this code isn't cool, but it's 
-       * certainly faster.
-       *
-       * Check this at: http://bit.ly/set-attribute-test
-       */
-     
-      // Set attributes for the containing element
-      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
-      resourceContainer.setAttribute("data-resource-type", data[key].type);
-
-      // Add the resource title to the inside of the <h2>
-      resourceTitle.innerHTML = data[key].title;
-
-      // Set attributes for the resource image
-      resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
-      resourceImage.setAttribute( "class", "gl-book-image" );
-
-      // Add the resource author to the inside of the <h3>
-      resourceAuthor.innerHTML =  "by " + data[key].author;
-
-      // Set attributes for the link, then add the title inside of it
-      resourceLink.setAttribute("href", data[key].link);
-      resourceLink.setAttribute("class", "book-link");
-      resourceLink.innerHTML = data[key].title + " &raquo;";
-
-      /*
-       * Arrange elements for an individual resource, then place it on
-       * the page
-       */
-      resourceContainer.appendChild( resourceLink );
-      resourceContainer.appendChild( resourceImage );
-      resourceContainer.appendChild( resourceAuthor );
-      pageTarget.appendChild( resourceContainer );
-      componentArray.push( resourceContainer );
-
-    }
-    
-    // Not needed now, but keep it for future reference
-    // console.log( componentArray );
-
-  });
-   
-}
-
-// Export the view out so it's available to the controller
-exports.SingleResourceView = SingleResourceView;
-
-// Export the view out so it's available to the controller
-exports.resourcesData = resourcesData;
-},{"./model":3,"jquery":5}],3:[function(require,module,exports){
-/* ================================================================= */
-/* | MODEL DATA                                                      */
-/* ================================================================= */
-
-// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
-
-// use strict mode
-"use strict";
-
-var
-
-    // require Firebase library
-    firebase = require( "firebase" ),
-    
-    // create a new data model from data object that's up on Firebase
-    ResourceModel = new firebase( "https://javascriptcanon.firebaseio.com/resources/" );
-
-// Export out the data model
-exports.ResourceModel = ResourceModel;
-},{"firebase":4}],4:[function(require,module,exports){
 /*! @license Firebase v2.3.2
     License: https://www.firebase.com/terms/terms-of-service.html */
 (function() {var g,aa=this;function n(a){return void 0!==a}function ba(){}function ca(a){a.ub=function(){return a.uf?a.uf:a.uf=new a}}
@@ -430,7 +268,169 @@ U.prototype.Ve=function(a,b){x("Firebase.resetPassword",2,2,arguments.length);ng
 
 module.exports = Firebase;
 
-},{}],5:[function(require,module,exports){
+},{}],2:[function(require,module,exports){
+/* ================================================================= */
+/* | CONTROLLER FOR THE FRONT PAGE                                   */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
+// use strict mode
+"use strict";
+
+var
+
+    // "require" the view code so the controller can access it
+    HomePageView = require( "./firstPageView" ),
+
+    // reference to Firebase model data in the view
+    modelData = HomePageView.resourcesData,
+
+    // reference to the view object in the view
+    homepageView = HomePageView.SingleResourceView,
+
+    // create a controller object for the homepage view
+    SingleResourceController = {};
+
+/* 
+ * "displayHomePage()" method renders the model data that's
+ * passed to view object's "render()" method. The "getData" parameter
+ * represents the model data.
+ */
+SingleResourceController.displayHomePage = function( getData ) {
+  return homepageView.render( getData );
+};
+
+/*
+ * Run the "displayHomePage()" method & pass the Firebase model data,
+ * which is represented by the "modelData" variable defined above.
+ */
+SingleResourceController.displayHomePage( modelData );
+},{"./firstPageView":3}],3:[function(require,module,exports){
+/* ================================================================= */
+/* | VIEW FOR THE FRONT PAGE                                         */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
+// use strict mode
+"use strict";
+
+var
+    // "require" the model data so the view can access it
+    Resources = require( "./model" ),
+
+    // "require" jQuery core
+    $ = require( "jquery" ),
+
+    // reference to the data model
+    resourcesData = Resources.ResourceModel,
+
+    // create a view object for the homepage view...export it out later
+    SingleResourceView = {};
+
+/* 
+ * "render()" method renders info for single resource component.
+ * The "model" parameter will represent whatever variable is storing
+ * the model data
+ */
+SingleResourceView.render = function( model ) {
+
+  return resourcesData.on( "value", function( snapshot ) {
+
+    var
+        data, // will be a reference to the resource data on Firebase
+        componentArray = [];
+
+    /*
+     * Grab the Firebase data with a snapshot and store it in the data
+     * variable. Read more about this at:
+     * http://bit.ly/firebase-snapshot
+     */
+    data = snapshot.val();
+
+    // Loop through the Firebase data to build elements
+    for ( var key in data ) {
+
+      var pageTarget = document.getElementById( "targetEl" ),
+          resourceContainer = document.createElement( "article" ),
+          resourceTitle = document.createElement( "h2" ),
+          resourceImage = document.createElement( "img" ),
+          resourceAuthor = document.createElement( "h3" ),
+          resourceLink = document.createElement( "a" );
+
+      /*
+       * Setting attributes one-by-one instead of using something like 
+       * $.attr(). You can say that this code isn't cool, but it's 
+       * certainly faster.
+       *
+       * Check this at: http://bit.ly/set-attribute-test
+       */
+     
+      // Set attributes for the containing element
+      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
+      resourceContainer.setAttribute("data-resource-type", data[key].type);
+
+      // Add the resource title to the inside of the <h2>
+      resourceTitle.innerHTML = data[key].title;
+
+      // Set attributes for the resource image
+      resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
+      resourceImage.setAttribute( "class", "gl-book-image" );
+
+      // Add the resource author to the inside of the <h3>
+      resourceAuthor.innerHTML =  "by " + data[key].author;
+
+      // Set attributes for the link, then add the title inside of it
+      resourceLink.setAttribute("href", data[key].link);
+      resourceLink.setAttribute("class", "book-link");
+      resourceLink.innerHTML = data[key].title + " &raquo;";
+
+      /*
+       * Arrange elements for an individual resource, then place it on
+       * the page
+       */
+      resourceContainer.appendChild( resourceLink );
+      resourceContainer.appendChild( resourceImage );
+      resourceContainer.appendChild( resourceAuthor );
+      pageTarget.appendChild( resourceContainer );
+      componentArray.push( resourceContainer );
+
+    }
+    
+    // Not needed now, but keep it for future reference
+    // console.log( componentArray );
+
+  });
+   
+}
+
+// Export the view out so it's available to the controller
+exports.SingleResourceView = SingleResourceView;
+
+// Export the view out so it's available to the controller
+exports.resourcesData = resourcesData;
+},{"./model":4,"jquery":5}],4:[function(require,module,exports){
+/* ================================================================= */
+/* | MODEL DATA                                                      */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
+// use strict mode
+"use strict";
+
+var
+
+    // require Firebase library
+    firebase = require( "firebase" ),
+    
+    // create a new data model from data object that's up on Firebase
+    ResourceModel = new firebase( "https://javascriptcanon.firebaseio.com/resources/" );
+
+// Export out the data model
+exports.ResourceModel = ResourceModel;
+},{"firebase":1}],5:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9642,4 +9642,4 @@ return jQuery;
 
 }));
 
-},{}]},{},[1,2,3]);
+},{}]},{},[2,3,4]);
