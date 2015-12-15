@@ -28,6 +28,8 @@
 
     "watch": "npm run watch-jade & npm run watch-js & npm run watch-css",
 
+    "book-minify":"imagemin image-min/book-images/* build/img/book-images/",
+
     "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
