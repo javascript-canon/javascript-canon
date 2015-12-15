@@ -374,6 +374,7 @@ button {
 .gl-subheader {
   margin: 0;
   font-size: 16px;
+  height: 70px;
 }
 
 .gl-header-class {

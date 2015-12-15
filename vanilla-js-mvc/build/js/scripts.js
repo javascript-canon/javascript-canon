@@ -372,7 +372,9 @@ SingleResourceView.render = function( model ) {
       resourceContainer.setAttribute("data-resource-type", data[key].type);
 
       // Add the resource title to the inside of the <h2>
-      resourceTitle.innerHTML = data[key].title;
+      //resourceTitle.innerHTML = data[key].title;
+
+      resourceTitle.setAttribute("class", "gl-subheader");
 
       // Set attributes for the resource image
       resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
@@ -390,7 +392,9 @@ SingleResourceView.render = function( model ) {
        * Arrange elements for an individual resource, then place it on
        * the page
        */
-      resourceContainer.appendChild( resourceLink );
+
+      resourceTitle.appendChild( resourceLink );
+      resourceContainer.appendChild( resourceTitle );
       resourceContainer.appendChild( resourceImage );
       resourceContainer.appendChild( resourceAuthor );
       pageTarget.appendChild( resourceContainer );
