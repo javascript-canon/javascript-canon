@@ -1,5 +1,9 @@
 /*** uncss> filename: build/css/style.css ***/
 
+/*** uncss> filename: build/css/style.css ***/
+
+/*** uncss> filename: build/css/style.css ***/
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -426,10 +430,6 @@ button {
 .book-link:visited {
   text-decoration: none;
   color: #000;
-}
-
-.gl-book-image {
-  width: 100%;
 }
 
 .h1-class {

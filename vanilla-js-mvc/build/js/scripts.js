@@ -368,7 +368,7 @@ SingleResourceView.render = function( model ) {
        */
      
       // Set attributes for the containing element
-      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
+      resourceContainer.setAttribute("class", "col-md-4 resource");
       resourceContainer.setAttribute("data-resource-type", data[key].type);
 
       // Add the resource title to the inside of the <h2>
