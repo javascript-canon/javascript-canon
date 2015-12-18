@@ -30,7 +30,7 @@
 
     "book-minify":"imagemin image-min/book-images/* build/img/book-images/",
 
-    "copybs": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
+    "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
   "license": "ISC",
