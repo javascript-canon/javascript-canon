@@ -113,8 +113,6 @@ SingleNavView.render = function() {
       })
     );
 
-
-      
   }); // end returned "resourcesData.on"
     
 }
