@@ -1,3 +1,9 @@
+/* ================================================================= */
+/* | VIEW FOR THE SHOW/HIDE RESOURCE BUTTONS                         */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
 // use strict mode
 "use strict";
 
@@ -16,11 +22,11 @@ var
 function buildNav() {
     return resourcesData.on( "value", function( snapshot ) {
       
-    /*
-     * Grab the Firebase data with a snapshot and store it in the data
-     * variable. Read more about this at:
-     * http://bit.ly/firebase-snapshot
-     */
+      /*
+       * Grab the Firebase data with a snapshot and store it in the
+       * data variable. Read more about this at:
+       * http://bit.ly/firebase-snapshot
+       */
       var data = snapshot.val();
 
 
