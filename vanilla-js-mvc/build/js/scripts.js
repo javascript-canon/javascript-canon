@@ -269,6 +269,41 @@ U.prototype.Ve=function(a,b){x("Firebase.resetPassword",2,2,arguments.length);ng
 module.exports = Firebase;
 
 },{}],2:[function(require,module,exports){
+// use strict mode
+"use strict";
+
+var
+
+    // "require" the model data so the view can access it
+    Resources = require( "./model" ),
+
+    // reference to the data model in the "Resources" module
+    resourcesData = Resources.ResourceModel,
+
+    // "require" jQuery core
+    $ = require( "jquery" );
+
+
+function buildNav() {
+    return resourcesData.on( "value", function( snapshot ) {
+      
+    /*
+     * Grab the Firebase data with a snapshot and store it in the data
+     * variable. Read more about this at:
+     * http://bit.ly/firebase-snapshot
+     */
+      var data = snapshot.val();
+
+
+    });
+
+}
+
+// Make ALL learning resources visible.
+$( "#btn-show-all" ).click( function() {
+  $( ".resource" ).css( "display", "block" );
+});
+},{"./model":5,"jquery":6}],3:[function(require,module,exports){
 /* ================================================================= */
 /* | CONTROLLER FOR THE FRONT PAGE                                   */
 /* ================================================================= */
@@ -306,7 +341,7 @@ SingleResourceController.displayHomePage = function( getData ) {
  * which is represented by the "modelData" variable defined above.
  */
 SingleResourceController.displayHomePage( modelData );
-},{"./firstPageView":3}],3:[function(require,module,exports){
+},{"./firstPageView":4}],4:[function(require,module,exports){
 /* ================================================================= */
 /* | VIEW FOR THE FRONT PAGE                                         */
 /* ================================================================= */
@@ -414,7 +449,7 @@ exports.SingleResourceView = SingleResourceView;
 
 // Export the view out so it's available to the controller
 exports.resourcesData = resourcesData;
-},{"./model":4,"jquery":5}],4:[function(require,module,exports){
+},{"./model":5,"jquery":6}],5:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
@@ -434,7 +469,7 @@ var
 
 // Export out the data model
 exports.ResourceModel = ResourceModel;
-},{"firebase":1}],5:[function(require,module,exports){
+},{"firebase":1}],6:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9646,4 +9681,4 @@ return jQuery;
 
 }));
 
-},{}]},{},[2,3,4]);
+},{}]},{},[2,3,4,5]);
