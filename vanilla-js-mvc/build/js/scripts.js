@@ -304,8 +304,10 @@ SingleNavView.render = function() {
        * navData variable. Read more about this at:
        * http://bit.ly/firebase-snapshot
        */
-      var navData = snapshot.val();
-      var types = [], linkType;
+      var navData = snapshot.val(),
+          types = [],
+          linkType,
+          createTypeLink;
 
       // Loop through the Firebase data to build the nav
       for ( var key in navData ) {
@@ -327,8 +329,64 @@ SingleNavView.render = function() {
        * of "linkType".
        */
       linkType = _.uniq( types );
-      
+
+      createTypeLink = $.each( linkType, function( index, value ) {
+        var
+            btnId,
+            btnLink,
+            btnTargetEl;
+
+      btnTargetEl = document.querySelector( "nav" );
+      btnLink = document.createElement( "button" );
+      btnId = value + "ID";
+      btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
+      btnLink.setAttribute( "id", btnId );
+      $( btnLink ).addClass( "btn btn-default gl-nav-class btnResource" ).attr( "data-link-type", value );
+      btnTargetEl.appendChild( btnLink );
     });
+
+    // USE JQUERY PROMISES
+    //==================================================================
+    // Firebase conflicts with jQuery when buttons are clicked
+    // Clicking on them yields an error because they're not DOM-ready
+    // Use $.Deferred, $.promise(), and $.done() to prevent this
+    var defer = $.Deferred();
+    defer.promise( createTypeLink );
+    createTypeLink.done(
+
+      // Do things after ".done()" confirms that the buttons are ready
+      $( ".btnResource" ).click(function(){
+
+        // Single var pattern
+        var getLinkType, getElType, getElNotType;
+
+        // The ".btn" data-link-type value gets stored in getLinkType
+        // Data attributes don't work in IE 10 and lower
+        // Feature-detect if the browser supports the dataset property
+        // If it doesn't, use the getAttribute method instead
+        if( !this.dataset ) { // If < = IE10
+          getLinkType = this.getAttribute( "data-link-type" );
+        } else { // For other browsers
+          getLinkType = this.dataset.linkType;
+        }
+
+        // The ".btn" data-link-type val matches data-resource-type val
+        // Store items with matching data-resource-type in getElType
+        getElType = $( "article[data-resource-type*="+getLinkType+"]" );
+
+        // Store non-matching data-resource-type items in getElNotType
+        getElNotType = $( "article:not( [data-resource-type*="+getLinkType+"] )" );
+
+        // Find page elements with the ".resource" class
+        // Let $.filter() show matching elements, hide non-matching ones
+        $( ".resource" ).filter( getElNotType ).css( "display", "none" );
+        $( ".resource" ).filter( getElType ).css( "display", "block" );
+      })
+    );
+
+
+      
+  }); // end returned "resourcesData.on"
     
 }
 
