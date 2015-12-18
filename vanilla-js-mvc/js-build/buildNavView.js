@@ -15,7 +15,7 @@ var
     SingleNavView = {},
 
     // reference to the data model in the "Resources" module
-    resourcesData = Resources.ResourceModel,
+    navModelData = Resources.ResourceModel,
 
     // "require" underscore library
     _ = require( "underscore" ),
@@ -26,7 +26,7 @@ var
 
 SingleNavView.render = function() {
 
-  return resourcesData.on( "value", function( snapshot ) {
+  return navModelData.on( "value", function( snapshot ) {
       
       /*
        * Grab the Firebase data with a snapshot and store it in the
@@ -113,13 +113,18 @@ SingleNavView.render = function() {
       })
     );
 
-  }); // end returned "resourcesData.on"
+  }); // end returned "navModelData.on"
     
 }
-
-SingleNavView.render();
 
 // Make ALL learning resources visible.
 $( "#btn-show-all" ).click( function() {
   $( ".resource" ).css( "display", "block" );
 });
+
+
+// Export the nav data so it's available to the nav controller
+exports.navModelData = navModelData;
+
+// Export the nav view so it's available to the nav controller
+exports.SingleNavView = SingleNavView;
