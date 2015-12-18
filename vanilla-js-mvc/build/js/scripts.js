@@ -270,6 +270,44 @@ module.exports = Firebase;
 
 },{}],2:[function(require,module,exports){
 /* ================================================================= */
+/* | CONTROLLER FOR THE FRONT PAGE                                   */
+/* ================================================================= */
+
+// A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
+
+// use strict mode
+"use strict";
+
+var
+
+    // "require" the view code so the controller can access it
+    NavView = require( "./buildNavView" ),
+
+    // reference to Firebase model data in the view
+    navModelData = NavView.navData,
+
+    // reference to the view object in the view
+    navView = NavView.SingleNavView,
+
+    // create a controller object for the homepage view
+    NavController = {};
+
+/* 
+ * "displayHomePage()" method renders the model data that's
+ * passed to view object's "render()" method. The "getData" parameter
+ * represents the model data.
+ */
+NavController.displayNav = function( getData ) {
+  return navView.render( getData );
+};
+
+/*
+ * Run the "displayNav()" method & pass the Firebase model data,
+ * which is represented by the "navModelData" variable defined above.
+ */
+NavController.displayNav( navModelData );
+},{"./buildNavView":3}],3:[function(require,module,exports){
+/* ================================================================= */
 /* | VIEW FOR THE SHOW/HIDE RESOURCE BUTTONS                         */
 /* ================================================================= */
 
@@ -286,7 +324,7 @@ var
     SingleNavView = {},
 
     // reference to the data model in the "Resources" module
-    resourcesData = Resources.ResourceModel,
+    navModelData = Resources.ResourceModel,
 
     // "require" underscore library
     _ = require( "underscore" ),
@@ -297,7 +335,7 @@ var
 
 SingleNavView.render = function() {
 
-  return resourcesData.on( "value", function( snapshot ) {
+  return navModelData.on( "value", function( snapshot ) {
       
       /*
        * Grab the Firebase data with a snapshot and store it in the
@@ -384,19 +422,22 @@ SingleNavView.render = function() {
       })
     );
 
-
-      
-  }); // end returned "resourcesData.on"
+  }); // end returned "navModelData.on"
     
 }
-
-SingleNavView.render();
 
 // Make ALL learning resources visible.
 $( "#btn-show-all" ).click( function() {
   $( ".resource" ).css( "display", "block" );
 });
-},{"./model":5,"jquery":6,"underscore":7}],3:[function(require,module,exports){
+
+
+// Export the nav data so it's available to the nav controller
+exports.navModelData = navModelData;
+
+// Export the nav view so it's available to the nav controller
+exports.SingleNavView = SingleNavView;
+},{"./model":6,"jquery":7,"underscore":8}],4:[function(require,module,exports){
 /* ================================================================= */
 /* | CONTROLLER FOR THE FRONT PAGE                                   */
 /* ================================================================= */
@@ -434,7 +475,7 @@ SingleResourceController.displayHomePage = function( getData ) {
  * which is represented by the "modelData" variable defined above.
  */
 SingleResourceController.displayHomePage( modelData );
-},{"./firstPageView":4}],4:[function(require,module,exports){
+},{"./firstPageView":5}],5:[function(require,module,exports){
 /* ================================================================= */
 /* | VIEW FOR THE FRONT PAGE                                         */
 /* ================================================================= */
@@ -537,12 +578,13 @@ SingleResourceView.render = function( model ) {
    
 }
 
-// Export the view out so it's available to the controller
-exports.SingleResourceView = SingleResourceView;
 
-// Export the view out so it's available to the controller
+// Export the page data so it's available to the page controller
 exports.resourcesData = resourcesData;
-},{"./model":5,"jquery":6}],5:[function(require,module,exports){
+
+// Export the page view so it's available to the page controller
+exports.SingleResourceView = SingleResourceView;
+},{"./model":6,"jquery":7}],6:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
@@ -562,7 +604,7 @@ var
 
 // Export out the data model
 exports.ResourceModel = ResourceModel;
-},{"firebase":1}],6:[function(require,module,exports){
+},{"firebase":1}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9774,7 +9816,7 @@ return jQuery;
 
 }));
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -11324,4 +11366,4 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[2,3,4,5]);
+},{}]},{},[2,3,4,5,6]);
