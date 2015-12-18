@@ -100,8 +100,9 @@ SingleResourceView.render = function( model ) {
    
 }
 
-// Export the view out so it's available to the controller
-exports.SingleResourceView = SingleResourceView;
 
-// Export the view out so it's available to the controller
+// Export the page data so it's available to the page controller
 exports.resourcesData = resourcesData;
+
+// Export the page view so it's available to the page controller
+exports.SingleResourceView = SingleResourceView;
