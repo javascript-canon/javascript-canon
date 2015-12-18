@@ -11,7 +11,7 @@
   "res2": {
     "title": "Eloquent JavaScript",
     "author": "Marijn Haverbeke",
-    "image_large": "eloquent.jpg",
+    "image_large": "eloquent-javascript.jpg",
     "image_small": "ooj.jpg",
     "type": "book",
     "link": "http://amzn.to/1Jwbhx5",
@@ -56,7 +56,7 @@
     "title": "JS Assessment",
     "author": "Rebecca Murphey",
     "type": "website",
-    "image_large": "github.png",
+    "image_large": "github.jpg",
     "image_small": "ooj.jpg",
     "link": {},
     "tags": ["testing"]
