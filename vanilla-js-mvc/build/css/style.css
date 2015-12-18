@@ -1,9 +1,5 @@
 /*** uncss> filename: build/css/style.css ***/
 
-/*** uncss> filename: build/css/style.css ***/
-
-/*** uncss> filename: build/css/style.css ***/
-
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -326,19 +322,6 @@ h2 {
   background-image: none;
 }
 
-.panel {
-  margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-}
-
-.panel-default {
-  border-color: #ddd;
-}
-
 .container:before,
 .container:after {
   display: table;
@@ -430,6 +413,14 @@ button {
 .book-link:visited {
   text-decoration: none;
   color: #000;
+}
+
+@media (min-width:992px) {
+  .resource {
+    max-width: 315px;
+    margin: 27px;
+    text-align: center;
+  }
 }
 
 .h1-class {
