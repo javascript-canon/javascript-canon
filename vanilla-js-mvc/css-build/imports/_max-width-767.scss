@@ -8,21 +8,30 @@
 
   .mobile-menu-button {
     
-    width: 42px;
-    height: 42px;
+    width: 50px;
+    height: 48px;
+    margin-top: 24px;
 
     border: 1px solid #DDDBDB;
     border-radius: 3px;
-    background-color: #FEF186;;
+    background-color: #FEF186;
+
   }
 
   .mobile-menu-bar {
+
     display: block;
     width: 31px;
     height: 4px;
     margin: 0 auto 4px;
 
     background-color: #000;
+
+  }
+
+  .gl-nav-class {
+    position: absolute;
+    display: block;
   }
 
 }
