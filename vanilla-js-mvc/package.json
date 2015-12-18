@@ -5,31 +5,18 @@
   "main": "n/a",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "build-jade": "jade jade/index.jade -o build/",
-
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
-
     "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
-
     "grunt": "grunt",
-
     "concat-css": "cat css-build/*.css > build/css/style.css",
-
     "uncss": "npm run grunt",
-
     "css-build": "npm run build-sass && npm run concat-css && npm run uncss",
-
     "watch-jade": "nodemon -e jade -w jade -x 'npm run build-jade'",
-
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
-
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run css-build'",
-
     "watch": "npm run watch-jade & npm run watch-js & npm run watch-css",
-
-    "book-minify":"imagemin image-min/book-images/* build/img/book-images/",
-
+    "book-minify": "imagemin image-min/book-images/* build/img/book-images/",
     "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
@@ -45,6 +32,7 @@
     "jquery": "^2.1.4",
     "node-sass": "^3.4.2",
     "uglifyjs": "^2.4.10",
+    "underscore": "^1.8.3",
     "watchify": "^3.6.1"
   }
 }
