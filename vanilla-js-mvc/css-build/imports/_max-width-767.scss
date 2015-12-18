@@ -1,5 +1,28 @@
-.h1-class {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 24px;
-  font-weight: 900;
+@media (max-width: 767px) {
+
+  .h1-class {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .mobile-menu-button {
+    
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #DDDBDB;
+    border-radius: 3px;
+    background-color: #FEF186;;
+  }
+
+  .mobile-menu-bar {
+    display: block;
+    width: 31px;
+    height: 4px;
+    margin: 0 auto 4px;
+
+    background-color: #000;
+  }
+
 }
