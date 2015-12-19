@@ -380,14 +380,6 @@ button {
   margin-left: 160px;
 }
 
-.gl-hr {
-  height: 6px;
-  border-top: 0;
-  margin-top: 0;
-  margin-bottom: 8px;
-  background: #000;
-}
-
 .gl-nav-class {
   margin: 10px;
   text-align: center;
@@ -435,6 +427,14 @@ button {
   .subheader {
     height: 70px;
   }
+
+  .custom-hr {
+    height: 6px;
+    border-top: 0;
+    margin-top: 0;
+    margin-bottom: 8px;
+    background: #000;
+  }
 }
 
 @media (min-width:992px) {
@@ -474,6 +474,7 @@ button {
     display: block;
   }
 
+  .custom-hr,
   .subheader {
     position: absolute!important;
     clip: rect(1px 1px 1px 1px);
