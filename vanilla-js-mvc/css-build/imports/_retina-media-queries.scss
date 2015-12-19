@@ -2,9 +2,21 @@
 
   /* Small screen, non-retina */
   .header-logo {
+    position: fixed;
     background: url(../img/image-sprite.png) -304px 3px no-repeat;
     background-size: 455px 300px;
-    min-height: 150px;
+    height: 219px;
+    width: 219px;
+    
+    -webkit-transition: width 500ms, height 500ms; /* Safari */
+    transition: width 500ms, height 500ms;
+
+     @include z2;
+  }
+
+  .scale-logo {
+    height:100px;
+    width:100px;
   }
 
 }

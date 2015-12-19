@@ -36,6 +36,10 @@
     display: block;
   }
 
+  .subheader {
+    @include hide-element;
+  }
+
   .hide-menu, .show-menu{
     position:relative;
     z-index:1
