@@ -15,12 +15,10 @@ module.exports = function( grunt ) {
             ".book-link",
             ".book-link:hover",
             ".book-link:visited",
-            ".btn",
-            ".btn-default",
             ".col-md-4",
             ".gl-book-image",
-            ".btn-resource",
-            ".resource"
+            ".resource",
+            ".scale-logo"
           ]
         },
       }
