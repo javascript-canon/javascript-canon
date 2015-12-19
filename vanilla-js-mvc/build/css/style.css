@@ -354,6 +354,14 @@ h2 {
   }
 }
 
+@media only screen and (min-width:768px) {
+  .header-logo {
+    background: url(../img/image-sprite.png) -304px 3px no-repeat;
+    background-size: 455px 300px;
+    min-height: 150px;
+  }
+}
+
 button {
   margin: 0 4px;
 }
@@ -453,8 +461,8 @@ button {
     background-color: #000;
   }
 
+  .btn-resource,
   .gl-nav-class {
-    position: absolute;
     display: block;
   }
 }

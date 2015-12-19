@@ -270,7 +270,7 @@ module.exports = Firebase;
 
 },{}],2:[function(require,module,exports){
 /* ================================================================= */
-/* | CONTROLLER FOR THE FRONT PAGE                                   */
+/* | CONTROLLER FOR THE NAVIGATION                                   */
 /* ================================================================= */
 
 // A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
@@ -376,10 +376,10 @@ SingleNavView.render = function() {
 
       btnTargetEl = document.querySelector( "nav" );
       btnLink = document.createElement( "button" );
-      btnId = value + "ID";
+      btnId = value + "-id";
       btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
       btnLink.setAttribute( "id", btnId );
-      $( btnLink ).addClass( "btn btn-default gl-nav-class btnResource" ).attr( "data-link-type", value );
+      $( btnLink ).addClass( "btn btn-default btn-resource" ).attr( "data-link-type", value );
       btnTargetEl.appendChild( btnLink );
     });
 
@@ -430,7 +430,6 @@ SingleNavView.render = function() {
 $( "#btn-show-all" ).click( function() {
   $( ".resource" ).css( "display", "block" );
 });
-
 
 // Export the nav data so it's available to the nav controller
 exports.navModelData = navModelData;
