@@ -26,12 +26,91 @@
     margin: 0 auto 4px;
 
     background-color: #000;
+  }
 
+  .btn-resource {
+    display: block;
   }
 
   .gl-nav-class {
-    position: absolute;
     display: block;
+  }
+
+  .hide-menu, .show-menu{
+    position:relative;
+    z-index:1
+  }
+
+  @-webkit-keyframes showMobileMenu {
+    from{ transform:translateY(0) }
+    to{ transform:translateY(350px) }
+  }
+
+  @keyframes showMobileMenu {
+    from{ transform:translateY(0) }
+    to{ transform:translateY(350px) }
+  }
+
+  @-webkit-keyframes hideMobileMenu { 
+    from{ transform:translateY(350px) }
+    to{ transform:translateY(0) }
+  }
+
+  @keyframes hideMobileMenu{
+    from{ transform:translateY(350px) }
+    to{ transform:translateY(0) }
+  }
+
+.show-menu {
+  -webkit-animation-name:showMobileMenu;
+  animation-name:showMobileMenu;
+  -webkit-animation-duration:.3s;
+  animation-duration:.3s;
+  -webkit-animation-timing-function:ease-in-out;
+  animation-timing-function:ease-in-out;
+  -webkit-animation-iteration-count:1;
+  animation-iteration-count:1;
+  -webkit-animation-fill-mode:both;
+  animation-fill-mode:both;
+  -webkit-box-shadow:3px 2px 5px 0 rgba(0,0,0,.18);
+  -moz-box-shadow:3px 2px 5px 0 rgba(0,0,0,.18);
+  box-shadow:3px 2px 5px 0 rgba(0,0,0,.18);
+}
+
+  .hide-menu, .show-searchbox {
+    -webkit-animation-timing-function:ease-in-out;
+    -webkit-animation-iteration-count:1;
+    -webkit-animation-fill-mode:both;
+  } 
+
+  .hide-menu{
+    -webkit-animation-name:hideMobileMenu;
+    animation-name:hideMobileMenu;
+    -webkit-animation-duration:.3s;
+    animation-duration:.3s;
+    animation-timing-function:ease-in-out;
+    animation-iteration-count:1;
+    animation-fill-mode:both;
+  }
+
+  @-webkit-keyframes showSearchbox {
+    0%{ opacity:0 }
+    100%{ opacity:1 }
+  }
+
+  @keyframes showSearchbox {
+    0%{opacity:0}
+    100%{opacity:1}
+  }
+
+  @-webkit-keyframes hideSearchbox {
+    from{ opacity:1 }
+    to{ opacity:0 }
+  }
+
+  @keyframes hideSearchbox {
+    from{ opacity:1 }
+    to { opacity:0 }
   }
 
 }
