@@ -1,5 +1,5 @@
 /* ================================================================= */
-/* | CONTROLLER FOR THE FRONT PAGE                                   */
+/* | CONTROLLER FOR THE NAVIGATION                                   */
 /* ================================================================= */
 
 // A very simple MVC implementation-read more at: http://bit.ly/1zxWh0m
