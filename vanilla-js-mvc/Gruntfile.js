@@ -19,6 +19,7 @@ module.exports = function( grunt ) {
             ".btn-default",
             ".col-md-4",
             ".gl-book-image",
+            ".btn-resource",
             ".resource"
           ]
         },
