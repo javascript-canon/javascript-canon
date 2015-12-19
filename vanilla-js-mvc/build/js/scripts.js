@@ -436,7 +436,7 @@ exports.navModelData = navModelData;
 
 // Export the nav view so it's available to the nav controller
 exports.SingleNavView = SingleNavView;
-},{"./model":6,"jquery":7,"underscore":8}],4:[function(require,module,exports){
+},{"./model":7,"jquery":8,"underscore":9}],4:[function(require,module,exports){
 /* ================================================================= */
 /* | CONTROLLER FOR THE FRONT PAGE                                   */
 /* ================================================================= */
@@ -583,7 +583,18 @@ exports.resourcesData = resourcesData;
 
 // Export the page view so it's available to the page controller
 exports.SingleResourceView = SingleResourceView;
-},{"./model":6,"jquery":7}],6:[function(require,module,exports){
+},{"./model":7,"jquery":8}],6:[function(require,module,exports){
+/* ================================================================= */
+/* | general.js                                                      */
+/* ============                                                      */
+/* A generic file  for scripts that don't have any real role in the  *//* MVC code                                                          */
+/* ================================================================= */
+var $ = require( "jquery" );
+
+$( window ).on( "scroll touchmove", function () {
+  $( "#header" ).toggleClass( "scale-logo", $( document ).scrollTop() > 0 );
+});
+},{"jquery":8}],7:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
@@ -603,7 +614,7 @@ var
 
 // Export out the data model
 exports.ResourceModel = ResourceModel;
-},{"firebase":1}],7:[function(require,module,exports){
+},{"firebase":1}],8:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
@@ -9815,7 +9826,7 @@ return jQuery;
 
 }));
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -11365,4 +11376,4 @@ return jQuery;
   }
 }.call(this));
 
-},{}]},{},[2,3,4,5,6]);
+},{}]},{},[2,3,4,5,6,7]);

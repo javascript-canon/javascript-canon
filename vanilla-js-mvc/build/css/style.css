@@ -340,9 +340,19 @@ h2 {
 
 @media only screen and (min-width:320px) {
   .header-logo {
+    position: fixed;
     background: url(../img/image-sprite.png) -304px 3px no-repeat;
     background-size: 455px 300px;
-    min-height: 150px;
+    height: 219px;
+    width: 219px;
+    -webkit-transition: width .5s,height .5s;
+    transition: width .5s,height .5s;
+    z-index: 2;
+  }
+
+  .scale-logo {
+    height: 100px;
+    width: 100px;
   }
 }
 
@@ -364,12 +374,6 @@ h2 {
 
 button {
   margin: 0 4px;
-}
-
-.gl-subheader {
-  margin: 0;
-  font-size: 16px;
-  height: 70px;
 }
 
 .gl-header-class {
@@ -427,6 +431,10 @@ button {
   .mobile-menu-button {
     display: none;
   }
+
+  .subheader {
+    height: 70px;
+  }
 }
 
 @media (min-width:992px) {
@@ -464,5 +472,11 @@ button {
   .btn-resource,
   .gl-nav-class {
     display: block;
+  }
+
+  .subheader {
+    position: absolute!important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
   }
 }
