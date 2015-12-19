@@ -12,6 +12,7 @@
     "concat-css": "cat css-build/*.css > build/css/style.css",
     "uncss": "npm run grunt",
     "css-build": "npm run build-sass && npm run concat-css && npm run uncss",
+    "build": "npm run build-jade && npm run css-build && npm run build-js",
     "watch-jade": "nodemon -e jade -w jade -x 'npm run build-jade'",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run css-build'",
