@@ -589,12 +589,12 @@ exports.SingleResourceView = SingleResourceView;
 /* ============                                                      */
 /* A generic file  for scripts that don't have any real role in the  *//* MVC code                                                          */
 /* ================================================================= */
-var $ = require( "jquery" );
+// var $ = require( "jquery" );
 
-$( window ).on( "scroll touchmove", function () {
-  $( "#header" ).toggleClass( "scale-logo", $( document ).scrollTop() > 0 );
-});
-},{"jquery":8}],7:[function(require,module,exports){
+// $( window ).on( "scroll touchmove", function () {
+//   $( "#header" ).toggleClass( "scale-logo", $( document ).scrollTop() > 0 );
+// });
+},{}],7:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
