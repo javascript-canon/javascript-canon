@@ -84,7 +84,7 @@ SingleNavView.render = function() {
     createTypeLink.done(
 
       // Do things after ".done()" confirms that the buttons are ready
-      $( ".btnResource" ).click(function(){
+      $( ".btn-resource" ).click(function(){
 
         // Single var pattern
         var getLinkType, getElType, getElNotType;
