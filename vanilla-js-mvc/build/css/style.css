@@ -436,6 +436,10 @@ button {
     font-weight: 900;
   }
 
+  .logo {
+    margin-right: 10px;
+  }
+
   .nav-class {
     clear: both;
   }
