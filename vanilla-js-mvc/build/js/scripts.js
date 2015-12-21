@@ -417,8 +417,8 @@ SingleNavView.render = function() {
 
         // Find page elements with the ".resource" class
         // Let $.filter() show matching elements, hide non-matching ones
-        $( ".resource" ).filter( getElNotType ).css( "display", "none" );
-        $( ".resource" ).filter( getElType ).css( "display", "block" );
+        $( ".single-resource" ).filter( getElNotType ).css( "display", "none" );
+        $( ".single-resource" ).filter( getElType ).css( "display", "block" );
       })
     );
 
@@ -536,7 +536,7 @@ SingleResourceView.render = function( model ) {
        */
      
       // Set attributes for the containing element
-      resourceContainer.setAttribute("class", "col-md-4 panel panel-default single-resource");
+      resourceContainer.setAttribute("class", "col-md-4 single-resource");
       resourceContainer.setAttribute("data-resource-type", data[key].type);
 
       // Add the resource title to the inside of the <h2>
