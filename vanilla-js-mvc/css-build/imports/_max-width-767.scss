@@ -10,6 +10,10 @@
     font-weight: 900;
   }
 
+  .logo {
+    margin-right: 10px;
+  }
+
   .mobile-menu-button {
     
     width: 50px;
@@ -54,6 +58,19 @@
 
   .content-class {
     text-align: center;
+  }
+
+  .single-resource {
+    max-width: 284px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom:85px;
+
+    border-bottom: 1px solid gray;
+  }
+
+  .book-image {
+    width: 100%;
   }
 
 }
