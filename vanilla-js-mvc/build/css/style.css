@@ -416,6 +416,11 @@ button {
 }
 
 @media (max-width:767px) {
+  .content-class,
+  .nav-class {
+    text-align: center;
+  }
+
   .header-element {
     display: inline-block;
   }
@@ -433,7 +438,6 @@ button {
 
   .nav-class {
     clear: both;
-    text-align: center;
   }
 
   .custom-hr,
