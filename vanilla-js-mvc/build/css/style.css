@@ -407,17 +407,10 @@ button {
   }
 }
 
-@media (min-width:992px) {
-  .resource {
-    max-width: 315px;
-    margin: 27px;
-    text-align: center;
-  }
-}
-
 @media (max-width:767px) {
   .content-class,
-  .nav-class {
+  .nav-class,
+  .single-resource {
     text-align: center;
   }
 
@@ -449,5 +442,15 @@ button {
     position: absolute!important;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px,1px,1px,1px);
+  }
+
+  .single-resource {
+    max-width: 284px;
+    margin: 0 auto 85px;
+    border-bottom: 1px solid gray;
+  }
+
+  .book-image {
+    width: 100%;
   }
 }
