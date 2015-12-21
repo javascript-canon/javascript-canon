@@ -1,5 +1,7 @@
 module.exports = function( grunt ) {
 
+
+
   // Authorization key for saving "resources.json" to Firebase
   var authConfig = grunt.file.readJSON( "./config/auth.json" );
 
