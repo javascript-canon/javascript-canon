@@ -59,7 +59,7 @@ SingleResourceView.render = function( model ) {
        */
      
       // Set attributes for the containing element
-      resourceContainer.setAttribute("class", "col-md-4 panel panel-default resource");
+      resourceContainer.setAttribute("class", "col-md-4 panel panel-default single-resource");
       resourceContainer.setAttribute("data-resource-type", data[key].type);
 
       // Add the resource title to the inside of the <h2>
@@ -69,7 +69,7 @@ SingleResourceView.render = function( model ) {
 
       // Set attributes for the resource image
       resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
-      resourceImage.setAttribute( "class", "gl-book-image" );
+      resourceImage.setAttribute( "class", "book-image" );
 
       // Add the resource author to the inside of the <h3>
       resourceAuthor.innerHTML =  "by " + data[key].author;
