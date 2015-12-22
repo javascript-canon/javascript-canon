@@ -639,6 +639,7 @@ function getElementHeight( element ) {
 
 $( window ).on( "scroll touchmove", function () {
   var elHeight = getElementHeight( "#logoEl" );
+  console.log( "elHeight is: " + elHeight )
 });
 },{"jquery":8}],7:[function(require,module,exports){
 /* ================================================================= */
