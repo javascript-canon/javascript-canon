@@ -589,12 +589,51 @@ exports.SingleResourceView = SingleResourceView;
 /* ============                                                      */
 /* A generic file  for scripts that don't have any real role in the  *//* MVC code                                                          */
 /* ================================================================= */
-// var $ = require( "jquery" );
 
-// $( window ).on( "scroll touchmove", function () {
-//   $( "#header" ).toggleClass( "scale-logo", $( document ).scrollTop() > 0 );
-// });
-},{}],7:[function(require,module,exports){
+// use strict mode
+"use strict";
+
+var $ = require( "jquery" );
+
+function getElementHeight( element ) {
+
+  // get height
+  var  elementHeight = parseInt( $( element ).css( "height" ) );
+
+  // get margins
+  var  elementMarginTop = parseInt( $( element ).css( "marginTop" ) ),
+       elementMarginBottom = parseInt( $( element ).css( "marginBottom" ) );
+
+  // get borders
+  var elementBorderTop = parseInt( $( element ).css( "borderTopWidth" ) ),
+      elementBorderBottom = parseInt( $( element ).css( "borderBottomWidth" ) );
+
+  // get padding
+  var elementPaddingTop = parseInt( $( element ).css( "paddingTop" ) ),
+      elementPaddingBottom = parseInt($( element ).css( "paddingBottom" ) );
+
+  var elementPropertyArray = [
+        elementHeight,
+        elementMarginTop,
+        elementMarginBottom,
+        elementBorderTop,
+        elementBorderBottom,
+        elementPaddingTop,
+        elementPaddingBottom
+      ].reduce( function( a, b ) {
+        var arraySum = a + b;
+        return arraySum;
+      });
+
+  return elementPropertyArray;
+}
+
+
+
+$( window ).on( "scroll touchmove", function () {
+  console.log(getElementHeight("#logoEl"));
+});
+},{"jquery":8}],7:[function(require,module,exports){
 /* ================================================================= */
 /* | MODEL DATA                                                      */
 /* ================================================================= */
