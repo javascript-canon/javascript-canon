@@ -428,7 +428,7 @@ SingleNavView.render = function() {
 
 // Make ALL learning resources visible.
 $( "#btn-show-all" ).click( function() {
-  $( ".resource" ).css( "display", "block" );
+  $( ".single-resource" ).css( "display", "block" );
 });
 
 // Export the nav data so it's available to the nav controller
@@ -520,62 +520,61 @@ SingleResourceView.render = function( model ) {
     // Loop through the Firebase data to build elements
     for ( var key in data ) {
 
-      var pageTarget = document.getElementById( "targetEl" ),
-          resourceContainer = document.createElement( "article" ),
-          resourceTitle = document.createElement( "h2" ),
-          resourceImage = document.createElement( "img" ),
-          resourceAuthor = document.createElement( "h3" ),
-          resourceLink = document.createElement( "a" );
+      // Perform standard hasOwnProperty check
+      if ( data.hasOwnProperty( key ) ) {
 
-      /*
-       * Setting attributes one-by-one instead of using something like 
-       * $.attr(). You can say that this code isn't cool, but it's 
-       * certainly faster.
-       *
-       * Check this at: http://bit.ly/set-attribute-test
-       */
+        var pageTarget = document.getElementById( "targetEl" ),
+            resourceContainer = document.createElement( "article" ),
+            resourceTitle = document.createElement( "h2" ),
+            resourceImage = document.createElement( "img" ),
+            resourceAuthor = document.createElement( "h3" ),
+            resourceLink = document.createElement( "a" );
+
+        /*
+         * Setting attributes one-by-one instead of using something
+         * like $.attr(). You can say that this code isn't cool, but
+         * it's certainly faster.
+         *
+         * Check this at: http://bit.ly/set-attribute-test
+         */
      
-      // Set attributes for the containing element
-      resourceContainer.setAttribute("class", "col-md-4 single-resource");
-      resourceContainer.setAttribute("data-resource-type", data[key].type);
+        // Set attributes for the containing element
+        resourceContainer.setAttribute( "class", "col-md-4 single-resource" );
+        resourceContainer.setAttribute( "data-resource-type", data[key].type );
 
-      // Add the resource title to the inside of the <h2>
-      //resourceTitle.innerHTML = data[key].title;
+        // Add the resource title to the inside of the <h2>
+        resourceTitle.setAttribute( "class", "gl-subheader" );
 
-      resourceTitle.setAttribute("class", "gl-subheader");
+        // Set attributes for the resource image
+        resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
+        resourceImage.setAttribute( "class", "book-image" );
 
-      // Set attributes for the resource image
-      resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
-      resourceImage.setAttribute( "class", "book-image" );
+        // Add the resource author to the inside of the <h3>
+        resourceAuthor.innerHTML =  "by " + data[key].author;
 
-      // Add the resource author to the inside of the <h3>
-      resourceAuthor.innerHTML =  "by " + data[key].author;
+        // Set attributes for the link, then add the title inside of it
+        resourceLink.setAttribute( "href", data[key].link );
+        resourceLink.setAttribute( "class", "book-link" );
+        resourceLink.innerHTML = data[key].title + " &raquo;";
 
-      // Set attributes for the link, then add the title inside of it
-      resourceLink.setAttribute("href", data[key].link);
-      resourceLink.setAttribute("class", "book-link");
-      resourceLink.innerHTML = data[key].title + " &raquo;";
+        /*
+         * Arrange elements for an individual resource, then place the
+         * resource on the page
+         */
 
-      /*
-       * Arrange elements for an individual resource, then place it on
-       * the page
-       */
+        resourceTitle.appendChild( resourceLink );
+        resourceContainer.appendChild( resourceTitle );
+        resourceContainer.appendChild( resourceImage );
+        resourceContainer.appendChild( resourceAuthor );
+        pageTarget.appendChild( resourceContainer );
+        
+      } //end hasOwnProperty() check
 
-      resourceTitle.appendChild( resourceLink );
-      resourceContainer.appendChild( resourceTitle );
-      resourceContainer.appendChild( resourceImage );
-      resourceContainer.appendChild( resourceAuthor );
-      pageTarget.appendChild( resourceContainer );
-      componentArray.push( resourceContainer );
+    } // end for...in loop
 
-    }
-    
-    // Not needed now, but keep it for future reference
-    // console.log( componentArray );
-
-  });
+  }); // end "resourcesData.on()"
    
-}
+} // end "render()"
 
 
 // Export the page data so it's available to the page controller
@@ -587,32 +586,44 @@ exports.SingleResourceView = SingleResourceView;
 /* ================================================================= */
 /* | general.js                                                      */
 /* ============                                                      */
-/* A generic file  for scripts that don't have any real role in the  *//* MVC code                                                          */
+/* A generic file  for scripts that don't have any real role in      *//* the MVC code code                                                 */
 /* ================================================================= */
 
 // use strict mode
 "use strict";
 
+// "require" jQuery core
 var $ = require( "jquery" );
 
+/*
+ * getElementHeight(): calculate an element's height by grabbing its 
+ * height, top/bottom margins, top/bottom borders, & top/bottom
+ * padding and then adding them altogether.  
+ */
 function getElementHeight( element ) {
+  /*
+   * Grab the heights, margins, padding and borders. They all start 
+   * off as strings so use parseInt() to convert them to numbers
+   */
+  var
 
-  // get height
-  var  elementHeight = parseInt( $( element ).css( "height" ) );
+      // get element height
+      elementHeight = parseInt( $( element ).css( "height" ) ),
 
-  // get margins
-  var  elementMarginTop = parseInt( $( element ).css( "marginTop" ) ),
-       elementMarginBottom = parseInt( $( element ).css( "marginBottom" ) );
+      // get element margins
+      elementMarginTop = parseInt( $( element ).css( "marginTop" ) ),
+      elementMarginBottom = parseInt( $( element ).css( "marginBottom" ) ),
 
-  // get borders
-  var elementBorderTop = parseInt( $( element ).css( "borderTopWidth" ) ),
-      elementBorderBottom = parseInt( $( element ).css( "borderBottomWidth" ) );
+      // get element borders
+      elementBorderTop = parseInt( $( element ).css( "borderTopWidth" ) ),
+      elementBorderBottom = parseInt( $( element ).css( "borderBottomWidth" ) ),
 
-  // get padding
-  var elementPaddingTop = parseInt( $( element ).css( "paddingTop" ) ),
+      // get element padding
+      elementPaddingTop = parseInt( $( element ).css( "paddingTop" ) ),
       elementPaddingBottom = parseInt($( element ).css( "paddingBottom" ) );
 
-  var elementPropertyArray = [
+  // Place all the values in an array & add them together with reduce()
+  var elementHeight = [
         elementHeight,
         elementMarginTop,
         elementMarginBottom,
@@ -625,13 +636,12 @@ function getElementHeight( element ) {
         return arraySum;
       });
 
-  return elementPropertyArray;
+  // Make the height value available by returning it 
+  return elementHeight;
 }
 
-
-
 $( window ).on( "scroll touchmove", function () {
-  console.log(getElementHeight("#logoEl"));
+  var elHeight = getElementHeight( "#logoEl" );
 });
 },{"jquery":8}],7:[function(require,module,exports){
 /* ================================================================= */
