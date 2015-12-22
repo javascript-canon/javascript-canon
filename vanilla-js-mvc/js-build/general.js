@@ -12,11 +12,12 @@
 var $ = require( "jquery" );
 
 /*
- * getElementHeight(): calculate an element's height by grabbing its 
- * height, top/bottom margins, top/bottom borders, & top/bottom
- * padding and then adding them altogether.  
+ * GetElementHeight(): a constructor function 
+ * calculate an element's height by grabbing its  height,
+ * top/bottom margins, top/bottom borders, & top/bottom padding and 
+ * then adding them altogether.  
  */
-function getElementHeight( element ) {
+var GetElementHeight = function( element ) {
   /*
    * Grab the heights, margins, padding and borders. They all start 
    * off as strings so use parseInt() to convert them to numbers
@@ -57,6 +58,6 @@ function getElementHeight( element ) {
 }
 
 $( window ).on( "scroll touchmove", function () {
-  var elHeight = getElementHeight( "#logoEl" );
-  console.log( "elHeight is: " + elHeight )
+  var elHeight = GetElementHeight( "#logoEl" );
+  console.log( "elHeight is still: " + elHeight )
 });
