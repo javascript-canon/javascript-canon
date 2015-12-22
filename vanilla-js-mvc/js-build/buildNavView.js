@@ -119,7 +119,7 @@ SingleNavView.render = function() {
 
 // Make ALL learning resources visible.
 $( "#btn-show-all" ).click( function() {
-  $( ".resource" ).css( "display", "block" );
+  $( ".single-resource" ).css( "display", "block" );
 });
 
 // Export the nav data so it's available to the nav controller
