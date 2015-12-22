@@ -506,21 +506,17 @@ SingleResourceView.render = function( model ) {
 
   return resourcesData.on( "value", function( snapshot ) {
 
-    var
-        data, // will be a reference to the resource data on Firebase
-        componentArray = [];
-
     /*
      * Grab the Firebase data with a snapshot and store it in the data
      * variable. Read more about this at:
      * http://bit.ly/firebase-snapshot
      */
-    data = snapshot.val();
+    var data = snapshot.val();
 
     // Loop through the Firebase data to build elements
     for ( var key in data ) {
 
-      // Perform standard hasOwnProperty check
+      // Perform standard hasOwnProperty() check
       if ( data.hasOwnProperty( key ) ) {
 
         var pageTarget = document.getElementById( "targetEl" ),
@@ -567,7 +563,7 @@ SingleResourceView.render = function( model ) {
         resourceContainer.appendChild( resourceImage );
         resourceContainer.appendChild( resourceAuthor );
         pageTarget.appendChild( resourceContainer );
-        
+
       } //end hasOwnProperty() check
 
     } // end for...in loop
@@ -586,7 +582,8 @@ exports.SingleResourceView = SingleResourceView;
 /* ================================================================= */
 /* | general.js                                                      */
 /* ============                                                      */
-/* A generic file  for scripts that don't have any real role in      *//* the MVC code code                                                 */
+/* A generic file  for scripts that don't have any real role in      */
+/* the MVC code code                                                 */
 /* ================================================================= */
 
 // use strict mode
