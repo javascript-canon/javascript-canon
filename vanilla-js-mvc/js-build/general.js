@@ -1,7 +1,8 @@
 /* ================================================================= */
 /* | general.js                                                      */
 /* ============                                                      */
-/* A generic file  for scripts that don't have any real role in the  *//* MVC code                                                          */
+/* A generic file  for scripts that don't have any real role in      */
+/* the MVC code code                                                 */
 /* ================================================================= */
 
 // use strict mode
@@ -54,8 +55,6 @@ function getElementHeight( element ) {
   // Make the height value available by returning it 
   return elementHeight;
 }
-
-
 
 $( window ).on( "scroll touchmove", function () {
   var elHeight = getElementHeight( "#logoEl" );
