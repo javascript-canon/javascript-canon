@@ -12,7 +12,8 @@
 var $ = require( "jquery" );
 
 /*
- * GetElementHeight(): a constructor function
+ * GetElementHeight(): a constructor function used for calculating an
+ * element's total height
  */
  var GetElementHeight = function( element ) {
   this.element = element;
@@ -20,16 +21,16 @@ var $ = require( "jquery" );
 }
 
 /*
- * calculate(): a method attached to "GetElementHeight()" that gets an
- * element's TOTAL box model height by finding its height,
- * top/bottom margins, top/bottom borders, & top/bottom padding and 
- * then adding them altogether.  
+ * calculate(): a method attached to the "GetElementHeight()" 
+ * prototype that gets an element's TOTAL box model height by finding
+ * its height, top/bottom margins, top/bottom borders,
+ * top/bottom padding and then adding them altogether.  
  */
 GetElementHeight.prototype.calculate = function() {
   
   /*
    * Grab the heights, margins, padding and borders. They all start 
-   * off as strings so use parseInt() to convert them to numbers
+   * off as strings so convert them to numbers with parseInt()
    */
   var
 
@@ -48,8 +49,12 @@ GetElementHeight.prototype.calculate = function() {
       elementPaddingTop = parseInt( $( this.element ).css( "paddingTop" ) ),
       elementPaddingBottom = parseInt($( this.element ).css( "paddingBottom" ) );
 
-  // Place all the values in an array & add them together with reduce()
-  var elementHeight = [
+  /*
+   * Place all the values in an array & add them together with
+   * reduce(). Attach the resulting sum to "this" so it's
+   * readily available.
+   */
+  this.elementHeight = [
         elementHeight,
         elementMarginTop,
         elementMarginBottom,
@@ -65,7 +70,7 @@ GetElementHeight.prototype.calculate = function() {
       });
 
   // Make the height value available by returning it 
-  return elementHeight;
+  return this;
 
   /*
    * A log statement that returns the targeted element. Not needed now 
@@ -75,6 +80,26 @@ GetElementHeight.prototype.calculate = function() {
 }
 
 $( window ).on( "scroll touchmove", function () {
-  var logoHeight = new GetElementHeight( "#logoEl" );
-  console.log( logoHeight.calculate() );
+  
+
+  var
+      /*
+       * Create a variable that run the site logo through
+       * "GetElementHeight()"
+       */
+      logo = new GetElementHeight( "#logoEl" ),
+      
+      // Create a variable that will eventually store the logo's height
+      logoHeight;
+
+  /*
+   * Run the logo through "GetElementHeight.calculate()" & get the
+   * logo's total height
+   */
+  logo.calculate();
+
+  // Store the resulting height in the "logoHeight" vatiable
+  logoHeight = logo.elementHeight;
+
+  console.log( logoHeight );
 });
