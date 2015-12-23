@@ -59,6 +59,8 @@ GetElementHeight.prototype.calculate = function() {
         elementPaddingBottom
       ].reduce( function( a, b ) {
         var arraySum = a + b;
+        
+        // the resulting sum needs to be returned...not sure why
         return arraySum;
       });
 
