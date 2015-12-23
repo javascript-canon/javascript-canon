@@ -12,12 +12,21 @@
 var $ = require( "jquery" );
 
 /*
- * GetElementHeight(): a constructor function 
- * calculate an element's height by grabbing its  height,
+ * GetElementHeight(): a constructor function
+ */
+ var GetElementHeight = function( element ) {
+  this.element = element;
+  return this;
+}
+
+/*
+ * calculate(): a method attached to "GetElementHeight()" that gets an
+ * element's TOTAL box model height by finding its height,
  * top/bottom margins, top/bottom borders, & top/bottom padding and 
  * then adding them altogether.  
  */
-var GetElementHeight = function( element ) {
+GetElementHeight.prototype.calculate = function() {
+  
   /*
    * Grab the heights, margins, padding and borders. They all start 
    * off as strings so use parseInt() to convert them to numbers
@@ -25,19 +34,19 @@ var GetElementHeight = function( element ) {
   var
 
       // get element height
-      elementHeight = parseInt( $( element ).css( "height" ) ),
+      elementHeight = parseInt( $( this.element ).css( "height" ) ),
 
       // get element margins
-      elementMarginTop = parseInt( $( element ).css( "marginTop" ) ),
-      elementMarginBottom = parseInt( $( element ).css( "marginBottom" ) ),
+      elementMarginTop = parseInt( $( this.element ).css( "marginTop" ) ),
+      elementMarginBottom = parseInt( $( this.element ).css( "marginBottom" ) ),
 
       // get element borders
-      elementBorderTop = parseInt( $( element ).css( "borderTopWidth" ) ),
-      elementBorderBottom = parseInt( $( element ).css( "borderBottomWidth" ) ),
+      elementBorderTop = parseInt( $( this.element ).css( "borderTopWidth" ) ),
+      elementBorderBottom = parseInt( $( this.element ).css( "borderBottomWidth" ) ),
 
       // get element padding
-      elementPaddingTop = parseInt( $( element ).css( "paddingTop" ) ),
-      elementPaddingBottom = parseInt($( element ).css( "paddingBottom" ) );
+      elementPaddingTop = parseInt( $( this.element ).css( "paddingTop" ) ),
+      elementPaddingBottom = parseInt($( this.element ).css( "paddingBottom" ) );
 
   // Place all the values in an array & add them together with reduce()
   var elementHeight = [
@@ -55,9 +64,15 @@ var GetElementHeight = function( element ) {
 
   // Make the height value available by returning it 
   return elementHeight;
+
+  /*
+   * A log statement that returns the targeted element. Not needed now 
+   * but is useful at times.
+   */
+  // console.log("foo: " + this.element);
 }
 
 $( window ).on( "scroll touchmove", function () {
-  var elHeight = GetElementHeight( "#logoEl" );
-  console.log( "elHeight is still: " + elHeight )
+  var logoHeight = new GetElementHeight( "#logoEl" );
+  console.log( logoHeight.calculate() );
 });
