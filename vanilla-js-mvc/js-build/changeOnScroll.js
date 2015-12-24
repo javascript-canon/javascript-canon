@@ -79,9 +79,13 @@ GetElementHeight.prototype.calculate = function() {
   // console.log("foo: " + this.element);
 }
 
+
+
+
+
+
 $( window ).on( "scroll touchmove", function () {
   
-
   var
       /*
        * Create a variable that run the site logo through
@@ -90,16 +94,26 @@ $( window ).on( "scroll touchmove", function () {
       logo = new GetElementHeight( "#logoEl" ),
       
       // Create a variable that will eventually store the logo's height
-      logoHeight;
+      logoHeight,
+
+      // Grab the window's scroll position
+      getScrollPosition = window.scrollY,
+
+      logs = function() {
+        console.log("foo");
+      };
 
   /*
-   * Run the logo through "GetElementHeight.calculate()" & get the
-   * logo's total height
+   * Run the logo through "GetElementHeight.calculate()", which
+   * returns the logo's total height...will need that in a moment
    */
   logo.calculate();
 
-  // Store the resulting height in the "logoHeight" vatiable
+  // Put the height that was just returned in the "logoHeight" variable
   logoHeight = logo.elementHeight;
 
-  console.log( logoHeight );
+  if( getScrollPosition >= logoHeight ) {
+      $("#header-text").attr("style", "color:red");
+      $( window ).unbind( "scroll" );
+  }
 });
