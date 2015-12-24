@@ -514,41 +514,63 @@ GetElementHeight.prototype.calculateHeight = function() {
 } // end "GetElementHeight.prototype.calculateHeight()"
 
 
+/*
+ * ScrollCheck(): a constructor function that changes elements when
+ * certain scroll points are hit and equal one another. 
+ *
+ * TODO!!!!!!!!!!!
+ * ====================================================================
+ * This needs to be made to more reusable but for now, do what "The
+ * Practical Programmer" teaches us and treat it as "good enough
+ * software."
+ */
 
-GetElementHeight.prototype.scrollChecks = function() {
-
-    var
-      /*
-       * Create a variable that run the site logo through
-       * "GetElementHeight()"
-       */
-      findElement = new GetElementHeight( "#logoEl" ),
-      
-      // Create a variable that will eventually store the logo's height
-      elementHeight,
-
-      // Grab the window's scroll position
-      getScrollPosition = window.scrollY;
+ function ScrollCheckLogo( setEl ) {
 
   /*
-   * Run the logo through "GetElementHeight.calculateHeight()", which
-   * returns the logo's total height...will need that in a moment
+   * When "scroll" is called on a desktop/laptop, or "touchmove" is
+   * called on a handheld, do whatever the callback function wants to
+   *  do.
    */
-  findElement.calculateHeight();
+  $( window ).on( "scroll touchmove", function() {
 
-  // Put the height that was just returned in the "elementHeight" variable
-  elementHeight = findElement.elementHeight;
+    var
+      
+        //Create a variable contains a new instance of parameter.
+        findElement = new GetElementHeight( setEl ),
+      
+        // Create a variable that will soon store the element's height
+        elementHeight,
 
-  if( getScrollPosition >= elementHeight ) {
-      $("#header-text").attr("style", "color:red");
+        // Grab the window's scroll position
+        getScrollPosition = window.scrollY;
+
+    /*
+     * Run the logo through "GetElementHeight.calculateHeight()", which
+     * returns the element's total height...we'll need that in a moment
+     */
+    findElement.calculateHeight();
+
+    // Put the returned height in the "elementHeight" variable
+    elementHeight = findElement.elementHeight;
+
+    /*
+     * If the window's scroll position is greater than or equal to the
+     * element's height, do stuff
+     */
+    if( getScrollPosition >= elementHeight ) {
+      $( "#header-text" ).attr( "style", "color:red" );
       $( window ).unbind( "scroll" );
-  } 
-}; // end scrollChecks
+    } 
 
+  });
 
-
-var newScroll = new GetElementHeight();
-$( window ).on( "scroll touchmove", newScroll.scrollChecks );
+}
+/*
+ * Create a new  instance of "ScrollCheckLogo" and pass the logo as a
+ * parameter.
+ */
+var newScroll = new ScrollCheckLogo( "#logo" );
 },{"jquery":8}],5:[function(require,module,exports){
 /* ================================================================= */
 /* | CONTROLLER FOR THE FRONT PAGE                                   */
