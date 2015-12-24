@@ -559,9 +559,14 @@ GetElementHeight.prototype.calculateHeight = function() {
      * element's height, do stuff
      */
     if( getScrollPosition >= elementHeight ) {
-      $( "#header-text" ).attr( "style", "color:red" );
-      $( window ).unbind( "scroll" );
-    } 
+      $( "#h1-text" ).addClass( "h1-sticky" );
+      // $( window ).unbind( "scroll" );
+    } else {
+      if ( getScrollPosition < elementHeight ) {
+      $( "#h1-text" ).removeClass( "h1-sticky" );
+      // $( window ).bind( "scroll" );
+      }
+    }
 
   });
 
