@@ -560,11 +560,9 @@ GetElementHeight.prototype.calculateHeight = function() {
      */
     if( getScrollPosition >= elementHeight ) {
       $( "#h1-text" ).addClass( "h1-sticky" );
-      // $( window ).unbind( "scroll" );
     } else {
       if ( getScrollPosition < elementHeight ) {
-      $( "#h1-text" ).removeClass( "h1-sticky" );
-      // $( window ).bind( "scroll" );
+        $( "#h1-text" ).removeClass( "h1-sticky" );
       }
     }
 
