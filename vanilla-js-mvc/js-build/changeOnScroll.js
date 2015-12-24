@@ -77,33 +77,30 @@ GetElementHeight.prototype.calculateHeight = function() {
 
 
 GetElementHeight.prototype.scrollChecks = function( setEl ) {
+
     var
       /*
        * Create a variable that run the site logo through
        * "GetElementHeight()"
        */
-      logo = new GetElementHeight( "#logoEl" ),
+      element = new GetElementHeight( "#logoEl" ),
       
       // Create a variable that will eventually store the logo's height
-      logoHeight,
+      elementHeight,
 
       // Grab the window's scroll position
-      getScrollPosition = window.scrollY,
-
-      logs = function() {
-        console.log("foo");
-      };
+      getScrollPosition = window.scrollY;
 
   /*
    * Run the logo through "GetElementHeight.calculateHeight()", which
    * returns the logo's total height...will need that in a moment
    */
-  logo.calculateHeight();
+  element.calculateHeight();
 
-  // Put the height that was just returned in the "logoHeight" variable
-  logoHeight = logo.elementHeight;
+  // Put the height that was just returned in the "elementHeight" variable
+  elementHeight = element.elementHeight;
 
-  if( getScrollPosition >= logoHeight ) {
+  if( getScrollPosition >= elementHeight ) {
       $("#header-text").attr("style", "color:red");
       $( window ).unbind( "scroll" );
   } 
