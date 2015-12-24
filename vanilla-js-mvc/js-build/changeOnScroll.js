@@ -76,12 +76,8 @@ GetElementHeight.prototype.calculateHeight = function() {
 
 
 
-
-
-
-$( window ).on( "scroll touchmove", function () {
-  
-  var
+GetElementHeight.prototype.scrollChecks = function( setEl ) {
+    var
       /*
        * Create a variable that run the site logo through
        * "GetElementHeight()"
@@ -110,5 +106,9 @@ $( window ).on( "scroll touchmove", function () {
   if( getScrollPosition >= logoHeight ) {
       $("#header-text").attr("style", "color:red");
       $( window ).unbind( "scroll" );
-  }
-});
+  } 
+}; // end scrollChecks
+
+var newScroll = new GetElementHeight();
+
+$( window ).on( "scroll touchmove", newScroll.scrollChecks );
