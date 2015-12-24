@@ -21,12 +21,12 @@ var $ = require( "jquery" );
 }
 
 /*
- * calculate(): a method attached to the "GetElementHeight()" 
+ * calculateHeight(): a method attached to the "GetElementHeight()" 
  * prototype that gets an element's TOTAL box model height by finding
  * its height, top/bottom margins, top/bottom borders,
  * top/bottom padding and then adding them altogether.  
  */
-GetElementHeight.prototype.calculate = function() {
+GetElementHeight.prototype.calculateHeight = function() {
   
   /*
    * Grab the heights, margins, padding and borders. They all start 
@@ -72,7 +72,7 @@ GetElementHeight.prototype.calculate = function() {
   // Make the height value available by returning it 
   return this;
 
-} // end "GetElementHeight.prototype.calculate()"
+} // end "GetElementHeight.prototype.calculateHeight()"
 
 
 
@@ -99,10 +99,10 @@ $( window ).on( "scroll touchmove", function () {
       };
 
   /*
-   * Run the logo through "GetElementHeight.calculate()", which
+   * Run the logo through "GetElementHeight.calculateHeight()", which
    * returns the logo's total height...will need that in a moment
    */
-  logo.calculate();
+  logo.calculateHeight();
 
   // Put the height that was just returned in the "logoHeight" variable
   logoHeight = logo.elementHeight;
