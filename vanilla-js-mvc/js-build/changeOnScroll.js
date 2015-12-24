@@ -72,12 +72,7 @@ GetElementHeight.prototype.calculate = function() {
   // Make the height value available by returning it 
   return this;
 
-  /*
-   * A log statement that returns the targeted element. Not needed now 
-   * but is useful at times.
-   */
-  // console.log("foo: " + this.element);
-}
+} // end "GetElementHeight.prototype.calculate()"
 
 
 
