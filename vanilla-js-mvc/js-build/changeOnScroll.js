@@ -131,4 +131,4 @@ GetElementHeight.prototype.calculateHeight = function() {
  * Create a new  instance of "ScrollCheckLogo" and pass the logo as a
  * parameter.
  */
-var newScroll = new ScrollCheckLogo( "#logoEl" );
+var newScroll = new ScrollCheckLogo( "#logo" );
