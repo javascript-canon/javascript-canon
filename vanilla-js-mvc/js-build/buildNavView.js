@@ -18,21 +18,26 @@ var
     // "require" the model data so the view can access it
     Resources = require( "./model" ),
 
-    SingleNavView = {},
-
     // reference to the data model in the "Resources" module
-    navModelData = Resources.ResourceModel;
+    navModelData = Resources.ResourceModel,
+
+    // Create an object for the SingleNavView
+    SingleNavView = {};
 
 SingleNavView.render = function() {
       
-      /*
-       * Grab the Firebase data with a snapshot and store it in the
-       * navData variable. Read more about this at:
-       * http://bit.ly/firebase-snapshot
-       */
-      var navData = navModelData,
+      var
+
+          // Grab the Heroku-powered model data
+          navData = navModelData,
+
+          // Array that will contain a list of resource types
           types = [],
+
+          // Array that will contain a list of filtered resource types
           linkType,
+
+          // A $each() function that we need to return a promise
           createTypeLink;
 
       // Loop through the Firebase data to build the nav
