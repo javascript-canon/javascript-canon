@@ -5,7 +5,7 @@
   "main": "n/a",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
+    "server": "./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
     "build-jade": "jade jade/index.jade -o build/",
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
     "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
@@ -21,10 +21,24 @@
     "book-minify": "imagemin image-min/book-images/* build/img/book-images/",
     "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
+  "browser": {
+    "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js"
+  },
+  "browserify-shim": {
+    "waypoints": {
+      "exports": "waypoints"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
   "author": "kaidez",
   "license": "ISC",
   "devDependencies": {
     "browserify": "^12.0.1",
+    "browserify-shim": "^3.8.11",
     "clean-css": "^3.4.8",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
