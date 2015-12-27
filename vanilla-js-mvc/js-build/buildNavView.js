@@ -23,21 +23,14 @@ var
     // "require" jQuery core
     $ = require( "jquery" );
 
-/*
- * This console.log statement will be removed after it's confirmed
- * that views can access the model data.
- */
-console.log( navModelData );
 SingleNavView.render = function() {
-
-  return navModelData.on( "value", function( snapshot ) {
       
       /*
        * Grab the Firebase data with a snapshot and store it in the
        * navData variable. Read more about this at:
        * http://bit.ly/firebase-snapshot
        */
-      var navData = snapshot.val(),
+      var navData = navModelData,
           types = [],
           linkType,
           createTypeLink;
@@ -117,7 +110,7 @@ SingleNavView.render = function() {
       })
     );
 
-  }); // end returned "navModelData.on"
+
     
 }
 
