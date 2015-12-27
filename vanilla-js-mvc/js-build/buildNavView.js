@@ -24,6 +24,7 @@ var
     // Create an object for the SingleNavView
     SingleNavView = {};
 
+// "render()" method renders info for single nav button.
 SingleNavView.render = function() {
       
       var
@@ -40,7 +41,7 @@ SingleNavView.render = function() {
           // A $each() function that we need to return a promise
           createTypeLink;
 
-      // Loop through the Firebase data to build the nav
+      // Loop through the model data to build the nav
       for ( var key in navData ) {
 
         // Do standard hasOwnProperty() check against "navData" object
@@ -76,17 +77,19 @@ SingleNavView.render = function() {
       btnTargetEl.appendChild( btnLink );
     });
 
-    // USE JQUERY PROMISES
-    //==================================================================
-    // Firebase conflicts with jQuery when buttons are clicked
-    // Clicking on them yields an error because they're not DOM-ready
-    // Use $.Deferred, $.promise(), and $.done() to prevent this
+    /*
+     *  USE JQUERY PROMISES
+     * ================================================================
+     * The data MIGHT not return fast enough so that buttons update
+     * the view when they're clicked on and return a console error.
+     * Use $.Deferred, $.promise(), and $.done() to prevent this
+     */
     var defer = $.Deferred();
     defer.promise( createTypeLink );
     createTypeLink.done(
 
       // Do things after ".done()" confirms that the buttons are ready
-      $( ".btn-resource" ).click(function(){
+      $( ".btn-resource" ).click( function(){
 
         // Single var pattern
         var getLinkType, getElType, getElNotType;
