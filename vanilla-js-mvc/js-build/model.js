@@ -2,9 +2,9 @@
 /* | MODEL DATA                                                      */
 /* ================================================================= */
 /*                                                                   */
-/*   - create a constructor function called "getJSONAPI()"           */
-/*   - have getJSONAPI() XHR in the Heroku JSON API                  */
-/*   - create getJSONAPI() instance called "ResourceModel" that      *//*     represents the model data                                     */
+/*   - create a constructor function called "GetJSONAPI()"           */
+/*   - have GetJSONAPI() XHR in the Heroku JSON API                  */
+/*   - create GetJSONAPI() instance called "ResourceModel" that      *//*     represents the model data                                     */
 /*   - export out ResourceModel so views and controllers can see it  */
 /* ================================================================= */
 
@@ -16,7 +16,7 @@
 // "require" jQuery core
 var $ = require( "jquery" );
 
-function getJSONAPI( url, data ){
+function GetJSONAPI( url, data ){
     var result = null;
     $.ajax({
       async: false,
@@ -30,7 +30,7 @@ function getJSONAPI( url, data ){
     return result;
 }
 
-var ResourceModel = new getJSONAPI( "http://jscanon-data.herokuapp.com/" );
+var ResourceModel = new GetJSONAPI( "http://jscanon-data.herokuapp.com/" );
 
 // Export out the data model
 exports.ResourceModel = ResourceModel;
