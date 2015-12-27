@@ -48,30 +48,35 @@ NavController.displayNav( navModelData );
 
 var
 
+    // "require" jQuery core
+    $ = require( "jquery" ),
+    
+    // "require" underscore library
+    _ = require( "underscore" ),
+
     // "require" the model data so the view can access it
     Resources = require( "./model" ),
-
-    SingleNavView = {},
 
     // reference to the data model in the "Resources" module
     navModelData = Resources.ResourceModel,
 
-    // "require" underscore library
-    _ = require( "underscore" ),
-
-    // "require" jQuery core
-    $ = require( "jquery" );
+    // Create an object for the SingleNavView
+    SingleNavView = {};
 
 SingleNavView.render = function() {
       
-      /*
-       * Grab the Firebase data with a snapshot and store it in the
-       * navData variable. Read more about this at:
-       * http://bit.ly/firebase-snapshot
-       */
-      var navData = navModelData,
+      var
+
+          // Grab the Heroku-powered model data
+          navData = navModelData,
+
+          // Array that will contain a list of resource types
           types = [],
+
+          // Array that will contain a list of filtered resource types
           linkType,
+
+          // A $each() function that we need to return a promise
           createTypeLink;
 
       // Loop through the Firebase data to build the nav
@@ -355,13 +360,14 @@ SingleResourceController.displayHomePage( modelData );
 "use strict";
 
 var
-    // "require" the model data so the view can access it
-    Resources = require( "./model" ),
 
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // reference to the data model
+    // "require" the model data so the view can access it
+    Resources = require( "./model" ),
+
+    // reference to the data model in the "Resources" module
     resourcesData = Resources.ResourceModel,
 
     // create a view object for the homepage view...export it out later
@@ -372,19 +378,12 @@ var
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
-
 SingleResourceView.render = function( model ) {
 
-  return resourcesData.on( "value", function( snapshot ) {
+    // Grab the Heroku-powered model data   
+    var data = resourcesData;
 
-    /*
-     * Grab the Firebase data with a snapshot and store it in the data
-     * variable. Read more about this at:
-     * http://bit.ly/firebase-snapshot
-     */
-    var data = snapshot.val();
-
-    // Loop through the Firebase data to build elements
+    // Loop through the data to build elements
     for ( var key in data ) {
 
       // Perform standard hasOwnProperty() check
@@ -438,8 +437,6 @@ SingleResourceView.render = function( model ) {
       } //end hasOwnProperty() check
 
     } // end for...in loop
-
-  }); // end "resourcesData.on()"
    
 } // end "render()"
 
