@@ -9,19 +9,19 @@
 
 var
 
+    // "require" jQuery core
+    $ = require( "jquery" ),
+    
+    // "require" underscore library
+    _ = require( "underscore" ),
+
     // "require" the model data so the view can access it
     Resources = require( "./model" ),
 
     SingleNavView = {},
 
     // reference to the data model in the "Resources" module
-    navModelData = Resources.ResourceModel,
-
-    // "require" underscore library
-    _ = require( "underscore" ),
-
-    // "require" jQuery core
-    $ = require( "jquery" );
+    navModelData = Resources.ResourceModel;
 
 SingleNavView.render = function() {
       
