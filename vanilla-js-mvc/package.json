@@ -5,6 +5,7 @@
   "main": "n/a",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "server":"./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
     "build-jade": "jade jade/index.jade -o build/",
     "build-js": "browserify js-build/*.js -o build/js/scripts.js",
     "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
@@ -16,26 +17,30 @@
     "watch-jade": "nodemon -e jade -w jade -x 'npm run build-jade'",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run css-build'",
-    "watch": "npm run watch-jade & npm run watch-js & npm run watch-css",
+    "watch": "npm run server & npm run watch-jade & npm run watch-js & npm run watch-css",
     "book-minify": "imagemin image-min/book-images/* build/img/book-images/",
     "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^3.3.6",
     "browserify": "^12.0.1",
     "clean-css": "^3.4.8",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-uncss": "^0.4.4",
+    "httpster": "^1.0.1",
     "jade": "^1.11.0",
-    "jquery": "^2.1.4",
     "node-sass": "^3.4.2",
     "nodemon": "1.8.1",
     "uglifyjs": "^2.4.10",
     "uncss": "0.12.1",
-    "underscore": "^1.8.3",
     "watchify": "^3.6.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.1.4",
+    "underscore": "^1.8.3",
+    "waypoints": "^4.0.0"
   }
 }
