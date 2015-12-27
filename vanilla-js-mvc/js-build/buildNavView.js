@@ -89,8 +89,17 @@ SingleNavView.render = function() {
        * inside the <button> element
        */
       btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
+
+      // Give the <button> element an id
       btnLink.setAttribute( "id", btnId );
+
+      // Give the <button> element some classes
       $( btnLink ).addClass( "btn btn-default btn-resource" ).attr( "data-link-type", value );
+
+      /*
+       * Place the <button> in the target "view" element, which is
+       * <nav>   
+       */   
       btnTargetEl.appendChild( btnLink );
 
     }); //end "createTypeLink"
@@ -119,7 +128,7 @@ SingleNavView.render = function() {
          * Data attributes don't work in IE 10 and lower. Feature-
          * detect if the browser supports the dataset property
          */
-         
+
         // If it doesn't, use the getAttribute method instead
         if( !this.dataset ) { // If <= IE10
           getLinkType = this.getAttribute( "data-link-type" );
