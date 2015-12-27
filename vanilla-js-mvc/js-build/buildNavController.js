@@ -12,7 +12,7 @@ var
     // "require" the view code so the controller can access it
     NavView = require( "./buildNavView" ),
 
-    // reference to Firebase model data in the view
+    // reference to Heroku-powered model data in the view
     navModelData = NavView.navData,
 
     // reference to the view object in the view
@@ -22,16 +22,17 @@ var
     NavController = {};
 
 /* 
- * "displayHomePage()" method renders the model data that's
- * passed to view object's "render()" method. The "getData" parameter
- * represents the model data.
+ * "displayNav()" method renders the model data that's passed to view
+ * object's "render()" method. The "getData" parameter represents the
+ * model data.
  */
 NavController.displayNav = function( getData ) {
   return navView.render( getData );
 };
 
-/*
- * Run the "displayNav()" method & pass the Firebase model data,
- * which is represented by the "navModelData" variable defined above.
+ /*
+ * Run the "displayNav()" method & pass the model data as its
+ * parameter, which is represented by the "navModelData" variable
+ * defined above.
  */
 NavController.displayNav( navModelData );

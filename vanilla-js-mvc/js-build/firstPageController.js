@@ -12,7 +12,7 @@ var
     // "require" the view code so the controller can access it
     HomePageView = require( "./firstPageView" ),
 
-    // reference to Firebase model data in the view
+    // reference to Heroku-powered model data in the view
     modelData = HomePageView.resourcesData,
 
     // reference to the view object in the view
@@ -31,7 +31,8 @@ SingleResourceController.displayHomePage = function( getData ) {
 };
 
 /*
- * Run the "displayHomePage()" method & pass the Firebase model data,
- * which is represented by the "modelData" variable defined above.
+ * Run the "displayHomePage()" method & pass the model data as its
+ * parameter, which is represented by the "modelData" variable defined
+ * above.
  */
 SingleResourceController.displayHomePage( modelData );
