@@ -20,6 +20,12 @@ var $ = require( "jquery" );
  *  GetJSONAPI(): a constructor function for grabbing a JSON API via
  * XHR...just pass a "url" parameter. It can be made reusable if it's
  * exported out via Node exports.
+ *
+ * TODO
+ * ----
+ * This is currently done sync and is returning console errors.  Make it async at some point and then have it return a promise but for now,
+ * do what "ThePractical Programmer" teaches us and treat it as "good
+ * enough software."
  */
 function GetJSONAPI( url, data ){
     var result = null;
