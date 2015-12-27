@@ -7,13 +7,23 @@
 // use strict mode
 "use strict";
 
-var
+var $ = require( "jquery" );
 
-    // require Firebase library
-    firebase = require( "firebase" ),
-    
-    // create a new data model from data object that's up on Firebase
-    ResourceModel = new firebase( "https://javascriptcanon.firebaseio.com/resources/" );
+function getJSONAPI( url, data ){
+    var result = null;
+    $.ajax({
+      async: false,
+      dataType: "json",
+      url: url,
+      data: data,
+      success: function(data){
+        result = data;
+      }
+    });
+    return result;
+}
+
+var ResourceModel = new getJSONAPI( "http://jscanon-data.herokuapp.com/" );
 
 // Export out the data model
 exports.ResourceModel = ResourceModel;

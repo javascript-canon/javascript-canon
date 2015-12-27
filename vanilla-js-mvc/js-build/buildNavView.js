@@ -23,7 +23,11 @@ var
     // "require" jQuery core
     $ = require( "jquery" );
 
-
+/*
+ * This console.log statement will be removed after it's confirmed
+ * that views can access the model data.
+ */
+console.log( navModelData );
 SingleNavView.render = function() {
 
   return navModelData.on( "value", function( snapshot ) {
