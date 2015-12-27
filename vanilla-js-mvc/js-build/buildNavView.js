@@ -70,9 +70,9 @@ SingleNavView.render = function() {
 
     /*
      * Let the "createTypeLink" variable be a jQuery.each() call that
-     * loops through the data and builds out a single resource. Using
-     * jQuery because we need it to return a promise for something
-     * later on.
+     * loops through the "types" ("book", "class", etc.) and create a
+     * button for each one. Using jQuery because we need it to return
+     * a promise for something later on.
      */
     createTypeLink = $.each( linkType, function( index, value ) {
 
@@ -84,6 +84,10 @@ SingleNavView.render = function() {
         // Create an eventual id attribute for the <button> element
         btnId = value + "-id";
 
+      /*
+       * The type text is lowercase: make it proper-case & place it
+       * inside the <button> element
+       */
       btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
       btnLink.setAttribute( "id", btnId );
       $( btnLink ).addClass( "btn btn-default btn-resource" ).attr( "data-link-type", value );
@@ -99,7 +103,9 @@ SingleNavView.render = function() {
      * Use $.Deferred, $.promise(), and $.done() to prevent this
      */
     var defer = $.Deferred();
+
     defer.promise( createTypeLink );
+
     createTypeLink.done(
 
       // Do things after ".done()" confirms that the buttons are ready
@@ -108,11 +114,14 @@ SingleNavView.render = function() {
         // Single var pattern
         var getLinkType, getElType, getElNotType;
 
-        // The ".btn" data-link-type value gets stored in getLinkType
-        // Data attributes don't work in IE 10 and lower
-        // Feature-detect if the browser supports the dataset property
+        /*
+         * The ".btn" data-link-type value gets stored in getLinkType.
+         * Data attributes don't work in IE 10 and lower. Feature-
+         * detect if the browser supports the dataset property
+         */
+         
         // If it doesn't, use the getAttribute method instead
-        if( !this.dataset ) { // If < = IE10
+        if( !this.dataset ) { // If <= IE10
           getLinkType = this.getAttribute( "data-link-type" );
         } else { // For other browsers
           getLinkType = this.dataset.linkType;
