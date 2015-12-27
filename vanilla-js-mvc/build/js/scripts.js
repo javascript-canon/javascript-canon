@@ -554,15 +554,20 @@ GetElementHeight.prototype.calculateHeight = function() {
     // Put the returned height in the "elementHeight" variable
     elementHeight = findElement.elementHeight;
 
+    var x = $(".nav-class").offset();
+    console.log(x.top);
     /*
      * If the window's scroll position is greater than or equal to the
      * element's height, do stuff
      */
     if( getScrollPosition >= elementHeight ) {
-      $( "#h1-text" ).addClass( "h1-sticky" );
+      $( "#inner-header" ).addClass( "h1-sticky" );
+      $(".nav-class").attr("style", "margin-top: -" + x.top + "px");
+      $(window).unbind("scroll");
     } else {
       if ( getScrollPosition < elementHeight ) {
-        $( "#h1-text" ).removeClass( "h1-sticky" );
+        $( "#inner-header" ).removeClass( "h1-sticky" );
+        $(".nav-class").attr("style", "");
       }
     }
 

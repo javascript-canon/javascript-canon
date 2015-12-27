@@ -338,12 +338,15 @@ h2 {
   background-image: none;
 }
 
+.clearfix:before,
+.clearfix:after,
 .container:before,
 .container:after {
   display: table;
   content: " ";
 }
 
+.clearfix:after,
 .container:after {
   clear: both;
 }
@@ -393,6 +396,10 @@ button {
 }
 
 @media (min-width:768px) {
+  .mobile-menu-button {
+    display: none;
+  }
+
   .subheader {
     height: 70px;
     font-size: 19px;
@@ -446,6 +453,23 @@ button {
     position: fixed;
     top: 0;
     left: 15px;
+  }
+
+  .mobile-menu-button {
+    width: 50px;
+    height: 48px;
+    margin-top: 24px;
+    border: 1px solid #DDDBDB;
+    border-radius: 3px;
+    background-color: #FEF186;
+  }
+
+  .mobile-menu-bar {
+    display: block;
+    width: 31px;
+    height: 4px;
+    margin: 0 auto 4px;
+    background-color: #000;
   }
 
   .nav-class {
