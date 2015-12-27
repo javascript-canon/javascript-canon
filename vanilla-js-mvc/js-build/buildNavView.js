@@ -117,9 +117,6 @@ SingleNavView.render = function() {
         $( ".single-resource" ).filter( getElType ).css( "display", "block" );
       })
     );
-
-
-    
 }
 
 // Make ALL learning resources visible.
