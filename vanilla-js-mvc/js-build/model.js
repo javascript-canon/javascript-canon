@@ -23,7 +23,7 @@ function getJSONAPI( url, data ){
       dataType: "json",
       url: url,
       data: data,
-      success: function(data){
+      success: function( data ) {
         result = data;
       }
     });
