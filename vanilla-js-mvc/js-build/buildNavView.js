@@ -62,6 +62,12 @@ SingleNavView.render = function() {
        */
       linkType = _.uniq( types );
 
+      /*
+       * Let the "createTypeLink" variable be a jQuery.each() call
+       * that loops through the data and builds out a single resource.
+       * Using jQuery because we need it to return a promise for 
+       * something later on.
+       */
       createTypeLink = $.each( linkType, function( index, value ) {
         var
             btnId,
