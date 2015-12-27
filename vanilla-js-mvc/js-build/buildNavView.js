@@ -111,13 +111,19 @@ SingleNavView.render = function() {
      * the view when they're clicked on and return a console error.
      * Use $.Deferred, $.promise(), and $.done() to prevent this
      */
+
+    // "defer" will be a method that we need to return a promise
     var defer = $.Deferred();
 
+    // Let "createTypeLink" be the method that returns a promise
     defer.promise( createTypeLink );
 
+    /*
+     * "createTypeLink" represents the looping function that builds 
+     * each <button>. When (and ONLY when) all the <button> elements are built, then the buttons can respond to $.click() elements. 
+     */
     createTypeLink.done(
 
-      // Do things after ".done()" confirms that the buttons are ready
       $( ".btn-resource" ).click( function(){
 
         // Single var pattern
@@ -136,17 +142,19 @@ SingleNavView.render = function() {
           getLinkType = this.dataset.linkType;
         }
 
-        // The ".btn" data-link-type val matches data-resource-type val
-        // Store items with matching data-resource-type in getElType
+        /*
+         * The ".btn" data-link-type val matches "data-resource-type" 
+         * value. Store items with matching data-resource-type in the
+         * "getElType" variable.
+         */
         getElType = $( "article[data-resource-type*="+getLinkType+"]" );
 
         // Store non-matching data-resource-type items in getElNotType
         getElNotType = $( "article:not( [data-resource-type*="+getLinkType+"] )" );
 
         /*
-         * Find page elements with the ".resource" class
-         * Let $.filter() show matching elements, hide non-matching
-         * ones
+         * Find page elements with the ".resource" class. Let
+         * $.filter() show matching elements, hide non-matching ones.
          */
         $( ".single-resource" ).filter( getElNotType ).css( "display", "none" );
         $( ".single-resource" ).filter( getElType ).css( "display", "block" );
