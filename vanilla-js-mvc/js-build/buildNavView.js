@@ -111,15 +111,18 @@ SingleNavView.render = function() {
         // Store non-matching data-resource-type items in getElNotType
         getElNotType = $( "article:not( [data-resource-type*="+getLinkType+"] )" );
 
-        // Find page elements with the ".resource" class
-        // Let $.filter() show matching elements, hide non-matching ones
+        /*
+         * Find page elements with the ".resource" class
+         * Let $.filter() show matching elements, hide non-matching
+         * ones
+         */
         $( ".single-resource" ).filter( getElNotType ).css( "display", "none" );
         $( ".single-resource" ).filter( getElType ).css( "display", "block" );
       })
     );
 }
 
-// Make ALL learning resources visible.
+// Click on "#btn-show-all" to make ALL the learning resources visible
 $( "#btn-show-all" ).click( function() {
   $( ".single-resource" ).css( "display", "block" );
 });
