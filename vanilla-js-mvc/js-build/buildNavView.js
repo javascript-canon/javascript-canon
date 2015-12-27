@@ -33,59 +33,63 @@ var
 // "render()" method renders info for single nav button.
 SingleNavView.render = function() {
       
-      var
+  var
 
-          // Grab the Heroku-powered model data
-          navData = navModelData,
+    // Grab the Heroku-powered model data
+    navData = navModelData,
 
-          // Array that will contain a list of resource types
-          types = [],
+    // Array that will contain a list of resource types
+    types = [],
 
-          // Array that will contain a list of filtered resource types
-          linkType,
+    // Array that will contain a list of filtered resource types
+    linkType,
 
-          // A $each() function that we need to return a promise
-          createTypeLink;
+    // Will be an $.each() function that must return a promise
+    createTypeLink;
 
-      // Loop through the model data to build the nav
-      for ( var key in navData ) {
+    // Loop through the model data to build the nav
+    for ( var key in navData ) {
 
-        // Do standard hasOwnProperty() check against "navData" object
-        if( navData.hasOwnProperty( key ) ) {
+      // Do standard hasOwnProperty() check against "navData" object
+      if( navData.hasOwnProperty( key ) ) {
 
-          // Get all the resource types & add them to the "types" array
-          types.push( navData[key].type );
+        // Get all the resource types & add them to the "types" array
+        types.push( navData[key].type );
 
-        } // end hasOwnProperty() check
+      } // end hasOwnProperty() check
         
-      } // end for...in loop
+    } // end for...in loop
 
-      /*
-       * The "types" array contains duplicate items at this point.
-       * Remove the duplicate items with underscore's "uniq" method
-       * Store the resulting array in a new array with a variable name
-       * of "linkType".
-       */
-      linkType = _.uniq( types );
+    /*
+     * The "types" array contains duplicate items at this point. 
+     * Remove the duplicate items with underscore's "uniq" method 
+     * Store the resulting array in a new array with a variable name 
+     * of "linkType".
+     */
+    linkType = _.uniq( types );
 
-      /*
-       * Let the "createTypeLink" variable be a jQuery.each() call
-       * that loops through the data and builds out a single resource.
-       * Using jQuery because we need it to return a promise for 
-       * something later on.
-       */
-      createTypeLink = $.each( linkType, function( index, value ) {
+    /*
+     * Let the "createTypeLink" variable be a jQuery.each() call that
+     * loops through the data and builds out a single resource. Using
+     * jQuery because we need it to return a promise for something
+     * later on.
+     */
+    createTypeLink = $.each( linkType, function( index, value ) {
 
+      var 
 
-        var btnId, btnLink;
+        // Create a <button> element
+        btnLink = document.createElement( "button" ),
+        
+        // Create an eventual id attribute for the <button> element
+        btnId = value + "-id";
 
-      btnLink = document.createElement( "button" );
-      btnId = value + "-id";
       btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
       btnLink.setAttribute( "id", btnId );
       $( btnLink ).addClass( "btn btn-default btn-resource" ).attr( "data-link-type", value );
       btnTargetEl.appendChild( btnLink );
-    });
+
+    }); //end "createTypeLink"
 
     /*
      *  USE JQUERY PROMISES
