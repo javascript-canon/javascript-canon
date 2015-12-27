@@ -25,6 +25,7 @@ var
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
+
 SingleResourceView.render = function( model ) {
 
   return resourcesData.on( "value", function( snapshot ) {
