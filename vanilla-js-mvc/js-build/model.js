@@ -16,6 +16,11 @@
 // "require" jQuery core
 var $ = require( "jquery" );
 
+/*
+ *  GetJSONAPI(): a constructor function for grabbing a JSON API via
+ * XHR...just pass a "url" parameter. It can be made reusable if it's
+ * exported out via Node exports.
+ */
 function GetJSONAPI( url, data ){
     var result = null;
     $.ajax({
@@ -30,6 +35,11 @@ function GetJSONAPI( url, data ){
     return result;
 }
 
+/*
+ * Create new instance of "GetJSONAPI" to represent that app's model
+ * data. Pass a url parameter while the data parameter is assumed to
+ * be whatever data was returned in the GetJSONAPI's $.ajax call.
+ */
 var ResourceModel = new GetJSONAPI( "http://jscanon-data.herokuapp.com/" );
 
 // Export out the data model
