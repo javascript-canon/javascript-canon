@@ -22,7 +22,13 @@ var
     navModelData = Resources.ResourceModel,
 
     // Create an object for the SingleNavView
-    SingleNavView = {};
+    SingleNavView = {},
+
+    /*
+     * The default element for out view.  Think of it as the "el"
+     * value in "Backbone.Model()"
+     */
+    btnTargetEl = document.querySelector( "nav" );
 
 // "render()" method renders info for single nav button.
 SingleNavView.render = function() {
@@ -69,12 +75,10 @@ SingleNavView.render = function() {
        * something later on.
        */
       createTypeLink = $.each( linkType, function( index, value ) {
-        var
-            btnId,
-            btnLink,
-            btnTargetEl;
 
-      btnTargetEl = document.querySelector( "nav" );
+
+        var btnId, btnLink;
+
       btnLink = document.createElement( "button" );
       btnId = value + "-id";
       btnLink.innerHTML = value.charAt( 0 ).toUpperCase() + value.slice( 1 );
