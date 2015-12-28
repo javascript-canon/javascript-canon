@@ -22,10 +22,12 @@ function init() {
   
     if ( distanceY > shrinkOn ) {
       header.setAttribute( "style", "position:fixed" );
-      $(".nav-class").css("margin-top", kai )
+      $(".nav-class").css("margin-top", kai );
+      $("#logo").attr("style", "display:none");
     } else {
       header.setAttribute( "style", "position:static" );
-      $(".nav-class").css("margin-top", "0" )
+      $(".nav-class").css("margin-top", "0" );
+      $("#logo").attr("style", "");
     }
 
   });
