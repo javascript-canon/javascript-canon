@@ -12,9 +12,13 @@
 
 var $ = require( "jquery" );
 
+var addRemoveAnimation = function( animatedElement ){
+  animatedElement.removeClass( "h1-animation" ).addClass( "h1-animation-back"); 
+}
+
 function init() {
 
-  window.addEventListener( "scroll", function( e ) {
+  window.addEventListener( "scroll", function( event ) {
 
     var
 
@@ -44,13 +48,19 @@ function init() {
 
     } else {
 
-      header.removeAttribute( "class"  );
 
-      $h1.removeClass( "h1-animation" );
+        
+        header.removeAttribute( "class"  );
 
-      $nav.attr( "style", "" );
+        
 
-      $logo.attr( "style", "" );
+        $nav.attr( "style", "" );
+
+        $logo.attr( "style", "" );
+
+        if( $h1.hasClass( "h1-animation" ) ) {
+          addRemoveAnimation( $h1 );
+        }
 
     }
 
