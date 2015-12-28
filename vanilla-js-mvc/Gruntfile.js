@@ -17,6 +17,7 @@ module.exports = function( grunt ) {
             ".book-link:visited",
             ".col-md-4",
             ".book-image",
+            ".h1-animation",
             ".single-resource",
             ".scale-logo",
             ".header-class"
