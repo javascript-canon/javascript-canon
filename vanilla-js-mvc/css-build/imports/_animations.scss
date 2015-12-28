@@ -18,3 +18,25 @@
   animation-fill-mode: forwards;
   
 }
+
+
+@keyframes headerTextAnimationBack {
+  from { transform: translateX( 0px ); }
+  to { transform: translateX( -10px ); }
+}
+
+.h1-animation-back {
+
+  -webkit-animation-name: headerTextAnimationBack;
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function : ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-name: headerTextAnimationBack;
+  animation-duration: .2s;
+  animation-timing-function : ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  
+}
