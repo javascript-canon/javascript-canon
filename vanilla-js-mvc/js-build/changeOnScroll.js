@@ -1,6 +1,6 @@
 /* ================================================================= */
 /* | changeOnScroll.js                                               */
-/* ===================                                               */
+/* ============                                                      */
 /* A generic file  for scripts that don't have any real role in      */
 /* the MVC code code                                                 */
 /* ================================================================= */
@@ -8,25 +8,27 @@
 // use strict mode
 "use strict";
 
-// "require" jQuery core
-var
+var $ = require("jquery");
 
-    // "require" jquery
-    $ = require( "jquery" ),
+function init() {
+  console.log($("nav").height());
+  console.log($("nav").offset().top);
+  window.addEventListener('scroll', function( e ) {
 
-    /*
-     * "require" waypoints
-     *
-     * IMPORTANT: waypoints currently is NOT set up for CommonJS and
-     * cannot be simple come in as a Node require() with out
-     * the help of browserify-shim. Refer to its setup in package.json
-     * & read more about all this at: http://bit.ly/waypoints-shimming.
-     */
-    waypoints = require( "waypoints" );
+    var distanceY = window.pageYOffset || document.documentElement.scrollTop,
+      shrinkOn = 150,
+      header = document.querySelector( "#header" ),
+      kai = $("nav").offset().top;
+  
+    if ( distanceY > shrinkOn ) {
+      header.setAttribute( "style", "position:fixed" );
+      $(".nav-class").css("margin-top", kai )
+    } else {
+      header.setAttribute( "style", "position:static" );
+      $(".nav-class").css("margin-top", "0" )
+    }
 
-var waypoint = new Waypoint({
-  element: document.getElementById( "h1-text" ),
-  handler: function( direction ) {
-    alert( "You have scrolled to a thing" );
-  }
-})
+  });
+}
+
+window.onload = init();
