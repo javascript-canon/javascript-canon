@@ -25,11 +25,11 @@ function init() {
 
         header = document.querySelector( "#header" ),
 
-        kai = $("nav").offset().top;
+        navTopOffset = $( "nav" ).offset().top;
   
     if ( distanceY > shrinkOn ) {
       header.setAttribute( "style", "position:fixed" );
-      $( ".nav-class" ).css( "margin-top", kai );
+      $( ".nav-class" ).css( "margin-top", navTopOffset );
       $( "#logo" ).attr( "style", "display:none" );
     } else {
       header.setAttribute( "style", "position:static" );
