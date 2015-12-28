@@ -357,6 +357,29 @@ h2 {
 
 /*# sourceMappingURL=bootstrap.css.map */
 
+@keyframes headerTextAnimation {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(75px);
+  }
+}
+
+.h1-animation {
+  -webkit-animation-name: headerTextAnimation;
+  -webkit-animation-duration: .2s;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: headerTextAnimation;
+  animation-duration: .2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
 button {
   margin: 0 4px;
 }
@@ -427,29 +450,6 @@ button {
   .nav-class,
   .single-resource {
     text-align: center;
-  }
-
-@keyframes headerTextAnimation {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(75px);
-    }
-}
-
-  .h1-animation {
-    -webkit-animation-name: headerTextAnimation;
-    -webkit-animation-duration: .2s;
-    -webkit-animation-timing-function: ease-in;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-fill-mode: forwards;
-    animation-name: headerTextAnimation;
-    animation-duration: .2s;
-    animation-timing-function: ease-in;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
   }
 
   .header-element {

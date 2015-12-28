@@ -1,26 +1,5 @@
 @media (max-width: 767px) {
 
-  @keyframes headerTextAnimation {
-   from { transform: translateX( 0px ); }
-   to { transform: translateX( 75px ); }
-  }
-
-.h1-animation {
-  -webkit-animation-name: headerTextAnimation;
-  -webkit-animation-duration: .2s;
-  -webkit-animation-timing-function : ease-in;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-
-  animation-name: headerTextAnimation;
-  animation-duration: .2s;
-  animation-timing-function : ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-
-
   .header-element {
     display: inline-block;
   } 
