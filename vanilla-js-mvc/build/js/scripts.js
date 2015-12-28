@@ -227,6 +227,10 @@ exports.SingleNavView = SingleNavView;
 
 var $ = require( "jquery" );
 
+var addRemoveAnimation = function( animatedElement ){
+  animatedElement.removeClass( "h1-animation" ).addClass( "h1-animation-back"); 
+}
+
 function init() {
 
   window.addEventListener( "scroll", function( event ) {
@@ -259,23 +263,19 @@ function init() {
 
     } else {
 
-      if( $h1.hasClass( "h1-animation" ) ) {
+
         
         header.removeAttribute( "class"  );
 
-        $h1.removeClass( "h1-animation" ).addClass( "h1-animation-back");
+        
 
         $nav.attr( "style", "" );
 
         $logo.attr( "style", "" );
 
-      } else {
-                header.removeAttribute( "class"  );
-
-        $nav.attr( "style", "" );
-
-        $logo.attr( "style", "" );
-      }
+        if( $h1.hasClass( "h1-animation" ) ) {
+          addRemoveAnimation( $h1 );
+        }
 
     }
 
