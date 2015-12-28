@@ -229,7 +229,7 @@ var $ = require( "jquery" );
 
 function init() {
 
-  window.addEventListener( 'scroll', function( e ) {
+  window.addEventListener( "scroll", function( e ) {
 
     var
 
@@ -243,7 +243,7 @@ function init() {
   
     if ( distanceY > shrinkOn ) {
 
-      header.setAttribute("class", "header-class" );
+      header.setAttribute( "class", "header-class" );
 
 
       $( ".nav-class" ).css( "margin-top", navTopOffset );
