@@ -13,10 +13,8 @@
 var $ = require( "jquery" );
 
 function init() {
-  console.log($("nav").height());
-  console.log($("nav").offset().top);
-  
-  window.addEventListener('scroll', function( e ) {
+
+  window.addEventListener( 'scroll', function( e ) {
 
     var
 
@@ -29,11 +27,14 @@ function init() {
         navTopOffset = $( "nav" ).offset().top;
   
     if ( distanceY > shrinkOn ) {
-      header.setAttribute( "style", "position:fixed" );
+
+      header.setAttribute("class", "header-class" );
+
+
       $( ".nav-class" ).css( "margin-top", navTopOffset );
       $( "#logo" ).attr( "style", "display:none" );
     } else {
-      header.setAttribute( "style", "position:static" );
+      header.removeAttribute( "class"  );
       $( ".nav-class" ).css( "margin-top", "0" );
       $( "#logo" ).attr( "style", "" );
     }
