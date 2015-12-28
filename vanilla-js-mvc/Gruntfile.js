@@ -17,9 +17,9 @@ module.exports = function( grunt ) {
             ".book-link:visited",
             ".col-md-4",
             ".book-image",
-            ".h1-sticky",
             ".single-resource",
-            ".scale-logo"
+            ".scale-logo",
+            ".header-class"
           ]
         },
       }
