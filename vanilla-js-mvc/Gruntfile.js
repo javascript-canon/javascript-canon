@@ -18,6 +18,7 @@ module.exports = function( grunt ) {
             ".col-md-4",
             ".book-image",
             ".h1-animation",
+            ".h1-animation-back",
             ".single-resource",
             ".scale-logo",
             ".header-class"
