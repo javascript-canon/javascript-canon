@@ -21,19 +21,6 @@
     "book-minify": "imagemin image-min/book-images/* build/img/book-images/",
     "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
-  "browser": {
-    "waypoints": "./node_modules/waypoints/lib/noframework.waypoints.js"
-  },
-  "browserify-shim": {
-    "waypoints": {
-      "exports": "waypoints"
-    }
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
-  },
   "author": "kaidez",
   "license": "ISC",
   "devDependencies": {
