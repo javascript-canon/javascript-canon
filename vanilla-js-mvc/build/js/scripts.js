@@ -229,7 +229,7 @@ var $ = require( "jquery" );
 
 function init() {
 
-  window.addEventListener( "scroll", function( e ) {
+  window.addEventListener( "scroll", function( event ) {
 
     var
 
@@ -259,13 +259,23 @@ function init() {
 
     } else {
 
-      header.removeAttribute( "class"  );
+      if( $h1.hasClass( "h1-animation" ) ) {
+        
+        header.removeAttribute( "class"  );
 
-      $h1.removeClass( "h1-animation" );
+        $h1.removeClass( "h1-animation" ).addClass( "h1-animation-back");
 
-      $nav.attr( "style", "" );
+        $nav.attr( "style", "" );
 
-      $logo.attr( "style", "" );
+        $logo.attr( "style", "" );
+
+      } else {
+                header.removeAttribute( "class"  );
+
+        $nav.attr( "style", "" );
+
+        $logo.attr( "style", "" );
+      }
 
     }
 
