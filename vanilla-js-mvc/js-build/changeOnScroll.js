@@ -15,6 +15,7 @@ var $ = require( "jquery" );
 function init() {
   console.log($("nav").height());
   console.log($("nav").offset().top);
+  
   window.addEventListener('scroll', function( e ) {
 
     var
