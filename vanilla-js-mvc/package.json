@@ -25,7 +25,6 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^12.0.1",
-    "browserify-shim": "^3.8.11",
     "clean-css": "^3.4.8",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
