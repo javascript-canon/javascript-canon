@@ -438,6 +438,13 @@ button {
     display: block;
   }
 
+  .header-class {
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    background-color: #fff;
+  }
+
   .h1-class {
     font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     font-size: 24px;
@@ -446,13 +453,6 @@ button {
 
   .logo-styles {
     margin-right: 10px;
-  }
-
-  .h1-sticky {
-    width: 352px;
-    position: fixed;
-    top: 0;
-    left: 15px;
   }
 
   .mobile-menu-button {
