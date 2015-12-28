@@ -2,8 +2,15 @@
 
   .header-element {
     display: inline-block;
-
   } 
+
+  .header-class {
+    width: 100%;
+    position:fixed;
+    z-index:2;
+
+    background-color: #fff;
+  }
   
   .h1-class {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -14,14 +21,6 @@
   /* Style the logo */
   .logo-styles{
     margin-right: 10px;
-  }
-
-  /* The class that makes the <h1> sticky at certain scroll points */
-  .h1-sticky {
-    width: 352px;
-    position: fixed;
-    top: 0;
-    left: 15px;
   }
 
   .mobile-menu-button {
@@ -61,10 +60,6 @@
   /* Hide some elements on hand-held views */
   .custom-hr, .subheader {
     @include hide-element;
-  }
-
-  .header-elements {
-    float:left;
   }
 
   .content-class {
