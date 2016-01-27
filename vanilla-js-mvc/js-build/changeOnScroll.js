@@ -1,7 +1,7 @@
 /* ================================================================= */
 /* | changeOnScroll.js                                               */
 /* ============                                                      */
-/* A generic file  for scripts that don't have any real role in      */
+/* A generic file for scripts that don't have any real role in      */
 /* the MVC code code                                                 */
 /*                                                                   */
 /* http://bit.ly/cool-sticky-code                                    */
@@ -38,29 +38,19 @@ function init() {
   
     if ( distanceY > shrinkOn ) {
 
-      header.setAttribute( "class", "header-class" );
+      header.setAttribute( "style", "position:fixed" );
 
       $h1.addClass( "h1-animation" );
 
       $nav.css( "margin-top", $navTopOffset );
 
-      $logo.attr( "style", "display:none" );
-
     } else {
 
+      header.removeAttribute( "style" );
 
-        
-        header.removeAttribute( "class"  );
+      $nav.attr( "style", "" );
 
-        
-
-        $nav.attr( "style", "" );
-
-        $logo.attr( "style", "" );
-
-        if( $h1.hasClass( "h1-animation" ) ) {
-          addRemoveAnimation( $h1 );
-        }
+      $h1.removeClass( "h1-animation" ).addClass( "h1-animation-back" ); 
 
     }
 

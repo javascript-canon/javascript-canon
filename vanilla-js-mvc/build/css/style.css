@@ -367,6 +367,13 @@ h2 {
   }
 }
 
+.header-class {
+  position: fixed;
+  background-color: #fff;
+  -webkit-transition: height .3s;
+  transition: height .3s;
+}
+
 .h1-animation {
   -webkit-animation-name: headerTextAnimation;
   -webkit-animation-duration: .2s;
@@ -457,6 +464,10 @@ button {
     margin-top: 0;
     margin-bottom: 8px;
     background: #000;
+  }
+
+  .nav-class {
+    margin-top: 300px;
   }
 }
 

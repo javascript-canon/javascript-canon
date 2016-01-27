@@ -3,6 +3,14 @@
   to { transform: translateX( 75px ); }
 }
 
+.header-class {
+  position: fixed;
+
+  background-color: #fff;
+  -webkit-transition: height 0.3s;
+          transition: height 0.3s;
+}
+
 .h1-animation {
 
   -webkit-animation-name: headerTextAnimation;
