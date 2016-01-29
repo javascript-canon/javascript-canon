@@ -26,8 +26,6 @@ function init() {
       
         shrinkOn = 150,
 
-        header = document.querySelector( "#header" ),
-
         $h1 = $( "#h1-text" ),
 
         $nav = $( "nav" ),
@@ -38,15 +36,11 @@ function init() {
   
     if ( distanceY > shrinkOn ) {
 
-      header.setAttribute( "style", "position:fixed" );
-
       $h1.addClass( "h1-animation" );
 
       $nav.css( "margin-top", $navTopOffset );
 
     } else {
-
-      header.removeAttribute( "style" );
 
       $nav.attr( "style", "" );
 
