@@ -1,5 +1,5 @@
 button {
-  margin: 0 4px;
+  margin: 0 8px;
 }
 
 /* Style the <h2> tag */
@@ -10,6 +10,7 @@ button {
 }
 
 .header-element {
+
   display: inline-block;
 } 
 
@@ -22,6 +23,9 @@ button {
   @include z2;
 }
 
+.h1-class, .subheader {
+  margin-left: 10px;
+}
 /* Style the Twitter link in <header> */
 .gl-twitter-link {
   color: rgba(0, 0, 0, 1);

@@ -4,3 +4,15 @@
  * Styles that override core Bootstrap CSS go here. Place them below
  * core Bootstrap styles and above custom styles in the build.
  */
+
+/* Override top margin in Bootstrap <h1> */
+ h1 {
+  margin-top: 0;
+ }
+
+/* Override the standard .btn-default styles that are in Bootstrap */
+.btn {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}

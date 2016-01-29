@@ -343,6 +343,16 @@ h2 {
 
 /*# sourceMappingURL=bootstrap.css.map */
 
+h1 {
+  margin-top: 0;
+}
+
+.btn {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
 @keyframes headerTextAnimation {
   from {
     transform: translateX(0);
@@ -399,11 +409,16 @@ h2 {
 }
 
 button {
-  margin: 0 4px;
+  margin: 0 8px;
 }
 
 .header-element {
   display: inline-block;
+}
+
+.h1-class,
+.subheader {
+  margin-left: 10px;
 }
 
 .gl-twitter-link {
@@ -441,6 +456,20 @@ button {
 }
 
 @media (min-width:768px) {
+  .nav-class {
+    width: 100%;
+    padding: 8px 0;
+    margin-top: 220px;
+    background-color: #f9e034;
+    text-align: center;
+  }
+
+  .btn-show-all-class {
+    color: #fff;
+    background-color: #737373;
+    border-color: #000;
+  }
+
   .mobile-menu-button {
     display: none;
   }
@@ -448,10 +477,6 @@ button {
   .subheader {
     height: 70px;
     font-size: 19px;
-  }
-
-  .nav-class {
-    margin-top: 332px;
   }
 
   .content-class {

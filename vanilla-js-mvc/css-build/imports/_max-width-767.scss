@@ -41,20 +41,22 @@
     background-color: #000;
   }
 
-  .btn-resource,
-  .btn-show-all-class {
-    display: block;
-  }
-
+  /* Style the <nav> */
   .nav-class {
     display: block;
     clear: both;
 
     text-align: center;
   }
+  
+  /* Style all the buttons */
+  .btn-resource,
+  .btn-show-all-class {
+    display: block;
+  }
 
   /* Hide some elements on hand-held views */
-  .custom-hr, .subheader {
+  .subheader {
     @include hide-element;
   }
 

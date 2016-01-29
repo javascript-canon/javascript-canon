@@ -1,5 +1,23 @@
 @media (min-width: 768px) {
 
+  /* Style the <nav> */
+  .nav-class {
+    width: 100%;
+    padding:8px 0;
+    
+    margin-top: 220px;
+    
+    background-color: $js-yellow;
+    text-align: center;
+
+  }
+
+  .btn-show-all-class {
+    color: #fff;
+    background-color: #737373;
+    border-color: #000;
+  }
+
   .mobile-menu-button {
     display: none;
   }
@@ -8,11 +26,6 @@
     height:70px;
 
     font-size: 19px;
-  }
-
-  /* Push the nav down on the desktop view */
-  .nav-class {
-    margin-top: 332px;
   }
 
   .content-class {
