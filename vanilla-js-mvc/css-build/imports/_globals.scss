@@ -2,14 +2,27 @@ button {
   margin: 0 4px;
 }
 
-// Style the <h2> tag
+/* Style the <h2> tag */
 .gl-subheader {
   margin:0;
 
   font-size: 16px;
 }
 
-// Style the Twitter link in <header>
+.header-element {
+  display: inline-block;
+} 
+
+.header-class {
+  width: 1170px;
+  position: fixed;
+
+  background-color:#fff;
+
+  @include z2;
+}
+
+/* Style the Twitter link in <header> */
 .gl-twitter-link {
   color: rgba(0, 0, 0, 1);
   font-weight: 900;

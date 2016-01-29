@@ -10,18 +10,14 @@
     font-size: 19px;
   }
 
-  /* Custom <hr> */
-  .custom-hr {
-    height: 6px;
-    border-top: 0;
-    margin-top: 0;
-    margin-bottom: 8px;
-
-    background: rgba(0, 0, 0, 1);
-  }
-
+  /* Push the nav down on the desktop view */
   .nav-class {
-    margin-top: 300px;
+    margin-top: 332px;
   }
+
+  .content-class {
+    position: relative;
+    @include z1;
+   }
 
 }
