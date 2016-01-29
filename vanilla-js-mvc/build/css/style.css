@@ -45,13 +45,6 @@ img {
   border: 0;
 }
 
-hr {
-  height: 0;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
 button {
   margin: 0;
   font: inherit;
@@ -174,13 +167,6 @@ a:focus {
 
 img {
   vertical-align: middle;
-}
-
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #eee;
 }
 
 h1,
@@ -368,10 +354,12 @@ h2 {
 }
 
 .header-class {
-  position: fixed;
-  background-color: #fff;
   -webkit-transition: height .3s;
   transition: height .3s;
+  width: 1170px;
+  position: fixed;
+  background-color: #fff;
+  z-index: 2;
 }
 
 .h1-animation {
@@ -412,6 +400,10 @@ h2 {
 
 button {
   margin: 0 4px;
+}
+
+.header-element {
+  display: inline-block;
 }
 
 .gl-twitter-link {
@@ -458,16 +450,13 @@ button {
     font-size: 19px;
   }
 
-  .custom-hr {
-    height: 6px;
-    border-top: 0;
-    margin-top: 0;
-    margin-bottom: 8px;
-    background: #000;
+  .nav-class {
+    margin-top: 332px;
   }
 
-  .nav-class {
-    margin-top: 300px;
+  .content-class {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -480,19 +469,15 @@ button {
 }
 
 @media (max-width:767px) {
+  .btn-show-all-class,
+  .nav-class {
+    display: block;
+  }
+
   .content-class,
   .nav-class,
   .single-resource {
     text-align: center;
-  }
-
-  .header-element {
-    display: inline-block;
-  }
-
-  .btn-show-all-class,
-  .nav-class {
-    display: block;
   }
 
   .header-class {
@@ -533,7 +518,6 @@ button {
     clear: both;
   }
 
-  .custom-hr,
   .subheader {
     position: absolute!important;
     clip: rect(1px 1px 1px 1px);
