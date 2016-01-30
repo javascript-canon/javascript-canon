@@ -1,4 +1,4 @@
-header#header.header-class
+header#header.header-class.clearfix
   img(src="img/js-logo.png" alt="Logo for the JavaScript Canon" id= "logo" class="header-element logo-styles clearfix")
   div#inner-header.header-element
     h1#h1-text.h1-class The JavaScript Canon
@@ -9,7 +9,9 @@ header#header.header-class
       span.mobile-menu-bar
       span.mobile-menu-bar
       span.mobile-menu-bar
-nav#nav.nav-class
-  button(id="btn-show-all" class="btn btn-default btn-show-all-class")
-    | Show All Types
+nav#nav.nav-class.clearfix
+  div#nav-inner-container
+  div#btn-container-element.btn-container
+    button(id="btn-show-all" class="btn btn-default btn-show-all-class")
+      | Show All Types
 
