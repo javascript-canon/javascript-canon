@@ -28,7 +28,7 @@ var
      * The default element for out view.  Think of it as the "el"
      * value in "Backbone.Model()"
      */
-    btnTargetEl = document.querySelector( "nav" );
+    btnTargetEl = document.querySelector( "#btn-container-element" );
 
 // "render()" method renders info for single nav button.
 SingleNavView.render = function() {
