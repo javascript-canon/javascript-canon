@@ -12,6 +12,36 @@
 
 var $ = require( "jquery" );
 
+function stickyNav() {
+
+  window.addEventListener( "scroll", function( event ) {
+  
+    var $getLogoHeight = $( "#logo" ).height(),
+        $setFixedElement = $( "#btn-container-element" ),
+        $getFixedElementHeight = $setFixedElement.height(),
+        shrinkOn = $getLogoHeight-$getFixedElementHeight,
+        distanceY = window.pageYOffset || document.documentElement.scrollTop;
+    
+    console.log("$getLogoHeight: " + $getLogoHeight);
+    console.log("distanceY: " + distanceY);
+    console.log("$getFixedElementHeight: " + $getFixedElementHeight);
+    
+    if ( distanceY > shrinkOn ) {
+      $setFixedElement.css({
+        "position": "fixed",
+        "top": "112px",
+        "margin-left": "380px"
+      });
+    } else {
+      $setFixedElement.attr( "style", "" );
+    }
+
+  });
+}
+
+window.onload = stickyNav();
+
+/*
 var addRemoveAnimation = function( animatedElement ){
   animatedElement.removeClass( "h1-animation" ).addClass( "h1-animation-back"); 
 }
@@ -52,3 +82,4 @@ function init() {
 }
 
 window.onload = init();
+*/
