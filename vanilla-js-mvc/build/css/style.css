@@ -348,8 +348,8 @@ h1 {
 }
 
 .btn {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #f9e034;
   border-color: #000;
 }
 
@@ -456,12 +456,25 @@ button {
 }
 
 @media (min-width:768px) {
+  #nav-inner-container,
   .nav-class {
     width: 100%;
+    text-align: center;
+  }
+
+  .nav-class {
     padding: 8px 0;
     margin-top: 220px;
-    background-color: #f9e034;
-    text-align: center;
+    background-color: #000;
+  }
+
+  #nav-inner-container {
+    z-index: 2;
+  }
+
+  .btn-container {
+    position: relative;
+    z-index: 3;
   }
 
   .btn-show-all-class {

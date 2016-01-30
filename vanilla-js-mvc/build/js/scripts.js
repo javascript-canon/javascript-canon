@@ -68,7 +68,7 @@ var
      * The default element for out view.  Think of it as the "el"
      * value in "Backbone.Model()"
      */
-    btnTargetEl = document.querySelector( "nav" );
+    btnTargetEl = document.querySelector( "#btn-container-element" );
 
 // "render()" method renders info for single nav button.
 SingleNavView.render = function() {
@@ -227,6 +227,36 @@ exports.SingleNavView = SingleNavView;
 
 var $ = require( "jquery" );
 
+function stickyNav() {
+
+  window.addEventListener( "scroll", function( event ) {
+  
+    var $getLogoHeight = $( "#logo" ).height(),
+        $setFixedElement = $( "#btn-container-element" ),
+        $getFixedElementHeight = $setFixedElement.height(),
+        shrinkOn = $getLogoHeight-$getFixedElementHeight,
+        distanceY = window.pageYOffset || document.documentElement.scrollTop;
+    
+    console.log("$getLogoHeight: " + $getLogoHeight);
+    console.log("distanceY: " + distanceY);
+    console.log("$getFixedElementHeight: " + $getFixedElementHeight);
+    
+    if ( distanceY > shrinkOn ) {
+      $setFixedElement.css({
+        "position": "fixed",
+        "top": "112px",
+        "margin-left": "380px"
+      });
+    } else {
+      $setFixedElement.attr( "style", "" );
+    }
+
+  });
+}
+
+window.onload = stickyNav();
+
+/*
 var addRemoveAnimation = function( animatedElement ){
   animatedElement.removeClass( "h1-animation" ).addClass( "h1-animation-back"); 
 }
@@ -267,6 +297,7 @@ function init() {
 }
 
 window.onload = init();
+*/
 },{"jquery":7}],4:[function(require,module,exports){
 /* ================================================================= */
 /* | CONTROLLER FOR THE FRONT PAGE                                   */
