@@ -12,7 +12,7 @@
 
 /* Override the standard .btn-default styles that are in Bootstrap */
 .btn {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: $js-yellow;
   border-color: #000;
 }

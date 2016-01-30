@@ -1,15 +1,34 @@
 @media (min-width: 768px) {
 
   /* Style the <nav> */
-  .nav-class {
+  .nav-class, #nav-inner-container {
     width: 100%;
-    padding:8px 0;
     
+    text-align: center;
+  }
+
+  .nav-class {
+    padding:8px 0;
     margin-top: 220px;
     
-    background-color: $js-yellow;
-    text-align: center;
+    background-color: #000;
+  }
 
+  #nav-inner-container {
+    @include z2();
+  }
+
+  .btn-container {
+    position: relative;
+
+    @include z3();
+  }
+
+  /* Override the standard .btn-default styles that are in Bootstrap */
+  .btn-resource {
+    color: #000;
+    background-color: $js-yellow;
+    border-color: #000;
   }
 
   .btn-show-all-class {
