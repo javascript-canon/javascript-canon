@@ -1,7 +1,7 @@
 /* ================================================================= */
 /* | changeOnScroll.js                                               */
 /* ============                                                      */
-/* A generic file for scripts that don't have any real role in      */
+/* A generic file for scripts that don't have any real role in       */
 /* the MVC code code                                                 */
 /*                                                                   */
 /* http://bit.ly/cool-sticky-code                                    */
@@ -10,25 +10,19 @@
 // use strict mode
 "use strict";
 
-var $ = require( "jquery" );
+var $ = require( "jquery" ),
+    $nav = $( ".btn-container" ),
+    navPos = $nav.offset().top;
 
 window.addEventListener( "scroll", function( event ) {
-  
-  var $getLogoHeight = $( "#logo" ).height(),
-      $setFixedElement = $( "#btn-container-element" ),
-      getFixedElementHeight = $setFixedElement.height(),
-      fixOn = $getLogoHeight-getFixedElementHeight,
-      distanceY = window.pageYOffset || document.documentElement.scrollTop;
+
+  var distanceY = window.pageYOffset || document.documentElement.scrollTop;
     
-  if ( distanceY >= fixOn ) {
-    $setFixedElement.css({
-      "position": "fixed",
-      "top": "112px",
-      "margin-left": "380px"
-    });
-   } else {
-     $setFixedElement.attr( "style", "" );
-   }
+  if ( distanceY >= navPos ) {
+    $nav.addClass( "fixed-nav" );
+  } else {
+    $nav.removeClass( "fixed-nav" );
+  }
 
 });
 
