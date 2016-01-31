@@ -18,7 +18,7 @@ window.addEventListener( "scroll", function( event ) {
 
   var distanceY = window.pageYOffset || document.documentElement.scrollTop;
     
-  if ( distanceY >= navPos ) {
+  if ( distanceY >= navPos && document.documentElement.clientWidth >= 768 ) {
     $nav.addClass( "fixed-nav" );
   } else {
     $nav.removeClass( "fixed-nav" );
