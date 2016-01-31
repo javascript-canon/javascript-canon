@@ -12,13 +12,13 @@
 
 var $ = require( "jquery" ),
     $nav = $( ".btn-container" ),
-    navPos = $nav.offset().top;
+    navPosition = $nav.offset().top;
 
 window.addEventListener( "scroll", function( event ) {
 
-  var distanceY = window.pageYOffset || document.documentElement.scrollTop;
+  var windowPositon = window.pageYOffset || document.documentElement.scrollTop;
     
-  if ( distanceY >= navPos && document.documentElement.clientWidth >= 768 ) {
+  if ( windowPositon >= navPosition && document.documentElement.clientWidth >= 768 ) {
     $nav.addClass( "fixed-nav" );
   } else {
     $nav.removeClass( "fixed-nav" );
