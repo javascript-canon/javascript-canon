@@ -12,30 +12,25 @@
 
 var $ = require( "jquery" );
 
-function stickyNav() {
-
-  window.addEventListener( "scroll", function( event ) {
+window.addEventListener( "scroll", function( event ) {
   
-    var $getLogoHeight = $( "#logo" ).height(),
-        $setFixedElement = $( "#btn-container-element" ),
-        $getFixedElementHeight = $setFixedElement.height(),
-        fixOn = $getLogoHeight-$getFixedElementHeight,
-        distanceY = window.pageYOffset || document.documentElement.scrollTop;
+  var $getLogoHeight = $( "#logo" ).height(),
+      $setFixedElement = $( "#btn-container-element" ),
+      getFixedElementHeight = $setFixedElement.height(),
+      fixOn = $getLogoHeight-getFixedElementHeight,
+      distanceY = window.pageYOffset || document.documentElement.scrollTop;
     
-    if ( distanceY >= fixOn ) {
-      $setFixedElement.css({
-        "position": "fixed",
-        "top": "112px",
-        "margin-left": "380px"
-      });
-    } else {
-      $setFixedElement.attr( "style", "" );
-    }
+  if ( distanceY >= fixOn ) {
+    $setFixedElement.css({
+      "position": "fixed",
+      "top": "112px",
+      "margin-left": "380px"
+    });
+   } else {
+     $setFixedElement.attr( "style", "" );
+   }
 
-  });
-}
-
-window.onload = stickyNav();
+});
 
 /*
 var addRemoveAnimation = function( animatedElement ){
