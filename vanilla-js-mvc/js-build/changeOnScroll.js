@@ -22,10 +22,6 @@ function stickyNav() {
         fixOn = $getLogoHeight-$getFixedElementHeight,
         distanceY = window.pageYOffset || document.documentElement.scrollTop;
     
-    console.log("$getLogoHeight: " + $getLogoHeight);
-    console.log("distanceY: " + distanceY);
-    console.log("$getFixedElementHeight: " + $getFixedElementHeight);
-    
     if ( distanceY >= fixOn ) {
       $setFixedElement.css({
         "position": "fixed",
