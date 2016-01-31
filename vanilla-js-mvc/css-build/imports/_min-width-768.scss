@@ -1,7 +1,7 @@
 @media (min-width: 768px) {
 
   /* Style the <nav> */
-  .nav-class, #nav-inner-container {
+  .nav-class {
     width: 100%;
     
     text-align: center;
@@ -9,14 +9,16 @@
 
   .nav-class {
     width: 1170px;
-    height:34px;
-    padding:8px 0;
-    
+
     background-color: #000;
   }
 
-  #nav-inner-container {
-    @include z2();
+  /*
+   * Set the height for both the <nav> and its button child element
+   * container so the sticky nav works.
+   */
+  .nav-class, .btn-container  {
+    height: 34px;
   }
 
   /* Override the standard .btn-default styles that are in Bootstrap */
@@ -24,10 +26,6 @@
     color: #000;
     background-color: $js-yellow;
     border-color: #000;
-  }
-
-  .btn-container {
-    height: 34px;
   }
 
   .btn-show-all-class {
@@ -54,8 +52,10 @@
    .fixed-nav {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 30px;
     right: 0;
+
+    @include z2();
    }
 
 }
