@@ -324,15 +324,12 @@ h2 {
   background-image: none;
 }
 
-.clearfix:before,
-.clearfix:after,
 .container:before,
 .container:after {
   display: table;
   content: " ";
 }
 
-.clearfix:after,
 .container:after {
   clear: both;
 }
@@ -367,7 +364,7 @@ h1 {
   -webkit-transition: height .3s;
   transition: height .3s;
   width: 1170px;
-  position: fixed;
+  height: 200px;
   background-color: #fff;
   z-index: 2;
 }
@@ -456,25 +453,20 @@ button {
 }
 
 @media (min-width:768px) {
-  #nav-inner-container,
+  .btn-container,
+  .nav-class {
+    height: 34px;
+  }
+
   .nav-class {
     width: 100%;
     text-align: center;
   }
 
   .nav-class {
+    width: 1170px;
     padding: 8px 0;
-    margin-top: 220px;
     background-color: #000;
-  }
-
-  #nav-inner-container {
-    z-index: 2;
-  }
-
-  .btn-container {
-    position: relative;
-    z-index: 3;
   }
 
   .btn-show-all-class {
@@ -495,6 +487,13 @@ button {
   .content-class {
     position: relative;
     z-index: 1;
+  }
+
+  .fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 
