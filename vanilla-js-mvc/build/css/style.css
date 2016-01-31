@@ -453,20 +453,15 @@ button {
 }
 
 @media (min-width:768px) {
+  .nav-class {
+    text-align: center;
+    width: 1170px;
+    background-color: #000;
+  }
+
   .btn-container,
   .nav-class {
     height: 34px;
-  }
-
-  .nav-class {
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-class {
-    width: 1170px;
-    padding: 8px 0;
-    background-color: #000;
   }
 
   .btn-show-all-class {
@@ -492,8 +487,9 @@ button {
   .fixed-nav {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 30px;
     right: 0;
+    z-index: 2;
   }
 }
 
