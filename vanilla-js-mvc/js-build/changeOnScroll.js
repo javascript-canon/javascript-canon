@@ -19,14 +19,14 @@ function stickyNav() {
     var $getLogoHeight = $( "#logo" ).height(),
         $setFixedElement = $( "#btn-container-element" ),
         $getFixedElementHeight = $setFixedElement.height(),
-        shrinkOn = $getLogoHeight-$getFixedElementHeight,
+        fixOn = $getLogoHeight-$getFixedElementHeight,
         distanceY = window.pageYOffset || document.documentElement.scrollTop;
     
     console.log("$getLogoHeight: " + $getLogoHeight);
     console.log("distanceY: " + distanceY);
     console.log("$getFixedElementHeight: " + $getFixedElementHeight);
     
-    if ( distanceY > shrinkOn ) {
+    if ( distanceY >= fixOn ) {
       $setFixedElement.css({
         "position": "fixed",
         "top": "112px",
