@@ -2,7 +2,7 @@
 /* | changeOnScroll.js                                               */
 /* ============                                                      */
 /* A generic file for scripts that don't have any real role in       */
-/* the MVC code code                                                 */
+/* the MVC code                                                      */
 /*                                                                   */
 /* http://bit.ly/cool-sticky-code                                    */
 /* ================================================================= */
