@@ -12,11 +12,12 @@ module.exports = function( grunt ) {
         options: {
           ignore: [
             "article",
+            ".book-image",
             ".book-link",
             ".book-link:hover",
             ".book-link:visited",
             ".col-md-4",
-            ".book-image",
+            ".fixed-nav",
             ".h1-animation",
             ".h1-animation-back",
             ".single-resource",
