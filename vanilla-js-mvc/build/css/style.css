@@ -413,6 +413,10 @@ button {
   display: inline-block;
 }
 
+.filter-text {
+  color: #fff;
+}
+
 .h1-class,
 .subheader {
   margin-left: 10px;
