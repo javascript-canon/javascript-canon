@@ -1,4 +1,4 @@
-{
+  {
   "name": "javascript-canon",
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
     "build-jade": "jade jade/index.jade -o build/",
-    "build-js": "browserify js-build/*.js | uglifyjs -mc > build/js/scripts.js",
+    "build-js": "browserify js-build/*.js --exclude js-build/changeOnScroll.js | uglifyjs -mc > build/js/scripts.js",
     "build-sass": "node-sass css-build/style.scss | cleancss -o css-build/style.css",
     "grunt": "grunt",
     "concat-css": "cat css-build/*.css > build/css/style.css",
