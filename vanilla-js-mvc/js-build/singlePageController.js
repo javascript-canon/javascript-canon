@@ -12,18 +12,19 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // "require" the view module so the controller can access it
+    // "require" the single page view module
     SinglePageView = require( "./singlePageView" ),
 
     // reference to Heroku-powered model data in the view
     singleResourceData = SinglePageView.singleResourceData,
 
-    // reference to the view object in the view
+    // reference to the view object in the single page view module
     singlePageView = SinglePageView.SinglePageResourceView,
 
     // create a controller object for a single page view
     SingleResourcePageController = {},
 
+    // reference the single resource links
     bookLink = $(".book-link");
 
 /*
