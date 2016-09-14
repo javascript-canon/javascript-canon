@@ -26,20 +26,20 @@
   "devDependencies": {
     "browserify": "^13.0.0",
     "clean-css": "^3.4.8",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-uncss": "^0.4.4",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-uncss": "^0.6.1",
     "httpster": "^1.0.1",
     "jade": "^1.11.0",
     "node-sass": "^3.4.2",
-    "nodemon": "1.9.0",
+    "nodemon": "1.10.2",
     "uglifyjs": "^2.4.10",
-    "uncss": "0.13.0",
+    "uncss": "0.14.1",
     "watchify": "^3.6.1"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "jquery": "^2.1.4",
+    "jquery": "^3.1.0",
     "underscore": "^1.8.3"
   }
 }
