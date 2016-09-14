@@ -35,4 +35,6 @@ SingleResourcePageController.displaySinglePage = function( getData ) {
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
  */
+
+
 SingleResourcePageController.displaySinglePage( singleResourceData );
