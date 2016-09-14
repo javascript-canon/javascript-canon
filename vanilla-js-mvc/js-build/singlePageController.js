@@ -25,15 +25,22 @@ var
     SingleResourcePageController = {},
 
     // reference the single resource links
-    bookLink = $(".book-link");
+    bookLink = $(".book-link"),
+
+    modal = document.getElementById("page-modal");
 
 /*
  * "displaySinglePage()" method renders the model data that's
- * passed to view object's "render()" method. The "getData" parameter
+ * passed to view object's "openModal()" method. The "getData" parameter
  * represents the model data.
  */
 SingleResourcePageController.displaySinglePage = function(getData) {
-  return singlePageView.render(getData);
+  return singlePageView.openModal(getData);
+};
+
+
+SingleResourcePageController.closeModal = function(getData) {
+  return singlePageView.closeModal(getData);
 };
 
 /*
@@ -45,5 +52,14 @@ SingleResourcePageController.displaySinglePage = function(getData) {
 
 $(bookLink).click(function(e) {
 	e.preventDefault();
-	SingleResourcePageController.displaySinglePage( singleResourceData );
+	SingleResourcePageController.displaySinglePage(singleResourceData);
 });
+
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+
+    if (event.target == modal) {
+        SingleResourcePageController.closeModal(singleResourceData);
+    }
+}
