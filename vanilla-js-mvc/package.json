@@ -30,7 +30,7 @@
     "grunt-uncss": "^0.6.1",
     "httpster": "^1.0.1",
     "jade": "^1.11.0",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.10.0",
     "nodemon": "1.10.2",
     "uglifyjs": "^2.4.10",
     "uncss": "0.14.1",
