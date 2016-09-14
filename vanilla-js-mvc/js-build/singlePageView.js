@@ -27,7 +27,13 @@ var
  * the model data
  */
 SinglePageResourceView.render = function( model ) {
+	var bookLink = $(".book-link"),
+			thisModal = $("#page-modal");
 
+	$(bookLink).click(function(e){
+		e.preventDefault();
+		thisModal.css("display", "block");
+	});
 } // end "render()"
 
 
