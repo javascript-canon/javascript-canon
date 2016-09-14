@@ -16,7 +16,7 @@ var
     Resources = require( "./model" ),
 
     // reference to the data model in the "Resources" module
-    resourcesData = Resources.ResourceModel,
+    singleResourceData = Resources.ResourceModel,
 
     // create view object for a single page view...export it out later
     SinglePageResourceView = {};
@@ -32,7 +32,7 @@ SinglePageResourceView.render = function( model ) {
 
 
 // Export the page data so it's available to the page controller
-exports.resourcesData = resourcesData;
+exports.singleResourceData = singleResourceData;
 
 // Export the page view so it's available to the page controller
 exports.SinglePageResourceView = SinglePageResourceView;
