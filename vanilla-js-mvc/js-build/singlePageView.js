@@ -22,15 +22,15 @@ var
     SinglePageResourceView = {};
 
 /*
- * "render()" method renders info for single resource component.
+ * "openModal()" method openModals info for single resource component.
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
-SinglePageResourceView.render = function(singleResourceData) {
+SinglePageResourceView.openModal = function(singleResourceData) {
 
 		$("#page-modal").css("display", "block");
 
-} // end "render()"
+} // end "openModal()"
 
 
 // Export the page data so it's available to the page controller
