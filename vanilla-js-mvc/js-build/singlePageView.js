@@ -26,7 +26,7 @@ var
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
-SinglePageResourceView.render = function( e ) {
+SinglePageResourceView.render = function() {
 	var bookLink = $(".book-link"),
 			thisModal = $("#page-modal");
 
