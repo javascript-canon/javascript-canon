@@ -9,7 +9,7 @@
 
 var
 
-    // "require" the view code so the controller can access it
+    // "require" the view module so the controller can access it
     HomePageView = require( "./firstPageView" ),
 
     // reference to Heroku-powered model data in the view
@@ -21,7 +21,7 @@ var
     // create a controller object for the homepage view
     SingleResourceController = {};
 
-/* 
+/*
  * "displayHomePage()" method renders the model data that's
  * passed to view object's "render()" method. The "getData" parameter
  * represents the model data.

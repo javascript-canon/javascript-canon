@@ -12,7 +12,7 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // "require" the model data so the view can access it
+    // "require" the model data module so the view can access it
     Resources = require( "./model" ),
 
     // reference to the data model in the "Resources" module
@@ -21,14 +21,14 @@ var
     // create a view object for the homepage view...export it out later
     SingleResourceView = {};
 
-/* 
+/*
  * "render()" method renders info for single resource component.
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
 SingleResourceView.render = function( model ) {
 
-    // Grab the Heroku-powered model data   
+    // Grab the Heroku-powered model data
     var data = resourcesData;
 
     // Loop through the data to build elements
@@ -51,7 +51,7 @@ SingleResourceView.render = function( model ) {
          *
          * Check this at: http://bit.ly/set-attribute-test
          */
-     
+
         // Set attributes for the containing element
         resourceContainer.setAttribute( "class", "col-md-4 single-resource" );
         resourceContainer.setAttribute( "data-resource-type", data[key].type );
@@ -85,7 +85,7 @@ SingleResourceView.render = function( model ) {
       } //end hasOwnProperty() check
 
     } // end for...in loop
-   
+
 } // end "render()"
 
 
