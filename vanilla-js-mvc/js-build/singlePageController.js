@@ -9,6 +9,9 @@
 
 var
 
+    // "require" jQuery core
+    $ = require( "jquery" ),
+
     // "require" the view module so the controller can access it
     SinglePageView = require( "./singlePageView" ),
 
@@ -19,15 +22,17 @@ var
     singlePageView = SinglePageView.SinglePageResourceView,
 
     // create a controller object for a single page view
-    SingleResourcePageController = {};
+    SingleResourcePageController = {},
+
+    bookLink = $(".book-link");
 
 /*
  * "displaySinglePage()" method renders the model data that's
  * passed to view object's "render()" method. The "getData" parameter
  * represents the model data.
  */
-SingleResourcePageController.displaySinglePage = function( getData ) {
-  return singlePageView.render( getData );
+SingleResourcePageController.displaySinglePage = function(getData) {
+  return singlePageView.render(getData);
 };
 
 /*
@@ -37,4 +42,7 @@ SingleResourcePageController.displaySinglePage = function( getData ) {
  */
 
 
-SingleResourcePageController.displaySinglePage( singleResourceData );
+$(bookLink).click(function(e) {
+	e.preventDefault();
+	SingleResourcePageController.displaySinglePage( singleResourceData );
+});
