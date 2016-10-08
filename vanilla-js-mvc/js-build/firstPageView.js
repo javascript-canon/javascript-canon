@@ -79,6 +79,7 @@ SingleResourceView.render = function( model ) {
          */
         buyBookButton.setAttribute("class", "single-resource__button js-book");
         buyBookButton.innerHTML =  "Buy this book!";
+        buyBookButton.setAttribute("href", data[key].link);
 
         /* Set attributes for the button that opens the modal, then
          * add text inside of it
