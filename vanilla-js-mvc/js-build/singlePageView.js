@@ -27,14 +27,18 @@ var
  */
 SinglePageResourceView.openModal = function(singleResourceData) {
 
-		$("#page-modal").css("display", "block");
+  $("#page-modal").css("display", "block");
+  setTimeout(function(){
+    $(".page-modal__top-slide").addClass("move-up");
+    $(".page-modal__bottom-slide").addClass("move-down");
+} ,200)
 
 } // end "openModal()"
 
 
 SinglePageResourceView.closeModal = function(singleResourceData) {
 
-		$("#page-modal").css("display", "none");
+  $("#page-modal").css("display", "none");
 
 } // end "closeModal"
 
