@@ -3,8 +3,14 @@
   .single-resource {
     max-width: 315px;
     margin: 27px;
-    
+
     text-align: center;
   }
-  
+
+  .header{
+		&__text {
+			display:inline-block;
+		}
+  }
+
 }
