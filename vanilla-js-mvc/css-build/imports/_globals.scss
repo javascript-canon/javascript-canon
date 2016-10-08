@@ -11,12 +11,17 @@ button {
     width: 118px;
     margin: 0 6px;
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
 
     color: #000;
     background-color: $js-yellow;
     border-radius: 16px;
-    padding: 10px;
+    cursor: pointer;
+      &:hover {
+        color: $js-yellow;
+        background-color: #000;
+        text-decoration: none;
+      }
   }
 }
 /* Style the <h2> tag */
