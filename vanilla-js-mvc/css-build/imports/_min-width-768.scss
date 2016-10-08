@@ -72,11 +72,17 @@
 
   /* Modal Content/Box */
 .page-modal-element--content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  right: 0;
+  left: 0;
+
+  background-color: #fefefe;
+  border: 1px solid #888;
 }
 
   .page-modal {
