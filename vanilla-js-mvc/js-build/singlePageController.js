@@ -25,7 +25,7 @@ var
     SingleResourcePageController = {},
 
     // reference the single resource links
-    bookLink = $(".info-button"),
+    bookLink = $(".js-modal"),
 
     modal = document.getElementById("page-modal");
 
