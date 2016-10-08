@@ -23,6 +23,8 @@ module.exports = function( grunt ) {
             ".move-down",
             ".move-up",
             ".single-resource",
+            ".single-resource__button",
+            ".page-modal__slide",
             ".scale-logo",
             ".header-class"
           ]
