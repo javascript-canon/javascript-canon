@@ -25,7 +25,7 @@ var
     SingleResourcePageController = {},
 
     // reference the single resource links
-    bookLink = $(".book-link"),
+    bookLink = $(".info-button"),
 
     modal = document.getElementById("page-modal");
 
@@ -48,18 +48,12 @@ SingleResourcePageController.closeModal = function(getData) {
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
  */
-
-
-$(bookLink).click(function(e) {
-	e.preventDefault();
-	SingleResourcePageController.displaySinglePage(singleResourceData);
+$(bookLink).click(function() {
+   SingleResourcePageController.displaySinglePage(singleResourceData);
 });
 
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-
-    if (event.target == modal) {
-        SingleResourcePageController.closeModal(singleResourceData);
-    }
-}
+// When the user clicks on the modal, close it
+$("#page-modal").click(function(){
+    SingleResourcePageController.closeModal(singleResourceData);
+});
