@@ -69,4 +69,19 @@ button {
 .slide {
   position: relative;
   height: 50%;
+  z-index: 3;
+}
+
+.move-up {
+    transform: translate(0,-100%);
+    -webkit-transform: translate(0,-100%);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+
+.move-down {
+    transform: translate(0,100%);
+    -webkit-transform: translate(0,100%);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
 }
