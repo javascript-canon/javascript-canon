@@ -39,6 +39,8 @@ SinglePageResourceView.openModal = function(singleResourceData) {
 SinglePageResourceView.closeModal = function(singleResourceData) {
 
   $("#page-modal").css("display", "none");
+  $(".page-modal__top-slide").removeClass("move-up");
+  $(".page-modal__bottom-slide").removeClass("move-down");
 
 } // end "closeModal"
 
