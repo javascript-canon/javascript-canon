@@ -20,6 +20,8 @@ module.exports = function( grunt ) {
             ".fixed-nav",
             ".h1-animation",
             ".h1-animation-back",
+            ".move-down",
+            ".move-up",
             ".single-resource",
             ".scale-logo",
             ".header-class"
