@@ -1,4 +1,4 @@
-  {
+{
   "name": "javascript-canon",
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
@@ -24,14 +24,15 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.0.0",
-    "clean-css": "^3.4.8",
+    "clean-css": "^3.4.20",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-uncss": "^0.6.1",
     "httpster": "^1.0.1",
     "jade": "^1.11.0",
-    "node-sass": "^3.10.0",
-    "nodemon": "1.10.2",
+    "jquery": "^3.1.1",
+    "node-sass": "^3.10.1",
+    "nodemon": "1.11.0",
     "uglifyjs": "^2.4.10",
     "uncss": "0.14.1",
     "watchify": "^3.6.1"
