@@ -42,7 +42,8 @@ SingleResourceView.render = function( model ) {
             resourceTitle = document.createElement( "h2" ),
             resourceImage = document.createElement( "img" ),
             resourceAuthor = document.createElement( "h3" ),
-            resourceLink = document.createElement( "a" );
+            resourceLink = document.createElement( "a" ),
+            modalButton = document.createElement( "button" );
 
         /*
          * Setting attributes one-by-one instead of using something
@@ -53,6 +54,7 @@ SingleResourceView.render = function( model ) {
          */
 
         // Set attributes for the containing element
+        resourceContainer.setAttribute( "id", key );
         resourceContainer.setAttribute( "class", "col-md-4 single-resource" );
         resourceContainer.setAttribute( "data-resource-type", data[key].type );
 
@@ -71,6 +73,10 @@ SingleResourceView.render = function( model ) {
         resourceLink.setAttribute( "class", "book-link" );
         resourceLink.innerHTML = data[key].title + " &raquo;";
 
+
+        modalButton.setAttribute( "class", "info-button" );
+        modalButton.innerHTML =  "Why is this good?";
+
         /*
          * Arrange elements for an individual resource, then place the
          * resource on the page
@@ -80,6 +86,7 @@ SingleResourceView.render = function( model ) {
         resourceContainer.appendChild( resourceTitle );
         resourceContainer.appendChild( resourceImage );
         resourceContainer.appendChild( resourceAuthor );
+        resourceContainer.appendChild( modalButton );
         pageTarget.appendChild( resourceContainer );
 
       } //end hasOwnProperty() check
