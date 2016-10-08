@@ -43,7 +43,8 @@ SingleResourceView.render = function( model ) {
             resourceImage = document.createElement( "img" ),
             resourceAuthor = document.createElement( "h3" ),
             resourceLink = document.createElement( "a" ),
-            modalButton = document.createElement( "button" );
+            buyBookButton = document.createElement( "a" ),
+            modalButton = document.createElement( "a" );
 
         /*
          * Setting attributes one-by-one instead of using something
@@ -63,19 +64,28 @@ SingleResourceView.render = function( model ) {
 
         // Set attributes for the resource image
         resourceImage.setAttribute( "src", "/img/book-images/" + data[key].image_large );
-        resourceImage.setAttribute( "class", "book-image" );
+        resourceImage.setAttribute("class", "book-image");
 
         // Add the resource author to the inside of the <h3>
         resourceAuthor.innerHTML =  "by " + data[key].author;
 
         // Set attributes for the link, then add the title inside of it
-        resourceLink.setAttribute( "href", data[key].link );
-        resourceLink.setAttribute( "class", "book-link" );
+        resourceLink.setAttribute("href", data[key].link);
+        resourceLink.setAttribute("class", "book-link");
         resourceLink.innerHTML = data[key].title + " &raquo;";
 
+        /* Set attributes for the button that goes to the book's
+         * Amazon page, then add text inside of it
+         */
+        buyBookButton.setAttribute("class", "single-resource__button js-book");
+        buyBookButton.innerHTML =  "Buy this book!";
 
-        modalButton.setAttribute( "class", "info-button" );
-        modalButton.innerHTML =  "Why is this good?";
+        /* Set attributes for the button that opens the modal, then
+         * add text inside of it
+         */
+        modalButton.setAttribute("class", "single-resource__button js-modal");
+        modalButton.innerHTML =  "Why it's good?";
+
 
         /*
          * Arrange elements for an individual resource, then place the
@@ -86,6 +96,7 @@ SingleResourceView.render = function( model ) {
         resourceContainer.appendChild( resourceTitle );
         resourceContainer.appendChild( resourceImage );
         resourceContainer.appendChild( resourceAuthor );
+        resourceContainer.appendChild( buyBookButton );
         resourceContainer.appendChild( modalButton );
         pageTarget.appendChild( resourceContainer );
 
