@@ -6,6 +6,19 @@ button {
   margin: 0 8px;
 }
 
+.single-resource {
+  &__button {
+    width: 118px;
+    margin: 0 6px;
+    display: inline-block;
+    padding: 20px;
+
+    color: #000;
+    background-color: $js-yellow;
+    border-radius: 16px;
+    padding: 10px;
+  }
+}
 /* Style the <h2> tag */
 .gl-subheader {
   margin:0;
@@ -64,13 +77,6 @@ button {
     color: rgba(0, 0, 0, 1);
   }
 
-}
-
-.slide {
-  background-color: $slide-color;
-  position: relative;
-  height: 50%;
-  z-index: 3;
 }
 
 .move-up {
