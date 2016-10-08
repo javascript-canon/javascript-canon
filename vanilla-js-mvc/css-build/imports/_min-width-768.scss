@@ -93,5 +93,11 @@
     &__bottom-slide {
       bottom:0;
     }
+    &__slide {
+      background-color: $slide-color;
+      position: relative;
+      height: 50%;
+      z-index: 3;
+    }
   }
 }
