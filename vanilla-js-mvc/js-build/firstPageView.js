@@ -96,11 +96,11 @@ var buildHash = function() {
   }
   titleArray.forEach(addDash);
 
-  return doWhiteSpace;
+  return titleArray;
 
 } // end "buildHash()"
 
-buildHash();
+
 
 /*
  * "render()" method renders info for single resource component.
@@ -126,7 +126,7 @@ SingleResourceView.render = function(model) {
             resourceAuthor = document.createElement("h3"),
             resourceLink = document.createElement("a"),
             buyBookButton = document.createElement("a"),
-            modalButton = document.createElement("a");
+            modalButton, getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
 
         /*
          * Setting attributes one-by-one instead of using something
@@ -163,13 +163,20 @@ SingleResourceView.render = function(model) {
         buyBookButton.innerHTML =  "Buy this book!";
         buyBookButton.setAttribute("href", data[key].link);
 
+        modalButton = document.createElement("a");
+        getTitle = data[key].title;
+        findLetterNumbersRegex = /[^\w\s\-]/gi;
+        findMultipleWhitespaceRegex = /\s/g;
+        cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
+
+
         /* Set attributes for the button that opens the modal, then
          * add text inside of it
          */
         modalButton.setAttribute("class", "single-resource__button js-modal");
+        modalButton.setAttribute("href", "#" + cleanUpLink);
+
         modalButton.innerHTML =  "Why it's good?";
-
-
 
         /*
          * Arrange elements for an individual resource, then place the
@@ -188,6 +195,8 @@ SingleResourceView.render = function(model) {
     } // end for...in loop
 
 } // end "render()"
+
+
 
 
 // Export the page data so it's available to the page controller
