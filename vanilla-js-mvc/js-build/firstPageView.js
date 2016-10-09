@@ -25,38 +25,78 @@ var
 /* Go through the links and remove anything that isn't a letter,
  * number or space
  */
-var removeSpecialCharacters = function(link) {
+var removeSpecialCharacters = function(oldLink) {
 
+  /* Regex that acts as a whitelist...will look for anything that is
+   * not either a letter or a number
+   */
   var findLetterNumbersRegex = /[^\w\s]/gi;
 
-  if(link.match(findLetterNumbersRegex)) {
-    var newLink = link.replace(findLetterNumbersRegex, "");
+  // If the link has a character that's not a letter or number...
+  if(oldLink.match(findLetterNumbersRegex)) {
+
+    /* ...remove it and return this updated link as a variable called
+     * "newLink..."
+     */
+    var newLink = oldLink.replace(findLetterNumbersRegex, "");
     return newLink;
+
+  } else {
+
+    //...otherwise, just return the link as is
+    return oldLink;
   }
 
 }
 
 // Go through the links replace all whitespaces with a dash
-var addDash = function(link) {
+var addDash = function(oldLink) {
 
-  var findMultipleWhitespaceRegex = /\s{2,}/g;
+  // Regex that looks for any instance of two or more whitespaces
+  var findMultipleWhitespaceRegex = /\s/g;
 
-  if(link.match(findMultipleWhitespaceRegex)) {
-    var newLink = link.replace(/\s{2,}/g, "-");
-    return newLink;
+  // If the link has an instance of two or more whitespaces...
+  if(oldLink.match(findMultipleWhitespaceRegex)) {
+    /* ...replace it with a dash and return this updated link as a
+     * variable called"newLink..."
+     */
+    var newLink = oldLink.replace(findMultipleWhitespaceRegex, "-");
+    // console.log(newLink);
+
+
+  } else {
+
+    // console.log(oldLink);
+    //...otherwise, just return the link as is
+    return oldLink;
   }
 
 }
 
+var buildHash = function() {
 
-SingleResourceView.buildHash = function(link) {
+  // Grab the Heroku-powered model data
+  var data = resourcesData,
+      arr = [];
 
-  var
+  // Loop through the data to build elements
+  for (var key in data) {
 
-      // Grab the Heroku-powered model data
-      data = resourcesData;
+    // Perform standard hasOwnProperty() check
+    if (data.hasOwnProperty(key)) {
+      var doWhiteSpace = removeSpecialCharacters(data[key].title);
+
+      arr.push(doWhiteSpace)
+
+    }
+
+  }
+  console.log(arr)
+  return doWhiteSpace;
 
 } // end "buildHash()"
+
+buildHash();
 
 /*
  * "render()" method renders info for single resource component.
