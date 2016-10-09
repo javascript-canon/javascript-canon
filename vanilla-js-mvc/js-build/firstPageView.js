@@ -42,7 +42,6 @@ var removeSpecialCharacters = function(oldLink) {
     return newLink;
 
   } else {
-
     //...otherwise, just return the link as is
     return oldLink;
   }
@@ -62,10 +61,9 @@ var addDash = function(oldLink) {
      */
     var newLink = oldLink.replace(findMultipleWhitespaceRegex, "-");
     console.log("newLink", newLink);
-
+    return newLink;
 
   } else {
-
     console.log("oldLink", oldLink);
     //...otherwise, just return the link as is
     return oldLink;
@@ -75,23 +73,29 @@ var addDash = function(oldLink) {
 
 var buildHash = function() {
 
-  // Grab the Heroku-powered model data
-  var data = resourcesData,
-      arr = [];
+
+  var
+
+      // Grab the Heroku-powered model data
+      data = resourcesData,
+      titleArray = [];
 
   // Loop through the data to build elements
   for (var key in data) {
 
     // Perform standard hasOwnProperty() check
     if (data.hasOwnProperty(key)) {
-      var doWhiteSpace = removeSpecialCharacters(data[key].title);
+      var getTitle = data[key].title,
+          lowerTitle = getTitle.toLowerCase(),
+          doWhiteSpace = removeSpecialCharacters(lowerTitle);
 
-      arr.push(doWhiteSpace)
+      titleArray.push(doWhiteSpace);
 
     }
 
   }
-  arr.forEach(addDash);
+  titleArray.forEach(addDash);
+
   return doWhiteSpace;
 
 } // end "buildHash()"
