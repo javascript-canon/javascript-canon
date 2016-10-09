@@ -39,7 +39,7 @@ var removeSpecialCharacters = function(link) {
 // Go through the links replace all whitespaces with a dash
 var addDash = function(link) {
 
-  var findMultipleWhitespaceRegex = /\s{2,}/g,
+  var findMultipleWhitespaceRegex = /\s{2,}/g;
 
   if(link.match(findMultipleWhitespaceRegex)) {
     var newLink = link.replace(/\s{2,}/g, "-");
