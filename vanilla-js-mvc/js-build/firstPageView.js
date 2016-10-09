@@ -21,11 +21,49 @@ var
     // create a view object for the homepage view...export it out later
     SingleResourceView = {};
 
+
+/* Go through the links and remove anything that isn't a letter,
+ * number or space
+ */
+var removeSpecialCharacters = function(link) {
+
+  var findLetterNumbersRegex = /[^\w\s]/gi;
+
+  if(link.match(findLetterNumbersRegex)) {
+    var newLink = link.replace(findLetterNumbersRegex, "");
+    return newLink;
+  }
+
+}
+
+// Go through the links replace all whitespaces with a dash
+var addDash = function(link) {
+
+  var findMultipleWhitespaceRegex = /\s{2,}/g,
+
+  if(link.match(findMultipleWhitespaceRegex)) {
+    var newLink = link.replace(/\s{2,}/g, "-");
+    return newLink;
+  }
+
+}
+
+
+SingleResourceView.buildHash = function(link) {
+
+  var
+
+      // Grab the Heroku-powered model data
+      data = resourcesData;
+
+} // end "buildHash()"
+
 /*
  * "render()" method renders info for single resource component.
  * The "model" parameter will represent whatever variable is storing
  * the model data
  */
+
 SingleResourceView.render = function(model) {
 
     // Grab the Heroku-powered model data
@@ -88,11 +126,11 @@ SingleResourceView.render = function(model) {
         modalButton.innerHTML =  "Why it's good?";
 
 
+
         /*
          * Arrange elements for an individual resource, then place the
          * resource on the page
          */
-
         resourceTitle.appendChild(resourceLink);
         resourceContainer.appendChild(resourceTitle);
         resourceContainer.appendChild(resourceImage);
