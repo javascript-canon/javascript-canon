@@ -36,7 +36,7 @@ SingleResourceController.displayHomePage = function( getData ) {
 $(".kai").click(function(){
 	history.pushState(null, null, 'https://twitter.com/hello');
 });
-console.log(modelData)
+
 /*
  * Run the "displayHomePage()" method & pass the model data as its
  * parameter, which is represented by the "modelData" variable defined
