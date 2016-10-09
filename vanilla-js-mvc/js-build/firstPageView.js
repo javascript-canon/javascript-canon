@@ -28,9 +28,9 @@ var
 var removeSpecialCharacters = function(oldLink) {
 
   /* Regex that acts as a whitelist...will look for anything that is
-   * not either a letter or a number
+   * not either a letter, a number or a dash
    */
-  var findLetterNumbersRegex = /[^\w\s]/gi;
+  var findLetterNumbersRegex = /[^\w\s\-]/gi;
 
   // If the link has a character that's not a letter or number...
   if(oldLink.match(findLetterNumbersRegex)) {
