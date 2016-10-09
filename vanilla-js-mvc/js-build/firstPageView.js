@@ -61,12 +61,12 @@ var addDash = function(oldLink) {
      * variable called"newLink..."
      */
     var newLink = oldLink.replace(findMultipleWhitespaceRegex, "-");
-    // console.log(newLink);
+    console.log("newLink", newLink);
 
 
   } else {
 
-    // console.log(oldLink);
+    console.log("oldLink", oldLink);
     //...otherwise, just return the link as is
     return oldLink;
   }
@@ -91,7 +91,7 @@ var buildHash = function() {
     }
 
   }
-  console.log(arr)
+  arr.forEach(addDash);
   return doWhiteSpace;
 
 } // end "buildHash()"
