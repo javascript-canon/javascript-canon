@@ -163,12 +163,36 @@ SingleResourceView.render = function(model) {
         buyBookButton.innerHTML =  "Buy this book!";
         buyBookButton.setAttribute("href", data[key].link);
 
-        modalButton = document.createElement("a");
-        getTitle = data[key].title;
-        findLetterNumbersRegex = /[^\w\s\-]/gi;
-        findMultipleWhitespaceRegex = /\s/g;
-        cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
+        /* The button that opens the modal needs a hash link set as its
+         * "href" attribute. Create that attribute by looking at the
+         * resource's title property in the API, then restructuring it
+         * with some regexes. Uses variables that were created above.
+         */
 
+        // Create an <a> tag
+        modalButton = document.createElement("a");
+
+        // Point to the title property in the API
+        getTitle = data[key].title;
+
+        /* Build a regex that ignores words, spaces and dashes.
+         * Meaning that it will point to special characters.
+         */
+        findLetterNumbersRegex = /[^\w\s\-]/gi;
+
+        // Build a regex that whitespace.
+        findMultipleWhitespaceRegex = /\s/g;
+
+        /* Do the following in order:
+         *
+         * 1. delete any special characters from the title.
+         * 2. replace any whitespace in the title with a "-".
+         * 3. lowercase the title
+         *
+         * So "This title   is CALLED: foo" will look like
+         * "this-title-is-called-foo"
+         */
+        cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
 
         /* Set attributes for the button that opens the modal, then
          * add text inside of it
