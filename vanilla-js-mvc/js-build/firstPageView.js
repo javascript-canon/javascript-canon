@@ -194,12 +194,13 @@ SingleResourceView.render = function(model) {
          */
         cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
 
+        // Set the cleaned up link as the modal button's "href"
+        modalButton.setAttribute("href", "#" + cleanUpLink);
+
         /* Set attributes for the button that opens the modal, then
          * add text inside of it
          */
         modalButton.setAttribute("class", "single-resource__button js-modal");
-        modalButton.setAttribute("href", "#" + cleanUpLink);
-
         modalButton.innerHTML =  "Why it's good?";
 
         /*
