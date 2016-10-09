@@ -4,7 +4,8 @@
 /*                                                                   */
 /*   - create a constructor function called "GetJSONAPI()"           */
 /*   - have GetJSONAPI() XHR in the Heroku JSON API                  */
-/*   - create GetJSONAPI() instance called "ResourceModel" that      *//*     represents the model data                                     */
+/*   - create GetJSONAPI() instance called "ResourceModel" that      */
+/*     represents the model data                                     */
 /*   - export out ResourceModel so views and controllers can see it  */
 /* ================================================================= */
 
