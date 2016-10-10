@@ -53,6 +53,6 @@ $(bookLink).click(function() {
 
 
 // When the user clicks on the modal, close it
-$("#page-modal").click(function(){
+$(".page-modal-element__button").click(function(){
     SingleResourcePageController.closeModal(singleResourceData);
 });
