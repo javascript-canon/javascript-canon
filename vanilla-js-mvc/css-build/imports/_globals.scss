@@ -13,6 +13,12 @@ button {
   }
 }
 
+.page-modal-element {
+  &__header {
+    display: inline-block;
+  }
+}
+
 .single-resource {
   &__button {
     width: 118px;
