@@ -31,8 +31,8 @@ var
 
 /*
  * "displaySinglePage()" method renders the model data that's
- * passed to view object's "openModal()" method. The "getData" parameter
- * represents the model data.
+ * passed to view object's "openModal()" method. The "getData"
+ * parameter represents the model data.
  */
 SingleResourcePageController.displaySinglePage = function(getData) {
   return singlePageView.openModal(getData);
@@ -43,13 +43,12 @@ SingleResourcePageController.closeModal = function(getData) {
   return singlePageView.closeModal(getData);
 };
 
-/*
- * Run the "displaySinglePage()" method & pass the model data as its
+/* Run the "displaySinglePage()" method & pass the model data as its
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
  */
 $(bookLink).click(function() {
-   SingleResourcePageController.displaySinglePage(singleResourceData);
+    SingleResourcePageController.displaySinglePage(singleResourceData);
 });
 
 
