@@ -43,9 +43,29 @@ SinglePageResourceView.closeModal = function(singleResourceData) {
   $("#page-modal").css("display", "none");
   $(".page-modal__top-slide").removeClass("move-up");
   $(".page-modal__bottom-slide").removeClass("move-down");
-  $("body").css("overflow-y", "<auto></auto>");
+  $("body").css("overflow-y", "auto");
 
 } // end "closeModal"
+
+
+SinglePageResourceView.addModalContent = function(singleResourceData) {
+
+    // Grab the Heroku-powered model data
+    var data = singleResourceData;
+
+    // Loop through the data to build elements
+    for (var key in data) {
+
+      // Perform standard hasOwnProperty() check
+      if (data.hasOwnProperty(key)) {
+        var modalText = document.querySelector(".js-modal-content");
+
+        modalText.innerHTML = data[key].about_text;
+
+      }
+    }
+
+} // end "addModalContent"
 
 
 // Export the page data so it's available to the page controller
