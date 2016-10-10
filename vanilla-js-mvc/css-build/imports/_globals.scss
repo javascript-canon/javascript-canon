@@ -19,9 +19,16 @@ button {
   }
 }
 
-.single-resource {
+.page-modal-element{
   &__button {
     width: 118px;
+    float: right;
+  }
+}
+
+.single-resource {
+  &__button {
+    display: inline-block;
   }
 }
 
