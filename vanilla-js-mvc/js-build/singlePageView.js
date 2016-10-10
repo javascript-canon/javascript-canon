@@ -32,6 +32,7 @@ SinglePageResourceView.openModal = function(singleResourceData) {
 
     $(".page-modal__top-slide").addClass("move-up");
     $(".page-modal__bottom-slide").addClass("move-down");
+    $("body").css("overflow-y", "hidden");
 } ,200)
 
 } // end "openModal()"
@@ -42,6 +43,7 @@ SinglePageResourceView.closeModal = function(singleResourceData) {
   $("#page-modal").css("display", "none");
   $(".page-modal__top-slide").removeClass("move-up");
   $(".page-modal__bottom-slide").removeClass("move-down");
+  $("body").css("overflow-y", "<auto></auto>");
 
 } // end "closeModal"
 
