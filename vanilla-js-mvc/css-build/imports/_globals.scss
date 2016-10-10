@@ -6,24 +6,19 @@ button {
   margin: 0 8px;
 }
 
+.page-modal-element,
+.single-resource {
+  &__button {
+    @include coreButton;
+  }
+}
+
 .single-resource {
   &__button {
     width: 118px;
-    margin: 0 6px;
-    display: inline-block;
-    padding: 10px;
-
-    color: #000;
-    background-color: $js-yellow;
-    border-radius: 16px;
-    cursor: pointer;
-      &:hover {
-        color: $js-yellow;
-        background-color: #000;
-        text-decoration: none;
-      }
   }
 }
+
 /* Style the <h2> tag */
 .gl-subheader {
   margin:0;
