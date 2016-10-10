@@ -71,18 +71,23 @@
   }
 
   /* Modal Content/Box */
-.page-modal-element--content {
-  width: 50%;
-  margin: 0 auto;
-  padding: 10px;
-  position: absolute;
-  z-index: 2;
-  top: 10%;
-  right: 0;
-  left: 0;
+.page-modal-element {
+  &__container {
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+    top: 10%;
+    right: 0;
+    left: 0;
 
-  background-color: #fefefe;
-  border: 1px solid #888;
+    background-color: #fefefe;
+    border: 1px solid #888;
+  }
+  &__content {
+
+  }
 }
 
   .page-modal {
