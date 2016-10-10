@@ -33,9 +33,7 @@ SingleResourceController.displayHomePage = function( getData ) {
   return homepageView.render( getData );
 };
 
-$(".kai").click(function(){
-	history.pushState(null, null, 'https://twitter.com/hello');
-});
+
 
 /*
  * Run the "displayHomePage()" method & pass the model data as its
