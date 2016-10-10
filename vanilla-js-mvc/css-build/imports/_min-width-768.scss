@@ -58,37 +58,7 @@
     @include z2();
    }
 
-  .page-modal-element {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: hidden; /* Enable scroll if needed */
-    background-color: rgb(226,223,223);
-  }
 
-  /* Modal Content/Box */
-.page-modal-element {
-  &__container {
-    width: 50%;
-    margin: 0 auto;
-    padding: 10px;
-    position: absolute;
-    z-index: 2;
-    top: 10%;
-    right: 0;
-    left: 0;
-
-    background-color: #fefefe;
-    border: 1px solid #888;
-  }
-  &__content {
-
-  }
-}
 
   .page-modal {
     height: 50%;
