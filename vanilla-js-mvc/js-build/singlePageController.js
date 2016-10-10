@@ -25,9 +25,7 @@ var
     SingleResourcePageController = {},
 
     // reference the single resource links
-    bookLink = $(".js-modal"),
-
-    modal = document.getElementById("page-modal");
+    bookLink = $(".js-modal");
 
 /*
  * "displaySinglePage()" method renders the model data that's
@@ -38,9 +36,12 @@ SingleResourcePageController.displaySinglePage = function(getData) {
   return singlePageView.openModal(getData);
 };
 
-
 SingleResourcePageController.closeModal = function(getData) {
   return singlePageView.closeModal(getData);
+};
+
+SingleResourcePageController.addModalContent = function(getData) {
+  return singlePageView.addModalContent(getData);
 };
 
 /* Run the "displaySinglePage()" method & pass the model data as its
@@ -49,8 +50,8 @@ SingleResourcePageController.closeModal = function(getData) {
  */
 $(bookLink).click(function() {
     SingleResourcePageController.displaySinglePage(singleResourceData);
+    SingleResourcePageController.addModalContent(singleResourceData);
 });
-
 
 // When the user clicks on the modal, close it
 $(".page-modal-element__button").click(function(){
