@@ -93,15 +93,15 @@ SingleResourceView.render = function(model) {
         modalButton = document.createElement("a");
 
         // Point to the title property in the API
-        getTitle = data[key].title;
+        // getTitle = data[key].title;
 
         /* Build a regex that ignores words, spaces and dashes.
          * Meaning that it will point to special characters.
          */
-        findLetterNumbersRegex = /[^\w\s\-]/gi;
+        // findLetterNumbersRegex = /[^\w\s\-]/gi;
 
         // Build a regex that whitespace.
-        findMultipleWhitespaceRegex = /\s/g;
+        // findMultipleWhitespaceRegex = /\s/g;
 
         /* Do the following in order:
          *
@@ -112,10 +112,10 @@ SingleResourceView.render = function(model) {
          * So "This title   is CALLED: foo" will look like
          * "this-title-is-called-foo"
          */
-        cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
+        // cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
 
         // Set the cleaned up link as the modal button's "href"
-        modalButton.setAttribute("href", "#" + cleanUpLink);
+        // modalButton.setAttribute("data-link", cleanUpLink);
 
         /* Set attributes for the button that opens the modal, then
          * add text inside of it
