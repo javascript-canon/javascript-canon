@@ -59,7 +59,6 @@ SinglePageResourceView.addModalContent = function(singleResourceData) {
       // Perform standard hasOwnProperty() check
       if (data.hasOwnProperty(key)) {
         var modalText = document.querySelector(".js-modal-content");
-
         modalText.innerHTML = data[key].about_text;
 
       }
