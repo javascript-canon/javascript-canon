@@ -25,6 +25,7 @@
   "devDependencies": {
     "browserify": "^13.0.0",
     "clean-css": "^3.4.20",
+    "express": "^4.14.0",
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-uncss": "^0.6.1",
