@@ -93,7 +93,6 @@ $(bookLink).on("click", function(event) {
     // Add cleaned-up title to the modal element
     document.querySelector(".page-modal-element__title").innerHTML = cleanedUpResourceTitle;
 
-    // findLetterNumbersRegex = /[^\w\s\-]/gi;
 });
 
 // When the user clicks on the modal's close button, close it
