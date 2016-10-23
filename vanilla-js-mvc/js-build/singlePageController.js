@@ -69,7 +69,13 @@ $(bookLink).on("click", function(event) {
          * resource title
          */
         getResourceTitle = $(this).parents().children()[0].innerText,
-        findLetterNumbersRegex = /[A-Za-z0-9]/g,
+
+        /* Remove all characters from the title that are not letters,
+         * numbers, whitespace, dashes and full-colons.
+         *
+         * TODO: we're adding characters to the Regex manual...can
+         * that be made to be dynamic?
+         */
         cleanedUpResourceTitle = getResourceTitle.replace(/[^\w\s\-\:]/gi, '');
 
     // Build the article array
