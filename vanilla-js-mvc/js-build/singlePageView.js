@@ -21,11 +21,14 @@ var
     // create view object for a single page view...export it out later
     SinglePageResourceView = {};
 
+SinglePageResourceView.aboutTextArray = [];
+
+
 /*
  * "openModal()" method for opening the modal on a single resource
  * page.
  */
-SinglePageResourceView.openModal = function(singleResourceData) {
+SinglePageResourceView.openModal = function() {
 
   $("#page-modal").css("display", "block");
   setTimeout(function(){
@@ -47,22 +50,29 @@ SinglePageResourceView.closeModal = function(singleResourceData) {
 
 } // end "closeModal"
 
+SinglePageResourceView.aboutTextArray = [];
 
-SinglePageResourceView.addModalContent = function(singleResourceData) {
+SinglePageResourceView.buildAboutTextArray = function(callback) {
 
     // Grab the Heroku-powered model data
-    var data = singleResourceData;
+    var data = singleResourceData,
+        localArray = SinglePageResourceView.aboutTextArray ;
 
     // Loop through the data to build elements
     for (var key in data) {
 
       // Perform standard hasOwnProperty() check
       if (data.hasOwnProperty(key)) {
-        var modalText = document.querySelector(".js-modal-content");
-        modalText.innerHTML = data[key].about_text;
 
+        // Add the about text for all resources to the aboutTextArray
+        localArray.push(data[key].about_text);
       }
     }
+
+    // The callback param is either a callback or nothing if left blank
+    this.callback = callback || null;
+
+    return localArray;
 
 } // end "addModalContent"
 

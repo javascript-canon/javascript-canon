@@ -21,39 +21,61 @@ var
     // reference to the view object in the single page view module
     singlePageView = SinglePageView.SinglePageResourceView,
 
+    // Direct reference to the articles array in the view object
+    aboutTextArray = singlePageView.aboutTextArray,
+
     // create a controller object for a single page view
     SingleResourcePageController = {},
 
     // reference the single resource links
     bookLink = $(".js-modal");
 
+
 /*
- * "displaySinglePage()" method renders the model data that's
+ * "openModal()" method renders the model data that's
  * passed to view object's "openModal()" method. The "getData"
  * parameter represents the model data.
  */
-SingleResourcePageController.displaySinglePage = function(getData) {
-  return singlePageView.openModal(getData);
+SingleResourcePageController.openModal = function() {
+  return singlePageView.openModal();
 };
 
-SingleResourcePageController.closeModal = function(getData) {
-  return singlePageView.closeModal(getData);
+SingleResourcePageController.closeModal = function() {
+  return singlePageView.closeModal();
 };
 
-SingleResourcePageController.addModalContent = function(getData) {
-  return singlePageView.addModalContent(getData);
+SingleResourcePageController.buildAboutTextArray = function() {
+  return singlePageView.buildAboutTextArray();
 };
 
-/* Run the "displaySinglePage()" method & pass the model data as its
+/* Run the "openModal()" method & pass the model data as its
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
  */
-$(bookLink).click(function() {
-    SingleResourcePageController.displaySinglePage(singleResourceData);
-    SingleResourcePageController.addModalContent(singleResourceData);
+$(bookLink).on("click", function(event) {
+
+    /* Get the numerical value of the clicked-on link's
+     * "data-resource-number" attribute and subtract 1 from it. This
+     * is done so the number matches the value of the article array
+     * index.
+     */
+    var resourceNumber = $(event.target).data("resourceNumber") - 1;
+
+    // Build the article array
+    SingleResourcePageController.buildAboutTextArray();
+
+    // Open the modal
+    SingleResourcePageController.openModal();
+
+    /* Look at the about text array and grab the link's respective
+     * text into the modal. Subtracting 1 from "resourceNumber"
+     * properly matches the array's 0-based index
+     */
+    document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
+
 });
 
-// When the user clicks on the modal, close it
+// When the user clicks on the modal's close button, close it
 $(".page-modal-element__button").click(function(){
-    SingleResourcePageController.closeModal(singleResourceData);
+    SingleResourcePageController.closeModal();
 });
