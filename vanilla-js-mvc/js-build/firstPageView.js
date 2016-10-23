@@ -72,7 +72,7 @@ SingleResourceView.render = function(model) {
         resourceAuthor.innerHTML =  "by " + data[key].author;
 
         // Set attributes for the link, then add the title inside of it
-        resourceLink.setAttribute("href", data[key].link);
+        //resourceLink.setAttribute("href", data[key].link);
         resourceLink.setAttribute("class", "book-link");
         resourceLink.innerHTML = data[key].title + " &raquo;";
 
@@ -81,7 +81,7 @@ SingleResourceView.render = function(model) {
          */
         buyBookButton.setAttribute("class", "single-resource__button js-book");
         buyBookButton.innerHTML =  "Buy this book!";
-        buyBookButton.setAttribute("href", data[key].link);
+        //buyBookButton.setAttribute("href", data[key].link);
 
         /* The button that opens the modal needs a hash link set as its
          * "href" attribute. Create that attribute by looking at the
@@ -121,6 +121,7 @@ SingleResourceView.render = function(model) {
          * add text inside of it
          */
         modalButton.setAttribute("class", "single-resource__button js-modal");
+        modalButton.setAttribute("data-resource-number", data[key].id);
         modalButton.innerHTML =  "Why it's good?";
 
         /*
