@@ -13,10 +13,6 @@ button {
   }
 }
 
-.page-modal-element {
-
-}
-
 
 /* Modal Content/Box */
 .page-modal-element {
@@ -45,6 +41,9 @@ button {
   &__header {
     margin-top:0;
     display: inline-block;
+  }
+    &__title {
+
   }
   &__content {
 
