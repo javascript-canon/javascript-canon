@@ -59,7 +59,10 @@ $(bookLink).on("click", function(event) {
      * is done so the number matches the value of the article array
      * index.
      */
-    var resourceNumber = $(event.target).data("resourceNumber") - 1;
+    var resourceNumber = $(event.target).data("resourceNumber") - 1,
+        getResourceTitle = $(this).parents().children()[0].innerText,
+        findLetterNumbersRegex = /[A-Za-z0-9]/g,
+        cleanedUpResourceTitle = getResourceTitle.replace(/[^\w\s\-\:]/gi, '');
 
     // Build the article array
     SingleResourcePageController.buildAboutTextArray();
@@ -73,6 +76,9 @@ $(bookLink).on("click", function(event) {
      */
     document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
+    document.querySelector(".page-modal-element__title").innerHTML = cleanedUpResourceTitle;
+
+    // findLetterNumbersRegex = /[^\w\s\-]/gi;
 });
 
 // When the user clicks on the modal's close button, close it
