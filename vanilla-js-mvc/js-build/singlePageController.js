@@ -48,6 +48,7 @@ SingleResourcePageController.buildAboutTextArray = function() {
   return singlePageView.buildAboutTextArray();
 };
 
+
 /* Run the "openModal()" method & pass the model data as its
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
