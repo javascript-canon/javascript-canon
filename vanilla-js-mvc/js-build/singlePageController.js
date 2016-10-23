@@ -54,12 +54,20 @@ SingleResourcePageController.buildAboutTextArray = function() {
  */
 $(bookLink).on("click", function(event) {
 
-    /* Get the numerical value of the clicked-on link's
-     * "data-resource-number" attribute and subtract 1 from it. This
-     * is done so the number matches the value of the article array
-     * index.
-     */
-    var resourceNumber = $(event.target).data("resourceNumber") - 1,
+
+    var
+
+        /* Get the numerical value of the clicked-on link's
+         * "data-resource-number" attribute and subtract 1 from it.
+         * This is done so the number matches the value of the article
+         * array index.
+         */
+        resourceNumber = $(event.target).data("resourceNumber") - 1,
+
+        /* Find the clicked-on link's parent element and look at all
+         * its child elements.  Find the element that contains the
+         * resource title
+         */
         getResourceTitle = $(this).parents().children()[0].innerText,
         findLetterNumbersRegex = /[A-Za-z0-9]/g,
         cleanedUpResourceTitle = getResourceTitle.replace(/[^\w\s\-\:]/gi, '');
@@ -76,6 +84,7 @@ $(bookLink).on("click", function(event) {
      */
     document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
+    // Add cleaned-up title to the modal element
     document.querySelector(".page-modal-element__title").innerHTML = cleanedUpResourceTitle;
 
     // findLetterNumbersRegex = /[^\w\s\-]/gi;
