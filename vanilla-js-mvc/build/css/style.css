@@ -78,11 +78,13 @@ button::-moz-focus-inner {
   img {
     max-width: 100% !important;
   }
-  h2 {
+  h2,
+  h3 {
     orphans: 3;
     widows: 3;
   }
-  h2 {
+  h2,
+  h3 {
     page-break-after: avoid;
   }
 }
@@ -138,14 +140,16 @@ img {
   vertical-align: middle;
 }
 h1,
-h2 {
+h2,
+h3 {
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
 }
 h1,
-h2 {
+h2,
+h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -154,6 +158,9 @@ h1 {
 }
 h2 {
   font-size: 30px;
+}
+h3 {
+  font-size: 24px;
 }
 .container {
   padding-right: 15px;
