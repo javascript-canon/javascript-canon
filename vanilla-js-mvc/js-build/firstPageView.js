@@ -80,8 +80,8 @@ SingleResourceView.render = function(model) {
          * Amazon page, then add text inside of it
          */
         buyBookButton.setAttribute("class", "single-resource__button js-book");
+        buyBookButton.setAttribute("href", data[key].link);
         buyBookButton.innerHTML =  "Buy this book!";
-        //buyBookButton.setAttribute("href", data[key].link);
 
         /* The button that opens the modal needs a hash link set as its
          * "href" attribute. Create that attribute by looking at the
