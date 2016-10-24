@@ -119,8 +119,7 @@ SingleResourceView.render = function(model) {
         modalButton.setAttribute("data-resource-number", data[key].id);
         modalButton.innerHTML =  "Why it's good?";
 
-        /*
-         * Arrange elements for an individual resource, then place the
+        /* Arrange elements for an individual resource, then place the
          * resource on the page
          */
         resourceContainer.appendChild(resourceTitle);
