@@ -86,26 +86,25 @@ SingleNavView.render = function() {
 
       /*
        * The type text is lowercase: make it proper-case & place it
-       * inside the <button> element
+       * inside the <a> element
        */
       btnLink.innerHTML = value.charAt(0).toUpperCase()+value.slice(1);
 
-      // Give the <button> element an id
+      // Give the <a> element an id
       btnLink.setAttribute("id", btnId);
 
-      // Give the <button> element some classes
+      // Give the <a> element some classes
       $(btnLink).addClass("nav__button").attr("data-link-type", value);
 
       /*
-       * Place the <button> in the target "view" element, which is
+       * Place the <a> in the target "view" element, which is
        * <nav>
        */
       btnTargetEl.appendChild(btnLink);
 
     }); //end "createTypeLink"
 
-    /*
-     *  USE JQUERY PROMISES
+    /* USE JQUERY PROMISES
      * ================================================================
      * The data MIGHT not return fast enough so that buttons update
      * the view when they're clicked on and return a console error.
@@ -118,9 +117,10 @@ SingleNavView.render = function() {
     // Let "createTypeLink" be the method that returns a promise
     defer.promise(createTypeLink);
 
-    /*
-     * "createTypeLink" represents the looping function that builds
-     * each <button>. When (and ONLY when) all the <button> elements are built, then the buttons can respond to $.click() elements.
+    /* "createTypeLink" represents the looping function that builds
+     * each nav button. When (and ONLY when) all the nav button
+     * elements are built, then the buttons can respond to $.click()
+     * elements.
      */
     createTypeLink.done(
 
@@ -129,8 +129,7 @@ SingleNavView.render = function() {
         // Single var pattern
         var getLinkType, getElType, getElNotType;
 
-        /*
-         * The ".btn" data-link-type value gets stored in getLinkType.
+        /* The ".btn" data-link-type value gets stored in getLinkType.
          * Data attributes don't work in IE 10 and lower. Feature-
          * detect if the browser supports the dataset property
          */
@@ -142,8 +141,7 @@ SingleNavView.render = function() {
           getLinkType = this.dataset.linkType;
         }
 
-        /*
-         * The ".btn" data-link-type val matches "data-resource-type"
+        /* The ".btn" data-link-type val matches "data-resource-type"
          * value. Store items with matching data-resource-type in the
          * "getElType" variable.
          */
@@ -152,8 +150,7 @@ SingleNavView.render = function() {
         // Store non-matching data-resource-type items in getElNotType
         getElNotType = $("article:not([data-resource-type*="+getLinkType+"])");
 
-        /*
-         * Find page elements with the ".resource" class. Let
+        /* Find page elements with the ".resource" class. Let
          * $.filter() show matching elements, hide non-matching ones.
          */
         $(".single-resource").filter(getElNotType).css("display", "none");
