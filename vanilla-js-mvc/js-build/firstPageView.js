@@ -44,7 +44,6 @@ SingleResourceView.render = function(model) {
             resourceTitle = document.createElement("h2"),
             resourceImage = document.createElement("img"),
             resourceAuthor = document.createElement("h3"),
-            resourceLink = document.createElement("a"),
             buyBookButton = document.createElement("a"),
             modalButton, getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
 
@@ -62,7 +61,8 @@ SingleResourceView.render = function(model) {
         resourceContainer.setAttribute("data-resource-type", data[key].type);
 
         // Add the resource title to the inside of the <h2>
-        resourceTitle.setAttribute("class", "gl-subheader");
+        resourceTitle.setAttribute("class", "resource-header");
+        resourceTitle.innerHTML = data[key].title;
 
         // Set attributes for the resource image
         resourceImage.setAttribute("src", "/img/book-images/" + data[key].image_large);
@@ -70,11 +70,6 @@ SingleResourceView.render = function(model) {
 
         // Add the resource author to the inside of the <h3>
         resourceAuthor.innerHTML =  "by " + data[key].author;
-
-        // Set attributes for the link, then add the title inside of it
-        //resourceLink.setAttribute("href", data[key].link);
-        resourceLink.setAttribute("class", "book-link");
-        resourceLink.innerHTML = data[key].title + " &raquo;";
 
         /* Set attributes for the button that goes to the book's
          * Amazon page, then add text inside of it
@@ -128,7 +123,6 @@ SingleResourceView.render = function(model) {
          * Arrange elements for an individual resource, then place the
          * resource on the page
          */
-        resourceTitle.appendChild(resourceLink);
         resourceContainer.appendChild(resourceTitle);
         resourceContainer.appendChild(resourceImage);
         resourceContainer.appendChild(resourceAuthor);
