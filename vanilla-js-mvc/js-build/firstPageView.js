@@ -43,7 +43,7 @@ SingleResourceView.render = function(model) {
             resourceContainer = document.createElement("article"),
             resourceTitle = document.createElement("h2"),
             resourceImage = document.createElement("img"),
-            resourceAuthor = document.createElement("h3"),
+            resourceAuthor = document.createElement("span"),
             buyBookButton = document.createElement("a"),
             modalButton, getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
 
@@ -124,8 +124,8 @@ SingleResourceView.render = function(model) {
          * resource on the page
          */
         resourceContainer.appendChild(resourceTitle);
-        resourceContainer.appendChild(resourceImage);
         resourceContainer.appendChild(resourceAuthor);
+        resourceContainer.appendChild(resourceImage);
         resourceContainer.appendChild(buyBookButton);
         resourceContainer.appendChild(modalButton);
         pageTarget.appendChild(resourceContainer);
