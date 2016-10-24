@@ -55,7 +55,6 @@ SingleResourcePageController.buildAboutTextArray = function() {
  */
 $(bookLink).on("click", function(event) {
 
-
     var
 
         /* Get the numerical value of the clicked-on link's
