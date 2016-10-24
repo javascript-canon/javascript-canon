@@ -88,7 +88,7 @@ SingleNavView.render = function() {
        * The type text is lowercase: make it proper-case & place it
        * inside the <button> element
        */
-      btnLink.innerHTML = value.charAt(0).toUpperCase() + value.slice(1);
+      btnLink.innerHTML = value.charAt(0).toUpperCase()+value.slice(1);
 
       // Give the <button> element an id
       btnLink.setAttribute("id", btnId);
@@ -124,7 +124,7 @@ SingleNavView.render = function() {
      */
     createTypeLink.done(
 
-      $(".btn-resource").click(function(){
+      $(".nav__button").click(function(){
 
         // Single var pattern
         var getLinkType, getElType, getElNotType;
