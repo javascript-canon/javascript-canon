@@ -18,11 +18,12 @@
   }
 
   /*
-   * Set the height for both the <nav> and its button child element
-   * container so the sticky nav works.
+   * Set the padding for both the <nav> and its button child element
+   * container. Keep the height in mind when coding the sticky nav.
    */
   .nav-class, .btn-container  {
-    height: 34px;
+    /* height: 34px; */
+    padding: 3px 0;
   }
 
   /* Override the standard .btn-default styles that are in Bootstrap */
