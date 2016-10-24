@@ -11,7 +11,8 @@ button {
 }
 
 .page-modal-element,
-.single-resource {
+.single-resource,
+.nav {
   &__button {
     @include coreButton;
   }
@@ -59,8 +60,8 @@ button {
 
 .single-resource {
   &__button {
-    width: 118px;
-    display: inline-block;
+    padding: 10px;
+    @include coreButtonDimensions(118px);
   }
 }
 
@@ -108,7 +109,7 @@ button {
     color: rgba(0, 0, 0, 1);
   }
 }
-
+/* remove later ?*/
 .book-link {
   text-align: center;
   display: block;
@@ -125,6 +126,15 @@ button {
   }
 
 }
+
+/*
+ * NAV STYLES
+ */
+
+ .nav__button {
+    padding: 4px;
+    @include coreButtonDimensions(90px);
+ }
 
 .move-up {
     transform: translate(0,-100%);

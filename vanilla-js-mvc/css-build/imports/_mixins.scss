@@ -46,7 +46,6 @@
 
 @mixin coreButton {
   margin: 0 6px;
-  padding: 10px;
 
   color: #000;
   background-color: $js-yellow;
@@ -57,4 +56,9 @@
     background-color: #000;
     text-decoration: none;
   }
+}
+
+@mixin coreButtonDimensions($width) {
+  width: $width;
+  display: inline-block;
 }
