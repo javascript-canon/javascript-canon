@@ -16,7 +16,6 @@ module.exports = function( grunt ) {
             ".book-link",
             ".book-link:hover",
             ".book-link:visited",
-            ".col-md-4",
             ".fixed-nav",
             ".h1-animation",
             ".h1-animation-back",
