@@ -16,3 +16,18 @@
   background-color: $js-yellow;
   border-color: #000;
 }
+
+
+.container {
+	padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 1200px) {
+
+	/* Override Bootstrap .container width on wide view */
+	.container {
+  	width: auto;
+	}
+
+}

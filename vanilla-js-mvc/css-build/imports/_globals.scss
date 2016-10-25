@@ -10,6 +10,22 @@ button {
   font-family: 'Oxygen', sans-serif;
 }
 
+.header {
+  width: 300px;
+  height: 200px;
+  position: fixed;
+
+  background-color:#fff;
+
+  @include z2;
+  &__logo {
+    width: 100px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+}
+
 .page-modal-element,
 .single-resource,
 .nav {
@@ -66,38 +82,22 @@ button {
   }
 }
 
-/* Style the <h2> tag */
-.gl-subheader {
-  margin:0;
-
-  font-size: 16px;
-}
-
-
-
-.header {
-  width: 300px;
-  height: 200px;
-  position: fixed;
-
-  background-color:#fff;
-
-  @include z2;
-  &__logo {
-    width: 150px;
-    display: inline-block;
-  }
-
-}
-
 .filter-text {
   color: #fff;
 }
 
-.h1-class {
-  font-size: 24px;
-  font-weight: 900;
+.inner-header {
+  &__header-text {
+    font-size: 24px;
+    font-weight: 900;
+  }
+  &__subheader-text {
+    height:70px;
+
+    font-size: 15px;
+  }
 }
+
 /* Style the Twitter link in <header> */
 .gl-twitter-link {
   color: rgba(0, 0, 0, 1);
