@@ -28,7 +28,7 @@ var
      * The default element for out view.  Think of it as the "el"
      * value in "Backbone.Model()"
      */
-    btnTargetEl = document.querySelector("#btn-container-element");
+    btnTargetEl = document.querySelector(".resource-links-list");
 
 // "render()" method renders info for single nav button.
 SingleNavView.render = function() {
@@ -81,6 +81,9 @@ SingleNavView.render = function() {
         // Create an <a> element
         btnLink = document.createElement("a"),
 
+        // Create an <li> element
+        btnListItem = document.createElement("li"),
+
         // Create an eventual id attribute for the <a> element
         btnId = value + "-id";
 
@@ -93,14 +96,19 @@ SingleNavView.render = function() {
       // Give the <a> element an id
       btnLink.setAttribute("id", btnId);
 
-      // Give the <a> element some classes
+      btnListItem.setAttribute("class", "resource-links-list__list_item");
+
+      // Give the <a> element some classes and a data attribute
       $(btnLink).addClass("nav__button").attr("data-link-type", value);
+
+      btnListItem.appendChild(btnLink);
 
       /*
        * Place the <a> in the target "view" element, which is
        * <nav>
        */
-      btnTargetEl.appendChild(btnLink);
+      btnTargetEl.appendChild(btnListItem);
+
 
     }); //end "createTypeLink"
 
@@ -160,7 +168,8 @@ SingleNavView.render = function() {
 }
 
 // Click on "#btn-show-all" to make ALL the learning resources visible
-$("#btn-show-all").click(function() {
+$("#btn-show-all").click(function(event) {
+  event.preventDefault();
   $(".single-resource").css("display", "block");
 });
 
