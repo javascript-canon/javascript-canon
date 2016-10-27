@@ -6,6 +6,19 @@ button {
   margin: 0 8px;
 }
 
+/* Make all links black and make sure they all links have a cursor
+ * property and visited/hover states, even if they don't have href 
+ * attributes.
+ */
+a {
+  color: #000;
+  cursor: pointer;
+  &:visited,
+  &:hover {
+    color: #000;
+  }
+}
+
 .container {
   font-family: 'Oxygen', sans-serif;
 }
@@ -17,13 +30,11 @@ button {
 
   background-color:#fff;
 
-  @include z2;
   &__logo {
     width: 100px;
     margin-bottom: 20px;
     display: inline-block;
   }
-
 }
 
 .page-modal-element,
@@ -83,6 +94,7 @@ button {
 }
 
 .filter-text {
+  margin: 0;
   font-size: 16px;
   color: #000;
   font-weight: 900;
@@ -135,11 +147,6 @@ button {
 /*
  * NAV STYLES
  */
-.nav {
-  &__button {
-    cursor: pointer;
-  }
-}
 
 .resource-links-list {
   padding-left: 0;
