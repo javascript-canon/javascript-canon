@@ -21,7 +21,6 @@ module.exports = function( grunt ) {
             ".h1-animation-back",
             ".move-down",
             ".move-up",
-            ".nav__button",
             ".page-modal-element__button",
             ".resource-header",
             ".single-resource",
