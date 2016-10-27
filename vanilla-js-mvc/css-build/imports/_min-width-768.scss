@@ -7,19 +7,13 @@
   /* Style the <nav> */
   .nav-class {
     width: 100%;
-
-    text-align: center;
-  }
-
-  .nav-class {
-    background-color: #000;
   }
 
   /*
    * Set the padding for both the <nav> and its button child element
    * container. Keep the height in mind when coding the sticky nav.
    */
-  .nav-class, .btn-container  {
+  .nav-class  {
     /* height: 34px; */
     padding: 3px 0;
   }
@@ -32,9 +26,7 @@
   }
 
   .btn-show-all-class {
-    color: #fff;
-    background-color: #737373;
-    border-color: #000;
+    color: #000;
   }
 
   .mobile-menu-button {

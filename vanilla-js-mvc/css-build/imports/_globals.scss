@@ -30,7 +30,7 @@ button {
 .single-resource,
 .nav {
   &__button {
-    @include coreButton;
+    color: #000;
   }
 }
 
@@ -83,7 +83,7 @@ button {
 }
 
 .filter-text {
-  color: #fff;
+  color: #000;
 }
 
 .inner-header {
@@ -133,8 +133,16 @@ button {
 /*
  * NAV STYLES
  */
+.nav {
+  &__button {
+    cursor: pointer;
+  }
+}
 
- .nav__button {
-    padding: 4px;
-    @include coreButtonDimensions(90px);
- }
+.resource-links-list {
+  padding-left: 0;
+  &__list_item {
+    list-style-type: none;
+    cursor: pointer;
+  }
+} 
