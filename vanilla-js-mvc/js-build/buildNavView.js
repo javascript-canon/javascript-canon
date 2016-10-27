@@ -99,12 +99,11 @@ SingleNavView.render = function() {
       btnListItem.setAttribute("class", "resource-links-list__list_item");
 
       // Give the <a> element some classes and a data attribute
-      $(btnLink).addClass("nav__button").attr("data-link-type", value);
+      $(btnLink).attr("data-link-type", value);
 
       btnListItem.appendChild(btnLink);
 
-      /*
-       * Place the <a> in the target "view" element, which is
+      /* Place the <a> in the target "view" element, which is
        * <nav>
        */
       btnTargetEl.appendChild(btnListItem);
