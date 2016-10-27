@@ -80,6 +80,8 @@ a {
   &__button {
     padding: 10px;
     float: right;
+
+    @include coreButton;
   }
 }
 
