@@ -34,14 +34,6 @@ a {
   }
 }
 
-.page-modal-element,
-.single-resource,
-.nav {
-  &__button {
-    color: #000;
-  }
-}
-
 
 /* Modal Content/Box */
 .page-modal-element {
@@ -86,9 +78,16 @@ a {
 }
 
 .single-resource {
+  &__book-image {
+    margin: 0 auto;
+    display: block;
+  }
   &__button {
     padding: 10px;
     @include coreButtonDimensions(118px);
+  }
+  &__author {
+    display:block
   }
 }
 
@@ -153,4 +152,4 @@ a {
     list-style-type: none;
     cursor: pointer;
   }
-} 
+}
