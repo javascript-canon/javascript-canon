@@ -17,7 +17,7 @@
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run css-build'",
     "start": "npm run server & npm run watch-jade & npm run watch-js & npm run watch-css",
-    "book-minify": "imagemin image-min/book-images/* build/img/book-images/",
+    "book-minify": "imagemin image-min/book-images/* --out-dir=build/img/book-images/",
     "copy-bootstrap": "ncp node_modules/bootstrap/dist/css/bootstrap.css css-build/bootstrap.css"
   },
   "author": "kaidez",
