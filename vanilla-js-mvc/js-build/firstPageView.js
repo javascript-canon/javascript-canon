@@ -47,8 +47,7 @@ SingleResourceView.render = function(model) {
             buyBookButton = document.createElement("a"),
             modalButton, getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
 
-        /*
-         * Setting attributes one-by-one instead of using something
+        /* Setting attributes one-by-one instead of using something
          * like $.attr(). You can say that this code isn't cool, but
          * it's certainly faster.
          *
@@ -60,16 +59,22 @@ SingleResourceView.render = function(model) {
         resourceContainer.setAttribute("class", "col-md-4 single-resource");
         resourceContainer.setAttribute("data-resource-type", data[key].type);
 
-        // Add the resource title to the inside of the <h2>
-        resourceTitle.setAttribute("class", "resource-header");
+        /* Add the resource title to the inside of the <h2> and give 
+         * it a class
+         */
         resourceTitle.innerHTML = data[key].title;
-
+        resourceTitle.setAttribute("class", "resource-header");
+        
         // Set attributes for the resource image
         resourceImage.setAttribute("src", "/img/book-images/" + data[key].image_large);
-        resourceImage.setAttribute("class", "book-image");
+        resourceImage.setAttribute("class", "single-resource__book-image");
 
-        // Add the resource author to the inside of the <h3>
+        /* Add the resource author to the inside of the <h3> and give 
+         * it a class
+         */
         resourceAuthor.innerHTML =  "by " + data[key].author;
+        resourceAuthor.setAttribute("class", "single-resource__author");
+        
 
         /* Set attributes for the button that goes to the book's
          * Amazon page, then add text inside of it
