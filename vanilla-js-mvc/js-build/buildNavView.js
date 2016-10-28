@@ -15,28 +15,18 @@ var
     // "require" underscore library
     _ = require("underscore"),
 
-    // "require" the model data so the view can access it
-    Resources = require("./model"),
-
-    // reference to the data model in the "Resources" module
-    navModelData = Resources.ResourceModel,
-
     // Create an object for the SingleNavView
     SingleNavView = {},
 
-    /*
-     * The default element for out view.  Think of it as the "el"
+    /* The default element for out view.  Think of it as the "el"
      * value in "Backbone.Model()"
      */
     btnTargetEl = document.querySelector(".resource-links-list");
 
 // "render()" method renders info for single nav button.
-SingleNavView.render = function() {
+SingleNavView.render = function(model) {
 
   var
-
-    // Grab the Heroku-powered model data
-    navData = navModelData,
 
     // Array that will contain a list of resource types
     types = [],
@@ -48,33 +38,31 @@ SingleNavView.render = function() {
     createTypeLink;
 
     // Loop through the model data to build the nav
-    for (var key in navData) {
+    for (var key in model) {
 
-      // Do standard hasOwnProperty() check against "navData" object
-      if(navData.hasOwnProperty(key)) {
+      // Do standard hasOwnProperty() check against "data" object
+      if(model.hasOwnProperty(key)) {
 
         // Get all the resource types & add them to the "types" array
-        types.push(navData[key].type);
+        types.push(model[key].type);
 
       } // end hasOwnProperty() check
 
     } // end for...in loop
 
-    /*
-     * The "types" array contains duplicate items at this point.
+    /* The "types" array contains duplicate items at this point.
      * Remove the duplicate items with underscore's "uniq" method
      * Store the resulting array in a new array with a variable name
      * of "linkType".
      */
     linkType = _.uniq(types);
 
-    /*
-     * Let the "createTypeLink" variable be a jQuery.each() call that
+    /* Let the "createTypeLink" variable be a jQuery.each() call that
      * loops through the "types" ("book", "class", etc.) and create a
      * a for each one. Using jQuery because we need it to return
      * a promise for something later on.
      */
-    createTypeLink = $.each(linkType, function(index, value) {
+    createTypeLink = $.each(linkType, function(index, resourceType) {
 
       var
 
@@ -85,13 +73,12 @@ SingleNavView.render = function() {
         btnListItem = document.createElement("li"),
 
         // Create an eventual id attribute for the <a> element
-        btnId = value + "-id";
+        btnId = resourceType + "-id";
 
-      /*
-       * The type text is lowercase: make it proper-case & place it
+      /* The type text is lowercase: make it proper-case & place it
        * inside the <a> element
        */
-      btnLink.innerHTML = value.charAt(0).toUpperCase()+value.slice(1);
+      btnLink.innerHTML = resourceType.charAt(0).toUpperCase() + resourceType.slice(1);
 
       // Give the <a> element an id
       btnLink.setAttribute("id", btnId);
@@ -99,7 +86,7 @@ SingleNavView.render = function() {
       btnListItem.setAttribute("class", "resource-links-list__list_item");
 
       // Give the <a> element some classes and a data attribute
-      $(btnLink).attr("data-link-type", value);
+      $(btnLink).attr("data-link-type", resourceType);
 
       btnListItem.appendChild(btnLink);
 
@@ -171,9 +158,6 @@ $("#btn-show-all").click(function(event) {
   event.preventDefault();
   $(".single-resource").css("display", "block");
 });
-
-// Export the nav data so it's available to the nav controller
-exports.navModelData = navModelData;
 
 // Export the nav view so it's available to the nav controller
 exports.SingleNavView = SingleNavView;
