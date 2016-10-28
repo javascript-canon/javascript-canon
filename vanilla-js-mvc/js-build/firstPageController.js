@@ -12,32 +12,17 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
+    // reference to Heroku-powered model data in the view
+    modelData = require("./model"),
+
     // "require" the view module so the controller can access it
     HomePageView = require( "./firstPageView" ),
 
-    // reference to Heroku-powered model data in the view
-    modelData = HomePageView.resourcesData,
+    resourceData = modelData.ResourceModel,
 
     // reference to the view object in the view
-    homepageView = HomePageView.SingleResourceView,
+    homepageView = HomePageView.SingleResourceView;
 
-    // create a controller object for the homepage view
-    SingleResourceController = {};
-
-/*
- * "displayHomePage()" method renders the model data that's
- * passed to view object's "render()" method. The "getData" parameter
- * represents the model data.
- */
-SingleResourceController.displayHomePage = function( getData ) {
-  return homepageView.render( getData );
-};
-
-
-
-/*
- * Run the "displayHomePage()" method & pass the model data as its
- * parameter, which is represented by the "modelData" variable defined
- * above.
- */
-SingleResourceController.displayHomePage( modelData );
+ $.getJSON(resourceData).done(function(data){
+    return homepageView.renderFirstPage(data);
+ });

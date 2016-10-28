@@ -12,32 +12,21 @@ var
     // "require" jQuery core
     $ = require("jquery"),
 
-    // "require" the model data module so the view can access it
-    Resources = require("./model"),
-
-    // reference to the data model in the "Resources" module
-    resourcesData = Resources.ResourceModel,
-
     // create a view object for the homepage view...export it out later
     SingleResourceView = {};
 
 
-/*
- * "render()" method renders info for single resource component.
- * The "model" parameter will represent whatever variable is storing
- * the model data
+/* "renderFirstPage()" method renders info for single resource 
+ * component. The "model" parameter will represent whatever variable 
+ * is storing the model data
  */
-
-SingleResourceView.render = function(model) {
-
-    // Grab the Heroku-powered model data
-    var data = resourcesData;
+SingleResourceView.renderFirstPage = function(model) {
 
     // Loop through the data to build elements
-    for (var key in data) {
+    for (var data in model) {
 
       // Perform standard hasOwnProperty() check
-      if (data.hasOwnProperty(key)) {
+      if (model.hasOwnProperty(data)) {
 
         var pageTarget = document.getElementById("targetEl"),
             resourceContainer = document.createElement("article"),
@@ -55,32 +44,31 @@ SingleResourceView.render = function(model) {
          */
 
         // Set attributes for the containing element
-        resourceContainer.setAttribute("id", key);
+        resourceContainer.setAttribute("id", data);
         resourceContainer.setAttribute("class", "col-md-4 single-resource");
-        resourceContainer.setAttribute("data-resource-type", data[key].type);
+        resourceContainer.setAttribute("data-resource-type", model[data].type);
 
         /* Add the resource title to the inside of the <h2> and give 
          * it a class
          */
-        resourceTitle.innerHTML = data[key].title;
+        resourceTitle.innerHTML = model[data].title;
         resourceTitle.setAttribute("class", "resource-header");
         
         // Set attributes for the resource image
-        resourceImage.setAttribute("src", "/img/book-images/" + data[key].image_large);
+        resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
         resourceImage.setAttribute("class", "single-resource__book-image");
 
-        /* Add the resource author to the inside of the <h3> and give 
-         * it a class
+        /* Add the resource author to the inside of the <span> and 
+         * give it a class
          */
-        resourceAuthor.innerHTML =  "by " + data[key].author;
+        resourceAuthor.innerHTML =  "by " + model[data].author;
         resourceAuthor.setAttribute("class", "single-resource__author");
         
-
         /* Set attributes for the button that goes to the book's
          * Amazon page, then add text inside of it
          */
         buyBookButton.setAttribute("class", "single-resource__button js-book");
-        buyBookButton.setAttribute("href", data[key].link);
+        buyBookButton.setAttribute("href", model[data].link);
         buyBookButton.innerHTML =  "Buy this book!";
 
         /* The button that opens the modal needs a hash link set as its
@@ -93,7 +81,7 @@ SingleResourceView.render = function(model) {
         modalButton = document.createElement("a");
 
         // Point to the title property in the API
-        // getTitle = data[key].title;
+        // getTitle = data[data].title;
 
         /* Build a regex that ignores words, spaces and dashes.
          * Meaning that it will point to special characters.
@@ -121,7 +109,7 @@ SingleResourceView.render = function(model) {
          * add text inside of it
          */
         modalButton.setAttribute("class", "single-resource__button js-modal");
-        modalButton.setAttribute("data-resource-number", data[key].id);
+        modalButton.setAttribute("data-resource-number", model[data].id);
         modalButton.innerHTML =  "Why it's good?";
 
         /* Arrange elements for an individual resource, then place the
@@ -138,13 +126,7 @@ SingleResourceView.render = function(model) {
 
     } // end for...in loop
 
-} // end "render()"
-
-
-
-
-// Export the page data so it's available to the page controller
-exports.resourcesData = resourcesData;
+} // end "renderFirstPage()"
 
 // Export the page view so it's available to the page controller
 exports.SingleResourceView = SingleResourceView;
