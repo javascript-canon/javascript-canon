@@ -12,12 +12,6 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // "require" the model data module so the view can access it
-    Resources = require( "./model" ),
-
-    // reference to the data model in the "Resources" module
-    singleResourceData = Resources.ResourceModel,
-
     // create view object for a single page view...export it out later
     SinglePageResourceView = {};
 
@@ -41,7 +35,7 @@ SinglePageResourceView.openModal = function() {
 } // end "openModal()"
 
 
-SinglePageResourceView.closeModal = function(singleResourceData) {
+SinglePageResourceView.closeModal = function() {
 
   $("#page-modal").css("display", "none");
   $(".page-modal__top-slide").removeClass("move-up");
@@ -52,11 +46,10 @@ SinglePageResourceView.closeModal = function(singleResourceData) {
 
 SinglePageResourceView.aboutTextArray = [];
 
-SinglePageResourceView.buildAboutTextArray = function(callback) {
+SinglePageResourceView.buildAboutTextArray = function(data, callback) {
 
     // Grab the Heroku-powered model data
-    var data = singleResourceData,
-        localArray = SinglePageResourceView.aboutTextArray ;
+    var localArray = SinglePageResourceView.aboutTextArray;
 
     // Loop through the data to build elements
     for (var key in data) {
@@ -75,10 +68,6 @@ SinglePageResourceView.buildAboutTextArray = function(callback) {
     return localArray;
 
 } // end "addModalContent"
-
-
-// Export the page data so it's available to the page controller
-exports.singleResourceData = singleResourceData;
 
 // Export the page view so it's available to the page controller
 exports.SinglePageResourceView = SinglePageResourceView;
