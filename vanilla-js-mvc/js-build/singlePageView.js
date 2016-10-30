@@ -46,19 +46,19 @@ SinglePageResourceView.closeModal = function() {
 
 SinglePageResourceView.aboutTextArray = [];
 
-SinglePageResourceView.buildAboutTextArray = function(data, callback) {
+SinglePageResourceView.buildAboutTextArray = function(model, callback) {
 
     // Grab the Heroku-powered model data
     var localArray = SinglePageResourceView.aboutTextArray;
 
     // Loop through the data to build elements
-    for (var key in data) {
+    for (var data in model) {
 
       // Perform standard hasOwnProperty() check
-      if (data.hasOwnProperty(key)) {
+      if (model.hasOwnProperty(data)) {
 
         // Add the about text for all resources to the aboutTextArray
-        localArray.push(data[key].about_text);
+        localArray.push(model[data].about_text);
       }
     }
 
