@@ -40,73 +40,26 @@ SingleResourcePageController.closeModal = function() {
   return singlePageView.closeModal();
 };
 
-SingleResourcePageController.buildAboutTextArray = function() {
-  return singlePageView.buildAboutTextArray();
+SingleResourcePageController.buildAboutTextArray = function(data, callback) {
+  return singlePageView.buildAboutTextArray(data, callback);
 };
 
 
-/* Run the "openModal()" method & pass the model data as its
- * parameter, which is represented by the "singleResourceData"
- * variable defined above.
- */
-function buildModalContent(event) {
+function buildModalContent(event, data) {
+    var resourceNumber = $(event.target).data("resourceNumber") - 1,
+        getTitle = $(event.target).parent().children()[0].innerHTML;
 
-    var
+    SingleResourcePageController.buildAboutTextArray(data); 
+    SingleResourcePageController.openModal();  
 
-        /* Get the numerical value of the clicked-on link's
-         * "data-resource-number" attribute and subtract 1 from it.
-         * This is done so the number matches the value of the article
-         * array index.
-         */
-        resourceNumber = $(event.target).data("resourceNumber") - 1,
-
-        /* Find the clicked-on link's parent element and look at all
-         * its child elements.  Find the element that contains the
-         * resource title
-         */
-        getResourceTitle = $(this).parents().children()[0].innerText,
-
-        /* Remove all characters from the title that are not letters,
-         * numbers, whitespace, dashes and full-colons.
-         *
-         * TODO: we're adding characters to the Regex manual...can
-         * that be made to be dynamic?
-         */
-        cleanedUpResourceTitle = getResourceTitle.replace(/[^\w\s\-\:]/gi, '');
-
-    // Build the article array
-    // SingleResourcePageController.buildAboutTextArray();
-
-    // // Open the modal
-    // SingleResourcePageController.openModal();
-
-    /* Look at the about text array and grab the link's respective
-     * text into the modal. Subtracting 1 from "resourceNumber"
-     * properly matches the array's 0-based index
-     */
     document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
-    // Add cleaned-up title to the modal element
-    document.querySelector(".page-modal-element__title").innerHTML = cleanedUpResourceTitle;
+    document.querySelector(".page-modal-element__title").innerHTML = getTitle;
 
-};
+}
 
 $.getJSON(modelData).done(function(data) {
     $(".js-modal").on("click", function(){
-
-        var defer = $.Deferred(),
-            buildArray = singlePageView.buildAboutTextArray(data);
-
-        // Let "createTypeLink" be the method that returns a promise
-        defer.promise(buildArray);
-
-        buildArray.done(
-            SingleResourcePageController.openModal()
-        )
+        buildModalContent(event, data);
     });
-}); 
-
-// When the user clicks on the modal's close button, close it
-$(".page-modal-element__button").click(function(){
-    SingleResourcePageController.closeModal();
 });
