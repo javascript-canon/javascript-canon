@@ -12,27 +12,23 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
+    // reference to Heroku-powered model data
+    modelData = require("./model").ResourceModel,
+
     // "require" the single page view module
     SinglePageView = require( "./singlePageView" ),
-
-    // reference to Heroku-powered model data in the view
-    singleResourceData = SinglePageView.singleResourceData,
 
     // reference to the view object in the single page view module
     singlePageView = SinglePageView.SinglePageResourceView,
 
-    // Direct reference to the articles array in the view object
+    // reference to the about text array in the single page view module
     aboutTextArray = singlePageView.aboutTextArray,
 
     // create a controller object for a single page view
-    SingleResourcePageController = {},
-
-    // reference the single resource links
-    bookLink = $(".js-modal");
+    SingleResourcePageController = {};
 
 
-/*
- * "openModal()" method renders the model data that's
+/* "openModal()" method renders the model data that's
  * passed to view object's "openModal()" method. The "getData"
  * parameter represents the model data.
  */
@@ -53,7 +49,7 @@ SingleResourcePageController.buildAboutTextArray = function() {
  * parameter, which is represented by the "singleResourceData"
  * variable defined above.
  */
-$(bookLink).on("click", function(event) {
+function buildModalContent(event) {
 
     var
 
@@ -79,10 +75,10 @@ $(bookLink).on("click", function(event) {
         cleanedUpResourceTitle = getResourceTitle.replace(/[^\w\s\-\:]/gi, '');
 
     // Build the article array
-    SingleResourcePageController.buildAboutTextArray();
+    // SingleResourcePageController.buildAboutTextArray();
 
-    // Open the modal
-    SingleResourcePageController.openModal();
+    // // Open the modal
+    // SingleResourcePageController.openModal();
 
     /* Look at the about text array and grab the link's respective
      * text into the modal. Subtracting 1 from "resourceNumber"
@@ -93,7 +89,22 @@ $(bookLink).on("click", function(event) {
     // Add cleaned-up title to the modal element
     document.querySelector(".page-modal-element__title").innerHTML = cleanedUpResourceTitle;
 
-});
+};
+
+$.getJSON(modelData).done(function(data) {
+    $(".js-modal").on("click", function(){
+
+        var defer = $.Deferred(),
+            buildArray = singlePageView.buildAboutTextArray(data);
+
+        // Let "createTypeLink" be the method that returns a promise
+        defer.promise(buildArray);
+
+        buildArray.done(
+            SingleResourcePageController.openModal()
+        )
+    });
+}); 
 
 // When the user clicks on the modal's close button, close it
 $(".page-modal-element__button").click(function(){
