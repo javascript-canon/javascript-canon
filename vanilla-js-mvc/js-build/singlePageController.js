@@ -46,6 +46,7 @@ SingleResourcePageController.buildAboutTextArray = function(data, callback) {
 
 
 function buildModalContent(event, data) {
+    
     var resourceNumber = $(event.target).data("resourceNumber") - 1,
         getTitle = $(event.target).parent().children()[0].innerHTML;
 
