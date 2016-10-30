@@ -16,10 +16,7 @@ var
     modelData = require("./model").ResourceModel,
 
     // "require" the single page view module
-    SinglePageView = require( "./singlePageView" ),
-
-    // reference to the view object in the single page view module
-    singlePageView = SinglePageView.SinglePageResourceView,
+    singlePageView = require("./singlePageView").SinglePageResourceView,
 
     // reference to the about text array in the single page view module
     aboutTextArray = singlePageView.aboutTextArray,
@@ -63,4 +60,11 @@ $.getJSON(modelData).done(function(data) {
     $(".js-modal").on("click", function(){
         buildModalContent(event, data);
     });
+});
+
+
+
+// When the user clicks on the modal's close button, close it
+$(".page-modal-element__button").click(function(){
+    SingleResourcePageController.closeModal();
 });
