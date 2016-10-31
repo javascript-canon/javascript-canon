@@ -12,17 +12,15 @@ var
     // "require" jQuery core
     $ = require( "jquery" ),
 
-    // reference to Heroku-powered model data in the view
-    modelData = require("./model"),
+    // reference to Heroku-powered model data
+    modelData = require("./model").ResourceModel,
 
     // "require" the view module so the controller can access it
     HomePageView = require( "./firstPageView" ),
 
-    resourceData = modelData.ResourceModel,
-
     // reference to the view object in the view
     homepageView = HomePageView.SingleResourceView;
 
- $.getJSON(resourceData).done(function(data){
+ $.getJSON(modelData).done(function(data){
     return homepageView.renderFirstPage(data);
  });
