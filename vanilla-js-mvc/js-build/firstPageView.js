@@ -20,21 +20,22 @@ var
  * component. The "model" parameter will represent whatever variable 
  * is storing the model data
  */
-SingleResourceView.renderFirstPage = function(model) {
+ SingleResourceView.renderFirstPage = function(model) {
 
-    // Loop through the data to build elements
-    for (var data in model) {
+  // Loop through the data to build elements
+  for (var data in model) {
 
-      // Perform standard hasOwnProperty() check
-      if (model.hasOwnProperty(data)) {
+    // Perform standard hasOwnProperty() check
+    if (model.hasOwnProperty(data)) {
 
-        var pageTarget = document.getElementById("targetEl"),
-            resourceContainer = document.createElement("article"),
-            resourceTitle = document.createElement("h2"),
-            resourceImage = document.createElement("img"),
-            resourceAuthor = document.createElement("span"),
-            buyBookButton = document.createElement("a"),
-            modalButton, getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
+      var pageTarget = document.getElementById("targetEl"),
+          resourceContainer = document.createElement("article"),
+          resourceTitle = document.createElement("h2"),
+          resourceImage = document.createElement("img"),
+          resourceAuthor = document.createElement("span"),
+          buyBookButton = document.createElement("a"),
+          modalButton = document.createElement("a"),
+          getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
 
         /* Setting attributes one-by-one instead of using something
          * like $.attr(). You can say that this code isn't cool, but
@@ -43,42 +44,41 @@ SingleResourceView.renderFirstPage = function(model) {
          * Check this at: http://bit.ly/set-attribute-test
          */
 
-        // Set attributes for the containing element
-        resourceContainer.setAttribute("id", data);
-        resourceContainer.setAttribute("class", "col-md-4 single-resource");
-        resourceContainer.setAttribute("data-resource-type", model[data].type);
+      // Set attributes for the containing element
+      resourceContainer.setAttribute("id", data);
+      resourceContainer.setAttribute("class", "col-md-4 single-resource");
+      resourceContainer.setAttribute("data-resource-type", model[data].type);
 
-        /* Add the resource title to the inside of the <h2> and give 
-         * it a class
-         */
-        resourceTitle.innerHTML = model[data].title;
-        resourceTitle.setAttribute("class", "resource-header");
-        
-        // Set attributes for the resource image
-        resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
-        resourceImage.setAttribute("class", "single-resource__book-image");
+      /* Add the resource title to the inside of the <h2> and give it
+       * a class
+       */
+      resourceTitle.innerHTML = model[data].title;
+      resourceTitle.setAttribute("class", "resource-header");
 
-        /* Add the resource author to the inside of the <span> and 
-         * give it a class
-         */
-        resourceAuthor.innerHTML =  "by " + model[data].author;
-        resourceAuthor.setAttribute("class", "single-resource__author");
-        
-        /* Set attributes for the button that goes to the book's
-         * Amazon page, then add text inside of it
-         */
-        buyBookButton.setAttribute("class", "single-resource__button js-book");
-        buyBookButton.setAttribute("href", model[data].link);
-        buyBookButton.innerHTML =  "Buy this book!";
+      // Set attributes for the resource image
+      resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
+      resourceImage.setAttribute("class", "single-resource__book-image");
 
-        /* The button that opens the modal needs a hash link set as its
-         * "href" attribute. Create that attribute by looking at the
-         * resource's title property in the API, then restructuring it
-         * with some regexes. Uses variables that were created above.
-         */
+      /* Add the resource author to the inside of the <span> and 
+       * give it a class
+       */
+      resourceAuthor.innerHTML =  "by " + model[data].author;
+      resourceAuthor.setAttribute("class", "single-resource__author");
 
-        // Create an <a> tag
-        modalButton = document.createElement("a");
+      /* Set attributes for the button that goes to the book's
+       * Amazon page, then add text inside of it
+       */
+      buyBookButton.setAttribute("class", "single-resource__button js-book");
+      buyBookButton.setAttribute("href", model[data].link);
+      buyBookButton.innerHTML =  "Buy this book!";
+
+      /* The button that opens the modal needs a hash link set as its
+       * "href" attribute. Create that attribute by looking at the
+       * resource's title property in the API, then restructuring it
+       * with some regexes. Uses variables that were created above.
+       */
+
+
 
         // Point to the title property in the API
         // getTitle = data[data].title;
