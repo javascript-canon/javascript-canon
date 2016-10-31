@@ -151,16 +151,10 @@ SingleNavView.render = function(model) {
          * $.filter() show matching elements, hide non-matching ones.
          */
         $(".single-resource").filter(getElNotType).css("display", "none");
-        $(".single-resource").filter(getElType).css("display", "block");
+        $(".single-resource").filter(getElType).css("display", "inline-block");
       })
    );
 }
-
-// Click on "#btn-show-all" to make ALL the learning resources visible
-$("#btn-show-all").click(function(event) {
-  event.preventDefault();
-  $(".single-resource").css("display", "block");
-});
 
 // Export the nav view so it's available to the nav controller
 exports.SingleNavView = SingleNavView;
