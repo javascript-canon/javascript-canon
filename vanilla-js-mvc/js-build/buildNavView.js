@@ -131,7 +131,6 @@ SingleNavView.render = function(model) {
          * Feature-detect if the browser supports the dataset property.
          * If it doesn't, use the getAttribute method instead
          */
-
         if(!this.dataset) { // If <= IE10
           getLinkType = this.getAttribute("data-link-type");
         } else { // For other browsers
@@ -147,7 +146,7 @@ SingleNavView.render = function(model) {
         // Store non-matching data-resource-type items in getElNotType
         getElNotType = $("article:not([data-resource-type*="+getLinkType+"])");
 
-        /* Find page elements with the ".resource" class. Let
+        /* Find page elements with the ".single-resource" class. Let
          * $.filter() show matching elements, hide non-matching ones.
          */
         $(".single-resource").filter(getElNotType).css("display", "none");
