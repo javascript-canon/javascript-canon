@@ -1,16 +1,15 @@
 div.left-column
   header.header
-    img(src="img/js-logo.svg" alt="Logo for the JavaScript Canon" id= "logo" class="header__logo")
-    div#inner-header.header__text
-      h1#h1-text.inner-header__header-text The JavaScript Canon
-      h2.inner-header__subheader-text
-        | A list of the best JavaScript learning resources curated by 
-        a(href="http://twitter.com/kaidez" class="gl-twitter-link")@kaidez
-      button(type="button" id="mobile-menu" class="mobile-menu-button")
-        span.mobile-menu-bar
-        span.mobile-menu-bar
-        span.mobile-menu-bar
-    nav#nav.nav-class
+    button(type="button" id="mobile-menu" class="mobile-menu")
+      span.mobile-menu--bar
+      span.mobile-menu--bar
+      span.mobile-menu--bar
+    img(src="img/js-logo.png" alt="Logo for the JavaScript Canon" id= "logo" class="header__logo")
+    div.header__innerText
+      h1.header--headerTitle The JavaScript Canon
+      h2.header--subheaderTitle
+        | Top-notch JavaScript learning resources curated by <a href="http://twitter.com/kaidez" class="gl-twitter-link">@kaidez</a>
+    nav.nav
       h2.filter-text
         | FILTER RESOURCE TYPES
       ul.resource-links-list
