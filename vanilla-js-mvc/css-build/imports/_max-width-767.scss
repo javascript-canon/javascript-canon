@@ -1,55 +1,73 @@
 @media (max-width: 767px) {
 
   .header {
+    padding-bottom: 4px;
+
+    border: 1px solid darken($js-yellow, 10%);
+    background-color:$js-yellow;
+
     &__logo {
-      margin-right: 10px;
-      position:fixed;
-      @include z2;
-
-      background-color: #fff;
+      margin: 0 auto;
+      display: block;
     }
+
+    &__innerText {
+      text-align: center;
+    }
+
+    &--headerTitle {
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    &--subheaderTitle {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 0;
+
+    border-top: 1px solid #000;
+    font-size: 14px;
+    }
+
   }
 
-  .h1-class {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 900;
-  }
-
-  .mobile-menu-button {
-
-    width: 50px;
-    height: 48px;
-    margin-top: 24px;
-
-    border: 1px solid #DDDBDB;
-    border-radius: 3px;
-    background-color: #FEF186;
-
-  }
-
-  .mobile-menu-bar {
-
-    display: block;
-    width: 31px;
-    height: 4px;
-    margin: 0 auto 4px;
-
-    background-color: #000;
-  }
-
-  /* Style the <nav> */
-  .nav-class {
-    display: block;
+  .nav {
+    display: none;
     clear: both;
 
     text-align: center;
   }
 
-  /* Style all the buttons */
-  .btn-resource,
-  .btn-show-all-class {
-    display: block;
+  .mobile-menu {
+
+    position: absolute;
+    top: 6px;
+
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    background-color: transparent;
+
+    &--bar {
+
+      display: block;
+      width: 26px;
+      height: 4px;
+      margin: 4px auto;
+
+      background-color: #000;
+    }
+  }
+  
+  /* Where the header and nav are */
+  .left-column {
+   width: 100%;
+  }
+/* Where the contebt is*/
+  .right-column {
+    padding-top: 170px;
+
+    text-align: center;
   }
 
   /* Hide some elements on hand-held views */
@@ -57,10 +75,13 @@
     @include hide-element;
   }
 
-  .content-class {
-    text-align: center;
-  }
 
+
+  /* Style all the buttons */
+  .btn-resource,
+  .btn-show-all-class {
+    display: block;
+  }
   .single-resource {
     max-width: 284px;
     margin: 0 auto;

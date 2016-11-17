@@ -1,4 +1,9 @@
 @media (min-width: 768px) {
+  
+  .header {
+    height: 200px;
+    top: 0;
+  }
 
   .resource-header {
     min-height: 50px;
@@ -7,16 +12,8 @@
   }
 
   /* Style the <nav> */
-  .nav-class {
+  .nav {
     width: 100%;
-  }
-
-  /*
-   * Set the padding for both the <nav> and its button child element
-   * container. Keep the height in mind when coding the sticky nav.
-   */
-  .nav-class  {
-    /* height: 34px; */
     padding: 3px 0;
   }
 
@@ -31,11 +28,11 @@
     color: #000;
   }
 
-  .mobile-menu-button {
+  .mobile-menu {
     display: none;
   }
 
-  .content-class {
+  .right-column {
     position: relative;
     @include z1;
    }

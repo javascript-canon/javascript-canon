@@ -21,19 +21,16 @@ a {
 }
 
 .header {
-  width: 300px;
-  height: 200px;
-  position: fixed;
-
-  background-color:#fff;
 
   &__logo {
-    width: 100px;
-    margin-bottom: 20px;
-    display: inline-block;
+
   }
 }
 
+.left-column {
+  top: 0;
+  position: fixed;
+}
 
 /* Modal Content/Box */
 .page-modal-element {
@@ -104,7 +101,6 @@ a {
     font-weight: 900;
   }
   &__subheader-text {
-    height:70px;
 
     font-size: 15px;
   }
