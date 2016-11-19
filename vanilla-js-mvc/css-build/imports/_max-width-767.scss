@@ -1,5 +1,7 @@
-@media (max-width: 767px) {
+/* Style things using the BEM pattern */
 
+@media (max-width: 767px) {
+  /* Start ".header"...BEM style */
   .header {
     height: 150px;
     padding-bottom: 4px;
@@ -29,12 +31,14 @@
       border-top: 1px solid #000;
       font-size: 14px;
     }
+
     &-expanded {
       height: 220px;
       -webkit-transition: 0.1s;
       transition: 0.1s;
     }
   }
+  /* Stop ".header"...BEM style */
 
   .resource-header {
     margin-bottom: 0;
@@ -43,10 +47,7 @@
 
 
 
-  .filter-text {
-    margin: 10px 0;
-    text-align: center;
-  }
+
 
   .nav {
 
@@ -68,6 +69,11 @@
     &--notVisible {
       display: none;
     }
+  }
+
+  .filter-text {
+    margin: 10px 0;
+    text-align: center;
   }
 
   .resource-links-list {
@@ -194,6 +200,4 @@
       display: block;
     }
   }
-
 }
-
