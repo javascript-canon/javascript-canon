@@ -72,7 +72,7 @@
   .resource-links-list {
     width:100%;
     height: 103px;
-    margin: 0;
+     margin: 0;
     padding: 5px;
 
     &__list_item {
@@ -174,6 +174,7 @@
     }
     &__container {
       width: 80%;
+      top: 7%;
     }
     &__title {
       font-size: 18px;

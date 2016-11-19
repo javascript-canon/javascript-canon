@@ -47,20 +47,12 @@
    }
 
 
+  .page-modal-element{
+    &__header {
 
-  .page-modal {
-    height: 50%;
-    &__top-slide {
-      top:0;
     }
-    &__bottom-slide {
-      bottom:0;
-    }
-    &__slide {
-      background-color: $slide-color;
-      position: relative;
-      height: 50%;
-      z-index: 3;
+    &__container {
+      top: 0;
     }
   }
 }
