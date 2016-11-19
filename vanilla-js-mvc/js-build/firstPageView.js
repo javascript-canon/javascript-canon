@@ -116,7 +116,7 @@ var
          * resource on the page
          */
         resourceContainer.appendChild(resourceTitle);
-        resourceContainer.appendChild(resourceAuthor);
+        resourceTitle.appendChild(resourceAuthor);
         resourceContainer.appendChild(resourceImage);
         resourceContainer.appendChild(buyBookButton);
         resourceContainer.appendChild(modalButton);
