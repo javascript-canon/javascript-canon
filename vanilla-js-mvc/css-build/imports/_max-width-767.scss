@@ -1,6 +1,27 @@
-/* Style things using the BEM pattern */
+/* Style things mostly using the BEM pattern */
 
 @media (max-width: 767px) {
+
+  /*
+   * COLUMNS:
+   * Defines the responsive positioning of content
+   */
+
+  /* Where the header and nav are */
+  .left-column {
+    width: 100%;
+  }
+
+  /* Where the content is */
+  .right-column {
+    padding-top: 170px;
+
+    text-align: center;
+  }
+  /* STOP COLUMNS */
+
+
+
   /* Start ".header"...BEM style */
   .header {
     height: 150px;
@@ -40,22 +61,24 @@
   }
   /* Stop ".header"...BEM style */
 
-  .resource-header {
-    margin-bottom: 0;
-    min-height: 70px;
-  }
 
 
-
-
-
+  /* Start ".nav"...BEM style */
   .nav {
 
-    &__button{
+    &__header {
+      margin: 10px 0;
+
+      font-size: 17px;
+      text-align: center;
+    }
+
+    &__button {
       display: inline-block;
 
       @include coreButton;
     }
+
     &--visible {
       width: 100%;
       display: block;
@@ -66,14 +89,19 @@
       border-top: 1px solid #000;
       background: lighten($js-yellow, 15%);
     }
+
     &--notVisible {
       display: none;
     }
-  }
 
-  .filter-text {
-    margin: 10px 0;
-    text-align: center;
+  }
+  /* Stop ".nav"...BEM style */
+
+
+
+  .resource-header {
+    margin-bottom: 0;
+    min-height: 70px;
   }
 
   .resource-links-list {
@@ -112,10 +140,7 @@
     }
   }
   
-  /* Where the header and nav are */
-  .left-column {
-    width: 100%;
-  }
+
 
   .single-resource {
     max-width: 284px;
@@ -142,12 +167,7 @@
       display: block;
     }
   }
-  /* Where the contebt is*/
-  .right-column {
-    padding-top: 170px;
 
-    text-align: center;
-  }
 
   /* Style all the buttons */
   .btn-resource,
@@ -177,27 +197,36 @@
     100% { opacity: 1; }
   }
 
-  .page-modal-element{
+
+
+  /* Start ".page-modal-element"...BEM style */
+  .page-modal-element {
     &__header {
       font-size: 20px;
     }
+
     &__container {
       width: 80%;
       top: 7%;
     }
+
     &__title {
       font-size: 18px;
       text-align: center;
     }
+
     &__content {
       width: 80%;
       margin: 15px auto;
 
       line-height: 20px;
     }
+
     &__img {
       margin: 0 auto;
       display: block;
     }
+
   }
+  /* Stop ".page-modal-element"...BEM style */
 }
