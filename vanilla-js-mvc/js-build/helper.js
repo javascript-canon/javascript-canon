@@ -23,6 +23,7 @@ var checkMobileState = function() {
 		 */
 		$.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
 			$("body").addClass("mobileVisible");
+			$(".header").addClass("header-expanded");
 			$("#logo").addClass("scale-out").removeClass("scale-up");
 			$("#title").addClass("h1-moveUp").removeClass("h1-moveDown");
 		  $("#subtitle").addClass("subtitle-fadeOut").removeClass("subtitle-fadeIn");
@@ -34,6 +35,8 @@ var checkMobileState = function() {
 	} else {
 		$("#navigation").addClass("nav--notVisible").removeClass("nav--visible");
 		$("body").removeClass("mobileVisible");
+		$(".header").removeClass("header-expanded");
+
 		$("#logo").removeClass("scale-out").addClass("scale-up");
 		$("#title").removeClass("h1-moveUp").addClass("h1-moveDown");
 		$("#subtitle").removeClass("subtitle-fadeOut").addClass("subtitle-fadeIn");
