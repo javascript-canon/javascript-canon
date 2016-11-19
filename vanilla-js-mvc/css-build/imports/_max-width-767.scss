@@ -38,6 +38,7 @@
 
   .resource-header {
     margin-bottom: 0;
+    min-height: 70px;
   }
 
 
@@ -112,15 +113,17 @@
 
   .single-resource {
     max-width: 284px;
-    margin: 0 auto 60px;
-    padding: 5px 0 10px;
+    margin: 0 10px 60px;
+    padding: 5px 6px 25px;
     display: inline-block;
 
     background-color: lighten($js-yellow, 30%);
     border-radius: 5px;
     &__author {
-      display: inline-block;
+      display: block;
       margin-bottom: 10px;
+
+      font-size: 14px;
     }
     &__button {
       display: inline-block;
