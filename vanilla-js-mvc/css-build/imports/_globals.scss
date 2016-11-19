@@ -7,19 +7,6 @@ button {
   margin: 0 8px;
 }
 
-/* Make all links black and make sure they all links have a cursor
- * property and visited/hover states, even if they don't have href 
- * attributes.
- */
-a {
-  color: #000;
-  cursor: pointer;
-  &:visited,
-  &:hover {
-    color: #000;
-  }
-}
-
 .header {
 
   &__logo {
@@ -81,7 +68,7 @@ a {
   }
   &__button {
     padding: 10px;
-    @include coreButtonDimensions(118px);
+    /*@include coreButtonDimensions(118px);*/
   }
   &__author {
     display:block
