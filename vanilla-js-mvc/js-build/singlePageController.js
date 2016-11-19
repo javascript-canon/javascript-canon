@@ -69,11 +69,16 @@ function buildModalContent(event, data) {
        */
       getTitle = $(event.target).parent().children()[0].innerHTML,
 
+      /* Find the clicked-on link's parent element and look at all
+       * its child elements.  Find the element that contains the
+       * image
+       */
+      getImage = $(event.target).parent().children()[2].src,
+
       /* Short-hand reference to open the modal...do this so it's
        * easier read when it's passed as callback.
        */
       modalMethod = SingleResourcePageController.openModal();
-
   /* Build the about array based on the API model data, then open the 
    * modal via a callback
    */
@@ -85,6 +90,9 @@ function buildModalContent(event, data) {
    * from it.
    */
   document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
+
+  // Find the modal image element and set its src to the resource's src
+  document.querySelector(".page-modal-element__img").src =  getImage;
 
   // Find the modal title element and place the title in it
   document.querySelector(".page-modal-element__title").innerHTML = getTitle;
