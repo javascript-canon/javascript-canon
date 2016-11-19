@@ -34,7 +34,7 @@ SinglePageResourceView.openModal = function() {
 
     $(".page-modal__top-slide").addClass("move-up");
     $(".page-modal__bottom-slide").addClass("move-down");
-    $("body").css("overflow-y", "hidden");
+    $("body").css("overflow-y", "scroll");
 
   }, 200);
 
