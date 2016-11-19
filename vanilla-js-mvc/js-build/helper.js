@@ -10,7 +10,7 @@ $("#btnShowAll").click(function(event) {
 /**
  * Start functionality that sets the mobile state
  */
-var checkMobileState = function() {
+var setMobileState = function() {
 
 	// Store the state of <body> when it has a "mobileVisible" class
 	var mobileVisible = $("body").hasClass("mobileVisible");
@@ -19,8 +19,8 @@ var checkMobileState = function() {
 	if(!mobileVisible) {
 		
 		/* ...then mobile nav isn't visible. Add a class that makes it 
-		 * visible setting some elements to animate while resetting the
-		 * mobile view...
+		 * visible and when that's done, make some elements to animate 
+		 * while setting up the mobile view...
 		 */
 		$.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
 			$("body").addClass("mobileVisible");
@@ -43,8 +43,8 @@ var checkMobileState = function() {
 	}
 }
 
-// Button click functionality that runs the checkMobileState function
-document.getElementById("mobile-button").addEventListener("click", checkMobileState, false);
+// Button click functionality that runs the setMobileState function
+document.getElementById("mobile-button").addEventListener("click", setMobileState, false);
 
 /**
  * Stop functionality that sets the mobile state
