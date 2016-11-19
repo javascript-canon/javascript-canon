@@ -7,7 +7,9 @@ $("#btnShowAll").click(function(event) {
   $(".single-resource").css("display", "inline-block");
 });
 
-// Start functionality for showing & hiding the mobile menu
+/**
+ * Start functionality that sets the mobile state
+ */
 var checkMobileState = function() {
 
 	// Store the state of <body> when it has a "mobileVisible" class
@@ -17,9 +19,8 @@ var checkMobileState = function() {
 	if(!mobileVisible) {
 		
 		/* ...then mobile nav isn't visible. Add a class that makes it 
-		 * visible while removing a class that hides it. Use a jQuery 
-		 * Promise to what for that to happen, then add a "mobileVisible"
-		 * class to <body>...
+		 * visible setting some elements to animate while resetting the
+		 * mobile view...
 		 */
 		$.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
 			$("body").addClass("mobileVisible");
@@ -36,13 +37,15 @@ var checkMobileState = function() {
 		$("#navigation").addClass("nav--notVisible").removeClass("nav--visible");
 		$("body").removeClass("mobileVisible");
 		$(".header").removeClass("header-expanded");
-
 		$("#logo").removeClass("scale-out").addClass("scale-up");
 		$("#title").removeClass("h1-moveUp").addClass("h1-moveDown");
 		$("#subtitle").removeClass("subtitle-fadeOut").addClass("subtitle-fadeIn");
 	}
 }
 
-// Button click funtionality that runs the checkMobileState function
+// Button click functionality that runs the checkMobileState function
 document.getElementById("mobile-button").addEventListener("click", checkMobileState, false);
-// Stop functionality for showing & hiding the mobile menu
+
+/**
+ * Stop functionality that sets the mobile state
+ */

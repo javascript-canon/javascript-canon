@@ -44,6 +44,12 @@
  * HELPER CLASSES END
  */
 
+
+
+
+/**
+ * Core button used site-wide
+ */
 @mixin coreButton {
   margin: 0 6px;
   padding: 10px;
@@ -59,15 +65,20 @@
   }
 }
 
-
-
+/**
+ * Core button will have different heights...set them with this mixin
+ */
 @mixin coreButtonDimensions($width) {
   width: $width;
   display: inline-block;
 }
 
 
-
+/**
+ * Reusable mixin for scaling element in the mobile view
+ *
+ * TODO: The spots that use this mixin need their own mixin
+ */
 
 @mixin scaling($animationName) {
   -webkit-animation-name: $animationName;
