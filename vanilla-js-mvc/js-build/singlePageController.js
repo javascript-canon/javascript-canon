@@ -73,7 +73,7 @@ function buildModalContent(event, data) {
        * its child elements.  Find the element that contains the
        * image
        */
-      getImage = $(event.target).parent().children()[2].src,
+      getImage = $(event.target).parent().children()[1].src,
 
       /* Short-hand reference to open the modal...do this so it's
        * easier read when it's passed as callback.
@@ -82,6 +82,8 @@ function buildModalContent(event, data) {
   /* Build the about array based on the API model data, then open the 
    * modal via a callback
    */
+
+
   SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
 
   /* Find the modal content container element and place it the 
