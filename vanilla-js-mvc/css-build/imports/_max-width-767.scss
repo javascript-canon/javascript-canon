@@ -1,6 +1,7 @@
 @media (max-width: 767px) {
 
   .header {
+    height: 150px;
     padding-bottom: 4px;
 
     border: 1px solid darken($js-yellow, 10%);
@@ -28,18 +29,22 @@
     border-top: 1px solid #000;
     font-size: 14px;
     }
-
+    &-expanded {
+      height: 220px;
+      -webkit-transition: 0.1s;
+              transition: 0.1s;
+    }
   }
 
   .nav {
 
     &__button{
-      padding: 8px;
       display: inline-block;
-      border-radius: 25px;
-      color: $js-yellow;
+
+      @include coreButton;
     }
     &--visible {
+      padding-left: 10px;
       display: block;
       position: absolute;
       top: 95px;
@@ -52,6 +57,7 @@
   .resource-links-list {
     width:300px;
     &__list_item {
+      margin: 0 10px 15px;
       display:inline-block;
 
       border-radius:20px;

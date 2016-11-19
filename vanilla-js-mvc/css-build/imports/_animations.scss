@@ -1,76 +1,3 @@
-@keyframes headerTextAnimation {
-  from { transform: translateX( 0px ); }
-  to { transform: translateX( 75px ); }
-}
-
-.header-class {
-
-  background-color: #fff;
-  -webkit-transition: height 0.3s;
-          transition: height 0.3s;
-}
-
-.h1-animation {
-
-  -webkit-animation-name: headerTextAnimation;
-  -webkit-animation-duration: .2s;
-  -webkit-animation-timing-function : ease-in;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-
-  animation-name: headerTextAnimation;
-  animation-duration: .2s;
-  animation-timing-function : ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-
-}
-
-
-@keyframes headerTextAnimationBack {
-  from { transform: translateX( 75px ); }
-  to { transform: translateX( 0px ); }
-}
-
-.h1-animation-back {
-
-  -webkit-animation-name: headerTextAnimationBack;
-  -webkit-animation-duration: .2s;
-  -webkit-animation-timing-function : ease-in;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-
-  animation-name: headerTextAnimationBack;
-  animation-duration: .2s;
-  animation-timing-function : ease-in;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-
-}
-
-/* Modal slide-related classes */
-.move-up {
-    transform: translate(0,-100%);
-    -webkit-transform: translate(0,-100%);
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    -webkit-box-shadow: 0px 0px 8px 2px #000000;
-       -moz-box-shadow: 0px 0px 8px 2px #000000;
-            box-shadow: 0px 0px 8px 2px #000000;
-}
-
-.move-down {
-    transform: translate(0,100%);
-    -webkit-transform: translate(0,100%);
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    -webkit-box-shadow: inset 0 20px 20px -20px rgb(0,0,0);
-       -moz-box-shadow: inset 0 20px 20px -20px rgb(0,0,0);
-            box-shadow: inset 0 20px 20px -20px rgb(0,0,0);
-}
-
-
-
 .scale-out {
   @include scaling(scaleOut);
 }
@@ -114,7 +41,7 @@
 @-webkit-keyframes moveHeaderUp {
   from {
     -webkit-transform: translateY(0px);
-            transform: ranslateY(0px);
+            transform: translateY(0px);
   }
 
   to {
@@ -131,7 +58,7 @@
 @-webkit-keyframes moveHeaderDown {
   from {
     -webkit-transform: translateY(-15px);
-            transform: ranslateY(-15px);
+            transform: translateY(-15px);
   }
 
   to {
@@ -140,14 +67,17 @@
   }
 }
 
+.nav--notVisible,
 .subtitle-fadeOut {
   @include scaling(fadeOut);
 }
+
 @-webkit-keyframes fadeOut {
   0%   { opacity: 1; }
   100% { opacity: 0; }
 }
 
+.nav--visible,
 .subtitle-fadeIn {
   @include scaling(fadeIn);
 }

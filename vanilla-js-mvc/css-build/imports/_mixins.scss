@@ -46,15 +46,15 @@
 
 @mixin coreButton {
   margin: 0 6px;
+  padding: 10px;
 
-  color: #000;
-  background-color: $js-yellow;
+  color: $js-yellow;
+  background-color: #000;
   border-radius: 16px;
   cursor: pointer;
   &:hover {
     color: $js-yellow;
-    background-color: #000;
-    text-decoration: none;
+    text-decoration: underline;
   }
 }
 
