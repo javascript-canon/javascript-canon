@@ -24,6 +24,7 @@ module.exports = function( grunt ) {
             ".logo__logoMove",
             ".move-down",
             ".move-up",
+            ".nav__button",
             ".page-modal-element__button",
             ".page-modal__slide",
             ".resource-header",
