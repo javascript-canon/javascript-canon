@@ -1,15 +1,15 @@
 div.left-column
   header.header
-    button(type="button" id="mobile-menu" class="mobile-menu")
+    button(type="button" id="mobile-button" class="mobile-menu")
       span.mobile-menu--bar
       span.mobile-menu--bar
       span.mobile-menu--bar
     img(src="img/js-logo.png" alt="Logo for the JavaScript Canon" id= "logo" class="header__logo")
     div.header__innerText
-      h1.header--headerTitle The JavaScript Canon
-      h2.header--subheaderTitle
+      h1#title.header--headerTitle The JavaScript Canon
+      h2#subtitle.header--subheaderTitle
         | Top-notch JavaScript learning resources curated by <a href="http://twitter.com/kaidez" class="gl-twitter-link">@kaidez</a>
-    nav.nav
+    nav#navigation.nav.nav--notVisible
       h2.filter-text
         | FILTER RESOURCE TYPES
       ul.resource-links-list
