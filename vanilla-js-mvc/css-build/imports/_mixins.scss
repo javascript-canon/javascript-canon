@@ -70,13 +70,13 @@
 
 @mixin scaling($animationName) {
   -webkit-animation-name: $animationName;
-  -webkit-animation-duration:1s;
+  -webkit-animation-duration:0.3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: ease;
   -webkit-animation-fill-mode: forwards;
 
   animation-name: $animationName;
-  animation-duration:0.5s;
+  animation-duration:0.3s;
   animation-iteration-count: 1;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
