@@ -46,7 +46,7 @@ var
 
       // Set attributes for the containing element
       resourceContainer.setAttribute("id", data);
-      resourceContainer.setAttribute("class", "col-md-4 single-resource");
+      resourceContainer.setAttribute("class", "single-resource");
       resourceContainer.setAttribute("data-resource-type", model[data].type);
 
       /* Add the resource title to the inside of the <h2> and give it
