@@ -168,5 +168,28 @@
     100% { opacity: 1; }
   }
 
+  .page-modal-element{
+    &__header {
+      font-size: 20px;
+    }
+    &__container {
+      width: 80%;
+    }
+    &__title {
+      font-size: 18px;
+      text-align: center;
+    }
+    &__content {
+      width: 80%;
+      margin: 15px auto;
+
+      line-height: 20px;
+    }
+    &__img {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
 }
 
