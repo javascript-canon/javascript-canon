@@ -32,10 +32,22 @@
   }
 
   .nav {
-    display: none;
-    clear: both;
 
-    text-align: center;
+    &--visible {
+      display: block;
+      position: absolute;
+      top: 95px;
+    }
+    &--notVisible {
+      display: none;
+    }
+  }
+
+  .resource-links-list {
+    width:300px;
+    &__list_item {
+      display:inline-block;
+    }
   }
 
   .mobile-menu {
@@ -61,7 +73,7 @@
   
   /* Where the header and nav are */
   .left-column {
-   width: 100%;
+    width: 100%;
   }
 /* Where the contebt is*/
   .right-column {

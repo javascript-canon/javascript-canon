@@ -58,7 +58,26 @@
   }
 }
 
+
+
 @mixin coreButtonDimensions($width) {
   width: $width;
   display: inline-block;
+}
+
+
+
+
+@mixin scaling($animationName) {
+  -webkit-animation-name: $animationName;
+  -webkit-animation-duration:1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-name: $animationName;
+  animation-duration:0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
 }
