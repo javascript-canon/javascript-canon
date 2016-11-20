@@ -7,6 +7,8 @@ $("#btnShowAll").click(function(event) {
   $(".single-resource").css("display", "inline-block");
 });
 
+
+
 /**
  * Start functionality that sets the mobile state
  */
@@ -24,10 +26,10 @@ var setMobileState = function() {
 		 */
 		$.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
 			$("body").addClass("mobileVisible");
-			$(".header").addClass("header-expanded");
+			$(".header").addClass("header--expanded");
 			$("#logo").addClass("scale-out").removeClass("scale-up");
 			$("#title").addClass("h1-moveUp").removeClass("h1-moveDown");
-		  $("#subtitle").addClass("subtitle-fadeOut").removeClass("subtitle-fadeIn");
+		  $("#subtitle").addClass("header__subtitle--fadein").removeClass("subtitle-fadeIn");
 		});
 
 	/* ...otherwise, the mobile menu is visible so do the opposite stuff 
@@ -36,10 +38,10 @@ var setMobileState = function() {
 	} else {
 		$("#navigation").addClass("nav--notVisible").removeClass("nav--visible");
 		$("body").removeClass("mobileVisible");
-		$(".header").removeClass("header-expanded");
+		$(".header").removeClass("header--expanded");
 		$("#logo").removeClass("scale-out").addClass("scale-up");
 		$("#title").removeClass("h1-moveUp").addClass("h1-moveDown");
-		$("#subtitle").removeClass("subtitle-fadeOut").addClass("subtitle-fadeIn");
+		$("#subtitle").removeClass("header__subtitle--fadeout").addClass("subtitle-fadeIn");
 	}
 }
 

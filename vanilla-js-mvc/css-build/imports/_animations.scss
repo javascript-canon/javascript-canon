@@ -2,6 +2,7 @@
   @include scaling(scaleOut);
 }
 
+
 @-webkit-keyframes scaleOut {
   from {
     -webkit-transform: scale(1) translateY(0px);
@@ -15,10 +16,10 @@
 }
 
 
-
 .scale-up {
   @include scaling(scaleUp);
 }
+
 
 @-webkit-keyframes scaleUp {
   from {
@@ -33,10 +34,38 @@
 }
 
 
+.h1-moveUp {
+  @include scaling(moveHeaderUp);
+}
+
+@-webkit-keyframes moveHeaderUp {
+  from {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+
+  to {
+    -webkit-transform: translateY(-22px);
+           transform: translateY(-22px);
+  }
+}
 
 
+.h1-moveDown {
+  @include scaling(moveHeaderDown);
+}
 
+@-webkit-keyframes moveHeaderDown {
+  from {
+    -webkit-transform: translateY(-22px);
+            transform: translateY(-22px);
+  }
 
+  to {
+    -webkit-transform: translateY(0px);
+           transform: translateY(0px);
+  }
+}
 
 /* Modal slide-related classes */
 .move-up {

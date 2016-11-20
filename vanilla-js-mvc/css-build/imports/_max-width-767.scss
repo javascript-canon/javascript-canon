@@ -42,6 +42,15 @@
 
       border-top: 1px solid #000;
       font-size: 14px;
+
+      &--fadeout {
+        @include scaling(fadeOut);
+      }
+     
+      &--fadein {
+        @include scaling(fadeIn);
+      } 
+
     }
 
     &__logo {
@@ -54,7 +63,7 @@
     }
 
 
-    &-expanded {
+    &--expanded {
       height: 220px;
       -webkit-transition: 0.1s;
       transition: 0.1s;
@@ -215,18 +224,13 @@
   /* Stop ".page-modal-element"...BEM style */
 
 
-  .subtitle-fadeOut {
-    @include scaling(fadeOut);
-  }
 
   @-webkit-keyframes fadeOut {
     0%   { opacity: 1; }
     100% { opacity: 0; }
   }
 
-  .subtitle-fadeIn {
-    @include scaling(fadeIn);
-  }
+
   @-webkit-keyframes fadeIn {
     0%   { opacity: 0; }
     100% { opacity: 1; }
