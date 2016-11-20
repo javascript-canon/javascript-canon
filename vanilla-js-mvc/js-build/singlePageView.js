@@ -24,7 +24,7 @@ SinglePageResourceView.aboutTextArray = [];
 SinglePageResourceView.openModal = function() {
 
   // Page modal is hidden...show it
-  $("#page-modal").css("display", "block");
+  $("#page-modal-element").css("display", "block");
 
   /* Wait 200 milliseconds, move 2 separate slide elements 
    * respectively up & down to show content, and remove the vertical 
@@ -46,7 +46,7 @@ SinglePageResourceView.openModal = function() {
 SinglePageResourceView.closeModal = function() {
 
   // Page modal is visible...hide it
-  $("#page-modal").css("display", "none");
+  $("#page-modal-element").css("display", "none");
 
   /* Reset the slides by removing the animation classes and show the 
    * vertical scrollbar.

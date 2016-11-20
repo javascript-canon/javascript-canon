@@ -53,7 +53,7 @@ var
  * places both it and the resource's title into the modal.
  */
 function buildModalContent(event, data) {
-
+  var target = $(event.target);
   var
 
       /* Get the numerical value of the clicked-on link's
@@ -61,19 +61,19 @@ function buildModalContent(event, data) {
        * is done so the number matches the value of the article array
        * index.
        */
-      resourceNumber = $(event.target).data("resourceNumber") - 1,
+      resourceNumber = target.data("resourceNumber") - 1,
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * resource title
        */
-      getTitle = $(event.target).parent().children()[0].innerHTML,
+      getTitle = target.parent().children()[0].innerHTML,
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * image
        */
-      getImage = $(event.target).parent().children()[1].src,
+      getImage = target.parent().children()[1].src,
 
       /* Short-hand reference to open the modal...do this so it's
        * easier read when it's passed as callback.
