@@ -21,14 +21,15 @@ var setMobileState = function() {
 	if(!mobileVisible) {
 		
 		/* ...then mobile nav isn't visible. Add a class that makes it 
-		 * visible and when that's done, make some elements to animate 
-		 * while setting up the mobile view...
+		 * visible and when that's done, then make some elements animate 
+		 * while setting up the mobile view and add a "mobileVisible" 
+		 * class to the body tag...
 		 */
 		$.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
 			$("body").addClass("mobileVisible");
-			$(".header").addClass("header--expanded");
-			$("#logo").addClass("scale-out").removeClass("scale-up");
-			$("#title").addClass("h1-moveUp").removeClass("h1-moveDown");
+			$("#headerElement").addClass("header--expanded");
+			$("#logo").addClass("header__logo--scaleout").removeClass("header__logo--scalein");
+			$("#title").addClass("header__title--moveUp").removeClass("header__title--moveDown");
 		  $("#subtitle").addClass("header__subtitle--fadein").removeClass("subtitle-fadeIn");
 		});
 
@@ -38,9 +39,9 @@ var setMobileState = function() {
 	} else {
 		$("#navigation").addClass("nav--notVisible").removeClass("nav--visible");
 		$("body").removeClass("mobileVisible");
-		$(".header").removeClass("header--expanded");
-		$("#logo").removeClass("scale-out").addClass("scale-up");
-		$("#title").removeClass("h1-moveUp").addClass("h1-moveDown");
+		$("#headerElement").removeClass("header--expanded");
+		$("#logo").removeClass("header__logo--scaleout").addClass("header__logo--scalein");
+		$("#title").removeClass("header__title--moveUp").addClass("header__title--moveDown");
 		$("#subtitle").removeClass("header__subtitle--fadeout").addClass("subtitle-fadeIn");
 	}
 }
