@@ -94,10 +94,10 @@ function buildModalContent(event, data) {
   document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
   // Find the modal image element and set its src to the resource's src
-  document.querySelector(".page-modal-element__img").src =  getImage;
+  document.querySelector(".page-modal__img").src =  getImage;
 
   // Find the modal title element and place the title in it
-  document.querySelector(".page-modal-element__title").innerHTML = getTitle;
+  document.querySelector(".page-modal__title").innerHTML = getTitle;
 
 }
 
@@ -111,6 +111,6 @@ $.getJSON(modelData).done(function(data) {
 });
 
 // When the user clicks on the modal's close button, close it
-$(".page-modal-element__button").click(function(){
+$(".page-modal__button").click(function(){
   SingleResourcePageController.closeModal();
 });
