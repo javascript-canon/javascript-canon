@@ -1,5 +1,11 @@
 @media (min-width: 768px) {
   
+  /* Where the content is */
+  .right-column {
+    position: relative;
+    @include z1;
+   }
+
   .header {
     height: 200px;
     top: 0;
@@ -32,10 +38,6 @@
     display: none;
   }
 
-  .right-column {
-    position: relative;
-    @include z1;
-   }
 
    .fixed-nav {
     position: fixed;
