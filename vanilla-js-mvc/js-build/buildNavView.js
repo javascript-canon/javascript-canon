@@ -23,7 +23,7 @@ var
     /* The default element for out view...it's a <ul>.  Think of it as 
      * the "el" value in "Backbone.Model()".
      */
-    btnTargetEl = document.querySelector(".resource-links-list");
+    btnTargetEl = document.querySelector(".nav__list");
 
 // "render()" method builds the nav button with links.
 SingleNavView.render = function(model) {
@@ -89,7 +89,7 @@ SingleNavView.render = function(model) {
       /* The link text is lowercase: make it proper-case & place it 
        * inside the <a> element
        */
-      btnListItem.setAttribute("class", "resource-links-list__list_item");
+      btnListItem.setAttribute("class", "nav__list-item");
       btnLink.innerHTML = resourceType.charAt(0).toUpperCase() + resourceType.slice(1);
 
       // Place the <a> in the <li>
