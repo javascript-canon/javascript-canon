@@ -32,6 +32,7 @@ module.exports = function( grunt ) {
             ".scale-out",
             ".scale-up",
             ".single-resource",
+            ".single-resource__header",
             ".single-resource__author",
             ".single-resource__book-image",
             ".single-resource__button",
