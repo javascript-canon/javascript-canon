@@ -32,8 +32,8 @@ SinglePageResourceView.openModal = function() {
    */
   setTimeout(function(){
 
-    $(".page-modal__top-slide").addClass("move-up");
-    $(".page-modal__bottom-slide").addClass("move-down");
+    $(".page-modal__top-slide").addClass("page-modal__slide--moveUp");
+    $(".page-modal__bottom-slide").addClass("page-modal__slide--moveDown");
     $("body").css("overflow-y", "scroll");
 
   }, 200);
@@ -51,8 +51,8 @@ SinglePageResourceView.closeModal = function() {
   /* Reset the slides by removing the animation classes and show the 
    * vertical scrollbar.
    */
-  $(".page-modal__top-slide").removeClass("move-up");
-  $(".page-modal__bottom-slide").removeClass("move-down");
+  $(".page-modal__top-slide").removeClass("page-modal__slide--moveUp");
+  $(".page-modal__bottom-slide").removeClass("page-modal__slide--moveDown");
   $("body").css("overflow-y", "auto");
 
 } // end "closeModal"
