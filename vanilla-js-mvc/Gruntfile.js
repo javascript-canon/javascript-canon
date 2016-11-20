@@ -20,8 +20,10 @@ module.exports = function( grunt ) {
             ".nav--notVisible",
             ".h1-moveUp",
             ".h1-moveDown",
+            ".header__subtitle--fadein",
+            ".header__subtitle--fadeout",
             ".logo__logoMove",
-            ".header-expanded",
+            ".header--expanded",
             ".move-down",
             ".move-up",
             ".nav__button",
@@ -35,9 +37,7 @@ module.exports = function( grunt ) {
             ".single-resource__header",
             ".single-resource__author",
             ".single-resource__book-image",
-            ".single-resource__button",
-            ".subtitle-fadeOut",
-            ".subtitle-fadeIn"
+            ".single-resource__button"
           ]
         },
       }
