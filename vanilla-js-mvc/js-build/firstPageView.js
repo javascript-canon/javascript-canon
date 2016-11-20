@@ -53,7 +53,7 @@ var
        * a class
        */
       resourceTitle.innerHTML = model[data].title;
-      resourceTitle.setAttribute("class", "resource-header");
+      resourceTitle.setAttribute("class", "single-resource__header");
 
       // Set attributes for the resource image
       resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
