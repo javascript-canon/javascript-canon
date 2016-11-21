@@ -49,7 +49,12 @@ button {
 /* Stop ".header"...BEM style */
 
 .nav {
+
   &__button {
+    cursor: pointer;
+  }
+
+  &--show-all-button {
     cursor: pointer;
   }
 }
