@@ -80,11 +80,14 @@
     display: inline-block;
 
     text-align: center;
-    
+
   &__header {
     min-height: 70px;
     
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 400;
+
+    color: darken($js-yellow, 30%);
   }
 
   &__author {
