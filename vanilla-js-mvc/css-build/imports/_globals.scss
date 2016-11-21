@@ -61,7 +61,16 @@ button {
 
 /* Start ".single-resource"...BEM style */
 
-// NOTHING HERE NOW!!!!!!!
+.single-resource {
+  width: 200px;
+
+  &__button {
+    display: inline-block;
+
+    @include coreButton;
+    @include coreButtonDimensions(110px);
+  }
+}
 
 /* Stop ".single-resource"...BEM style */
 
