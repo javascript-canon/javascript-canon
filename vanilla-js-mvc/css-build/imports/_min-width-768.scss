@@ -1,11 +1,27 @@
 @media (min-width: 768px) {
-  
+
+  /*
+  * COLUMNS:
+  * Defines the responsive positioning of the key content
+  */
+
+   /* Where the header and nav are */
+  .left-column {
+    float: left;
+    width: 250px;
+  }
+
   /* Where the content is */
   .right-column {
+    width: 100%;
+
     position: relative;
-    @include z1;
+    float: left;
+    left: 250px;
    }
 
+  /* STOP COLUMNS */
+  
   .header {
     height: 200px;
     top: 0;
