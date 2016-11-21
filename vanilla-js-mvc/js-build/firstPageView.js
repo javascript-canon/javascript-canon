@@ -62,7 +62,7 @@ var
       /* Add the resource author to the inside of the <span> and 
        * give it a class
        */
-      resourceAuthor.innerHTML =  "by " + model[data].author;
+      resourceAuthor.innerHTML =  " by " + model[data].author;
       resourceAuthor.setAttribute("class", "single-resource__author");
 
       /* Set attributes for the button that goes to the book's
