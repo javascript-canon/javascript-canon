@@ -64,11 +64,12 @@ button {
 .single-resource {
   width: 200px;
 
-  &__button {
-    display: inline-block;
+  background-color: lighten($js-yellow, 30%);
+  border-radius: 5px;
 
-    @include coreButton;
-    @include coreButtonDimensions(110px);
+  &__book-image {
+    margin: 0 auto 10px;
+    display: block;
   }
 }
 
