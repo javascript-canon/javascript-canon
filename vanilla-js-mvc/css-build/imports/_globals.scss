@@ -48,7 +48,11 @@ button {
 }
 /* Stop ".header"...BEM style */
 
-
+.nav {
+  &__button {
+    cursor: pointer;
+  }
+}
 
 /* Start ".single-resource"...BEM style */
 
