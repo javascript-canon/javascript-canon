@@ -204,13 +204,6 @@
       font-size: 14px;
     }
 
-    &__button {
-      display: inline-block;
-
-      @include coreButton;
-      @include coreButtonDimensions(110px);
-    }
-
     &__book-image {
       margin: 0 auto 10px;
       display: block;
