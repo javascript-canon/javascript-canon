@@ -119,6 +119,10 @@ button {
     @include coreButton;
   }
 
+  &__img {
+    border: 1px solid #000;
+  }
+
   &__top-slide {
     top:0;
   }
