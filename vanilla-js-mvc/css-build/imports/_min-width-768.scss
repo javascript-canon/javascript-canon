@@ -80,7 +80,10 @@
     display: inline-block;
 
     text-align: center;
+    
   &__header {
+    min-height: 70px;
+    
     font-size: 20px;
   }
 
