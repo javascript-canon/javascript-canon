@@ -17,10 +17,9 @@
 
   /* Where the content is */
   .right-column {
-    width: 100%;
-    position: relative;
+    max-width: 745px;
+    padding-left: 241px;
     float: left;
-    left: 250px;
    }
 
   /* STOP COLUMNS */
@@ -51,7 +50,10 @@
   }
   /* Stop ".header"...BEM style */
 
-
+.article-container {
+  max-width: 992px;
+  margin-left: 20px;
+}
 
   /* Start ".nav"...BEM style */
   .nav {
@@ -72,6 +74,21 @@
   }
   /* Stop ".nav"...BEM style */
 
+  .single-resource {
+    max-width: 250px;
+    margin: 20px;
+    display: inline-block;
+
+    text-align: center;
+  &__header {
+    font-size: 20px;
+  }
+
+  &__author {
+    display: inline-block;
+    font-size: 16px;
+  }
+}
 
 
 
