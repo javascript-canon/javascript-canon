@@ -7,14 +7,17 @@
 
    /* Where the header and nav are */
   .left-column {
-    float: left;
     width: 250px;
+    height: 100%;
+    padding: 22px 0 0 22px;
+    float: left;
+
+    background-color:$js-yellow;
   }
 
   /* Where the content is */
   .right-column {
     width: 100%;
-
     position: relative;
     float: left;
     left: 250px;
@@ -29,6 +32,22 @@
   .header {
     height: 200px;
     top: 0;
+
+    &__innerText{
+      width: 220px;
+    }
+
+    &__title {
+      font-size: 20px;
+    }
+
+    &__subtitle {
+      margin-top: 40px;
+
+      font-size: 16px;
+    }
+
+
   }
   /* Stop ".header"...BEM style */
 
