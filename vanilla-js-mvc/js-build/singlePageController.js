@@ -49,65 +49,59 @@ var
   return singlePageView.buildAboutTextArray(data, callback);
 };
 
-/* buildModalContent() builds the array with "about" text for, then
- * places both it and the resource's title into the modal.
+
+/* AJAX in the model data...when it's ready build the modal with the
+ * proper content on a click.
  */
-function buildModalContent(event, data) {
-  var target = $(event.target);
-  var
+ $.getJSON(modelData).done(function(data) {
+
+  $(".js-modal").on("click", function() {
+
+    var
 
       /* Get the numerical value of the clicked-on link's
        * "data-resource-number" attribute and subtract 1 from it. This
        * is done so the number matches the value of the article array
        * index.
        */
-      resourceNumber = target.data("resourceNumber") - 1,
+       resourceNumber = $(this).closest(".js-modal").data("resourceNumber") - 1,
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * resource title
        */
-      getTitle = target.parent().children()[0].innerHTML,
+       getTitle = $(this).parent().children(".single-resource__header").html(),
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * image
        */
-      getImage = target.parent().children()[1].src,
+       getImage = $(this).parent().children(".single-resource__book-image").attr("src"),
 
       /* Short-hand reference to open the modal...do this so it's
        * easier read when it's passed as callback.
        */
-      modalMethod = SingleResourcePageController.openModal();
+       modalMethod = SingleResourcePageController.openModal();
+
   /* Build the about array based on the API model data, then open the 
    * modal via a callback
    */
-
-
-  SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
-
+   SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
   /* Find the modal content container element and place it the 
    * respective  resource's "about" text in it. The resourceNumber 
    * will match the proper spot in the index since 1 was subtracted 
-   * from it.
+   * from it. It's hacky, but it works.
    */
-  document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
+   document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
-  // Find the modal image element and set its src to the resource's src
-  document.querySelector(".page-modal__img").src =  getImage;
+    // Find modal image element and set its src to the resource's src
+    document.querySelector(".page-modal__img").src =  getImage;
 
-  // Find the modal title element and place the title in it
-  document.querySelector(".page-modal__title").innerHTML = getTitle;
+    // Find the modal title element and place the title in it
+    document.querySelector(".page-modal__title").innerHTML = getTitle;
 
-}
-
-/* AJAX in the model data...when it's ready build the modal with the
- * proper content.
- */
-$.getJSON(modelData).done(function(data) {
-  $(".js-modal").on("click", function(){
-    buildModalContent(event, data);
   });
+
 });
 
 // When the user clicks on the modal's close button, close it
