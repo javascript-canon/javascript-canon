@@ -1,9 +1,9 @@
 @media (min-width: 768px) {
 
   /*
-  * COLUMNS:
-  * Defines the responsive positioning of the key content
-  */
+   * COLUMNS:
+   * Defines the responsive positioning of the key content
+   */
 
    /* Where the header and nav are */
   .left-column {
@@ -22,47 +22,36 @@
 
   /* STOP COLUMNS */
 
+
+
+
   /* Start ".header"...BEM style */
   .header {
     height: 200px;
     top: 0;
   }
+  /* Stop ".header"...BEM style */
 
-  .resource-header {
-    min-height: 50px;
 
-    font-size: 22px;
-  }
 
-  /* Style the <nav> */
+  /* Start ".nav"...BEM style */
   .nav {
     width: 100%;
     padding: 3px 0;
   }
+  /* Stop ".nav"...BEM style */
 
-  /* Override the standard .btn-default styles that are in Bootstrap */
-  .btn-resource {
-    color: #000;
-    background-color: $js-yellow;
-    border-color: #000;
-  }
 
-  .btn-show-all-class {
-    color: #000;
-  }
 
+
+
+
+
+
+
+  /* Mobile menu does not need to be seen on any non-mobile views */
   .mobile-menu {
     display: none;
   }
-
-
-   .fixed-nav {
-    position: fixed;
-    top: 0;
-    left: 30px;
-    right: 0;
-
-    @include z2();
-   }
 
 }
