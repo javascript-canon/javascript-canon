@@ -7,8 +7,8 @@
    * Defines the responsive positioning of the key content
    */
 
-  /* Where the header and nav are */
-  .left-column {
+   /* Where the header and nav are */
+   .left-column {
     width: 100%;
   }
 
@@ -56,7 +56,7 @@
       &--fadeout {
         @include scaling(fadeOut);
       }
-     
+      
       &--fadein {
         @include scaling(fadeIn);
       } 

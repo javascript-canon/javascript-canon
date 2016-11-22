@@ -10,9 +10,9 @@ button {
 }
 
 /*
-  * COLUMNS:
-  * Defines the responsive positioning of the key content
-  */
+ * COLUMNS:
+ * Defines the responsive positioning of the key content
+ */
 
  /* Where the header and nav are */
  .left-column {
@@ -49,6 +49,9 @@ button {
 }
 /* Stop ".header"...BEM style */
 
+
+
+/* Start ".nav"...BEM style */
 .nav {
 
   &__button {
@@ -59,9 +62,11 @@ button {
     cursor: pointer;
   }
 }
+/* Stop ".nav"...BEM style */
+
+
 
 /* Start ".single-resource"...BEM style */
-
 .single-resource {
   background-color: lighten($js-yellow, 30%);
   border-radius: 5px;
@@ -71,12 +76,11 @@ button {
     display: block;
   }
 }
-
 /* Stop ".single-resource"...BEM style */
 
 
 
-
+/* Start ".page-modal"...BEM style */
 .page-modal {
 
   height: 50%;
@@ -165,3 +169,4 @@ button {
   }
 
 }
+/* Start ".page-modal"...BEM style */
