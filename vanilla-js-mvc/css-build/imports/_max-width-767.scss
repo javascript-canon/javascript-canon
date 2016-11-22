@@ -242,7 +242,13 @@
 
   /* Style <footer> */
   footer {
+    height:10px;
+    margin-bottom:0;
     padding: 5px 0;
+    position:fixed;
+    right:0px;
+    bottom:0px;
+    left:0px;
 
     background-color: $js-yellow;
     text-align: center;
