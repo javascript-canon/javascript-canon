@@ -6,7 +6,7 @@
    */
 
    /* Where the header and nav are */
-  .left-column {
+   .left-column {
     width: 250px;
     height: 100%;
     padding: 22px 0 0 22px;
@@ -20,10 +20,9 @@
     max-width: 1010px;
     padding-left: 241px;
     float: left;
-   }
+  }
 
   /* STOP COLUMNS */
-
 
 
 
@@ -48,6 +47,8 @@
 
   }
   /* Stop ".header"...BEM style */
+
+
 
   /* Start ".nav"...BEM style */
   .nav {
@@ -74,15 +75,11 @@
   /* Stop ".nav"...BEM style */
 
 
-
-
-  .article-container {
+  /* Non-BEM container for the learning resources */
+  .single-resource-container {
     max-width: 992px;
     margin: 15px 0 0 50px;
   }
-
-
-
 
   /* Start ".single-resource"...BEM style */
   .single-resource {
@@ -93,36 +90,38 @@
 
     text-align: center;
 
-  &__header {
-    min-height: 70px;
-    
-    font-size: 18px;
-    font-weight: 400;
+    &__header {
+      min-height: 70px;
 
-    color: darken($js-yellow, 30%);
-  }
+      font-size: 18px;
+      font-weight: 400;
 
-  &__author {
-    display: inline-block;
-    font-size: 16px;
-  }
+      color: darken($js-yellow, 30%);
+    }
 
-  &__button {
-    margin: 0 4px;
-    margin-bottom: 10px;
-    cursor: pointer;
+    &__author {
+      display: inline-block;
+      font-size: 16px;
+    }
 
-    color: #000;
-    display: inline-block;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    &__button {
+      margin: 0 4px;
+      margin-bottom: 10px;
+      cursor: pointer;
 
-      color: darken($js-yellow, 35%);
+      color: #000;
+      display: inline-block;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+
+        color: darken($js-yellow, 35%);
+      }
     }
   }
-}
-/* Stop ".single-resource"...BEM style */
+  /* Stop ".single-resource"...BEM style */
+
+
 
   /* Start ".page-modal"...BEM style */
   .page-modal {
@@ -149,17 +148,19 @@
       right: 0;
     }
 
-}
-
+  }
   /* Stop ".page-modal"...BEM style */
-footer {
-  position: fixed;
-  top: 460px;
-  margin-left: 22px;
 
-  font-size: 12px;
-  font-weight: 500;
-}
+
+  /* Style <footer> */
+  footer {
+    position: fixed;
+    top: 460px;
+    margin-left: 22px;
+
+    font-size: 12px;
+    font-weight: 500;
+  }
 
 
 
