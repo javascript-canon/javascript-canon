@@ -62,7 +62,7 @@ var
       /* Add the resource author to the inside of the <span> and 
        * give it a class
        */
-      resourceAuthor.innerHTML =  " by " + model[data].author;
+      resourceAuthor.innerHTML =  " &nbsp;by " + model[data].author;
       resourceAuthor.setAttribute("class", "single-resource__author");
 
       /* Set attributes for the button that goes to the book's
@@ -70,7 +70,7 @@ var
        */
       buyBookButton.setAttribute("class", "single-resource__button js-book");
       buyBookButton.setAttribute("href", model[data].link);
-      buyBookButton.innerHTML =  "Buy this book!";
+      buyBookButton.innerHTML =  "Get This!";
 
       /* The button that opens the modal needs a hash link set as its
        * "href" attribute. Create that attribute by looking at the
