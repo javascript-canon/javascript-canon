@@ -121,10 +121,18 @@
 }
 /* Stop ".single-resource"...BEM style */
 
+  /* Start ".page-modal"...BEM style */
+  .page-modal {
 
+    &__container {
+      width: 70%;
+    }
 
+}
+
+  /* Stop ".page-modal"...BEM style */
 footer {
-  position: absolute;
+  position: fixed;
   top: 460px;
   margin-left: 22px;
 
