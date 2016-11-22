@@ -40,7 +40,7 @@ module.exports = function( grunt ) {
 
   grunt.loadNpmTasks( "grunt-uncss" );
 
-  // running "grunt" in "vanilla-js-mvc" runs the uncss task
+  // running "grunt" runs the uncss task
   grunt.registerTask( "default", ["uncss"] );
 
 };
