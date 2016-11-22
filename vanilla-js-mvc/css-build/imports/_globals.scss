@@ -5,17 +5,13 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-button {
-  margin: 0 8px;
-}
-
 /*
  * COLUMNS:
  * Defines the responsive positioning of the key content
  */
 
  /* Where the header and nav are */
- .left-column {
+.left-column {
   top: 0;
   position: fixed;
 }
@@ -72,7 +68,7 @@ button {
   border-radius: 5px;
 
   &__book-image {
-    margin: 0 auto 10px;
+    margin: 0 auto 20px;
     display: block;
   }
 }

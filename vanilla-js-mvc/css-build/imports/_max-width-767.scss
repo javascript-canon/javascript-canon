@@ -204,8 +204,10 @@
     &__button {
       display: inline-block;
 
+      font-size: 14px;
+
       @include coreButton;
-      @include coreButtonDimensions(110px);
+      @include coreButtonDimensions(100px);
     }
   }
   /* Stop ".single-resource"...BEM style */
