@@ -112,11 +112,13 @@
     margin-bottom: 10px;
     cursor: pointer;
 
-    display: inline-block;
     color: #000;
+    display: inline-block;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
+
+      color: darken($js-yellow, 35%);
     }
   }
 }
