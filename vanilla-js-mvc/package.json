@@ -4,7 +4,6 @@
   "description": "a presentation of the most important learning JavaScript resources",
   "main": "n/a",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "server": "./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
     "build-jade": "jade jade/index.jade -o build/",
     "build-js": "browserify js-build/*.js --exclude js-build/changeOnScroll.js | uglifyjs -mc > build/js/scripts.js",
