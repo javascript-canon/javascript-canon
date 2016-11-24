@@ -196,8 +196,7 @@ body {
     border: 1px solid #888; }
   .page-modal__header {
     margin-top: 0;
-    font-size: 20px;
-    text-align: center; }
+    font-size: 20px; }
   .page-modal__title {
     font-size: 18px;
     text-align: center; }
@@ -565,7 +564,8 @@ body {
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
   .page-modal__header {
-    font-size: 20px; }
+    font-size: 20px;
+    text-align: center; }
   .page-modal__container {
     width: 80%; }
   .page-modal__content {
