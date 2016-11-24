@@ -30,7 +30,7 @@ var setMobileState = function() {
       $("#headerElement").addClass("header--expanded");
       $("#logo").addClass("header__logo--scaleout").removeClass("header__logo--scalein");
       $("#title").addClass("header__title--moveUp").removeClass("header__title--moveDown");
-      $("#subtitle").addClass("header__subtitle--fadein").removeClass("subtitle-fadeIn");
+      $("#subtitle").addClass("header__subtitle--fadeout").removeClass("header__subtitle--fadein");
     });
 
   /* ...otherwise, the mobile menu is visible so do the opposite stuff 
@@ -42,7 +42,7 @@ var setMobileState = function() {
     $("#headerElement").removeClass("header--expanded");
     $("#logo").removeClass("header__logo--scaleout").addClass("header__logo--scalein");
     $("#title").removeClass("header__title--moveUp").addClass("header__title--moveDown");
-    $("#subtitle").removeClass("header__subtitle--fadeout").addClass("subtitle-fadeIn");
+    $("#subtitle").removeClass("header__subtitle--fadeout").addClass("header__subtitle--fadein");
   }  
 }
 
