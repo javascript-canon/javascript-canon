@@ -1,10 +1,17 @@
-var express = require('express');
-var router = express.Router();
+// use strict mode
+"use strict";
 
-router.get('/', function(req, res) {
+// Create a router
+var router = require("express").Router();
 
-  res.render('index');
+
+// "index.js" loads the homepage when browser calles the index route
+router.get("/", function(req, res) {
+
+  res.render("index");
 
 });
 
+
+// Export the router out
 module.exports = router;

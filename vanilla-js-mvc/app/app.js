@@ -1,7 +1,7 @@
 var 
     
     // Require the express module
-    express = require('express'),
+    express = require("express"),
     
     // Create a new express application called "app"
     app = express(),
@@ -48,12 +48,12 @@ app.set("views", "app/views");
  */
 
  // grab asset files...images, .css, .js, etc.
-app.use(express.static('app/public'));
+app.use(express.static("app/public"));
 
 // Routes
 
 // Index rout
-app.use(require('./routes/index'));
+app.use(require("./routes/index"));
 
 /*
  * ========================
@@ -62,10 +62,10 @@ app.use(require('./routes/index'));
  */
 
 
-// Run server
+// Run the server via the sever variable
 server = app.listen(app.get("port"), function() {
   console.log("Listening on port " + app.get("port"));
 });
 
-// Reload the server when changes happen
+// Reload the server when changes happen inside "app"
 reload(server, app);
