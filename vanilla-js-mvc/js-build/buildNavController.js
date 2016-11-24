@@ -21,9 +21,9 @@ var
     navView = require("./buildNavView").SingleNavView;
 
  /* Run the "displayNav()" method & pass the model data as its
- 	* parameter, which is represented by the "navModelData" variable
- 	* defined above.
- 	*/
- $.getJSON(modelData).done(function(data){
- 		return navView.render(data);
- });
+  * parameter, which is represented by the "navModelData" variable
+  * defined above.
+  */
+  $.getJSON(modelData).done(function(data){
+    return navView.render(data);
+  });

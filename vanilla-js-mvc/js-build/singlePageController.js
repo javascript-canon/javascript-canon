@@ -28,7 +28,7 @@ var
 /* "openModal()" method takes openModal method in the view code and 
  * adds it to the Controller object.
  */
- SingleResourcePageController.openModal = function() {
+SingleResourcePageController.openModal = function() {
   return singlePageView.openModal();
 };
 
@@ -36,7 +36,7 @@ var
 /* "closeModal()" method takes closeModal method in the view code and 
  * adds it to the Controller object.
  */
- SingleResourcePageController.closeModal = function() {
+SingleResourcePageController.closeModal = function() {
   return singlePageView.closeModal();
 };
 
@@ -45,7 +45,7 @@ var
  * data parameter (which will be the resource API) and an optional 
  * callback.
  */
- SingleResourcePageController.buildAboutTextArray = function(data, callback) {
+SingleResourcePageController.buildAboutTextArray = function(data, callback) {
   return singlePageView.buildAboutTextArray(data, callback);
 };
 
@@ -53,7 +53,7 @@ var
 /* AJAX in the model data...when it's ready build the modal with the
  * proper content on a click.
  */
- $.getJSON(modelData).done(function(data) {
+$.getJSON(modelData).done(function(data) {
 
   $(".js-modal").on("click", function() {
 

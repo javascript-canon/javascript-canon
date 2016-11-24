@@ -21,6 +21,6 @@ var
     // reference to the view object in the view
     homepageView = HomePageView.SingleResourceView;
 
- $.getJSON(modelData).done(function(data){
-    return homepageView.renderFirstPage(data);
- });
+$.getJSON(modelData).done(function(data){
+  return homepageView.renderFirstPage(data);
+});

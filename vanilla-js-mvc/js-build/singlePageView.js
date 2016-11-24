@@ -21,7 +21,7 @@ SinglePageResourceView.aboutTextArray = [];
 /* "openModal()" method for opening the modal and displaying a single
  * resource page.
  */
-SinglePageResourceView.openModal = function() {
+ SinglePageResourceView.openModal = function() {
 
   // Page modal is hidden...show it
   $("#page-modal-element").css("display", "block");
@@ -51,9 +51,9 @@ SinglePageResourceView.closeModal = function() {
   /* Reset the slides by removing the animation classes and show the 
    * vertical scrollbar.
    */
-  $(".page-modal__top-slide").removeClass("page-modal__slide--moveUp");
-  $(".page-modal__bottom-slide").removeClass("page-modal__slide--moveDown");
-  $("body").css("overflow-y", "auto");
+   $(".page-modal__top-slide").removeClass("page-modal__slide--moveUp");
+   $(".page-modal__bottom-slide").removeClass("page-modal__slide--moveDown");
+   $("body").css("overflow-y", "auto");
 
 } // end "closeModal"
 
