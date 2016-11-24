@@ -16,9 +16,10 @@ var
     SingleResourceView = {};
 
 
-/* "renderFirstPage()" method renders info for single resource 
- * component. The "model" parameter will represent whatever variable 
- * is storing the model data
+/* "renderFirstPage()" method renders a single resource component. The 
+ * "model" parameter will represent whatever variable 
+ * is storing the model data, which will happen in the view's 
+ * controller.
  */
  SingleResourceView.renderFirstPage = function(model) {
 
@@ -28,6 +29,7 @@ var
     // Perform standard hasOwnProperty() check
     if (model.hasOwnProperty(data)) {
 
+      // Create single DOM elements for the component
       var pageTarget = document.getElementById("targetEl"),
           resourceContainer = document.createElement("article"),
           resourceTitle = document.createElement("h2"),

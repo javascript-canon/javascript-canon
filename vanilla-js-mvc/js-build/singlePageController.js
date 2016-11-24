@@ -18,7 +18,7 @@ var
     // "require" the single page view module
     singlePageView = require("./singlePageView").SinglePageResourceView,
 
-    // reference to the about text array in the single page view module
+    // reference the about text array in the single page view module
     aboutTextArray = singlePageView.aboutTextArray,
 
     // create a controller object for a single page view
@@ -49,11 +49,10 @@ SingleResourcePageController.buildAboutTextArray = function(data, callback) {
   return singlePageView.buildAboutTextArray(data, callback);
 };
 
-
 /* AJAX in the model data...when it's ready build the modal with the
  * proper content on a click.
  */
-$.getJSON(modelData).done(function(data) {
+$.getJSON(modelData).then(function(data) {
 
   $(".js-modal").on("click", function() {
 
@@ -64,38 +63,39 @@ $.getJSON(modelData).done(function(data) {
        * is done so the number matches the value of the article array
        * index.
        */
-       resourceNumber = $(this).closest(".js-modal").data("resourceNumber") - 1,
+      resourceNumber = $(this).closest(".js-modal").data("resourceNumber") - 1,
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * resource title
        */
-       getTitle = $(this).parent().children(".single-resource__header").html(),
+      getTitle = $(this).parent().children(".single-resource__header").html(),
 
       /* Find the clicked-on link's parent element and look at all
        * its child elements.  Find the element that contains the
        * image
        */
-       getImage = $(this).parent().children(".single-resource__book-image").attr("src"),
+      getImage = $(this).parent().children(".single-resource__book-image").attr("src"),
 
       /* Short-hand reference to open the modal...do this so it's
        * easier read when it's passed as callback.
        */
-       modalMethod = SingleResourcePageController.openModal();
+      modalMethod = SingleResourcePageController.openModal();
 
-  /* Build the about array based on the API model data, then open the 
-   * modal via a callback
-   */
-   SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
-  /* Find the modal content container element and place it the 
-   * respective  resource's "about" text in it. The resourceNumber 
-   * will match the proper spot in the index since 1 was subtracted 
-   * from it. It's hacky, but it works.
-   */
-   document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
+    /* Build the about array based on the API model data, then open 
+     * the modal via a callback
+     */
+  
+    SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
+    /* Find the modal content container element and place it the 
+     * respective resource's "about" text in it. The resourceNumber 
+     * will match the proper spot in the index since 1 was subtracted 
+     * from it earlier. It's hacky, but it works.
+     */
+    document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
 
     // Find modal image element and set its src to the resource's src
-    document.querySelector(".page-modal__img").src =  getImage;
+    document.querySelector(".page-modal__img").src = getImage;
 
     // Find the modal title element and place the title in it
     document.querySelector(".page-modal__title").innerHTML = getTitle;
@@ -105,6 +105,6 @@ $.getJSON(modelData).done(function(data) {
 });
 
 // When the user clicks on the modal's close button, close it
-$(".page-modal__button").click(function(){
+$(".page-modal__button").click(function() {
   SingleResourcePageController.closeModal();
 });

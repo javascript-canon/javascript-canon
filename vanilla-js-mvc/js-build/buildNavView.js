@@ -20,7 +20,7 @@ var
     // Create an object for the SingleNavView
     SingleNavView = {},
 
-    /* The default element for out view...it's a <ul>.  Think of it as 
+    /* The default element for our view...it's a <ul>.  Think of it as 
      * the "el" value in "Backbone.Model()".
      */
      btnTargetEl = document.querySelector(".nav__list");
@@ -60,8 +60,8 @@ SingleNavView.render = function(model) {
 
   /* Let the "createTypeLink" variable be a jQuery.each() loop that
    * loops through the linkType array and creates a link a for each 
-   * array value. Using jQuery because we need it to return
-   * a promise for something later on.
+   * array value. We need it to return a promise for something later 
+   * on.
    */
   createTypeLink = $.each(linkType, function(index, resourceType) {
 
@@ -101,9 +101,9 @@ SingleNavView.render = function(model) {
 
   /* USE JQUERY PROMISES
    * ================================================================
-   * The data MIGHT not return fast enough so that buttons update
-   * the view when they're clicked on and return a console error.
-   * Use $.Deferred, $.promise(), and $.done() to prevent this
+   * The links MIGHT not be functional fast enough so that they 
+   * respond to click events once they're visible on the screen. Use
+   * $.Deferred, $.promise(), and $.done() to prevent this.
    */
 
   // "defer" will be a method that we need to return a promise

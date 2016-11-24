@@ -21,6 +21,7 @@ var
     // reference to the view object in the view
     homepageView = HomePageView.SingleResourceView;
 
+// JSON on the model data, then build the first page
 $.getJSON(modelData).done(function(data){
   return homepageView.renderFirstPage(data);
 });
