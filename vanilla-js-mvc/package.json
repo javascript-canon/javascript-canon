@@ -2,9 +2,9 @@
   "name": "javascript-canon",
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
-  "main": "n/a",
+  "main": "app/app.js",
   "scripts": {
-    "server": "./node_modules/httpster/bin/httpster -p 3000 -d ./build/",
+    "server": "nodemon -e css,ejs,js,json --watch app",
     "build-jade": "jade jade/index.jade -o build/",
     "build-js": "browserify js-build/*.js | uglifyjs -mc > build/js/scripts.js",
     "build-sass": "node-sass css-build/style.scss css-build/style.css",
@@ -28,7 +28,6 @@
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-uncss": "^0.6.1",
-    "httpster": "^1.0.3",
     "jade": "^1.11.0",
     "jquery": "^3.1.1",
     "ncp": "^2.0.0",
@@ -38,6 +37,7 @@
     "uncss": "0.14.1"
   },
   "dependencies": {
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "jquery": "^3.1.0",
     "normalize.css": "^5.0.0",
