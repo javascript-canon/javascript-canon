@@ -7,7 +7,7 @@ module.exports = function( grunt ) {
     uncss: {
       dist: {
         files: {
-          'app/public/css/style.css': ['http://localhost:3000']
+          'build/css/style.css': ['build/index.html']
         },
         options: {
           ignore: [
