@@ -10,6 +10,14 @@ app.set("resources", resourceData);
 app.set("view engine", "pug");
 app.set("views", "app/views");
 
+/*
+ * "use" stuff in the app
+ */
+
+ // grab asset files...images, .css, .js, etc.
+app.use(express.static('app/public'));
+
+// Routes
 app.use(require('./routes/index'));
 
 // Run server
