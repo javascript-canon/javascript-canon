@@ -7,7 +7,7 @@ var
 
 app.set("port", process.env.PORT || 3000 );
 app.set("resources", resourceData);
-app.set("view engine", "ejs");
+app.set("view engine", "pug");
 app.set("views", "app/views");
 
 app.use(require('./routes/index'));
