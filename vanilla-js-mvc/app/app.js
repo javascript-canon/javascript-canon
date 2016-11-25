@@ -31,7 +31,7 @@ app.set("port", process.env.PORT || 3000 );
 app.set("resources", resourceData);
 
 // Set the view template engins to be pug
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 
 // Set where the views are
 app.set("views", "app/views");
