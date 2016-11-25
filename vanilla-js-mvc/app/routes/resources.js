@@ -6,7 +6,10 @@ var router = require("express").Router();
 
 router.get('/resources/', function(req, res) {
 	
-  res.render("resources");
+	// Render the resource view with it's unique title
+  res.render("resources", {
+  	pageTitle: 'Resource',
+  });
 
 });
 
