@@ -1,3 +1,6 @@
+// use strict mode
+"use strict";
+
 // "require" jQuery core
 var $ = require( "jquery" );
 
