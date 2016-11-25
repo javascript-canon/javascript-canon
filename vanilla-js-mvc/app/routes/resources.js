@@ -15,7 +15,7 @@ router.get('/resources/', function(req, res) {
 
 	// Render the resource view with it's unique title
   res.render("resources", {
-  	pageTitle: 'Resource'
+  	pageTitle: 'Resources'
   });
 
 });
