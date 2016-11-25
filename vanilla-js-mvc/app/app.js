@@ -53,10 +53,13 @@ app.set("views", "app/views");
  // grab asset files...images, .css, .js, etc.
 app.use(express.static("app/public"));
 
-// Routes
+/* Routes */
 
-// Index rout
+// Index route
 app.use(require("./routes/index"));
+
+// Resource route
+app.use(require('./routes/resources'));
 
 /*
  * ========================
