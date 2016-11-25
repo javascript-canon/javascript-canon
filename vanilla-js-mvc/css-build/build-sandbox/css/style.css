@@ -150,10 +150,6 @@ a:hover {
  * Remove the border on images inside links in IE 10-.
  */
 
-img {
-  border-style: none;
-}
-
 /**
  * Hide the overflow in IE.
  */
@@ -467,39 +463,6 @@ body {
 
 /* Stop ".single-resource"...BEM style */
 /* Start ".page-modal"...BEM style */
-.page-modal {
-  height: 50%;
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: hidden;
-  /* Enable scroll if needed */
-  background-color: #e2dfdf; }
-  .page-modal__container {
-    margin: 0 auto;
-    padding: 10px;
-    position: absolute;
-    z-index: 2;
-    top: 10%;
-    right: 0;
-    left: 0;
-    background-color: #fefefe;
-    border: 1px solid #888; }
-  .page-modal__header {
-    margin-top: 0;
-    font-size: 20px; }
-  .page-modal__title {
-    font-size: 18px;
-    text-align: center; }
   .page-modal__button {
     padding: 10px;
     float: right;
@@ -513,12 +476,6 @@ body {
     .page-modal__button:hover {
       color: #f9e034;
       text-decoration: underline; }
-  .page-modal__img {
-    border: 1px solid #000; }
-  .page-modal__top-slide {
-    top: 0; }
-  .page-modal__bottom-slide {
-    bottom: 0; }
   .page-modal__slide {
     background-color: #b0b0b0;
     position: relative;
@@ -615,15 +572,6 @@ body {
         color: #776804; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
-  .page-modal__header {
-    font-size: 26px; }
-  .page-modal__container {
-    width: 54%; }
-  .page-modal__content {
-    display: inline; }
-  .page-modal__img {
-    margin-right: 10px;
-    float: left; }
   .page-modal__button {
     position: absolute;
     top: 10px;
@@ -863,18 +811,6 @@ body {
         text-decoration: underline; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
-  .page-modal__header {
-    font-size: 20px;
-    text-align: center; }
-  .page-modal__container {
-    width: 80%; }
-  .page-modal__content {
-    width: 80%;
-    margin: 15px auto;
-    line-height: 20px; }
-  .page-modal__img {
-    margin: 0 auto;
-    display: block; }
   /* Style <footer> */
   footer {
     height: 10px;

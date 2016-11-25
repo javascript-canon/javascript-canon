@@ -169,8 +169,6 @@ body {
 /* Start ".page-modal"...BEM style */
 .page-modal {
   height: 50%;
-  display: none;
-  /* Hidden by default */
   position: fixed;
   /* Stay in place */
   z-index: 1;
