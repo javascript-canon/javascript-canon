@@ -5,7 +5,7 @@
 var router = require("express").Router();
 
 
-// "index.js" loads the homepage when browser calles the index route
+// "index.js" loads the homepage when browser calls the index route
 router.get("/", function(req, res) {
 
   res.render("index");
