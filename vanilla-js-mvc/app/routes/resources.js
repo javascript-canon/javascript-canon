@@ -4,11 +4,9 @@
 // Create a router
 var router = require("express").Router();
 
-router.get('/resources/:resourceid', function(req, res) {
+router.get('/resources/', function(req, res) {
 	
-  res.send(`
-      <h1>foo</h1>
-  `);
+  res.render("resources");
 
 });
 
