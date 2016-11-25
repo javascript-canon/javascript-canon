@@ -39,7 +39,6 @@
     "express": "^4.14.0",
     "jquery": "^3.1.0",
     "normalize.css": "^5.0.0",
-    "pug": "^2.0.0-beta6",
     "reload": "^1.1.0",
     "underscore": "^1.8.3"
   }
