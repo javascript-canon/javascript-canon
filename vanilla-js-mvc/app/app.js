@@ -30,7 +30,7 @@ app.set("port", process.env.PORT || 3000 );
 // Set a pointer the resource data
 app.set("resources", resourceData);
 
-// Set the view template engins to be pug
+// Set the view template engine to be ejs
 app.set("view engine", "ejs");
 
 // Set where the views are
