@@ -6,7 +6,9 @@
       <head><% include partials/header.ejs %></head>
       <main class="right-column">
 
-
+      <% titles.forEach(function(item) { %>
+        <h1><%= item.title %></h1>
+      <% }); %>
 
       </main>
       <% include partials/footer.ejs %>

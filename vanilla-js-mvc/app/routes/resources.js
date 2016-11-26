@@ -7,7 +7,10 @@ var router = require("express").Router();
 router.get('/resources/:resourceid', function(req, res) {
 	
 	// Require the resource data
-	var data = req.app.get('resources'),
+	var
+
+			// Get the data being stored in the Node request object
+			data = req.app.get('resources'),
 			resourceTitles = [];
 
 	data.resources.forEach(function(item){

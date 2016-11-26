@@ -10,7 +10,7 @@ var
     app = express(),
 
     // Point to the resource JSON data
-    resourceData = require("./data/resources.json"),
+    resourceData = require("./data/resources2.json"),
 
     // Require module for auto-refreshing the browser
     reload = require("reload"),
@@ -35,6 +35,9 @@ app.set("view engine", "ejs");
 
 // Set where the views are
 app.set("views", "app/views");
+
+// Pull all the resource info from "resources.json"
+app.locals.allResources = resourceData.resources;
 
 /*
  * =================
