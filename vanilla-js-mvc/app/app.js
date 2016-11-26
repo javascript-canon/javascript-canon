@@ -36,9 +36,6 @@ app.set("view engine", "ejs");
 // Set where the views are
 app.set("views", "app/views");
 
-// Pull all the resource info from "resources.json"
-app.locals.allResources = resourceData.resources;
-
 /*
  * =================
  * STOP APP SETTINGS
