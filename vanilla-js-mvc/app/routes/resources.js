@@ -10,10 +10,10 @@ router.get('/resources/:resourceid', function(req, res) {
 	var
 
 			// Get the data being stored in the Node request object
-			data = req.app.get('resources'),
+			requestData = req.app.get('resources'),
 			resourceTitles = [];
 
-	data.resources.forEach(function(item){
+	requestData.resources.forEach(function(item){
 		if(item.title == req.params.resourceid) {
 			resourceTitles.push(item);	
 		}
