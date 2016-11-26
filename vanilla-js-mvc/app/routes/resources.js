@@ -5,27 +5,27 @@
 var router = require("express").Router();
 
 router.get("/resources/:resourceid", function(req, res) {
-	
-	// Require the resource data
-	var
 
-			// Get the data being stored in the Node request object
-			requestData = req.app.get("resources"),
-			
-			// Create a temporary array for the resource titles
-			resourceTitles = [];
+  // Require the resource data
+  var
 
-	// Loop thru requestData, which is an array.
-	requestData.resources.forEach(function(item){
-		if(item.title == req.params.resourceid) {
-			resourceTitles.push(item);	
-		}
-	});
+      // Get the data being stored in the Node request object
+      requestData = req.app.get("resources"),
 
-	// Render the resource view with it's unique ids
+      // Create a temporary array for the resource links
+      resourceLinks = [];
+
+  // Loop thru requestData, which is an array.
+  requestData.resources.forEach(function(item){
+    if(item.href == req.params.resourceid) {
+      resourceLinks.push(item);
+    }
+  });
+
+  // Render the resource view
   res.render("resources", {
-  	pageTitle: "Resources",
-  	titles: resourceTitles
+    pageTitle: "Resources",
+    links: resourceLinks
   });
 
 });
