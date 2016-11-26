@@ -8,7 +8,15 @@
         <div class="page-modal__container">
         <% links.forEach(function(item) { %>
           <h2 class="page-modal__header">Why is <em><%= item.title %></em> good?</h2>
+
+          <img class="page-modal__img" src="/img/book-images/<%= item.image %>" alt="<%= item.title %>">
+
+          <div class="page-modal__content js-modal-content">
+            <%= item.about_text %>
+          </div> <!-- .page-modal__content -->
+
         <% }); %>
+        <a class="page-modal__button">close window</a>
         </div> <!-- .page-modal__container -->
       </main>
       <% include partials/footer.ejs %>
