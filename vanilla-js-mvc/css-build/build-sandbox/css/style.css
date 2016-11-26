@@ -457,6 +457,9 @@ body {
 
 /* Stop ".single-resource"...BEM style */
 /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    margin-top: 0;
+    font-size: 20px; }
   .page-modal__button {
     padding: 10px;
     float: right;
@@ -566,6 +569,8 @@ body {
         color: #776804; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    font-size: 26px; }
   .page-modal__button {
     position: absolute;
     top: 10px;
@@ -805,6 +810,10 @@ body {
         text-decoration: underline; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    margin-top: 16px;
+    font-size: 18px;
+    text-align: center; }
   /* Style <footer> */
   footer {
     height: 10px;

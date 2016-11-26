@@ -56,10 +56,10 @@
       &--fadeout {
         @include scaling(fadeOut);
       }
-      
+
       &--fadein {
         @include scaling(fadeIn);
-      } 
+      }
 
     }
 
@@ -219,7 +219,9 @@
   .page-modal {
 
     &__header {
-      font-size: 20px;
+      margin-top: 16px;
+
+      font-size: 18px;
       text-align: center;
     }
 

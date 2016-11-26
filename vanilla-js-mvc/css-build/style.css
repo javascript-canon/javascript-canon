@@ -556,7 +556,8 @@ body {
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
   .page-modal__header {
-    font-size: 20px;
+    margin-top: 16px;
+    font-size: 18px;
     text-align: center; }
   .page-modal__container {
     width: 80%; }
