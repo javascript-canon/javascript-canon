@@ -10,7 +10,7 @@ var
     app = express(),
 
     // Point to the resource JSON data
-    resourceData = require("./data/resources2.json"),
+    resourceData = require("./data/resources.json"),
 
     // Require module for auto-refreshing the browser
     reload = require("reload"),
