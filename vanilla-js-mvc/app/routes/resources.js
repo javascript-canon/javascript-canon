@@ -7,8 +7,8 @@ var router = require("express").Router();
 router.get('/resources/:resourceid', function(req, res) {
 	
 	// Require the resource data
-	var data = req.app.get('resources');
-	var resourceTitles = [];
+	var data = req.app.get('resources'),
+			resourceTitles = [];
 
 	data.resources.forEach(function(item){
 		if(item.title == req.params.resourceid) {
