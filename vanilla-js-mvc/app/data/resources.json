@@ -1,70 +1,4 @@
-[
-  {
-    "id": 1,
-    "title": "Object-Oriented JavaScript",
-    "author": "Stoyan Stefanov",
-    "image_large": "ooj.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": "http://amzn.to/1JwbgcD",
-    "tags": ["beginners", "javascript"],
-    "about_text": "This was one of the first books to clearly explain JavaScript from a beginner's point a view while also explaining how to use the more application-based features of the language. Particularly closures and prototypes."
-  },
-  {
-    "id": 2,
-    "title": "Eloquent JavaScript",
-    "author": "Marijn Haverbeke",
-    "image_large": "eloquent-javascript.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": "http://amzn.to/1Jwbhx5",
-    "tags": [],
-    "about_text": "It provides deeper discussion on things like variables and arrays and why they do what they do. It also as creative, in-depth exercises and has a GREAT chapter on functional programming."
-  },
-  {
-    "id": 3,
-    "title": "Effective JavaScript",
-    "author": "Dave Herman",
-    "image_large": "effective-javascript.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": "http://amzn.to/1JwbiBf",
-    "about_text": "Arguably the best JavaScript book ever written, it teaches you lots the little tricks and performance tweaks that you would never think of."
-  },
-  {
-    "id": 4,
-    "title": "Javascript Web Applications",
-    "author": "Alex Maccaw",
-    "image_large": "javascript-web-applications.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": {},
-    "tags": [],
-    "about_text": "There were lots of ways to do things like create classes and extend methods in JavaScript before Backbone. This book outlined how to do this...you should read it even if you use Backbone, or something like it."
-  },
-  {
-    "id": 5,
-    "title": "Javascript: The Definitive Guide",
-    "author": "David Flanagan",
-    "image_large": "javascript-definitive.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": {},
-    "tags": [],
-    "about_text": "You ~probably~ never to read this 700+ book cover-to-cover, but it's a GREAT desktop reference for a JavaScript developer."
-  },
-  {
-    "id": 6,
-    "title": "Test-Driven JavaScript Development",
-    "author": "Christian Johansen",
-    "image_large": "tdjsd.jpg",
-    "image_small": "ooj.jpg",
-    "type": "book",
-    "link": {},
-    "tags": ["testing"],
-    "about_text": "While there isn't a historical culture of unit testing in JavaScript development, it's good if you do it anyway. This book is considered to be the standard learning resource for JS unit-testing."
-  },
-  {
+{
   "resources": [{
     "id": 1,
     "title" : "Object-Oriented JavaScript",
@@ -147,4 +81,3 @@
     "about_text": "This is a great functions walk-thru. If you have a lynda.con account and are a JS beginner, this a must-watch."
   }]
 }
-]
