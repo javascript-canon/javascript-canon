@@ -1,11 +1,11 @@
 // use strict mode
 "use strict";
 
-var 
-    
+var
+
     // Require the express module
     express = require("express"),
-    
+
     // Create a new express application called "app"
     app = express(),
 
