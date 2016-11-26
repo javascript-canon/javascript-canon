@@ -4,7 +4,7 @@
   "description": "a presentation of the most important learning JavaScript resources",
   "main": "app/app.js",
   "scripts": {
-    "server": "nodemon -e scss,ejs,js --watch app && npm run build-js && npm run build-css",
+    "server": "nodemon -e scss,ejs,js --watch app",
     "build-js": "browserify js-build/*.js | uglifyjs -mc > app/public/js/scripts.js",
     "build-sass": "node-sass css-build/style.scss css-build/style.css",
     "concat-css": "cat css-build/*.css > css-build/build-sandbox/css/style.css",
