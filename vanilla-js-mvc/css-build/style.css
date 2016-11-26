@@ -187,7 +187,6 @@ body {
     background-color: #fefefe;
     border: 1px solid #888; }
   .page-modal__header {
-    margin-top: 0;
     font-size: 20px; }
   .page-modal__title {
     font-size: 18px;
@@ -308,6 +307,7 @@ body {
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
   .page-modal__header {
+    margin-top: 0;
     font-size: 26px; }
   .page-modal__container {
     width: 54%; }
@@ -334,6 +334,9 @@ body {
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
+  /* Style the site's container */
+  .container {
+    padding-bottom: 70px; }
   /*
    * COLUMNS:
    * Defines the responsive positioning of the key content
@@ -343,8 +346,7 @@ body {
     width: 100%; }
   /* Where the content is */
   .right-column {
-    padding-top: 175px;
-    text-align: center; }
+    padding-top: 175px; }
   /* STOP COLUMNS */
   /* Start ".header"...BEM style */
   .header {

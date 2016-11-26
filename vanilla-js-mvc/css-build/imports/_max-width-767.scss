@@ -2,6 +2,11 @@
 
 @media (max-width: 767px) {
 
+  /* Style the site's container */
+  .container {
+    padding-bottom: 70px;
+  }
+
   /*
    * COLUMNS:
    * Defines the responsive positioning of the key content
@@ -15,8 +20,6 @@
   /* Where the content is */
   .right-column {
     padding-top: 175px;
-
-    text-align: center;
   }
 
   /* STOP COLUMNS */
@@ -219,7 +222,7 @@
   .page-modal {
 
     &__header {
-      margin-top: 16px;
+    margin-top: 16px;
 
       font-size: 18px;
       text-align: center;

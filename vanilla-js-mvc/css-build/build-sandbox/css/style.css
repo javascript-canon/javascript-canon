@@ -458,7 +458,6 @@ body {
 /* Stop ".single-resource"...BEM style */
 /* Start ".page-modal"...BEM style */
   .page-modal__header {
-    margin-top: 0;
     font-size: 20px; }
   .page-modal__button {
     padding: 10px;
@@ -473,6 +472,8 @@ body {
     .page-modal__button:hover {
       color: #f9e034;
       text-decoration: underline; }
+  .page-modal__img {
+    border: 1px solid #000; }
   .page-modal__slide {
     background-color: #b0b0b0;
     position: relative;
@@ -570,7 +571,13 @@ body {
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
   .page-modal__header {
+    margin-top: 0;
     font-size: 26px; }
+  .page-modal__content {
+    display: inline; }
+  .page-modal__img {
+    margin-right: 10px;
+    float: left; }
   .page-modal__button {
     position: absolute;
     top: 10px;
@@ -589,6 +596,9 @@ body {
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
+  /* Style the site's container */
+  .container {
+    padding-bottom: 70px; }
   /*
    * COLUMNS:
    * Defines the responsive positioning of the key content
@@ -598,8 +608,7 @@ body {
     width: 100%; }
   /* Where the content is */
   .right-column {
-    padding-top: 175px;
-    text-align: center; }
+    padding-top: 175px; }
   /* STOP COLUMNS */
   /* Start ".header"...BEM style */
   .header {
@@ -814,6 +823,13 @@ body {
     margin-top: 16px;
     font-size: 18px;
     text-align: center; }
+  .page-modal__content {
+    width: 80%;
+    margin: 15px auto;
+    line-height: 20px; }
+  .page-modal__img {
+    margin: 0 auto;
+    display: block; }
   /* Style <footer> */
   footer {
     height: 10px;
