@@ -5,11 +5,11 @@
   	<div class="container">
       <head><% include partials/header.ejs %></head>
       <main class="right-column">
-
-      <% titles.forEach(function(item) { %>
-        <h1><%= item.title %></h1>
-      <% }); %>
-
+        <div class="page-modal__container">
+        <% links.forEach(function(item) { %>
+          <h2 class="page-modal__header">Why is <%= item.title %> good?</h2>
+        <% }); %>
+        </div> <!-- .page-modal__container -->
       </main>
       <% include partials/footer.ejs %>
       <% include partials/scripts.ejs %>
