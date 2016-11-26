@@ -11,6 +11,8 @@ router.get("/resources/:resourceid", function(req, res) {
 
 			// Get the data being stored in the Node request object
 			requestData = req.app.get("resources"),
+			
+			// Create a temporary array for the resource titles
 			resourceTitles = [];
 
 	// Loop thru requestData, which is an array.
