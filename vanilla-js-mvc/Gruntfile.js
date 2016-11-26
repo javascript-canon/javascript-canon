@@ -23,6 +23,7 @@ module.exports = function( grunt ) {
             ".nav--notVisible",
             ".nav__button",
             ".page-modal__button",
+            ".page-modal__header",
             ".page-modal__slide",
             ".page-modal__slide--moveDown",
             ".page-modal__slide--moveUp",
