@@ -2,6 +2,7 @@
   "resources": [{
     "id": 1,
     "title" : "Object-Oriented-JavaScript",
+    "link" : "object-oriented-javascript",
     "author": "Stoyan Stefanov",
     "image_large": "ooj.jpg",
     "image_small": "ooj.jpg",

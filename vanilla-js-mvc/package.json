@@ -14,7 +14,7 @@
     "build": "npm run build-css && npm run build-js",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run build-css'",
-    "start": "npm run server & nnpm run watch-js & npm run watch-css",
+    "start": "npm run server & npm run watch-js & npm run watch-css",
     "image-minify": "imagemin image-build/* --out-dir=app/img/",
     "book-minify": "imagemin image-build/book-images/* --out-dir=app/img/book-images/",
     "copy-normalize": "ncp node_modules/normalize.css/normalize.css css-build/normalize.css"
