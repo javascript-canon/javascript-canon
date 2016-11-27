@@ -77,7 +77,7 @@ SingleNavView.render = function(model) {
         btnId = resourceType + "-id";
 
 
-    /* Give the <a> element an href, id, class and data attribute. It
+    /* Give the <a> element an class, href, id and data attribute. It
      * may be neater to do this with $.attr(), but it's faster to do
      * it this way.
      */
