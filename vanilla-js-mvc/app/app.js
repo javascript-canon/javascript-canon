@@ -61,6 +61,9 @@ app.use(require("./routes/index"));
 // Resource route
 app.use(require('./routes/resources'));
 
+// Type route
+app.use(require('./routes/type'));
+
 /*
  * ========================
  * STOP MIDDLEWARE SETTINGS
