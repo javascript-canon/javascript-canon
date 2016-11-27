@@ -36,6 +36,15 @@ body {
       color: rgba(174, 158, 48, 1);
     }
 
+    &--link {
+      width: 70px;
+      height: 70px;
+      display: block;
+      margin: 0 auto;
+
+      cursor: pointer;
+    }
+
     &:visited {
       text-decoration: none;
       color: rgba(0, 0, 0, 1);
