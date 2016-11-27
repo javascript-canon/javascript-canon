@@ -442,6 +442,15 @@ body {
 /* Start ".nav"...BEM style */
 .nav__button {
   cursor: pointer; }
+  .nav__button:link {
+    color: #000;
+    text-decoration: none; }
+  .nav__button:hover {
+    color: #000;
+    text-decoration: underline; }
+  .nav__button:visited {
+    color: #000;
+    text-decoration: none; }
 
 .nav--show-all-button {
   cursor: pointer; }
