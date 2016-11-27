@@ -7,8 +7,19 @@
       <main class="right-column">
         <section class="single-resource-container">
         <% types.forEach(function(item) { %>
-          <%= item.type %>
-          <%= item.image %>
+          <article id="<%= item.id %>" class="single-resource" data-resource-type="<%= item.type %>">
+
+            <h2 class="single-resource__header">
+              <%= item.title %><span class="single-resource__author"> &nbsp;by <%= item.author %></span>
+            </h2>
+
+            <img src="/img/book-images/<%= item.image %>" class="single-resource__book-image">
+
+            <a class="single-resource__button js-book" href="<%= item.link %>">Get This!</a>
+
+            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="/<%= item.href %>">Why it's good?</a>
+
+          </article>
         <% }); %>
         </section> <!-- .page-modal__container -->
       </main> <!-- .right-column -->
