@@ -20,7 +20,7 @@ var
     // Create an object for the SingleNavView
     SingleNavView = {},
 
-    /* The default element for our view...it's a <ul>.  Think of it as 
+    /* The default element for our view...it's a <ul>.  Think of it as
      * the "el" value in "Backbone.Model()".
      */
      btnTargetEl = document.querySelector(".nav__list");
@@ -53,14 +53,14 @@ SingleNavView.render = function(model) {
   } // end for...in loop
 
   /* The "types" array contains duplicate items at this point. Remove
-   * the duplicate items with underscore's "uniq" method Store the 
+   * the duplicate items with underscore's "uniq" method Store the
    * resulting array in a new array with a variable name of "linkType".
    */
   linkType = _.uniq(types);
 
   /* Let the "createTypeLink" variable be a jQuery.each() loop that
-   * loops through the linkType array and creates a link a for each 
-   * array value. We need it to return a promise for something later 
+   * loops through the linkType array and creates a link a for each
+   * array value. We need it to return a promise for something later
    * on.
    */
   createTypeLink = $.each(linkType, function(index, resourceType) {
@@ -77,15 +77,16 @@ SingleNavView.render = function(model) {
         btnId = resourceType + "-id";
 
 
-    /* Give the <a> element an id, class and data attribute. It may be
-     * neater to do this with $.attr(), but it's faster to do it this 
-     * way.
+    /* Give the <a> element an href, id, class and data attribute. It
+     * may be neater to do this with $.attr(), but it's faster to do
+     * it this way.
      */
-    btnLink.setAttribute("id", btnId);
     btnLink.setAttribute("class", "nav__button");
+    btnLink.setAttribute("href", "/type/" + resourceType);
+    btnLink.setAttribute("id", btnId);
     btnLink.setAttribute("data-link-type", resourceType);
 
-    /* The link text is lowercase: make it proper-case & place it 
+    /* The link text is lowercase: make it proper-case & place it
      * inside the <a> element
      */
     btnListItem.setAttribute("class", "nav__list-item");
@@ -101,7 +102,7 @@ SingleNavView.render = function(model) {
 
   /* USE JQUERY PROMISES
    * ================================================================
-   * The links MIGHT not be functional fast enough so that they 
+   * The links MIGHT not be functional fast enough so that they
    * respond to click events once they're visible on the screen. Use
    * $.Deferred, $.promise(), and $.done() to prevent this.
    */
@@ -124,8 +125,8 @@ SingleNavView.render = function(model) {
       // Single var pattern
       var getLinkType, getElType, getElNotType;
 
-      /* The ".nav__button"" data-link-type value gets stored in 
-       * getLinkType. Data attributes don't work in IE 10 and lower. 
+      /* The ".nav__button"" data-link-type value gets stored in
+       * getLinkType. Data attributes don't work in IE 10 and lower.
        * Feature-detect if the browser supports the dataset property.
        * If it doesn't, use the getAttribute method instead
        */
