@@ -608,7 +608,7 @@ body {
     width: 100%; }
   /* Where the content is */
   .right-column {
-    padding-top: 175px; }
+    padding-top: 210px; }
   /* STOP COLUMNS */
   /* Start ".header"...BEM style */
   .header {
@@ -787,6 +787,8 @@ body {
       margin: 4px auto;
       background-color: #000; }
   /* Stop ".mobile-menu"...BEM style */
+  .single-resource-container {
+    text-align: center; }
   /* Start ".single-resource"...BEM style */
   .single-resource {
     width: 267px;
