@@ -5,7 +5,7 @@
   	<div class="container">
       <head><% include partials/header.ejs %></head>
       <main class="right-column">
-        <div class="page-modal__container">
+        <section class="single-resource-container">
         <% links.forEach(function(item) { %>
           <h2 class="page-modal__header">Why is <em><%= item.title %></em> good?</h2>
 
@@ -16,10 +16,10 @@
           </div> <!-- .page-modal__content -->
 
         <% }); %>
-        </div> <!-- .page-modal__container -->
+        </section> <!-- .page-modal__container -->
       </main>
       <% include partials/footer.ejs %>
       <% include partials/scripts.ejs %>
-     </div>
+    </div>
   </body>
 </html>
