@@ -6,7 +6,10 @@
       <% include partials/header.ejs %>
       <main class="right-column">
         <section class="single-resource-container">
-
+        <% types.forEach(function(item) { %>
+          <%= item.type %>
+          <%= item.image %>
+        <% }); %>
         </section> <!-- .page-modal__container -->
       </main> <!-- .right-column -->
       <% include partials/footer.ejs %>
