@@ -4,7 +4,7 @@
 // Create a router
 var router = require("express").Router();
 
-router.get("/resources/:resourceid", function(req, res) {
+router.get("/:resourceid", function(req, res) {
 
   // Require the resource data
   var
