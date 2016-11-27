@@ -124,6 +124,18 @@
       display: inline-block;
 
       @include coreButton;
+
+      &:link {
+        color: $js-yellow;
+      }
+
+      &:hover {
+        color: $js-yellow;
+      }
+
+      &:visited {
+        color: $js-yellow;
+      }
     }
 
     &--show-all-button {

@@ -153,13 +153,10 @@ body {
 .nav__button {
   cursor: pointer; }
   .nav__button:link {
-    color: #000;
     text-decoration: none; }
   .nav__button:hover {
-    color: #000;
     text-decoration: underline; }
   .nav__button:visited {
-    color: #000;
     text-decoration: none; }
 
 .nav--show-all-button {
@@ -290,6 +287,12 @@ body {
       margin-bottom: 2px;
       list-style-type: none;
       cursor: pointer; }
+    .nav__button:link {
+      color: #000; }
+    .nav__button:hover {
+      color: #000; }
+    .nav__button:visited {
+      color: #000; }
   /* Stop ".nav"...BEM style */
   /* Non-BEM container for the learning resources */
   .single-resource-container {
@@ -481,6 +484,12 @@ body {
     .nav__button:hover {
       color: #f9e034;
       text-decoration: underline; }
+    .nav__button:link {
+      color: #f9e034; }
+    .nav__button:hover {
+      color: #f9e034; }
+    .nav__button:visited {
+      color: #f9e034; }
   .nav--show-all-button {
     display: inline-block;
     margin: 0 6px;
