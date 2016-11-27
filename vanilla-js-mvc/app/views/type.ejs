@@ -6,7 +6,9 @@
       <% include partials/header.ejs %>
       <main class="right-column">
         <section class="single-resource-container">
+        <h2> JavaScript Canon <%= typeTitle %></h2>
         <% types.forEach(function(item) { %>
+
           <article id="<%= item.id %>" class="single-resource" data-resource-type="<%= item.type %>">
 
             <h2 class="single-resource__header">

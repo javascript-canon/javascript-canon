@@ -26,7 +26,8 @@ router.get("/type/:typeid", function(req, res) {
   // Render the resource view
   res.render("type", {
     pageTitle: "Resources",
-    types: resourceType
+    types: resourceType,
+    typeTitle: req.params.typeid
   });
 
 });
