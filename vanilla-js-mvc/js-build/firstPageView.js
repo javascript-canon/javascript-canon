@@ -16,9 +16,9 @@ var
     SingleResourceView = {};
 
 
-/* "renderFirstPage()" method renders a single resource component. The 
- * "model" parameter will represent whatever variable 
- * is storing the model data, which will happen in the view's 
+/* "renderFirstPage()" method renders a single resource component. The
+ * "model" parameter will represent whatever variable
+ * is storing the model data, which will happen in the view's
  * controller.
  */
  SingleResourceView.renderFirstPage = function(model) {
@@ -36,36 +36,35 @@ var
           resourceImage = document.createElement("img"),
           resourceAuthor = document.createElement("span"),
           buyBookButton = document.createElement("a"),
-          modalButton = document.createElement("a"),
-          getTitle, findLetterNumbersRegex, findMultipleWhitespaceRegex, cleanUpLink;
+          pageLink = document.createElement("a");
 
-        /* Setting attributes one-by-one instead of using something
-         * like $.attr(). You can say that this code isn't cool, but
-         * it's certainly faster.
-         *
-         * Check this at: http://bit.ly/set-attribute-test
-         */
+      /* Setting attributes one-by-one instead of using something
+       * like $.attr(). You can say that this code isn't cool, but it's
+       * certainly faster.
+       *
+       * Check this at: http://bit.ly/set-attribute-test
+       */
 
-      // Set attributes for the containing element
+      // Set attributes for a single resource's containing element
       resourceContainer.setAttribute("id", data);
       resourceContainer.setAttribute("class", "single-resource");
       resourceContainer.setAttribute("data-resource-type", model[data].type);
 
-      /* Add the resource title to the inside of the <h2> and give it
-       * a class
+      /* Add attributes to the resource's <h2> element and place the
+       * resource's title inside of it.
        */
-      resourceTitle.innerHTML = model[data].title;
       resourceTitle.setAttribute("class", "single-resource__header");
+      resourceTitle.innerHTML = model[data].title;
 
       // Set attributes for the resource image
       resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
       resourceImage.setAttribute("class", "single-resource__book-image");
 
-      /* Add the resource author to the inside of the <span> and 
-       * give it a class
+      /* Add attributes to the resource's author element and place the
+       * author's name inside of it.
        */
-      resourceAuthor.innerHTML =  " &nbsp;by " + model[data].author;
       resourceAuthor.setAttribute("class", "single-resource__author");
+      resourceAuthor.innerHTML =  " &nbsp;by " + model[data].author;
 
       /* Set attributes for the button that goes to the book's
        * Amazon page, then add text inside of it
@@ -74,59 +73,27 @@ var
       buyBookButton.setAttribute("href", model[data].link);
       buyBookButton.innerHTML =  "Get This!";
 
-      /* The button that opens the modal needs a hash link set as its
-       * "href" attribute. Create that attribute by looking at the
-       * resource's title property in the API, then restructuring it
-       * with some regexes. Uses variables that were created above.
+      /* Set attributes for the button that links to resource's page,
+      * then add text inside of it
        */
+      pageLink.setAttribute("class", "single-resource__button js-modal");
+      pageLink.setAttribute("data-resource-number", model[data].id);
+      pageLink.setAttribute("href", model[data].href);
+      pageLink.innerHTML =  "Why it's good?";
 
+      /* Arrange elements for an individual resource, then place the
+       * resource on the page
+       */
+      resourceContainer.appendChild(resourceTitle);
+      resourceTitle.appendChild(resourceAuthor);
+      resourceContainer.appendChild(resourceImage);
+      resourceContainer.appendChild(buyBookButton);
+      resourceContainer.appendChild(pageLink);
+      pageTarget.appendChild(resourceContainer);
 
+    } //end hasOwnProperty() check
 
-        // Point to the title property in the API
-        // getTitle = data[data].title;
-
-        /* Build a regex that ignores words, spaces and dashes.
-         * Meaning that it will point to special characters.
-         */
-        // findLetterNumbersRegex = /[^\w\s\-]/gi;
-
-        // Build a regex that whitespace.
-        // findMultipleWhitespaceRegex = /\s/g;
-
-        /* Do the following in order:
-         *
-         * 1. delete any special characters from the title.
-         * 2. replace any whitespace in the title with a "-".
-         * 3. lowercase the title
-         *
-         * So "This title   is CALLED: foo" will look like
-         * "this-title-is-called-foo"
-         */
-        // cleanUpLink = getTitle.replace(findLetterNumbersRegex, "").replace(findMultipleWhitespaceRegex, "-").toLowerCase();
-
-        // Set the cleaned up link as the modal button's "href"
-        // modalButton.setAttribute("data-link", cleanUpLink);
-
-        /* Set attributes for the button that opens the modal, then
-         * add text inside of it
-         */
-        modalButton.setAttribute("class", "single-resource__button js-modal");
-        modalButton.setAttribute("data-resource-number", model[data].id);
-        modalButton.innerHTML =  "Why it's good?";
-
-        /* Arrange elements for an individual resource, then place the
-         * resource on the page
-         */
-        resourceContainer.appendChild(resourceTitle);
-        resourceTitle.appendChild(resourceAuthor);
-        resourceContainer.appendChild(resourceImage);
-        resourceContainer.appendChild(buyBookButton);
-        resourceContainer.appendChild(modalButton);
-        pageTarget.appendChild(resourceContainer);
-
-      } //end hasOwnProperty() check
-
-    } // end for...in loop
+  } // end for...in loop
 
 } // end "renderFirstPage()"
 
