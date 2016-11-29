@@ -1,0 +1,15 @@
+{
+  "name": "javascript-canon",
+  "version": "1.0.0",
+  "description": "a presentation of the most important learning JavaScript resources",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaidez/javascript-canon/issues"
+  },
+  "homepage": "https://github.com/kaidez/javascript-canon#readme"
+}
