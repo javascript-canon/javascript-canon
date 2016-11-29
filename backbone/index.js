@@ -18,7 +18,7 @@ var
  *
  * TODO: get these views in subfolders
  */
- app.set("views", __dirname);
+app.set("views", __dirname);
 
 // Set the view engine to be EJS
 app.set("view engine", "ejs");
