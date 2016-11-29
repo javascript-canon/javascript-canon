@@ -1,6 +1,12 @@
-var express = require("express");
-var app = module.exports = express();
+var
 
-app.get("/ember", function(res, req){
-	res.render("ember");
+		// Bring in express
+		express = require("express");
+
+		// Create "app" & export it out so the root "app.js" can access it
+    app = module.exports = express();
+
+
+app.get("/ember", function(req, res){
+	res.send("ember");
 });
