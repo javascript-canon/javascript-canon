@@ -11,5 +11,9 @@
   "bugs": {
     "url": "https://github.com/kaidez/javascript-canon/issues"
   },
-  "homepage": "https://github.com/kaidez/javascript-canon#readme"
+  "homepage": "https://github.com/kaidez/javascript-canon#readme",
+  "dependencies": {
+    "ejs": "^2.5.3",
+    "express": "^4.14.0"
+  }
 }
