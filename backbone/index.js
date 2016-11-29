@@ -1,9 +1,9 @@
 var
 
-		// Bring in express
-		express = require("express");
+    // Bring in express
+    express = require("express");
 
-		// Create "app" & export it out so the root "app.js" can access it
+    // Create "app" & export it out so the root "app.js" can access it
     app = module.exports = express();
 
 
@@ -18,7 +18,7 @@ var
  *
  * TODO: get these views in subfolders
  */
-app.set("views", __dirname);
+ app.set("views", __dirname);
 
 // Set the view engine to be EJS
 app.set("view engine", "ejs");
@@ -31,5 +31,5 @@ app.set("view engine", "ejs");
 
 // Render the article template when going to the Backbone route
 app.get("/backbone", function(req, res) {
-	res.render("article");
+  res.render("article");
 });
