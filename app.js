@@ -4,19 +4,20 @@ var express = require("express"),
     ember = require("./ember"),
     react = require("./react");
 
-
 /*
  * =========================
  * START MIDDLEWARE SETTINGS
  * =========================
  */
+
 app.use(backbone);
 app.use(ember);
 app.use(react);
+
 /*
- * =========================
- * START MIDDLEWARE SETTINGS
- * =========================
+ * ========================
+ * STOP MIDDLEWARE SETTINGS
+ * ========================
  */
 
 

@@ -6,8 +6,6 @@ var
     // Create "app" & export it out so the root "app.js" can access it
     app = module.exports = express();
 
-
-
 /*
  * ==================
  * START APP SETTINGS
@@ -28,6 +26,8 @@ app.set("view engine", "ejs");
  * STOP APP SETTINGS
  * =================
  */
+
+
 
 // Render the article template when going to the Backbone route
 app.get("/backbone", function(req, res) {
