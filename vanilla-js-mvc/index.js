@@ -9,17 +9,18 @@ var
     // Point to the resource JSON data
     resourceData = require(__dirname + "/data/resources.json");
 
+
+
 /*
  * ==================
  * START APP SETTINGS
  * ==================
  */
+
 // Set a pointer the resource data
 app.set("resources", resourceData);
-/* Point to views in the local folder
- *
- * TODO: get these views in subfolders
- */
+
+// Point to views in the local folder
 app.set("views", __dirname + "/views");
 
 // Set the view engine to be EJS
@@ -33,10 +34,20 @@ app.set("view engine", "ejs");
 
 
 
+/*
+ * =========================
+ * START MIDDLEWARE SETTINGS
+ * =========================
+ */
 
  // grab asset files...images, .css, .js, etc.
 app.use(express.static(__dirname + "/public/"));
 
+/*
+ * ========================
+ * STOP MIDDLEWARE SETTINGS
+ * ========================
+ */
 
 // Render the index template when going to the Vanilla JS MVC route
 app.get("/vanilla-js-mvc", function(req, res) {
