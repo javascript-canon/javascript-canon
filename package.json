@@ -2,18 +2,45 @@
   "name": "javascript-canon",
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
-  "main": "app/index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "nodemon -e scss,ejs,js --watch app",
+    "build-js": "browserify js-build/*.js | uglifyjs -mc > app/public/js/scripts.js",
+    "build-sass": "node-sass css-build/style.scss css-build/style.css",
+    "concat-css": "cat css-build/*.css > css-build/build-sandbox/css/style.css",
+    "uncss": "grunt",
+    "clean-css": "cleancss css-build/build-sandbox/css/style.css --s0 -o app/public/css/style.css",
+    "build-css": "npm run build-sass && npm run concat-css && npm run uncss && npm run clean-css",
+    "build": "npm run build-css && npm run build-js",
+    "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
+    "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run build-css'",
+    "start": "npm run server & npm run watch-js & npm run watch-css",
+    "image-minify": "imagemin image-build/* --out-dir=app/img/",
+    "book-minify": "imagemin image-build/book-images/* --out-dir=app/img/book-images/",
+    "copy-normalize": "ncp node_modules/normalize.css/normalize.css css-build/normalize.css"
   },
-  "author": "",
+  "author": "kaidez",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kaidez/javascript-canon/issues"
+  "devDependencies": {
+    "browserify": "^13.1.1",
+    "clean-css": "^3.4.21",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-uncss": "^0.6.1",
+    "jquery": "^3.1.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^3.13.0",
+    "nodemon": "1.11.0",
+    "uglifyjs": "^2.4.10",
+    "uncss": "0.14.1"
   },
-  "homepage": "https://github.com/kaidez/javascript-canon#readme",
   "dependencies": {
     "ejs": "^2.5.3",
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "http2": "^3.3.6",
+    "jquery": "^3.1.0",
+    "normalize.css": "^5.0.0",
+    "reload": "^1.1.0",
+    "underscore": "^1.8.3"
   }
 }
