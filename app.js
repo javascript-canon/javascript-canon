@@ -1,8 +1,16 @@
-var express = require("express"),
+var
+
+    // Require the express module
+    express = require("express"),
+
+    // Create a new express application called "app"
     app = express(),
+
+    // Require the various versions of JS Canon via their folders
     backbone = require("./backbone"),
     ember = require("./ember"),
-    react = require("./react");
+    react = require("./react"),
+    vanillaJS = require("./vanilla-js-mvc");
 
 /*
  * =========================
@@ -10,9 +18,11 @@ var express = require("express"),
  * =========================
  */
 
+// Plug in the various versions of JS Canon as middleware
 app.use(backbone);
 app.use(ember);
 app.use(react);
+app.use(vanillaJS);
 
 /*
  * ========================
