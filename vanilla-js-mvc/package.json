@@ -2,7 +2,7 @@
   "name": "javascript-canon",
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
-  "main": "app/index.js",
+  "main": "app/app.js",
   "scripts": {
     "server": "nodemon -e scss,ejs,js --watch app",
     "build-js": "browserify js-build/*.js | uglifyjs -mc > app/public/js/scripts.js",
