@@ -35,6 +35,26 @@ app.set("view engine", "ejs");
 
 
 /*
+ * =============================
+ * START LOCAL VARIABLE SETTINGS
+ * =============================
+ */
+
+// Example site title
+app.locals.exampleSiteTitle = "Vanilla JC MVC";
+
+// Example URL
+app.locals.exampleURL = "vanilla-js-mvc";
+
+/*
+ * ============================
+ * STOP LOCAL VARIABLE SETTINGS
+ * ============================
+ */
+
+
+
+/*
  * =========================
  * START MIDDLEWARE SETTINGS
  * =========================
