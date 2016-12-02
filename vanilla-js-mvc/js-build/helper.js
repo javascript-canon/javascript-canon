@@ -4,14 +4,6 @@
 // "require" jQuery core
 var $ = require( "jquery" );
 
-// Click on "#btn-show-all" to make ALL the learning resources visible
-$("#btnShowAll").click(function(event) {
-  event.preventDefault();
-  $(".single-resource").css("display", "inline-block");
-});
-
-
-
 /**
  * Start functionality that sets the mobile state
  */
@@ -23,9 +15,9 @@ var setMobileState = function() {
   // If <body> doesn't have a "mobileVisible" class...
   if(!mobileVisible) {
 
-    /* ...then mobile nav isn't visible. Add a class that makes it 
-     * visible and when that's done, then make some elements animate 
-     * while setting up the mobile view and add a "mobileVisible" 
+    /* ...then mobile nav isn't visible. Add a class that makes it
+     * visible and when that's done, then make some elements animate
+     * while setting up the mobile view and add a "mobileVisible"
      * class to the body tag...
      */
     $.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
@@ -36,7 +28,7 @@ var setMobileState = function() {
       $("#subtitle").addClass("header__subtitle--fadeout").removeClass("header__subtitle--fadein");
     });
 
-  /* ...otherwise, the mobile menu is visible so do the opposite stuff 
+  /* ...otherwise, the mobile menu is visible so do the opposite stuff
    * when closing it.
    */
   } else {
@@ -46,7 +38,7 @@ var setMobileState = function() {
     $("#logo").removeClass("header__logo--scaleout").addClass("header__logo--scalein");
     $("#title").removeClass("header__title--moveUp").addClass("header__title--moveDown");
     $("#subtitle").removeClass("header__subtitle--fadeout").addClass("header__subtitle--fadein");
-  }  
+  }
 }
 
 // Button click functionality that runs the setMobileState function
