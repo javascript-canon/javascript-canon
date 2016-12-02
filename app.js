@@ -1,3 +1,7 @@
+// use strict mode
+"use strict";
+
+// Bring in express
 var
 
     // Require the express module
@@ -15,6 +19,8 @@ var
     // Create a server variable for later use
     server;
 
+
+
 /*
  * =========================
  * START MIDDLEWARE SETTINGS
@@ -31,6 +37,47 @@ app.use(vanillaJS);
  */
 
 
+/*
+ * ==================
+ * START APP SETTINGS
+ * ==================
+ */
+
+// Point to views in the local folder
+app.set("views", __dirname + "/views");
+
+// Set the view engine to be EJS
+app.set("view engine", "ejs");
+
+/*
+ * =================
+ * STOP APP SETTINGS
+ * =================
+ */
+
+
+
+/*
+ * =========================
+ * START MIDDLEWARE SETTINGS
+ * =========================
+ */
+
+ // grab asset files...images, .css, .js, etc.
+ app.use(express.static(__dirname + "/public/"));
+
+/*
+ * ========================
+ * STOP MIDDLEWARE SETTINGS
+ * ========================
+ */
+
+
+
+// Render the index template when going to the Vanilla JS MVC route
+app.get("/", function(req, res) {
+  res.send("<h1>foo</h1>");
+});
 
 // Set the development site port
 app.set("port", process.env.PORT || 3000 );
