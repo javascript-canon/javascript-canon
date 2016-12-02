@@ -7,9 +7,6 @@ var
     app = express(),
 
     // Require the various versions of JS Canon via their folders
-    backbone = require("./backbone"),
-    ember = require("./ember"),
-    react = require("./react"),
     vanillaJS = require("./vanilla-js-mvc"),
 
     // Require module for auto-refreshing the browser
@@ -25,9 +22,6 @@ var
  */
 
 // Plug in the various versions of JS Canon as middleware
-app.use(backbone);
-app.use(ember);
-app.use(react);
 app.use(vanillaJS);
 
 /*
