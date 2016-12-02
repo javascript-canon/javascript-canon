@@ -11,9 +11,9 @@ config.gypi
 CVS
 npm-debug.log
 assets/
-old-code-backup/
-vanilla-js-app-backup/
 css-build/
 image-build/
+old-code-backup/
+vanilla-js-app-backup/
 **/js-build/
 Gruntfile.js
