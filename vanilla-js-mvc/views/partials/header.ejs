@@ -27,9 +27,17 @@
       <h2 class="nav__header">display by resource type</h2>
       <ul class="nav__list">
         <li class="nav__list-item">
-          <a class="nav--show-all-button" id="btnShowAll">Show All Types</a>
+          <a href="/<%=exampleURL %>/" class="nav--show-all-button">Show All Types</a>
         </li>
+        <% types.forEach(function(item) { %>
+        <li class="nav__list-item">
+          <a href="/<%=exampleURL %>/type/<%=item %>" class="nav--show-all-button">
+            <%=item %>
+          </a>
+        </li>
+        <% }); %>
       </ul>
     </nav>
+
   </header> <!-- #headerElement -->
 </div>
