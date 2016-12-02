@@ -28,7 +28,6 @@ app.locals.exampleSiteTitle = "Vanilla JC MVC";
 // An example's URL
 app.locals.exampleURL = "vanilla-js-mvc";
 
-app.locals.data = resourceData;
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
