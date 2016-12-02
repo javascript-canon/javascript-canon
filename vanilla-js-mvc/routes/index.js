@@ -27,7 +27,7 @@ router.get("/:singleresourceid", function(req, res) {
       resourceLinks = [];
 
   // Loop thru requestData, which is an array.
-  requestData.resources.forEach(function(item){
+  requestData.forEach(function(item){
     if(item.href == req.params.singleresourceid) {
       resourceLinks.push(item);
     }
