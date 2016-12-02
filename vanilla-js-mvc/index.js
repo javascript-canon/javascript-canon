@@ -28,7 +28,7 @@ app.locals.exampleSiteTitle = "Vanilla JC MVC";
 // An example's URL
 app.locals.exampleURL = "vanilla-js-mvc";
 
-
+app.locals.data = resourceData;
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
@@ -104,13 +104,13 @@ app.set("view engine", "ejs");
  * ================
  */
 
-// An example's home page route
+// Home page route
 app.use(require('./routes/index'));
 
-// Type routes...books, classes, etc.
+// Type route...books, classes, etc.
 app.use(require('./routes/type'));
 
-// Type routes...books, classes, etc.
+// Single resource route
 app.use(require('./routes/resource'));
 
 
