@@ -38,13 +38,13 @@ app.set("view engine", "ejs");
 
 
 
-
-
 /*
  * =========================
  * START MIDDLEWARE SETTINGS
  * =========================
  */
+
+
 
 // Plug in the various versions of JS Canon as middleware
 app.use(vanillaJS);
@@ -68,7 +68,7 @@ app.get("/", function(req, res) {
 // Set the development site port
 app.set("port", process.env.PORT || 3000 );
 
-// Run a local server via the "sevrer" variable
+// Run a local server via the "server" variable
 server = app.listen(app.get("port"), function() {
   console.log("Listening on port " + app.get("port"));
 });
