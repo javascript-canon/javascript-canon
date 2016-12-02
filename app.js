@@ -18,6 +18,26 @@ var
     // Create a server variable for later use
     server;
 
+/*
+ * ==================
+ * START APP SETTINGS
+ * ==================
+ */
+
+// Point to views in the local folder
+app.set("views", __dirname + "/views");
+
+// Set the view engine to be EJS
+app.set("view engine", "ejs");
+
+/*
+ * =================
+ * STOP APP SETTINGS
+ * =================
+ */
+
+
+
 
 
 /*
@@ -39,27 +59,8 @@ app.use(express.static(__dirname + "/public/"));
  */
 
 
-/*
- * ==================
- * START APP SETTINGS
- * ==================
- */
 
-// Point to views in the local folder
-app.set("views", __dirname + "/views");
-
-// Set the view engine to be EJS
-app.set("view engine", "ejs");
-
-/*
- * =================
- * STOP APP SETTINGS
- * =================
- */
-
-
-
-// Render the index template when going to the home page
+// HOME PAGE ROUTE: Render the index template when going to home page
 app.get("/", function(req, res) {
   res.render("index");
 });
@@ -67,8 +68,7 @@ app.get("/", function(req, res) {
 // Set the development site port
 app.set("port", process.env.PORT || 3000 );
 
-
-// Run the server via the sever variable
+// Run a local server via the "sevrer" variable
 server = app.listen(app.get("port"), function() {
   console.log("Listening on port " + app.get("port"));
 });
