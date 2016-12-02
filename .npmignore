@@ -16,4 +16,5 @@ vanilla-js-app-backup/
 **/css-build/
 **/image-build/
 **/js-build/
-**/Gruntfile.js/
+**/Gruntfile.js
+Gruntfile.js
