@@ -13,7 +13,7 @@ router.get("/vanilla-js-mvc/type/:typeid", function(req, res) {
       // Get the data already stored in the Node request object
       requestData = req.app.get("resources"),
 
-      // Create an array for the resource types
+      // Create a temporary array for the resource links
       resourceType = [];
 
   /* Loop thru requestData, which is an array. If the "type" value

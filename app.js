@@ -13,7 +13,7 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Require module for auto-refreshing the browser
+    // Require module for auto-refreshing the browser on file changes
     reload = require("reload"),
 
     // Create a server variable for later use
@@ -74,7 +74,7 @@ app.set("view engine", "ejs");
 
 
 
-// Render the index template when going to the Vanilla JS MVC route
+// Render the index template when going to the home page
 app.get("/", function(req, res) {
   res.render("index");
 });
@@ -88,5 +88,5 @@ server = app.listen(app.get("port"), function() {
   console.log("Listening on port " + app.get("port"));
 });
 
-// Reload the server when changes happen inside "app"
+// Reload the server when changes happen inside the app
 reload(server, app);

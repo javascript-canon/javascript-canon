@@ -81,7 +81,7 @@ buildTypeNavigation();
  * ==================
  */
 
-// Set a pointer the resource data
+// Set a pointer the resource data so routes can easily access it
 app.set("resources", resourceData);
 
 // Point to views in the local folder
