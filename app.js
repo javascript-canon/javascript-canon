@@ -76,7 +76,7 @@ app.set("view engine", "ejs");
 
 // Render the index template when going to the Vanilla JS MVC route
 app.get("/", function(req, res) {
-  res.send("<h1>foo</h1>");
+  res.render("index");
 });
 
 // Set the development site port
