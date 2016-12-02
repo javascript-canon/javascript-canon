@@ -13,8 +13,7 @@ npm-debug.log
 assets/
 old-code-backup/
 vanilla-js-app-backup/
-**/css-build/
-**/image-build/
+css-build/
+image-build/
 **/js-build/
-**/Gruntfile.js
 Gruntfile.js
