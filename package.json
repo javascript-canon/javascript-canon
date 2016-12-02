@@ -31,8 +31,7 @@
     "ncp": "^2.0.0",
     "node-sass": "^3.13.0",
     "nodemon": "1.11.0",
-    "uglifyjs": "^2.4.10",
-    "uncss": "^0.14.1"
+    "uglifyjs": "^2.4.10"
   },
   "dependencies": {
     "ejs": "^2.5.3",
