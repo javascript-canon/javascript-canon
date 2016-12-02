@@ -8,7 +8,7 @@
     "build-js": "browserify $DIR/js-build/*.js | uglifyjs -mc > $DIR/public/js/scripts.js",
     "build-sass": "node-sass $DIR/css-build/style.scss $DIR/css-build/style.css",
     "concat-css": "cat $DIR/css-build/*.css > $DIR/css-build/build-sandbox/css/style.css",
-    "get-sandbox-file" :"curl http://localhost:3000/$DIR --output $DIR/css-build/build-sandbox/index.html",
+    "get-sandbox-file": "curl http://localhost:3000/$DIR --output $DIR/css-build/build-sandbox/index.html",
     "uncss": "grunt",
     "clean-css": "cleancss $DIR/css-build/build-sandbox/css/style.css --s0 -o $DIR/public/css/style.css",
     "build-css": "npm run build-sass && npm run concat-css && npm run uncss && npm run clean-css",
@@ -32,7 +32,7 @@
     "node-sass": "^3.13.0",
     "nodemon": "1.11.0",
     "uglifyjs": "^2.4.10",
-    "uncss": "0.14.1"
+    "uncss": "^0.14.1"
   },
   "dependencies": {
     "ejs": "^2.5.3",
