@@ -110,6 +110,9 @@ app.use(require('./routes/index'));
 // Type routes...books, classes, etc.
 app.use(require('./routes/type'));
 
+// Type routes...books, classes, etc.
+app.use(require('./routes/resource'));
+
 
 /*
  * =========================
@@ -125,33 +128,3 @@ app.use(require('./routes/type'));
  * STOP MIDDLEWARE SETTINGS
  * ========================
  */
-
-
-// Route for a single learning resource
-app.get("/vanilla-js-mvc/:singleresourceid", function(req, res) {
-
-  // Require the resource data
-  var
-
-      // Get the data being stored in the Node request object
-      requestData = req.app.get("resources"),
-
-      // Create a temporary array for the resource links
-      resourceLinks = [];
-
-  // Loop thru requestData, which is an array.
-  requestData.forEach(function(item){
-    if(item.href == req.params.singleresourceid) {
-      resourceLinks.push(item);
-    }
-
-  });
-
-  // Render the resource view
-  res.render("resources", {
-    links: resourceLinks,
-    pageTitle: req.params.singleresourceid
-
-  });
-
-});
