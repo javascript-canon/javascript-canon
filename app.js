@@ -29,6 +29,9 @@ var
 // Plug in the various versions of JS Canon as middleware
 app.use(vanillaJS);
 
+// Point to asset files...images, .css, .js, etc.
+app.use(express.static(__dirname + "/public/"));
+
 /*
  * ========================
  * STOP MIDDLEWARE SETTINGS
@@ -52,23 +55,6 @@ app.set("view engine", "ejs");
  * =================
  * STOP APP SETTINGS
  * =================
- */
-
-
-
-/*
- * =========================
- * START MIDDLEWARE SETTINGS
- * =========================
- */
-
- // grab asset files...images, .css, .js, etc.
- app.use(express.static(__dirname + "/public/"));
-
-/*
- * ========================
- * STOP MIDDLEWARE SETTINGS
- * ========================
  */
 
 
