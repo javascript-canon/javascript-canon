@@ -16,8 +16,8 @@
     "watch-js": "nodemon -e js -w $DIR/js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w $DIR/css-build -w $DIR/css-build/imports -x 'npm run build-css'",
     "start": "npm run server & npm run watch-js & npm run watch-css",
-    "image-minify": "imagemin $DIR/image-build/* --out-dir=$DIR/public/img/",
-    "book-minify": "imagemin $DIR/image-build/book-images/* --out-dir=$DIR/public/img/book-images/",
+    "image-minify": "imagemin image-build/* --out-dir=$DIR/public/img/",
+    "book-minify": "imagemin image-build/book-images/* --out-dir=$DIR/public/img/book-images/",
     "copy-normalize": "ncp node_modules/normalize.css/normalize.css $DIR/css-build/normalize.css"
   },
   "author": "kaidez",
