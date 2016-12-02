@@ -1,7 +1,6 @@
 // use strict mode
 "use strict";
 
-// Bring in express
 var
 
     // Require the express module
