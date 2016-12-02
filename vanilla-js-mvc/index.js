@@ -120,8 +120,8 @@ app.use(require('./routes/resource'));
  * =========================
  */
 
- // grab asset files...images, .css, .js, etc.
- app.use(express.static(__dirname + "/public/"));
+// grab asset files...images, .css, .js, etc.
+app.use(express.static(__dirname + "/public/"));
 
 /*
  * ========================
