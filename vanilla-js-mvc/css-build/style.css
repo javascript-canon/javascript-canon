@@ -159,9 +159,6 @@ body {
   .nav__button:visited {
     text-decoration: none; }
 
-.nav--show-all-button {
-  cursor: pointer; }
-
 /* Stop ".nav"...BEM style */
 /* Start ".single-resource"...BEM style */
 .single-resource {
@@ -490,18 +487,6 @@ body {
       color: #f9e034; }
     .nav__button:visited {
       color: #f9e034; }
-  .nav--show-all-button {
-    display: inline-block;
-    margin: 0 6px;
-    padding: 10px;
-    text-decoration: none;
-    color: #f9e034;
-    background-color: #000;
-    border-radius: 16px;
-    cursor: pointer; }
-    .nav--show-all-button:hover {
-      color: #f9e034;
-      text-decoration: underline; }
   .nav--visible {
     width: 100%;
     display: block;

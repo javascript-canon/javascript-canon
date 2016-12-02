@@ -138,12 +138,6 @@
       }
     }
 
-    &--show-all-button {
-      display: inline-block;
-
-      @include coreButton;
-    }
-
     &--visible {
       width: 100%;
       display: block;
