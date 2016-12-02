@@ -10,7 +10,13 @@ var
     backbone = require("./backbone"),
     ember = require("./ember"),
     react = require("./react"),
-    vanillaJS = require("./vanilla-js-mvc");
+    vanillaJS = require("./vanilla-js-mvc"),
+
+    // Require module for auto-refreshing the browser
+    reload = require("reload"),
+
+    // Create a server variable for later use
+    server;
 
 /*
  * =========================
@@ -32,6 +38,14 @@ app.use(vanillaJS);
 
 
 
-// Listen for the app on port 3000 & say so in the console
-app.listen(3000);
-console.log("listening on 3000...");
+// Set the development site port
+app.set("port", process.env.PORT || 3000 );
+
+
+// Run the server via the sever variable
+server = app.listen(app.get("port"), function() {
+  console.log("Listening on port " + app.get("port"));
+});
+
+// Reload the server when changes happen inside "app"
+reload(server, app);

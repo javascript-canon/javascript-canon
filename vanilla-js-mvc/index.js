@@ -104,6 +104,9 @@ app.set("view engine", "ejs");
  * ================
  */
 
+// An example's home page route
+app.use(require('./routes/index'));
+
 // Type routes...books, classes, etc.
 app.use(require('./routes/type'));
 
@@ -122,13 +125,6 @@ app.use(require('./routes/type'));
  * STOP MIDDLEWARE SETTINGS
  * ========================
  */
-
-// Render the index template when going to the Vanilla JS MVC route
-app.get("/vanilla-js-mvc", function(req, res) {
-  res.render("index", {
-    pageTitle: "The JavaScript Canon - Vanilla JS"
-  });
-});
 
 
 // Route for a single learning resource

@@ -4,14 +4,11 @@
 // Create a router
 var router = require("express").Router();
 
-// Route for the home page
-router.get("/", function(req, res) {
-
-  // Render the index view with it's unique title
+// Render the index template when going to the Vanilla JS MVC route
+router.get("/vanilla-js-mvc", function(req, res) {
   res.render("index", {
     pageTitle: "The JavaScript Canon - Vanilla JS"
   });
-
 });
 
 // Route for a single learning resource
