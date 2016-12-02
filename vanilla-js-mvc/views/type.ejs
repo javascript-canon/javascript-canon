@@ -7,7 +7,7 @@
       <main class="right-column">
         <section class="single-resource-container">
         <h2> JavaScript Canon <%= typeTitle %></h2>
-        <% types.forEach(function(item) { %>
+        <% singleTypes.forEach(function(item) { %>
 
           <article id="<%= item.id %>" class="single-resource" data-resource-type="<%= item.type %>">
 
@@ -19,7 +19,7 @@
 
             <a class="single-resource__button js-book" href="<%= item.link %>">Get This!</a>
 
-            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="/<%= item.href %>">Why it's good?</a>
+            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="<%= exampleURL %>/<%= item.href %>">Why it's good?</a>
 
           </article>
         <% }); %>
