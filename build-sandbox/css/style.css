@@ -460,6 +460,42 @@ body {
 
 /* Stop ".single-resource"...BEM style */
 /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    font-size: 20px; }
+  .page-modal__button {
+    padding: 10px;
+    float: right;
+    margin: 0 6px;
+    padding: 10px;
+    text-decoration: none;
+    color: #f9e034;
+    background-color: #000;
+    border-radius: 16px;
+    cursor: pointer; }
+    .page-modal__button:hover {
+      color: #f9e034;
+      text-decoration: underline; }
+  .page-modal__img {
+    border: 1px solid #000; }
+  .page-modal__slide {
+    background-color: #b0b0b0;
+    position: relative;
+    height: 50%;
+    z-index: 3; }
+    .page-modal__slide--moveUp {
+      -webkit-transform: translate(0, -100%);
+      transform: translate(0, -100%);
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      -webkit-box-shadow: 0px 0px 8px 2px black;
+      box-shadow: 0px 0px 8px 2px black; }
+    .page-modal__slide--moveDown {
+      -webkit-transform: translate(0, 100%);
+      transform: translate(0, 100%);
+      -webkit-transition: 0.5s;
+      transition: 0.5s;
+      -webkit-box-shadow: inset 0 20px 20px -20px black;
+      box-shadow: inset 0 20px 20px -20px black; }
 
 /* Start ".page-modal"...BEM style */
 @media (min-width: 768px) {
@@ -543,6 +579,18 @@ body {
         color: #776804; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    margin-top: 0;
+    font-size: 26px; }
+  .page-modal__content {
+    display: inline; }
+  .page-modal__img {
+    margin-right: 10px;
+    float: left; }
+  .page-modal__button {
+    position: absolute;
+    top: 10px;
+    right: 0; }
   /* Stop ".page-modal"...BEM style */
   /* Style <footer> */
   footer {
@@ -776,6 +824,17 @@ body {
         text-decoration: underline; }
   /* Stop ".single-resource"...BEM style */
   /* Start ".page-modal"...BEM style */
+  .page-modal__header {
+    margin-top: 16px;
+    font-size: 18px;
+    text-align: center; }
+  .page-modal__content {
+    width: 80%;
+    margin: 15px auto;
+    line-height: 20px; }
+  .page-modal__img {
+    margin: 0 auto;
+    display: block; }
   /* Style <footer> */
   footer {
     height: 10px;
