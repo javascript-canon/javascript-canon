@@ -1,4 +1,4 @@
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 
   // Project config
   grunt.initConfig({
@@ -43,9 +43,10 @@ module.exports = function( grunt ) {
     }
   });
 
+  // List the only grunt task
   grunt.loadNpmTasks("grunt-uncss");
 
-  // running "grunt" runs the uncss task
+  // Running "grunt" runs the uncss task
   grunt.registerTask("default", ["uncss"]);
 
 };
