@@ -23,7 +23,8 @@
     "start": "npm run server & npm run watch-js & npm run watch-css",
     "image-minify": "imagemin image-build/* --out-dir=$DIR/public/img/",
     "book-minify": "imagemin image-build/book-images/* --out-dir=$DIR/public/img/book-images/",
-    "copy-normalize": "ncp node_modules/normalize.css/normalize.css $DIR/css-build/normalize.css"
+    "copy-normalize": "ncp node_modules/normalize.css/normalize.css $DIR/css-build/normalize.css",
+    "copy-normalize-home": "ncp node_modules/normalize.css/normalize.css css-build-home/normalize.css css-build-home/normalize.css"
   },
   "author": "kaidez",
   "license": "ISC",
