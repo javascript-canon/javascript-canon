@@ -4,6 +4,10 @@
   "description": "a presentation of the most important learning JavaScript resources",
   "main": "app.js",
   "files": ["app.js", "vanilla-js-mvc"],
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/kaidez/javascript-canon"
+  },
   "scripts": {
     "server": "nodemon -e scss,ejs,js --watch $DIR",
     "build-js": "browserify $DIR/js-build/*.js | uglifyjs -mc > $DIR/public/js/scripts.js",
