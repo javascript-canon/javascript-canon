@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             ".single-resource__book-image",
             ".single-resource__button"
           ]
-        },
+        }
       }
     }
   });
