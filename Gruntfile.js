@@ -43,9 +43,9 @@ module.exports = function( grunt ) {
     }
   });
 
-  grunt.loadNpmTasks( "grunt-uncss" );
+  grunt.loadNpmTasks("grunt-uncss");
 
   // running "grunt" runs the uncss task
-  grunt.registerTask( "default", ["uncss"] );
+  grunt.registerTask("default", ["uncss"]);
 
 };
