@@ -1,0 +1,96 @@
+/*
+ * HELPER CLASSES
+ */
+
+// Use the old school Yahoo trick for hiding page elements
+// Read more at: http://yhoo.it/1vz3NVW
+@mixin hide-element {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* Off-screen text-indent */
+@mixin ti {
+  text-indent: -999px;
+}
+
+// z-index mixins
+// 5 or less should be fine, but plugin code may mean more are required
+// WordPress can also get crazy with z-indexes (e.g. "z-index: 9999")
+@mixin z1 {
+  z-index: 1;
+}
+
+@mixin z2 {
+  z-index: 2;
+}
+
+@mixin z3 {
+  z-index: 3;
+}
+
+@mixin z4 {
+  z-index: 4;
+}
+
+@mixin z5 {
+  z-index: 5;
+}
+
+/*
+ * HELPER CLASSES END
+ */
+
+
+
+
+/**
+ * Core button used site-wide
+ */
+@mixin coreButton {
+  margin: 0 6px;
+  padding: 10px;
+
+  text-decoration: none;
+  color: $js-yellow;
+  background-color: #000;
+  border-radius: 16px;
+  cursor: pointer;
+  
+  &:hover {
+    color: $js-yellow;
+    text-decoration: underline;
+  }
+}
+
+/**
+ * Core button will have different heights...set them with this mixin
+ */
+@mixin coreButtonDimensions($width) {
+  width: $width;
+  display: inline-block;
+}
+
+
+/**
+ * Reusable mixin for scaling element in the mobile view
+ *
+ * TODO: The spots that use this mixin need their own mixin
+ */
+
+@mixin scaling($animationName) {
+  -webkit-animation-name: $animationName;
+  -webkit-animation-duration:0.3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-fill-mode: forwards;
+
+  animation-name: $animationName;
+  animation-duration:0.3s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
