@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "a presentation of the most important learning JavaScript resources",
   "main": "app.js",
-  "files": ["app.js", "vanilla-js-mvc"],
+  "files": [
+    "app.js",
+    "public",
+    "views",
+    "vanilla-js-mvc"
+  ],
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/kaidez/javascript-canon"
