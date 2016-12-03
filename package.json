@@ -25,7 +25,7 @@
     "clean-css": "cleancss css-build/build-sandbox/css/style.css --s0 -o $DIR/public/css/style.css",
     "clean-css-home": "cleancss css-build/build-sandbox/css/style.css --s0 -o public/css/style.css",
     "build-css": "npm run build-sass && npm run concat-css && npm run clean-css",
-    "build-css-home": "npm run uncss-sandbox-html-home && npm run build-sass && npm run concat-css && npm run uncss && npm run clean-css",
+    "build-css-home": "npm run build-sass && npm run concat-css && npm run clean-css",
     "build": "npm run build-css && npm run build-js",
     "watch-js": "nodemon -e js -w $DIR/js-build -x 'npm run build-js'",
     "watch-css": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run build-css'",
