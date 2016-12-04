@@ -112,6 +112,10 @@ body {
 .nav__list-item {
   list-style-type: none; }
 
+.about-text__about-header {
+  position: absolute;
+  text-indent: -999px; }
+
 a:link {
   color: #000;
   text-decoration: underline; }
