@@ -112,7 +112,7 @@ body {
 .nav__list-item {
   list-style-type: none; }
 
-.about-text__about-header {
+.content__about-header {
   position: absolute;
   text-indent: -999px; }
 

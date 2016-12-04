@@ -22,11 +22,15 @@ body {
 
 }
 
-.about-text {
+
+.content {
   &__about-header {
     position: absolute;
 
     @include ti;
+  }
+  &__about-header {
+
   }
 
   &__example-header {
