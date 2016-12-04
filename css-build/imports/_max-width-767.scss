@@ -10,8 +10,8 @@
     background-color: $js-yellow;
 
     &__logo {
-      width: 100px;
-      height: 100px;
+      width: 70px;
+      height: 70px;
       margin: 0 auto;
       display: block;
     }
@@ -71,6 +71,10 @@
   }
 
   .content {
+
+    &__example {
+      margin-top: 40px;
+    }
 
     &__example-header {
       font-size: 20px;
