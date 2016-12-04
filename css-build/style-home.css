@@ -123,7 +123,6 @@ a:hover {
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
   .header {
-    margin-top: 16px;
     background-color: #f9e034; }
     .header__logo {
       width: 150px;
@@ -137,6 +136,13 @@ a:hover {
       margin: 0 30px;
       font-size: 16px;
       font-weight: 300; }
+  .nav__list {
+    padding: 0;
+    margin: 0 auto 20px;
+    text-align: center; }
+  .nav__list-item {
+    margin: 0 10px;
+    display: inline-block; }
   .content {
     margin: 10px 10px 0; }
   .nav {

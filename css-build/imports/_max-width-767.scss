@@ -7,8 +7,6 @@
   }
 
   .header {
-    margin-top: 16px;
-
     background-color: $js-yellow;
 
     &__logo {
@@ -29,6 +27,20 @@
 
       font-size: 16px;
       font-weight: 300;
+    }
+  }
+
+  .nav {
+
+    &__list {
+      padding: 0;
+      margin: 0 auto 20px;
+      text-align: center;
+    }
+
+    &__list-item {
+      margin: 0 10px;
+      display: inline-block;
     }
   }
 
