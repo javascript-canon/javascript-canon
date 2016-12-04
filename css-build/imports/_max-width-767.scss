@@ -1,8 +1,13 @@
 /* Style things mostly using the BEM pattern */
 
 @media (max-width: 767px) {
+
+  .container {
+    margin: 0 10px;
+  }
+
   .header {
-    margin-top: 20px;
+    margin-top: 16px;
 
     &__logo {
       width: 150px;
@@ -15,6 +20,11 @@
       position: absolute;
 
       @include ti;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      font-weight: 300;
     }
   }
 }
