@@ -32,9 +32,11 @@
 
   .nav {
 
+    padding-bottom: 4px;
+
     &__list {
       padding: 0;
-      margin: 0 auto 20px;
+      margin: 20px auto 20px;
       text-align: center;
     }
 
@@ -46,10 +48,6 @@
 
   .content {
     margin: 10px 10px 0;
-  }
-
-  .nav {
-    padding-bottom: 4px;
   }
 
   footer {

@@ -9,9 +9,16 @@ body {
 
 
 .nav {
+
+  &__header{
+    position: absolute;
+    @include ti;
+  }
+
   &__list-item {
     list-style-type: none;
   }
+
 }
 
 a:link {
