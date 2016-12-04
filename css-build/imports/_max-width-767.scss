@@ -1,7 +1,22 @@
 /* Style things mostly using the BEM pattern */
 
 @media (max-width: 767px) {
+  .header {
+    margin-top: 20px;
 
+    &__logo {
+      width: 150px;
+      width: 150px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    &__title {
+      position: absolute;
+
+      @include ti;
+    }
+  }
 }
 
   /* Stop ".page-modal"...BEM style */

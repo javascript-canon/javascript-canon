@@ -106,4 +106,16 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
 
 /* Style things mostly using the BEM pattern */
+@media (max-width: 767px) {
+  .header {
+    margin-top: 20px; }
+    .header__logo {
+      width: 150px;
+      width: 150px;
+      margin: 0 auto;
+      display: block; }
+    .header__title {
+      position: absolute;
+      text-indent: -999px; } }
+
 /* Stop ".page-modal"...BEM style */
