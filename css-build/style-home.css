@@ -116,6 +116,12 @@ body {
   position: absolute;
   text-indent: -999px; }
 
+.examples {
+  padding-left: 0; }
+  .examples__list-item {
+    margin-bottom: 10px;
+    list-style-type: none; }
+
 a:link {
   color: #000;
   text-decoration: underline; }
@@ -133,8 +139,8 @@ a:hover {
   .header {
     background-color: #f9e034; }
     .header__logo {
-      width: 150px;
-      width: 150px;
+      width: 100px;
+      height: 100px;
       margin: 0 auto;
       display: block; }
     .header__title {
