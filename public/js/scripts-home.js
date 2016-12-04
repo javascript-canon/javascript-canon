@@ -14,7 +14,7 @@ var
   documentFragment = document.createDocumentFragment(),
 
   // Define the area where the examples links will load into
-  targetElement = document.getElementById("examples");
+  ulTargetElement = document.getElementById("examples");
 
 
 
@@ -41,7 +41,7 @@ for(var singleExample in examples) {
     documentFragment.appendChild(exampleItem);
 
     // Load the document fragment inside the <ul> on the homepage
-    targetElement.appendChild(documentFragment);
+    ulTargetElement.appendChild(documentFragment);
 
   } // end hasOwnProperty() check
 
