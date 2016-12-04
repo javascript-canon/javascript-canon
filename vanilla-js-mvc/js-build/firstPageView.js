@@ -91,7 +91,7 @@ var
       resourceContainer.appendChild(pageLink);
       pageTarget.appendChild(resourceContainer);
 
-    } //end hasOwnProperty() check
+    } // end hasOwnProperty() check
 
   } // end for...in loop
 
