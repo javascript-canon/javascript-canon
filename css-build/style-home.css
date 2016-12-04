@@ -122,6 +122,12 @@ body {
     margin-bottom: 10px;
     list-style-type: none; }
 
+.aside {
+  background-color: #fae866; }
+
+.footer {
+  background-color: #dabf06; }
+
 a:link {
   color: #000;
   text-decoration: underline; }
@@ -163,7 +169,16 @@ a:hover {
       margin: 0 10px;
       display: inline-block; }
   .main {
-    margin: 10px 10px 0; }
+    margin: 40px 10px 0; }
+  .aside {
+    padding: 10px 10px 20px;
+    text-align: center; }
+    .aside__image {
+      width: 100px;
+      height: 100px;
+      margin: 16px 0;
+      border-radius: 50%;
+      border: 1px solid #000; }
   .content__example-header {
     font-size: 20px;
     text-align: center; }

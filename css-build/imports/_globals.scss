@@ -44,7 +44,29 @@ body {
     margin-bottom: 10px;
     list-style-type: none;
   }
+}
 
+
+
+// div{
+//     overflow:hidden;
+//     -moz-border-radius: 10px;
+//     -webkit-border-radius: 10px;
+//     border-radius: 10px;
+//     border:3px solid red;
+//     display:inline-block;
+// }
+
+
+
+.aside {
+
+  background-color: lighten($js-yellow, 10%);
+
+}
+
+.footer {
+  background-color: darken($js-yellow, 15%);
 }
 a:link {
   color: #000;
