@@ -12,6 +12,7 @@ body {
 
   &__header{
     position: absolute;
+
     @include ti;
   }
 
@@ -19,6 +20,18 @@ body {
     list-style-type: none;
   }
 
+}
+
+.about-text {
+  &__about-header {
+    position: absolute;
+
+    @include ti;
+  }
+
+  &__example-header {
+
+  }
 }
 
 a:link {
