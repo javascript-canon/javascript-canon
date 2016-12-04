@@ -1,0 +1,109 @@
+/* Variables go here */
+/*
+ * HELPER CLASSES
+ */
+/* Off-screen text-indent */
+/*
+ * HELPER CLASSES END
+ */
+@media only screen and (min-width: 320px) {
+  /* Small screen, non-retina */ }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min-resolution: 192dpi) and (min-width: 320px), only screen and (min-resolution: 2dppx) and (min-width: 320px) {
+  /* Small screen, retina, stuff to override above media query */
+  .header-logo {
+    background: url(../img/image-sprite@2x.png) -304px 3px no-repeat;
+    background-size: 455px 300px;
+    min-height: 150px; } }
+
+@media only screen and (min-width: 1300px) {
+  /* Large screen, non-retina */ }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 1300px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min-resolution: 192dpi) and (min-width: 1300px), only screen and (min-resolution: 2dppx) and (min-width: 1300px) {
+  /* Large screen, retina, stuff to override above media query */ }
+
+/* Generic fade in and fade out animations...pretty reusable */
+/* For Webkit */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/* For other browsers */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+/* Stop fade in/fade out animations */
+/* Very specific animations for scaling the logo in and out on mobile
+ * devices
+ */
+/* For Webkit */
+@-webkit-keyframes scaleOut {
+  from {
+    -webkit-transform: scale(1) translateY(0px); }
+  to {
+    -webkit-transform: scale(0.6) translateY(-22px); } }
+
+@-webkit-keyframes scaleUp {
+  from {
+    -webkit-transform: scale(0.6) translateY(-22px); }
+  to {
+    -webkit-transform: scale(1) translateY(0px); } }
+
+/* For other browsers */
+@keyframes scaleOut {
+  from {
+    transform: scale(1) translateY(0px); }
+  to {
+    transform: scale(0.6) translateY(-22px); } }
+
+@-webkit-keyframes scaleUp {
+  from {
+    transform: scale(0.6) translateY(-22px); }
+  to {
+    transform: scale(1) translateY(0px); } }
+
+/* Stop header scaling animations */
+/* Very specific animations for moving the title up and down on mobile 
+ * devices
+ */
+@-webkit-keyframes moveHeaderUp {
+  from {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); }
+  to {
+    -webkit-transform: translateY(-38px);
+    transform: translateY(-38px); } }
+
+@-webkit-keyframes moveHeaderDown {
+  from {
+    -webkit-transform: translateY(-38px);
+    transform: translateY(-38px); }
+  to {
+    -webkit-transform: translateY(0px);
+    transform: translateY(0px); } }
+
+/* Stop title moving animations */
+/* Style things mostly using the BEM pattern */
+body {
+  overflow-x: hidden;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+/* Style things mostly using the BEM pattern */
+/* Stop ".page-modal"...BEM style */
