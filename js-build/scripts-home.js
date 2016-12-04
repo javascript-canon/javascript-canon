@@ -14,7 +14,7 @@ var
   documentFragment = document.createDocumentFragment(),
 
   // Define the area where the examples links will load into
-  ulTargetElement = document.getElementById("examples");
+  ulTargetElement = document.getElementById("examples-target");
 
 
 
