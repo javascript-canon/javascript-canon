@@ -16,9 +16,10 @@
     "url" : "https://github.com/kaidez/javascript-canon"
   },
   "scripts": {
-    "server": "nodemon -e scss,ejs,js --watch $DIR",
-    "server-home": "nodemon -e scss,ejs --watch",
+    "server": "nodemon --delay 2000ms -e scss,ejs,js --watch $DIR",
+    "server-home": "nodemon --delay 2000ms -e scss,ejs,js --watch",
     "build-js": "browserify $DIR/js-build/*.js | uglifyjs -mc > $DIR/public/js/scripts.js",
+    "build-js-home" : "uglifyjs js-build/scripts-home.js -mc > public/js/scripts-home.js",
     "build-sass": "node-sass $DIR/css-build/style.scss $DIR/css-build/style.css",
     "build-sass-home": "node-sass css-build/style-home.scss css-build/style-home.css",
     "concat-css": "cat $DIR/css-build/*.css > $DIR/public/css/style.css",
@@ -29,6 +30,7 @@
     "build-css-home": "npm run build-sass-home && npm run concat-css-home && npm run clean-css-home",
     "build": "npm run build-css && npm run build-js",
     "watch-js": "nodemon -e js -w $DIR/js-build -x 'npm run build-js'",
+    "watch-js-home": "nodemon -e js -w js-build -x 'npm run build-js-home'",
     "watch-css": "nodemon -e scss -w $DIR/css-build -w $DIR/css-build/imports -x 'npm run build-css'",
     "watch-css-home": "nodemon -e scss -w css-build -w css-build/imports -x 'npm run build-css-home'",
     "image-minify": "imagemin image-build/* --out-dir=$DIR/public/img/",
@@ -36,7 +38,7 @@
     "copy-normalize": "ncp node_modules/normalize.css/normalize.css $DIR/css-build/normalize.css",
     "copy-normalize-home": "ncp node_modules/normalize.css/normalize.css css-build/normalize.css css-build/normalize.css",
     "start": "npm run build-css && npm run build-js && npm run server & npm run watch-js & npm run watch-css",
-    "start-home": "npm run build-css-home && npm run server-home & npm run watch-css-home"
+    "start-home": "npm run server-home & npm run watch-js-home & npm run watch-css-home"
   },
   "devDependencies": {
     "browserify": "^13.1.1",
