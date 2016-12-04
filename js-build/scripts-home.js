@@ -35,6 +35,9 @@ for(var singleExample in examples) {
     exampleLink.setAttribute("href", "/" + examples[singleExample] + "/");
 
     // Place the <a> tag inside the <li> tag
+    exampleItem.setAttribute("class", "examples__list-item");
+
+    // Place the <a> tag inside the <li> tag
     exampleItem.appendChild(exampleLink);
 
     // Place the <li> and all its content inside the document fragment
