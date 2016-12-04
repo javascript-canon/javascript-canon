@@ -16,6 +16,11 @@
       display: block;
     }
 
+    &__logo-link {
+      padding: 14px 0 20px;
+      display: block;
+    }
+
     &__title {
       position: absolute;
 
@@ -23,7 +28,7 @@
     }
 
     &__subtitle {
-      margin: 0 30px;
+      margin: 0 14px;
 
       font-size: 16px;
       font-weight: 300;

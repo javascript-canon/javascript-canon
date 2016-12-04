@@ -143,11 +143,14 @@ a:hover {
       height: 100px;
       margin: 0 auto;
       display: block; }
+    .header__logo-link {
+      padding: 14px 0 20px;
+      display: block; }
     .header__title {
       position: absolute;
       text-indent: -999px; }
     .header__subtitle {
-      margin: 0 30px;
+      margin: 0 14px;
       font-size: 16px;
       font-weight: 300; }
   .nav {
