@@ -32,7 +32,7 @@ for(var singleExample in examples) {
     exampleLink.innerHTML = singleExample;
 
     // Set the <a> tag's href attribute
-    exampleLink.setAttribute("href", "/" + examples[singleExample] + "/");
+    exampleLink.setAttribute("href", "/" + examples[singleExample]);
 
     // Place the <a> tag inside the <li> tag
     exampleItem.setAttribute("class", "examples__list-item");
