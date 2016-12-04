@@ -12,26 +12,30 @@ var
 
   // Create document fragment to batch load the data all at once
   documentFragment = document.createDocumentFragment(),
+
+  // Define the area where the examples links will load into
   targetElement = document.getElementById("examples");
 
-  for(var singleExample in examples) {
 
-    // Perform standard hasOwnProperty() check
-    if (examples.hasOwnProperty(singleExample)) {
+// Loop through the example data and place it on the home page
+for(var singleExample in examples) {
 
-      var exampleItem = document.createElement("li");
-          exampleLink = document.createElement("a");
+  // Perform standard hasOwnProperty() check
+  if (examples.hasOwnProperty(singleExample)) {
 
-      exampleLink.innerHTML = singleExample;
+    var exampleItem = document.createElement("li"),
+        exampleLink = document.createElement("a");
 
-      exampleLink.setAttribute("href", "/" + examples[singleExample] + "/");
+    exampleLink.innerHTML = singleExample;
 
-      exampleItem.appendChild(exampleLink);
+    exampleLink.setAttribute("href", "/" + examples[singleExample] + "/");
 
-      documentFragment.appendChild(exampleItem);
+    exampleItem.appendChild(exampleLink);
 
-      targetElement.appendChild(documentFragment);
+    documentFragment.appendChild(exampleItem);
 
-    } // end hasOwnProperty() check
+    targetElement.appendChild(documentFragment);
 
-  }  // end for...in loop
+  } // end hasOwnProperty() check
+
+}  // end for...in loop
