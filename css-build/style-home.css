@@ -108,12 +108,23 @@ body {
 .nav__list-item {
   list-style-type: none; }
 
+a:link {
+  color: #000;
+  text-decoration: underline; }
+
+a:visited {
+  color: #000;
+  text-decoration: underline; }
+
+a:hover {
+  color: #000;
+  text-decoration: none; }
+
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
-  .container {
-    margin: 0 10px; }
   .header {
-    margin-top: 16px; }
+    margin-top: 16px;
+    background-color: #f9e034; }
     .header__logo {
       width: 150px;
       width: 150px;
@@ -123,7 +134,22 @@ body {
       position: absolute;
       text-indent: -999px; }
     .header__subtitle {
+      margin: 0 30px;
       font-size: 16px;
-      font-weight: 300; } }
+      font-weight: 300; }
+  .content {
+    margin: 10px 10px 0; }
+  .nav {
+    padding-bottom: 4px; }
+  footer {
+    height: 10px;
+    margin-bottom: 0;
+    padding: 5px 0;
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    font-size: 12px;
+    font-weight: 500; } }
 
 /* Stop ".page-modal"...BEM style */

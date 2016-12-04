@@ -13,3 +13,18 @@ body {
     list-style-type: none;
   }
 }
+
+a:link {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #000;
+  text-decoration: none;
+}

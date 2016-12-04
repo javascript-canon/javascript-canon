@@ -3,11 +3,13 @@
 @media (max-width: 767px) {
 
   .container {
-    margin: 0 10px;
+
   }
 
   .header {
     margin-top: 16px;
+
+    background-color: $js-yellow;
 
     &__logo {
       width: 150px;
@@ -23,9 +25,32 @@
     }
 
     &__subtitle {
+      margin: 0 30px;
+
       font-size: 16px;
       font-weight: 300;
     }
+  }
+
+  .content {
+    margin: 10px 10px 0;
+  }
+
+  .nav {
+    padding-bottom: 4px;
+  }
+
+  footer {
+    height:10px;
+    margin-bottom:0;
+    padding: 5px 0;
+    position:fixed;
+    right:0px;
+    bottom:0px;
+    left:0px;
+
+    font-size: 12px;
+    font-weight: 500;
   }
 }
 
