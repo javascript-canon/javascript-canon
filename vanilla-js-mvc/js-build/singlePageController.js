@@ -25,7 +25,7 @@ var
     SingleResourcePageController = {};
 
 
-/* "openModal()" method takes openModal method in the view code and 
+/* "openModal()" method takes openModal method in the view code and
  * adds it to the Controller object.
  */
 SingleResourcePageController.openModal = function() {
@@ -33,7 +33,7 @@ SingleResourcePageController.openModal = function() {
 };
 
 
-/* "closeModal()" method takes closeModal method in the view code and 
+/* "closeModal()" method takes closeModal method in the view code and
  * adds it to the Controller object.
  */
 SingleResourcePageController.closeModal = function() {
@@ -41,8 +41,8 @@ SingleResourcePageController.closeModal = function() {
 };
 
 /* "buildAboutTextArray()" method takes closeModal method in the view
- * code and adds it to the Controller object. Looks for data via the 
- * data parameter (which will be the resource API) and an optional 
+ * code and adds it to the Controller object. Looks for data via the
+ * data parameter (which will be the resource API) and an optional
  * callback.
  */
 SingleResourcePageController.buildAboutTextArray = function(data, callback) {
@@ -82,14 +82,14 @@ $.getJSON(modelData).then(function(data) {
        */
       modalMethod = SingleResourcePageController.openModal();
 
-    /* Build the about array based on the API model data, then open 
+    /* Build the about array based on the API model data, then open
      * the modal via a callback
      */
-  
-    SingleResourcePageController.buildAboutTextArray(data, modalMethod); 
-    /* Find the modal content container element and place it the 
-     * respective resource's "about" text in it. The resourceNumber 
-     * will match the proper spot in the index since 1 was subtracted 
+
+    SingleResourcePageController.buildAboutTextArray(data, modalMethod);
+    /* Find the modal content container element and place it the
+     * respective resource's "about" text in it. The resourceNumber
+     * will match the proper spot in the index since 1 was subtracted
      * from it earlier. It's hacky, but it works.
      */
     document.querySelector(".js-modal-content").innerHTML = aboutTextArray[resourceNumber];
