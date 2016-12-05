@@ -26,8 +26,8 @@ SinglePageResourceView.aboutTextArray = [];
   // Page modal is hidden...show it
   $("#page-modal-element").css("display", "block");
 
-  /* Wait 200 milliseconds, move 2 separate slide elements 
-   * respectively up & down to show content, and remove the vertical 
+  /* Wait 200 milliseconds, move 2 separate slide elements
+   * respectively up & down to show content, and remove the vertical
    * scrollbar.
    */
   setTimeout(function(){
@@ -48,7 +48,7 @@ SinglePageResourceView.closeModal = function() {
   // Page modal is visible...hide it
   $("#page-modal-element").css("display", "none");
 
-  /* Reset the slides by removing the animation classes and show the 
+  /* Reset the slides by removing the animation classes and show the
    * vertical scrollbar.
    */
    $(".page-modal__top-slide").removeClass("page-modal__slide--moveUp");
@@ -61,6 +61,11 @@ SinglePageResourceView.closeModal = function() {
  * each resource and adding it to an array.
  */
 SinglePageResourceView.buildAboutTextArray = function(model, callback) {
+
+    /* The callback param is optional so if it's not set, let it be an
+     * empty function
+     */
+    this.callback = callback || function () {};
 
     // Grab the Heroku-powered model data
     var localArray = SinglePageResourceView.aboutTextArray;
@@ -75,9 +80,6 @@ SinglePageResourceView.buildAboutTextArray = function(model, callback) {
         localArray.push(model[data].about_text);
       }
     }
-
-    // The callback param is either a callback or nothing if left blank
-    this.callback = callback || null;
 
     // Make the array accessible
     return localArray;
