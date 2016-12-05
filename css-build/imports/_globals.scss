@@ -9,8 +9,6 @@ body {
 .nav {
 
   &__header{
-    position: absolute;
-
     @include ti;
   }
 
@@ -22,13 +20,13 @@ body {
 
 
 .content {
-  &__about-header {
-    position: absolute;
 
+  &__title {
     @include ti;
   }
-  &__about-header {
 
+  &__about-header {
+    @include ti;
   }
 
   &__example-header {
