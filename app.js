@@ -60,10 +60,30 @@ app.use(express.static(__dirname + "/public/"));
 
 
 
-// HOME PAGE ROUTE: Render the index template when going to home page
+/*
+ * ====================
+ * START ROUTE SETTINGS
+ * ====================
+ */
+
+ // HOME PAGE ROUTE: Render the index template when going to home page
 app.get("/", function(req, res) {
   res.render("index");
 });
+
+// ABOUT PAGE ROUTE: Render the about template when going to about page
+app.get("/about", function(req, res) {
+  res.send("about page");
+});
+
+
+/*
+ * ===================
+ * STOP ROUTE SETTINGS
+ * ===================
+ */
+
+
 
 // Set the development site port
 app.set("port", process.env.PORT || 3000 );
