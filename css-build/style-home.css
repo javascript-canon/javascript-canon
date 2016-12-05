@@ -147,6 +147,7 @@ a:hover {
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
   .header {
+    width: 100%;
     background-color: #f9e034; }
     .header__logo {
       width: 70px;
