@@ -6,6 +6,12 @@ body {
 }
 
 
+.header {
+  &__title {
+    position: absolute;
+    text-indent: -999px;
+  }
+}
 .nav {
 
   &__header{
