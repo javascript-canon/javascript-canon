@@ -1,4 +1,17 @@
 @media (min-width: 768px) {
 
+  .header {
+
+    &__logo {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__logo-image {
+      width: 200px;
+      height: 200px;
+    }
+
+  }
 
 }
