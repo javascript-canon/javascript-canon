@@ -4,9 +4,6 @@
   .header {
     width: 100%;
 
-    background-color: $js-yellow;
-    text-align: center;
-
     &__logo {
       width: 200px;
       height: 200px;
@@ -19,15 +16,18 @@
 
     &__logo-link {
       margin-right: $shared-margin-value;
-      padding: 30px 0 0 30px;
+      padding-top: 30px;
       display: inline-block;
     }
 
     &__subtitle {
       width: 300px;
-      margin-left: $shared-margin-value;
+      margin: 0 0 0 $shared-margin-value;
       display: inline-block;
+      position: relative;
+      bottom: 42px;
 
+      font-size: 20px;
       text-align: left;
     }
 

@@ -7,6 +7,9 @@ body {
 
 .header {
 
+  background-color: $js-yellow;
+  text-align: center;
+
   &__title {
     position: absolute;
     text-indent: -999px;
