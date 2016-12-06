@@ -13,7 +13,7 @@ var
   // Create document fragment to batch load the data all at once
   documentFragment = document.createDocumentFragment(),
 
-  // Define the area where the examples links will load into
+  // Point to the <ul> target where the examples links will load into
   ulTargetElement = document.getElementById("examples-target");
 
 
@@ -34,7 +34,7 @@ for(var singleExample in examples) {
     // Set the <a> tag's href attribute
     exampleLink.setAttribute("href", "/" + examples[singleExample]);
 
-    // Place the <a> tag inside the <li> tag
+    // Set the <li> tag's class attribute
     exampleItem.setAttribute("class", "examples__list-item");
 
     // Place the <a> tag inside the <li> tag
