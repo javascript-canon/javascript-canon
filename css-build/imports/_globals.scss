@@ -5,13 +5,15 @@ body {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-
 .header {
+
   &__title {
     position: absolute;
     text-indent: -999px;
   }
+
 }
+
 .nav {
 
   &__header{
@@ -42,6 +44,7 @@ body {
     margin-bottom: 30px;
     line-height: 1.4em;
   }
+
 }
 
 .examples {
@@ -63,6 +66,7 @@ body {
 .footer {
   background-color: darken($js-yellow, 15%);
 }
+
 a:link {
   color: #000;
   text-decoration: underline;
