@@ -5,6 +5,7 @@
     width: 100%;
 
     background-color: $js-yellow;
+    text-align: center;
 
     &__logo {
       width: 200px;
@@ -21,9 +22,11 @@
       display: inline-block;
     }
 
-    &__subtitle{
+    &__subtitle {
       width: 300px;
       display: inline-block;
+
+      text-align: left;
     }
 
   }

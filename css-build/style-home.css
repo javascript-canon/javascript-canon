@@ -153,7 +153,8 @@ a:hover {
 @media (min-width: 768px) {
   .header {
     width: 100%;
-    background-color: #f9e034; }
+    background-color: #f9e034;
+    text-align: center; }
     .header__logo {
       width: 200px;
       height: 200px; }
@@ -165,7 +166,8 @@ a:hover {
       display: inline-block; }
     .header__subtitle {
       width: 300px;
-      display: inline-block; } }
+      display: inline-block;
+      text-align: left; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
