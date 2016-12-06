@@ -116,6 +116,10 @@ body {
   position: absolute;
   text-indent: -999px; }
 
+.content__about-text {
+  margin-bottom: 30px;
+  line-height: 1.4em; }
+
 .examples {
   padding-left: 0; }
   .examples__list-item {
