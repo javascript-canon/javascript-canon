@@ -1,6 +1,7 @@
 /* Variables */
 /* Global yellow color */
 /* Shared margin value for header elements on wide view */
+/* Globally-shared line-height value */
 /*
  * HELPER CLASSES
  */
@@ -180,6 +181,7 @@ a:hover {
       position: relative;
       bottom: 42px;
       font-size: 20px;
+      line-height: 1.4em;
       text-align: left; }
   .nav__list {
     padding-bottom: 20px; } }
