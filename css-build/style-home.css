@@ -118,6 +118,8 @@ body {
   padding: 0; }
 
 .nav__list-item {
+  margin: 0 10px;
+  display: inline-block;
   list-style-type: none; }
 
 .content__title {
@@ -202,9 +204,6 @@ a:hover {
     .nav__list {
       margin: 20px auto 20px;
       text-align: center; }
-    .nav__list-item {
-      margin: 0 10px;
-      display: inline-block; }
   .main {
     margin: 40px 10px 0; }
   .aside {
