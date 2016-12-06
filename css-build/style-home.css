@@ -156,7 +156,10 @@ a:hover {
     height: 200px; }
   .header__logo-image {
     width: 200px;
-    height: 200px; } }
+    height: 200px; }
+  .header__logo-link {
+    padding: 30px 0 0 30px;
+    display: inline-block; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
