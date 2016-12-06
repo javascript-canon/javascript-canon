@@ -184,7 +184,11 @@ a:hover {
       line-height: 1.4em;
       text-align: left; }
   .nav__list {
-    padding-bottom: 20px; } }
+    padding-bottom: 20px; }
+  .clearfix::after {
+    display: block;
+    content: "";
+    clear: both; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {

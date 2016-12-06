@@ -39,4 +39,10 @@
       padding-bottom: 20px;
     }
   }
+
+  .clearfix::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
 }
