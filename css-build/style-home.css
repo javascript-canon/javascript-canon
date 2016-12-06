@@ -114,6 +114,9 @@ body {
   position: absolute;
   text-indent: -999px; }
 
+.nav__list {
+  padding: 0; }
+
 .nav__list-item {
   list-style-type: none; }
 
@@ -197,7 +200,6 @@ a:hover {
   .nav {
     padding-bottom: 4px; }
     .nav__list {
-      padding: 0;
       margin: 20px auto 20px;
       text-align: center; }
     .nav__list-item {
