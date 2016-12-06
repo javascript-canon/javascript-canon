@@ -180,7 +180,9 @@ a:hover {
       position: relative;
       bottom: 42px;
       font-size: 20px;
-      text-align: left; } }
+      text-align: left; }
+  .nav__list {
+    padding-bottom: 20px; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
