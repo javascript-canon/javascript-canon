@@ -1,5 +1,10 @@
 <head>
-  <title>The JavaScript Canon</title>
+  <% if(pageID == 'about') { %>
+    <title>The JavaScript Canon - About the JS Canon</title>
+  <% } else{ %>
+   <title>The JavaScript Canon</title>
+ <% } %>
+
   <meta name="description" content="The plain, non-framework Vanilla JS Version of the JavaScript Canon">
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">

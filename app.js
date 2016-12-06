@@ -68,12 +68,16 @@ app.use(express.static(__dirname + "/public/"));
 
  // HOME PAGE ROUTE: Render the index template when going to home page
 app.get("/", function(req, res) {
-  res.render("index");
+  res.render("index", {
+    pageID: "index"
+  });
 });
 
 // ABOUT PAGE ROUTE: Render the about template when going to about page
 app.get("/about", function(req, res) {
-  res.send("about page");
+  res.render("about", {
+    pageID: "about"
+  });
 });
 
 
