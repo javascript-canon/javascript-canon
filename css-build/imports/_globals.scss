@@ -22,6 +22,10 @@ body {
 
   &__title {
     @include ti;
+
+    &--about-page {
+      text-align: center;
+    }
   }
 
   &__about-header {

@@ -111,6 +111,8 @@ body {
 .content__title {
   position: absolute;
   text-indent: -999px; }
+  .content__title--about-page {
+    text-align: center; }
 
 .content__about-header {
   position: absolute;
