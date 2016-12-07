@@ -15,6 +15,9 @@
     "type": "git",
     "url": "https://github.com/kaidez/javascript-canon"
   },
+  "engines": {
+    "node": "0.12.7"
+  },
   "scripts": {
     "server": "nodemon --delay 2000ms -e scss,ejs,js --watch $DIR",
     "server-home": "nodemon --delay 2000ms -e scss,ejs,js --watch",
