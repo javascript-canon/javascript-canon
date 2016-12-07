@@ -32,8 +32,9 @@
       margin: 0 0 0 $shared-margin-value;
       display: inline-block;
       position: relative;
+      top: -12px;
       bottom: 42px;
-      left: 47px;
+      left: 52px;
       font-size: 20px;
       line-height: $line-height;
 
@@ -64,7 +65,11 @@
     }
 
     &__about-text {
-      margin: 0 auto;
+      margin: 10px auto;
+    }
+
+    &__about-page-text {
+      margin: 10px 30px;
     }
 
     &--img {
