@@ -2,6 +2,7 @@
 /* Global yellow color */
 /* Shared margin value for header elements on wide view */
 /* Globally-shared line-height value */
+/* Shared width on some elements for mobile */
 /*
  * HELPER CLASSES
  */
@@ -185,11 +186,18 @@ a:hover {
       text-align: left; }
   .nav__list {
     padding-bottom: 20px; }
+  .content__inner-container {
+    max-width: 700px;
+    margin: 0 auto; }
   .content__about-text {
     width: 300px; }
   .content--img {
-    position: absolute;
-    right: 0; }
+    position: absolute; }
+  .content__article-wrapper {
+    width: 300px;
+    display: inline-block;
+    position: relative;
+    right: -410px; }
   .aside {
     height: 150px; }
     .aside__image {
@@ -213,9 +221,10 @@ a:hover {
     padding: 14px 0 20px;
     display: block; }
   .header__subtitle {
-    margin: 0 14px;
     font-size: 16px;
-    font-weight: 300; }
+    font-weight: 300;
+    margin: 0 auto;
+    max-width: 300px; }
   .nav {
     padding-bottom: 4px; }
     .nav__list {
@@ -237,6 +246,12 @@ a:hover {
   .content__example-header {
     font-size: 20px;
     text-align: center; }
+  .content--img {
+    margin: 0 auto;
+    display: inherit; }
+  .content__about-text {
+    margin: 0 auto;
+    max-width: 300px; }
   footer {
     height: 10px;
     margin-bottom: 0;

@@ -45,3 +45,8 @@
 /*
  * HELPER CLASSES END
  */
+
+ @mixin mobile-element {
+  margin: 0 auto;
+  max-width: $shared-mobile-element-width;
+ }

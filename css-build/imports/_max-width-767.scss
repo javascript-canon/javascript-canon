@@ -26,10 +26,10 @@
     }
 
     &__subtitle {
-      margin: 0 14px;
-
       font-size: 16px;
       font-weight: 300;
+
+      @include mobile-element;
     }
   }
 
@@ -73,6 +73,16 @@
       font-size: 20px;
       text-align: center;
     }
+
+    &--img {
+      margin: 0 auto;
+      display: inherit;
+    }
+
+    &__about-text {
+      @include mobile-element;
+    }
+
   }
 
 
