@@ -6,27 +6,43 @@
     <% include partials/header.ejs %>
 
     <main class="main">
+
       <section class="content">
         <h2 class="content__title">Main Content</h2>
-        <img src="/img/front-page-books.jpg" class="content--img" alt="image of books">
-        <article class="content__about-text">
-          <h2 class="content__about-header">About the JavaScript Canon</h2>
-          <p>
-            The JavaScript Canon is a small website that I create different versions of to practice various JS frameworks and design patterns...Backbone, React, etc.
-          </p>
-          <p>
-            <a href="/about/">Read more in the <em>about</em> section...</a>
-          </p>
-        </article> <!-- .content__about-text -->
 
-        <article class="content__example">
-          <h2 class="content__example-header">different versions</h2>
+        <div class="content__inner-container">
 
-          <ul class="examples" id="examples-target">
+          <img src="/img/front-page-books.jpg" class="content--img" alt="image of books">
 
-          </ul> <!-- .examples -->
-        </article> <!-- .content__example -->
+          <div class="content__article-wrapper">
 
+            <article class="content__about-text">
+
+              <h2 class="content__about-header">About the JavaScript Canon</h2>
+
+              <p>
+                The JavaScript Canon is a small website that I create different versions of to practice various JS frameworks and design patterns...Backbone, React, etc.
+              </p>
+
+              <p>
+                <a href="/about/">Read more in the <em>about</em> section...</a>
+              </p>
+
+            </article> <!-- .content__about-text -->
+
+            <article class="content__example">
+
+              <h2 class="content__example-header">different versions</h2>
+
+              <ul class="examples" id="examples-target">
+
+              </ul> <!-- .examples -->
+
+            </article> <!-- .content__example -->
+
+          </div> <!-- .content__article-wrapper -->
+
+        </div> <!-- . content__article-wrapper -->
       </section>
     </main> <!-- .content -->
 
