@@ -8,6 +8,11 @@
       height: 200px;
     }
 
+    &__inner-div {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
     &__logo-image {
       width: 200px;
       height: 200px;
@@ -17,6 +22,9 @@
       margin-right: $shared-margin-value;
       padding-top: 30px;
       display: inline-block;
+      position: relative;
+      top: 16px;
+      left: -18px;
     }
 
     &__subtitle {
@@ -25,18 +33,19 @@
       display: inline-block;
       position: relative;
       bottom: 42px;
-
+      left: 27px;
       font-size: 20px;
       line-height: $line-height;
+
       text-align: left;
     }
 
   }
 
   .nav {
-
+    background-color: darken($js-yellow, 11%);
     &__list {
-      padding-bottom: 20px;
+      padding: 20px 0;
     }
   }
 

@@ -169,24 +169,33 @@ a:hover {
     .header__logo {
       width: 200px;
       height: 200px; }
+    .header__inner-div {
+      max-width: 700px;
+      margin: 0 auto; }
     .header__logo-image {
       width: 200px;
       height: 200px; }
     .header__logo-link {
       margin-right: 80px;
       padding-top: 30px;
-      display: inline-block; }
+      display: inline-block;
+      position: relative;
+      top: 16px;
+      left: -18px; }
     .header__subtitle {
       width: 300px;
       margin: 0 0 0 80px;
       display: inline-block;
       position: relative;
       bottom: 42px;
+      left: 27px;
       font-size: 20px;
       line-height: 1.4em;
       text-align: left; }
-  .nav__list {
-    padding-bottom: 20px; }
+  .nav {
+    background-color: #eed107; }
+    .nav__list {
+      padding: 20px 0; }
   .main {
     min-width: 768px;
     max-width: 800px;
