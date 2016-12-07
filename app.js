@@ -12,9 +12,6 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Require module for auto-refreshing the browser on file changes
-    reload = require("reload"),
-
     // Create a server variable for later use
     server;
 
@@ -96,6 +93,3 @@ app.set("port", process.env.PORT || 3000 );
 server = app.listen(app.get("port"), function() {
   console.log("Listening on port " + app.get("port"));
 });
-
-// Reload the server when changes happen inside the app
-reload(server, app);
