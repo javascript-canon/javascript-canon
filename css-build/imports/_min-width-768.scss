@@ -42,14 +42,26 @@
 
   .content {
 
+    &__inner-container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
     &__about-text {
       width: 300px;
     }
 
     &--img {
       position: absolute;
-      right: 0;
     }
+
+    &__article-wrapper {
+      width: 300px;
+      display: inline-block;
+      position: relative;
+      right: -410px;
+    }
+
   }
 
   .aside {
@@ -63,6 +75,7 @@
       border-radius: 50%;
       border: 1px solid #000;
     }
+
   }
 
 }
