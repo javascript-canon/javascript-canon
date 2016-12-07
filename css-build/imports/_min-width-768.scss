@@ -40,9 +40,29 @@
     }
   }
 
-  .clearfix::after {
-    display: block;
-    content: "";
-    clear: both;
+  .content {
+
+    &__about-text {
+      width: 300px;
+    }
+
+    &--img {
+      position: absolute;
+      right: 0;
+    }
   }
+
+  .aside {
+    height: 150px;
+
+    &__image {
+      width: 100px;
+      height: 100px;
+      margin: 16px 0;
+
+      border-radius: 50%;
+      border: 1px solid #000;
+    }
+  }
+
 }
