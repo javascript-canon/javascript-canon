@@ -217,13 +217,19 @@ a:hover {
     position: relative;
     right: -410px; }
   .aside {
-    height: 150px; }
+    padding: 20px 0 2px;
+    text-align: center; }
     .aside__image {
       width: 100px;
       height: 100px;
-      margin: 16px 0;
+      display: inline-block;
       border-radius: 50%;
-      border: 1px solid #000; } }
+      border: 1px solid #000; }
+    .aside__text {
+      margin-left: 14px;
+      display: inline-block;
+      position: relative;
+      top: -43px; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {

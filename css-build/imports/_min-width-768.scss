@@ -85,16 +85,31 @@
 
   }
 
+
+
+
+
   .aside {
-    height: 150px;
+
+    padding:20px 0 2px;
+    text-align: center;
 
     &__image {
       width: 100px;
       height: 100px;
-      margin: 16px 0;
+      display: inline-block;
 
       border-radius: 50%;
       border: 1px solid #000;
+    }
+
+    &__text {
+      margin-left: 14px;
+      display: inline-block;
+
+      position: relative;
+      top: -43px;
+
     }
 
   }
