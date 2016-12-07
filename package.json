@@ -16,7 +16,8 @@
     "url": "https://github.com/kaidez/javascript-canon"
   },
   "engines": {
-    "node": "0.12.7"
+    "node": "6.9.1",
+    "npm": "3.10.8"
   },
   "scripts": {
     "server": "nodemon --delay 2000ms -e scss,ejs,js --watch $DIR",
