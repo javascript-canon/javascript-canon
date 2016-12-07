@@ -167,20 +167,20 @@ a:hover {
   .header {
     width: 100%; }
     .header__logo {
-      width: 200px;
-      height: 200px; }
+      width: 150px;
+      height: 150px; }
     .header__inner-div {
       max-width: 700px;
       margin: 0 auto; }
     .header__logo-image {
-      width: 200px;
-      height: 200px; }
+      width: 150px;
+      height: 150px; }
     .header__logo-link {
       margin-right: 80px;
       padding-top: 30px;
       display: inline-block;
       position: relative;
-      top: 16px;
+      top: -3px;
       left: -18px; }
     .header__subtitle {
       width: 300px;
@@ -188,7 +188,7 @@ a:hover {
       display: inline-block;
       position: relative;
       bottom: 42px;
-      left: 27px;
+      left: 47px;
       font-size: 20px;
       line-height: 1.4em;
       text-align: left; }
