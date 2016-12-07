@@ -114,7 +114,7 @@ body {
 
 .nav__header {
   position: absolute;
-  text-indent: -999px; }
+  text-indent: -9999px; }
 
 .nav__list {
   padding: 0; }
@@ -126,13 +126,13 @@ body {
 
 .content__title {
   position: absolute;
-  text-indent: -999px; }
+  text-indent: -9999px; }
   .content__title--about-page {
     text-align: center; }
 
 .content__about-header {
   position: absolute;
-  text-indent: -999px; }
+  text-indent: -9999px; }
 
 .content__about-text {
   margin-bottom: 30px;
@@ -190,7 +190,9 @@ a:hover {
     max-width: 700px;
     margin: 0 auto; }
   .content__about-text {
-    width: 300px; }
+    width: 768px;
+    margin: 40px auto;
+    padding: 0 40px; }
   .content--img {
     position: absolute; }
   .content__article-wrapper {
@@ -223,7 +225,7 @@ a:hover {
   .header__subtitle {
     font-size: 16px;
     font-weight: 300;
-    margin: 0 auto;
+    margin: 10px auto;
     max-width: 300px; }
   .nav {
     padding-bottom: 4px; }
@@ -250,7 +252,7 @@ a:hover {
     margin: 0 auto;
     display: inherit; }
   .content__about-text {
-    margin: 0 auto;
+    margin: 10px auto;
     max-width: 300px; }
   footer {
     height: 10px;
