@@ -16,7 +16,7 @@
 @mixin ti {
   position: absolute;
 
-  text-indent: -999px;
+  text-indent: -9999px;
 }
 
 // z-index mixins
@@ -47,6 +47,6 @@
  */
 
  @mixin mobile-element {
-  margin: 0 auto;
+  margin: 10px auto;
   max-width: $shared-mobile-element-width;
  }
