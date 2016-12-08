@@ -229,7 +229,11 @@ a:hover {
       margin-left: 14px;
       display: inline-block;
       position: relative;
-      top: -43px; } }
+      top: -43px; }
+  .footer {
+    height: 32px;
+    padding-top: 14px;
+    text-align: center; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
