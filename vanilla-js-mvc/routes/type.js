@@ -34,7 +34,8 @@ router.get("/vanilla-js-mvc/type/:typeid", function(req, res) {
   res.render("type", {
     singleTypes: resourceType,
     pageTitle: req.params.typeid,
-    typeTitle: req.params.typeid
+    typeTitle: req.params.typeid,
+    canonical: "vanilla-js-mvc/" + req.params.typeid + "/"
   });
 
 });

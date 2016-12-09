@@ -33,7 +33,8 @@ router.get("/vanilla-js-mvc/:singleresourceid", function(req, res) {
    */
   res.render("resource", {
     links: resourceLinks,
-    pageTitle: req.params.singleresourceid
+    pageTitle: req.params.singleresourceid,
+    canonical: "vanilla-js-mvc/" + req.params.singleresourceid + "/"
   });
 
 });
