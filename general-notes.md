@@ -1,5 +1,8 @@
--A primary key dynamically created by the database is also referred to as a "surrogate key" or "synthetic key".
+-A primary key dynamically created by the database can also referred to as a "surrogate key" or "synthetic key".
 
--TODO: set up Open Graph stuff...Twitter Cards, other og tags, etc..
+-Try to use singular names for db tables.
 
--TODO: set up Google Analytics stuff
+## TODOS
+-set up Open Graph stuff...Twitter Cards, other og tags, etc..
+
+-set up Google Analytics stuff.
