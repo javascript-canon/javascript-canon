@@ -1,4 +1,4 @@
-# GENERAL TODOS
+# GENERAL NOTES
 
 -A primary key dynamically created by the database can also referred to as a "surrogate key" or "synthetic key".
 
