@@ -2,6 +2,7 @@
 
 -A primary key dynamically created by the database can also referred to as a "surrogate key" or "synthetic key".
 
+-You may need to only define "attributes" for "entities".
 
 
 ## GENERAL TODOS
