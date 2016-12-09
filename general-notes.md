@@ -10,6 +10,8 @@
 
 -Set up Google Analytics stuff.
 
+-Set up HTTP/2 and Let's Encrypt stuff.
+
 
 
 ## DATABASE TODOS
