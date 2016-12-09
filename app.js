@@ -12,6 +12,9 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
+    // Require Mongoose for Mongo data modeling
+    mongoose = require('mongoose');
+
     // Create a server variable for later use
     server;
 
