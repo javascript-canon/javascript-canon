@@ -9,7 +9,8 @@ var router = require("express").Router();
  */
 router.get("/vanilla-js-mvc", function(req, res) {
   res.render("index", {
-    pageTitle: "The JavaScript Canon - Vanilla JS"
+    pageTitle: "Vanilla JS/MVC",
+    canonical: "vanilla-js-mvc"
   });
 });
 
