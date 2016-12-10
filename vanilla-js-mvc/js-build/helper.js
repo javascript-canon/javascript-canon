@@ -21,6 +21,7 @@ var setMobileState = function() {
      * class to the body tag...
      */
     $.when($("#navigation").addClass("nav--visible").removeClass("nav--notVisible")).then(function() {
+
       $("body").addClass("mobileVisible");
       $("#headerElement").addClass("header--expanded");
       $("#logo").addClass("header__logo--scaleout").removeClass("header__logo--scalein");
@@ -32,6 +33,7 @@ var setMobileState = function() {
    * when closing it.
    */
   } else {
+
     $("#navigation").addClass("nav--notVisible").removeClass("nav--visible");
     $("body").removeClass("mobileVisible");
     $("#headerElement").removeClass("header--expanded");
@@ -39,6 +41,7 @@ var setMobileState = function() {
     $("#title").removeClass("header__title--moveUp").addClass("header__title--moveDown");
     $("#subtitle").removeClass("header__subtitle--fadeout").addClass("header__subtitle--fadein");
   }
+
 }
 
 // Button click functionality that runs the setMobileState function
