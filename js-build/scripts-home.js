@@ -21,7 +21,7 @@ var
 
 // Get the Resources API frpm mLab
 $.getJSON("./api/resources").done(function(data) {
-  console.log("data is: ", data);
+  console.log("data is now: ", data);
 });
 
 // Loop through the example data and place it on the home page
