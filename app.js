@@ -21,24 +21,22 @@ var
     // Create a server variable for later use
     server,
 
-    // secrets = require("./secrets"),
 
-    // connectToDevDB = "mongodb://" + secrets.mLabUsername + ":" + secrets.mLabPassword + "@ds129038.mlab.com:29038/jscanon",
 
     // Grab the database URI from the Heroku config variables
-    uristring = process.env.MONGODB_URI ||
+    uristring = process.env.MONGOLAB_URI ||
     process.env.PROD_MONGODB || 'mongodb://localhost/jscanon';
 
 
 
 // Connect to "jscanon" database with hidden mLab username & password
 mongoose.connect(uristring, function (err, res) {
-      if (err) {
-      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-      } else {
-      console.log ('Succeeded connected to: ' + uristring);
-      }
-    });
+  if (err) {
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
+});
 
 /*
  * ==================
