@@ -9,14 +9,21 @@ var
     // Create a new express application called "app"
     app = express(),
 
+    // Require mongoose
+    mongoose = require("mongoose"),
+
+    // Require body-parser
+    bodyParser = require("body-parser"),
+
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Require Mongoose for Mongo data modeling
-    mongoose = require('mongoose');
-
     // Create a server variable for later use
     server;
+
+// Connect to the "jscanon" database up on mLab
+mongoose.connect('mongodb://kaidez:186282397@ds129038.mlab.com:29038/jscanon');
+
 
 /*
  * ==================
@@ -44,13 +51,22 @@ app.set("view engine", "ejs");
  * =========================
  */
 
-
-
 // Plug in the various versions of JS Canon as middleware
 app.use(vanillaJS);
 
 // Point to asset files...images, .css, .js, etc.
 app.use(express.static(__dirname + "/public/"));
+
+
+// I need to understand how this works
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+/* Build the "api" route
+ * TODO: either move the actual route file to this page or move the
+ * other routes to the "/routes" directory.
+ */
+app.use("/api", require("./routes/api"));
 
 /*
  * ========================
@@ -79,7 +95,6 @@ app.get("/about", function(req, res) {
     pageID: "about"
   });
 });
-
 
 /*
  * ===================
