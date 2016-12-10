@@ -19,7 +19,7 @@ var
     vanillaJS = require("./vanilla-js-mvc"),
 
     // Bring in the hidden mLab username and password
-    secrets = require("./secrets"),
+    secrets = require("./secrets.js"),
 
     // Create a server variable for later use
     server;
