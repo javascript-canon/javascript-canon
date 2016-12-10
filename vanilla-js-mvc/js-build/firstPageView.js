@@ -57,7 +57,7 @@ var
       resourceTitle.innerHTML = model[data].title;
 
       // Set attributes for the resource image
-      resourceImage.setAttribute("src", "/img/book-images/" + model[data].image_large);
+      resourceImage.setAttribute("src", "/img/book-images/" + model[data].image);
       resourceImage.setAttribute("class", "single-resource__book-image");
 
       /* Add attributes to the resource's author element and place the
