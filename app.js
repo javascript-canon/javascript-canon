@@ -18,16 +18,16 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Bring in the hidden mLab username and password
-    secrets = require("./secrets.js"),
-
     // Create a server variable for later use
     server;
+
+ var uristring =process.env.MONGOLAB_URI ||
+    process.env.PROD_MONGODB;
 
 
 
 // Connect to "jscanon" database with hidden mLab username & password
-mongoose.connect("mongodb://" + secrets.mLabUsername + ":" +  secrets.mLabPassword + "@ds129038.mlab.com:29038/jscanon");
+mongoose.connect(uristring);
 
 /*
  * ==================
