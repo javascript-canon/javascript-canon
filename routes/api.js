@@ -12,14 +12,10 @@ var
     // Get the resources model
     resources = require("../models/resources");
 
-// CRUD-like routes for the model data
-resources.methods([
-  'get',
-  'post',
-  'put',
-  'delete'
-]);
+// The GET route for the API data...the only thing needed right now
+resources.methods('get');
 
 // return router
 resources.register(router, "/resources");
+
 module.exports = router;
