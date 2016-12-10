@@ -19,7 +19,7 @@ var
     vanillaJS = require("./vanilla-js-mvc"),
 
     // Bring in the hidden mLab username and password
-    secrets = require("./js-build/secrets"),
+    secrets = require("./secrets"),
 
     // Create a server variable for later use
     server;
@@ -28,8 +28,6 @@ var
 
 // Connect to "jscanon" database with hidden mLab username & password
 mongoose.connect("mongodb://" + secrets.mLabUsername + ":" +  secrets.mLabPassword + "@ds129038.mlab.com:29038/jscanon");
-
-
 
 /*
  * ==================
