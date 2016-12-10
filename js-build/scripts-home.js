@@ -3,6 +3,8 @@
 
 var
 
+  $ = require("jquery"),
+
   // Example data
   examples = {
     "Vanilla JS MVC": "vanilla-js-mvc",
@@ -17,6 +19,10 @@ var
   ulTargetElement = document.getElementById("examples-target");
 
 
+// Get the Resources API frpm mLab
+$.getJSON("./api/resources").done(function(data) {
+  console.log(data);
+});
 
 // Loop through the example data and place it on the home page
 for(var singleExample in examples) {
