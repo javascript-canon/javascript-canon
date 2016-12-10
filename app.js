@@ -18,12 +18,12 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Create a server variable for later use
-    server,
-
     // Grab the database URI from the Heroku config variables
     URI = process.env.MONGOLAB_URI ||
-    process.env.PROD_MONGODB || 'mongodb://localhost/test';
+    process.env.PROD_MONGODB || 'mongodb://localhost/test',
+
+    // Create a server variable for later use
+    server;
 
 // Connect to "jscanon" database with hidden mLab username & password
 mongoose.connect(URI, function (err, res) {
