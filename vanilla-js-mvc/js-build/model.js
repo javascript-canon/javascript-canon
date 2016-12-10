@@ -10,7 +10,7 @@
 "use strict";
 
 // Reference the model data on Heroku
-var ResourceModel = "https://jscanon-data.herokuapp.com/";
+var ResourceModel = "/api/resources";
 
 // Export the model out so it can be required properly
 exports.ResourceModel = ResourceModel;
