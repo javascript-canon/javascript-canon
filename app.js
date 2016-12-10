@@ -21,20 +21,16 @@ var
     // Create a server variable for later use
     server,
 
-
-
     // Grab the database URI from the Heroku config variables
-    uristring = process.env.MONGOLAB_URI ||
-    process.env.PROD_MONGODB || 'mongodb://localhost/jscanon';
-
-
+    URI = process.env.MONGOLAB_URI ||
+    process.env.PROD_MONGODB || 'mongodb://localhost/test';
 
 // Connect to "jscanon" database with hidden mLab username & password
-mongoose.connect(uristring, function (err, res) {
+mongoose.connect(URI, function (err, res) {
   if (err) {
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log ('ERROR connecting to: ' + URI + '. ' + err);
   } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log ('Succeeded connected to: ' + URI);
   }
 });
 
