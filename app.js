@@ -19,10 +19,15 @@ var
     vanillaJS = require("./vanilla-js-mvc"),
 
     // Create a server variable for later use
-    server;
+    server,
 
- var uristring =process.env.MONGOLAB_URI ||
-    process.env.PROD_MONGODB;
+    secrets = require("./secrets"),
+
+    connectToDevDB = "mongodb://" + secrets.mLabUsername + ":" + secrets.mLabPassword + "@ds129038.mlab.com:29038/jscanon",
+
+    // Grab the database URI from the Heroku config variables
+    uristring = process.env.MONGOLAB_URI ||
+    process.env.PROD_MONGODB || connectToDevDB;
 
 
 
