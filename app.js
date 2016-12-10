@@ -66,10 +66,11 @@ app.use(vanillaJS);
 // Point to asset files...images, .css, .js, etc.
 app.use(express.static(__dirname + "/public/"));
 
-
-// I need to understand how this works
-app.use(bodyParser.urlencoded({extended: true}));
+// Parse a request as JSON
 app.use(bodyParser.json());
+
+// Parse a request as UTF-8
+app.use(bodyParser.urlencoded({extended: true}));
 
 /* Build the "api" route
  * TODO: either move the actual route file to this page or move the
