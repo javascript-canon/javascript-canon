@@ -22,7 +22,7 @@
     "server": "nodemon -e scss,ejs,js --watch $DIR",
     "server-home": "nodemon -e scss,ejs,js --watch",
     "build-js": "browserify $DIR/js-build/*.js | uglifyjs -mc > $DIR/public/js/scripts.js",
-    "build-js-home": "uglifyjs js-build/scripts-home.js -mc > public/js/scripts-home.js",
+    "build-js-home": "browserify js-build/*.js | uglifyjs -mc > public/js/scripts-home.js",
     "build-sass": "node-sass $DIR/css-build/style.scss $DIR/css-build/style.css",
     "build-sass-home": "node-sass css-build/style-home.scss css-build/style-home.css",
     "concat-css": "cat $DIR/css-build/*.css > $DIR/public/css/style.css",
