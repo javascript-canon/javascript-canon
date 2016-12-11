@@ -270,6 +270,8 @@ body {
     .nav__header {
       margin-bottom: 0;
       font-size: 18px; }
+    .nav--homepage-link {
+      margin-top: 20px; }
     .nav__list {
       margin-top: 4px;
       padding-left: 0; }
