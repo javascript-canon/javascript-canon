@@ -3,20 +3,14 @@
 
 var
 
-  $ = require("jquery"),
+    // "require" jQuery core
+    $ = require("jquery"),
 
-  // Example data
-  examples = {
-    "Vanilla JS MVC": "vanilla-js-mvc",
-    "React": "react",
-    "Backbone.js": "backbone"
-  },
+    // Create document fragment to batch load the data all at once
+    documentFragment = document.createDocumentFragment(),
 
-  // Create document fragment to batch load the data all at once
-  documentFragment = document.createDocumentFragment(),
-
-  // Point to the <ul> target where the examples links will load into
-  ulTargetElement = document.getElementById("examples-target");
+    // Point to the <ul> target where the examples links will load into
+    ulTargetElement = document.getElementById("examples-target");
 
 // Loop through the example data and place it on the home page
 for(var singleExample in examples) {
