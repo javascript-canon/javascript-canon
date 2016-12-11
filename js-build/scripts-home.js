@@ -12,12 +12,13 @@ var
     // Point to the <ul> target where the examples links will load into
     ulTargetElement = document.getElementById("examples-target");
 
-
-if(ulTargetElement) {
-  buildExampleList();
-} else {
-  return;
-}
+(function(){
+  if(ulTargetElement) {
+    return buildExampleList();
+  } else {
+    return false;
+  }
+})();
 
 function buildExampleList() {
 
