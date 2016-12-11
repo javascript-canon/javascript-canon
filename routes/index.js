@@ -7,7 +7,8 @@ var router = require("express").Router();
 // HOME PAGE ROUTE: Render the index template when going to home page
 router.get("/", function(req, res) {
   res.render("index", {
-    pageID: "index"
+    pageID: "index",
+    canonical: null
   });
 });
 
