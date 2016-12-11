@@ -106,9 +106,9 @@
     }
 
     &__list {
-      width:100%;
+      max-width: 280px;
       height: 154px;
-      margin: 0;
+      margin: 0 auto;
       padding: 5px;
     }
 
@@ -118,6 +118,13 @@
 
       border-radius:20px;
       background-color: #000;
+    }
+
+    &__list-item-home {
+      margin: 0 10px 15px;
+      display:inline-block;
+
+      border-radius:20px;
     }
 
     &__button {
@@ -136,6 +143,10 @@
       &:visited {
         color: $js-yellow;
       }
+    }
+
+    &--homepage-link {
+      @include coreButtonMainSite;
     }
 
     &--visible {

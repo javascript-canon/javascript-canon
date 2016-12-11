@@ -13,6 +13,9 @@
  * Core button will have different heights...set them with this mixin
  */
 /**
+ * Core button used site-wide
+ */
+/**
  * Reusable mixin for scaling element in the mobile view
  *
  * TODO: The spots that use this mixin need their own mixin
@@ -455,15 +458,19 @@ body {
     font-size: 17px;
     text-align: center; }
   .nav__list {
-    width: 100%;
+    max-width: 280px;
     height: 154px;
-    margin: 0;
+    margin: 0 auto;
     padding: 5px; }
   .nav__list-item {
     margin: 0 10px 15px;
     display: inline-block;
     border-radius: 20px;
     background-color: #000; }
+  .nav__list-item-home {
+    margin: 0 10px 15px;
+    display: inline-block;
+    border-radius: 20px; }
   .nav__button {
     display: inline-block;
     margin: 0 6px;
@@ -482,6 +489,17 @@ body {
       color: #f9e034; }
     .nav__button:visited {
       color: #f9e034; }
+  .nav--homepage-link {
+    margin: 0 6px;
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+    background-color: #eed107;
+    border-radius: 20px;
+    cursor: pointer; }
+    .nav--homepage-link:hover {
+      color: #000;
+      text-decoration: underline; }
   .nav--visible {
     width: 100%;
     display: block;
