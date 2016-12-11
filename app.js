@@ -75,12 +75,6 @@ app.use(bodyParser.json());
 // Parse a request as UTF-8
 app.use(bodyParser.urlencoded({extended: true}));
 
-/* Build the "api" route
- * TODO: either move the actual route file to this page or move the
- * other routes to the "/routes" directory.
- */
-app.use("/api", require("./routes/api"));
-
 /*
  * ========================
  * STOP MIDDLEWARE SETTINGS
@@ -95,19 +89,14 @@ app.use("/api", require("./routes/api"));
  * ====================
  */
 
- // HOME PAGE ROUTE: Render the index template when going to home page
-app.get("/", function(req, res) {
-  res.render("index", {
-    pageID: "index"
-  });
-});
+// Home page route
+app.use(require('./routes/index'));
 
-// ABOUT PAGE ROUTE: Render the about template when going to about page
-app.get("/about", function(req, res) {
-  res.render("about", {
-    pageID: "about"
-  });
-});
+// About page route
+app.use(require('./routes/about'));
+
+// API route that pulls info from the database
+app.use("/api", require("./routes/api"));
 
 /*
  * ===================
