@@ -11,7 +11,7 @@ var
 
     // Point to the <ul> target where the examples links will load into
     ulTargetElement = document.getElementById("examples-target");
-
+/*
 // Loop through the example data and place it on the home page
 for(var singleExample in examples) {
 
@@ -41,5 +41,5 @@ for(var singleExample in examples) {
     ulTargetElement.appendChild(documentFragment);
 
   } // end hasOwnProperty() check
-
+*/
 }  // end for...in loop
