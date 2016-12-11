@@ -19,10 +19,12 @@
     }
 
     &__logo-link {
-
-      // display: inline-block;
-      // position: relative;
-
+      margin-right: $shared-margin-value;
+      padding-top: 30px;
+      display: inline-block;
+      position: relative;
+      top: -3px;
+      left: -18px;
     }
 
     &__subtitle {
