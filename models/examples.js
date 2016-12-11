@@ -11,7 +11,7 @@ var
 
 // Model "examples" data via a Mongo-based/Mongoose-powered REST API
 var examplesSchema = new mongoose.Schema({
-  name: Array
+  examples: Array
 });
 
 // Export "examples" collection based on the above Schema
