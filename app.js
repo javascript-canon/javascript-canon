@@ -98,9 +98,6 @@ app.use(require('./routes/about'));
 // API route that pulls info from the database
 app.use("/api", require("./routes/api"));
 
-// API route that pulls info from the database
-app.use("/api2", require("./routes/api2"));
-
 /*
  * ===================
  * STOP ROUTE SETTINGS

@@ -13,7 +13,7 @@ var
     examples = require("../models/examples");
 
 // The GET route for the API data...the only thing needed right now
-examples.methods(['get', 'post', 'put', 'delete']);
+examples.methods('get');
 
 // return router
 examples.register(router, "/examples");
