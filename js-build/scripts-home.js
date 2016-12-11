@@ -18,12 +18,6 @@ var
   // Point to the <ul> target where the examples links will load into
   ulTargetElement = document.getElementById("examples-target");
 
-
-// Get the Resources API frpm mLab
-$.getJSON("./api/resources").done(function(data) {
-  console.log("data is now: ", data);
-});
-
 // Loop through the example data and place it on the home page
 for(var singleExample in examples) {
 
