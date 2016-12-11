@@ -98,9 +98,9 @@ app.set("view engine", "ejs");
 
 
 /*
- * ================
- * CONFIGURE ROUTES
- * ================
+ * ====================
+ * START ROUTE SETTINGS
+ * ====================
  */
 
 // Home page route
@@ -111,6 +111,13 @@ app.use(require('./routes/type'));
 
 // Single resource route
 app.use(require('./routes/resource'));
+
+/*
+ * ===================
+ * STOP ROUTE SETTINGS
+ * ===================
+ */
+
 
 
 /*
