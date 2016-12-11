@@ -9,7 +9,7 @@ var
     // Make a Mongo-based/Mongoose-powered REST API
     mongoose = restful.mongoose;
 
-// Model the ongo-based/Mongoose-powered REST API
+// Model the Mongo-based/Mongoose-powered REST API
 var resourceSchema = new mongoose.Schema({
   title: String,
   author: String,
