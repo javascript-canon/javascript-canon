@@ -9,7 +9,7 @@ var
     // Make a Mongo-based/Mongoose-powered REST API
     mongoose = restful.mongoose;
 
-// Model the resource data with a DB schema
+// Model the ongo-based/Mongoose-powered REST API
 var resourceSchema = new mongoose.Schema({
   title: String,
   author: String,
@@ -21,7 +21,5 @@ var resourceSchema = new mongoose.Schema({
   about_text: String
 });
 
-/* Export the model and push updates based on this Schema to the
- * "resources" collection
- */
+// Export "resources" collection based on the above Schema
 module.exports = restful.model('resources', resourceSchema);

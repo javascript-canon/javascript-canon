@@ -18,7 +18,10 @@ var
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
 
-    // Grab the database URI from the Heroku config variables
+    /* Grab the database from the Heroku config variables. If that's
+     * not accessible, use the local "test" db that should be running
+     * on your machine.
+     */
     URI = process.env.MONGOLAB_URI ||
     process.env.PROD_MONGODB || 'mongodb://localhost/test',
 
