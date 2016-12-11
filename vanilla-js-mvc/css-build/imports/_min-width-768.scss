@@ -77,8 +77,16 @@
       cursor: pointer;
     }
 
+    &__list-item-home {
+      margin-bottom: 2px;
+      list-style-type: none;
 
-    &__button {
+      cursor: pointer;
+    }
+
+
+    &__button,
+    &__button-home {
 
       &:link {
         color:#000;

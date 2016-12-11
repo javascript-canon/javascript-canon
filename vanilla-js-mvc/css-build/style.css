@@ -201,7 +201,6 @@ body {
     float: right;
     margin: 0 6px;
     padding: 10px;
-    text-decoration: none;
     color: #f9e034;
     background-color: #000;
     border-radius: 16px;
@@ -282,11 +281,15 @@ body {
       margin-bottom: 2px;
       list-style-type: none;
       cursor: pointer; }
-    .nav__button:link {
+    .nav__list-item-home {
+      margin-bottom: 2px;
+      list-style-type: none;
+      cursor: pointer; }
+    .nav__button:link, .nav__button-home:link {
       color: #000; }
-    .nav__button:hover {
+    .nav__button:hover, .nav__button-home:hover {
       color: #000; }
-    .nav__button:visited {
+    .nav__button:visited, .nav__button-home:visited {
       color: #000; }
   /* Stop ".nav"...BEM style */
   /* Non-BEM container for the learning resources */
@@ -475,7 +478,6 @@ body {
     display: inline-block;
     margin: 0 6px;
     padding: 10px;
-    text-decoration: none;
     color: #f9e034;
     background-color: #000;
     border-radius: 16px;
@@ -489,11 +491,28 @@ body {
       color: #f9e034; }
     .nav__button:visited {
       color: #f9e034; }
+  .nav__button-home {
+    display: inline-block;
+    margin: 0 6px;
+    padding: 10px;
+    background-color: #eed107;
+    border-radius: 20px;
+    cursor: pointer; }
+    .nav__button-home:hover {
+      color: #000;
+      text-decoration: underline; }
+    .nav__button-home:link {
+      color: #000;
+      text-decoration: none; }
+    .nav__button-home:hover {
+      color: #000;
+      text-decoration: underline; }
+    .nav__button-home:visited {
+      color: #000;
+      text-decoration: none; }
   .nav--homepage-link {
     margin: 0 6px;
     padding: 10px;
-    text-decoration: none;
-    color: #000;
     background-color: #eed107;
     border-radius: 20px;
     cursor: pointer; }
@@ -569,7 +588,6 @@ body {
       font-size: 14px;
       margin: 0 6px;
       padding: 10px;
-      text-decoration: none;
       color: #f9e034;
       background-color: #000;
       border-radius: 16px;

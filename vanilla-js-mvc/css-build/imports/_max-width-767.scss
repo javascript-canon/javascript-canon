@@ -145,6 +145,29 @@
       }
     }
 
+    &__button-home {
+      display: inline-block;
+
+      @include coreButtonMainSite;
+
+      &:link {
+        color: #000;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      &:visited {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+
+
+
     &--homepage-link {
       @include coreButtonMainSite;
     }
