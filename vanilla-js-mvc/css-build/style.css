@@ -286,11 +286,16 @@ body {
       list-style-type: none;
       cursor: pointer; }
     .nav__button:link, .nav__button-home:link {
-      color: #000; }
+      color: #000;
+      text-decoration: none; }
     .nav__button:hover, .nav__button-home:hover {
-      color: #000; }
+      color: #000;
+      text-decoration: underline; }
     .nav__button:visited, .nav__button-home:visited {
-      color: #000; }
+      color: #000;
+      text-decoration: none; }
+    .nav--link-top-padding {
+      margin-top: 15px; }
   /* Stop ".nav"...BEM style */
   /* Non-BEM container for the learning resources */
   .single-resource-container {

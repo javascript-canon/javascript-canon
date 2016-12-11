@@ -84,22 +84,27 @@
       cursor: pointer;
     }
 
-
     &__button,
     &__button-home {
 
       &:link {
         color:#000;
+        text-decoration: none;
       }
 
       &:hover {
         color:#000;
+        text-decoration: underline;
       }
 
       &:visited {
         color:#000;
+        text-decoration: none;
       }
 
+    }
+    &--link-top-padding {
+      margin-top:15px;
     }
   }
   /* Stop ".nav"...BEM style */
