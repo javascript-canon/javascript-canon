@@ -176,12 +176,8 @@ a:hover {
       width: 150px;
       height: 150px; }
     .header__logo-link {
-      margin-right: 80px;
-      padding-top: 30px;
       display: inline-block;
-      position: relative;
-      top: -3px;
-      left: -18px; }
+      position: relative; }
     .header__subtitle {
       width: 300px;
       margin: 0 0 0 80px;
