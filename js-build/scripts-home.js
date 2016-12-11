@@ -12,6 +12,10 @@ var
     // Point to the <ul> target where the examples links will load into
     ulTargetElement = document.getElementById("examples-target");
 
+/* An IIFE that checks if <ul id="examples-target" /> is on the page.
+ * If it is run the buildExampleList()...if not, just do a "return
+ * false". This should only run on the home page.
+ */
 (function(){
   if(ulTargetElement) {
     return buildExampleList();
@@ -20,15 +24,28 @@ var
   }
 })();
 
+/* buildExampleList(): look at the examples listed at "/api/examples"
+ * and places them on the home page. This should only run on the home
+ * page.
+ */
 function buildExampleList() {
 
+  // Wait for the API to ge AJAX'd in, then do stuff
   $.getJSON("/api/examples").done(function(exampleData) {
 
+    /* Point to the object that contains the examples...kind of a hack
+     * for Mongo
+     */
     var examples =  exampleData[0];
 
+    // Loop through the examples with a for...in loop
     for(var singleExample in examples) {
 
-      // Perform standard hasOwnProperty() check
+      /* Only run the for...in loop if it's a property of the object
+       * AND the property key id NOT "_id". Another Mongo-based hack
+       * since Mongo inserts this property by default and there
+       * currently isn't a really good way to remove it.
+       */
       if(examples.hasOwnProperty(singleExample) && singleExample != "_id") {
 
         // Dynamically create an <li> and <a> tag
