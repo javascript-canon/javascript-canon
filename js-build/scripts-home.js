@@ -11,35 +11,51 @@ var
 
     // Point to the <ul> target where the examples links will load into
     ulTargetElement = document.getElementById("examples-target");
-/*
-// Loop through the example data and place it on the home page
-for(var singleExample in examples) {
 
-  // Perform standard hasOwnProperty() check
-  if (examples.hasOwnProperty(singleExample)) {
 
-    // Dynamically create an <li> and <a> tag
-    var exampleItem = document.createElement("li"),
-        exampleLink = document.createElement("a");
+if(ulTargetElement) {
+  buildExampleList();
+} else {
+  return;
+}
 
-    // Add the text in the object key to the inside of the <a> tag
-    exampleLink.innerHTML = singleExample;
+function buildExampleList() {
 
-    // Set the <a> tag's href attribute
-    exampleLink.setAttribute("href", "/" + examples[singleExample]);
+  $.getJSON("/api/examples").done(function(exampleData) {
 
-    // Set the <li> tag's class attribute
-    exampleItem.setAttribute("class", "examples__list-item");
+    var examples =  exampleData[0];
 
-    // Place the <a> tag inside the <li> tag
-    exampleItem.appendChild(exampleLink);
+    for(var singleExample in examples) {
 
-    // Place the <li> and all its content inside the document fragment
-    documentFragment.appendChild(exampleItem);
+      // Perform standard hasOwnProperty() check
+      if(examples.hasOwnProperty(singleExample) && singleExample != "_id") {
 
-    // Load the document fragment inside the <ul> on the homepage
-    ulTargetElement.appendChild(documentFragment);
+        // Dynamically create an <li> and <a> tag
+        var exampleItem = document.createElement("li"),
+            exampleLink = document.createElement("a");
 
-  } // end hasOwnProperty() check
-*/
-}  // end for...in loop
+        // Place the text in the object key inside the <a> tag
+        exampleLink.innerHTML = singleExample;
+
+        // Set the <a> tag's href attribute
+        exampleLink.setAttribute("href", "/" + examples[singleExample]);
+
+        // Set the <li> tag's class attribute
+        exampleItem.setAttribute("class", "examples__list-item");
+
+        // Place the <a> tag inside the <li> tag
+        exampleItem.appendChild(exampleLink);
+
+        // Place <li> with all content inside the document fragment
+        documentFragment.appendChild(exampleItem);
+
+        // Place the document fragment in the <ul> on the homepage
+        ulTargetElement.appendChild(documentFragment);
+
+      } // end hasOwnProperty() check
+
+    }  // end for...in loop
+
+  }); // end $.getJSON()
+
+} //end buildExampleList()
