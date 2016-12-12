@@ -53,6 +53,7 @@
     "node-sass": "^4.0.0",
     "nodemon": "1.11.0",
     "normalize.css": "^5.0.0",
+    "sass-lint": "^1.10.2",
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
