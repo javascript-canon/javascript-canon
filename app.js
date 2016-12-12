@@ -112,7 +112,7 @@ app.use(function (req, res, next) {
 });
 
 // Set the development site port
-app.set("port", process.env.PORT || 3000 );
+app.set("port", process.env.PORT || 3000);
 
 // Run a local server via the "server" variable
 server = app.listen(app.get("port"), function() {
