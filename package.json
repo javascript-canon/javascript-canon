@@ -7,7 +7,9 @@
   "main": "app.js",
   "files": [
     "app.js",
+    "models",
     "public",
+    "routes",
     "views",
     "vanilla-js-mvc"
   ],
