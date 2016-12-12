@@ -106,6 +106,11 @@ app.use("/api", require("./routes/api"));
 
 
 
+// Render the "404-page" view when encountering a 404 error
+app.use(function (req, res, next) {
+  res.status(404).render("404-page");
+});
+
 // Set the development site port
 app.set("port", process.env.PORT || 3000 );
 
