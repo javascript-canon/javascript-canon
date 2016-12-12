@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html lang="en-US" prefix="og: http://ogp.me/ns#">
-
+<html lang="en-US">
 <head>
   <meta charset="utf-8">
   <title>The JavaScript Canon - 404 not found</title>
-  <meta property="og:locale" content="en_US"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="The JavaScript Canon - 404 not found"/>
   <meta name="description" content="The JavaScript Canon - 404 not found">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+
+    .header__title {
+      position: absolute;
+      text-indent: -999px;
+    }
+
+    .page-404 {
+      max-width: 760px;
+      margin: 30px auto 0;
+
+      text-align: center;
+    }
+
+    .page-404__image {
+      display: inline-block;
+    }
+
+    .page-404__content {
+      margin-top: 30px;
+    }
+
+    .page-404--image-one {
+      max-width: 350px;
+    }
+
+    .page-404--image-two {
+      max-width: 250px;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <main class="main" role="main" itemprop="mainContentOfPage" itemtype="http://schema.org/CreativeWork">
-      <h1>404 error not found</h1>
-      <img src="/img/404-image.jpg" alt="">
-    </main> <!-- .main -->
-  </div> <!-- .container -->
+  <div>
+    <main class="page-404" role="main" itemprop="mainContentOfPage" itemtype="http://schema.org/CreativeWork">
+      <h1 class="header__title">404 error not found</h1>
+      <img src="/img/404-image-one.png" class="page-404__image page-404--image-one" alt="Image one of the JavaScript Canon's 404 page">
+      <img src="/img/404-image-two.png" class="page-404__image page-404--image-two" alt="Image one of the JavaScript Canon's 404 page">
+      <p class="page-404__content">
+        But while you're here, why don't you <a href="/">check out our home page</a> or <a href="/about">learn what we're all about</a>.
+      </p>
+    </main> <!-- .page-404 -->
+  </div>
 </body>
 </html>
