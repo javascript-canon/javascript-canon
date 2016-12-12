@@ -6,7 +6,7 @@
     <div class="container">
       <% include partials/header.ejs %>
 
-      <main class="main">
+      <main class="main" role="main" itemprop="mainContentOfPage" itemtype="http://schema.org/CreativeWork">
 
         <section class="content">
           <h2 class="content__title">Main Content</h2>
@@ -26,7 +26,7 @@
                 </p>
 
                 <p>
-                  <a href="/about/">Read more in the <em>about</em> section...</a>
+                  <a href="/about/" itemprop="url">Read more in the <em>about</em> section...</a>
                 </p>
 
               </article> <!-- .content__about-text -->

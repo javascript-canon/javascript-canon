@@ -1,12 +1,12 @@
 <div class="left-column">
-  <header class="header" id="headerElement">
+  <header class="header" id="headerElement" itemtype="http://schema.org/Organization" role="banner">
     <button class="mobile-menu" type="button" id="mobile-button">
       <span class="mobile-menu--bar"></span>
       <span class="mobile-menu--bar"></span>
       <span class="mobile-menu--bar"></span>
     </button>
 
-    <a href="/<%=exampleURL %>" class="header--link">
+    <a href="/<%=exampleURL %>" class="header--link" rel="home" itemprop="url">
       <svg class="header__logo" width="70px" height="70px" alt="Logo for the JavaScript Canon" id="logo">
         <image class="header__logo" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/img/js-logo.svg" src="/img/js-logo.png" width="70px" height="70px" alt="Logo for the JavaScript Canon" id="logo"></image>
       </svg>
@@ -23,7 +23,7 @@
 
     </div>
 
-    <nav class="nav nav--notVisible" id="navigation">
+    <nav class="nav nav--notVisible" id="navigation" role="navigation">
       <h2 class="nav__header">display by resource type</h2>
       <ul class="nav__list">
         <li class="nav__list-item">

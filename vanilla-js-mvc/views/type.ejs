@@ -17,9 +17,9 @@
 
             <img src="/img/book-images/<%= item.image %>" class="single-resource__book-image">
 
-            <a class="single-resource__button js-book" href="<%= item.link %>">Get This!</a>
+            <a class="single-resource__button js-book" href="<%= item.link %>" itemprop="url">Get This!</a>
 
-            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="/<%=exampleURL %>/<%=item.href %>">Why it's good?</a>
+            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="/<%=exampleURL %>/<%=item.href %>" itemprop="url">Why it's good?</a>
 
           </article>
         <% }); %>
