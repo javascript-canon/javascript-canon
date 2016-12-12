@@ -13,7 +13,9 @@ var
     $ = require("jquery"),
 
     // create a view object for the homepage view...export it out later
-    SingleResourceView = {};
+    SingleResourceView = {},
+
+    targetEl = document.getElementById("targetEl");
 
 
 /* "renderFirstPage()" method renders a single resource component. The
@@ -26,11 +28,13 @@ var
   // Loop through the data to build elements
   for (var data in model) {
 
-    // Perform standard hasOwnProperty() check
-    if (model.hasOwnProperty(data)) {
+      /* Only run the for...in loop if it's a property of the object
+       * AND the page has a "<div id='targetEl' />."
+       */
+       if (model.hasOwnProperty(data) && targetEl) {
 
       // Create single DOM elements for the component
-      var pageTarget = document.getElementById("targetEl"),
+      var pageTarget = targetEl,
           resourceContainer = document.createElement("article"),
           resourceTitle = document.createElement("h2"),
           resourceImage = document.createElement("img"),
@@ -76,7 +80,7 @@ var
       /* Set attributes for the button that links to resource's page,
       * then add text inside of it
        */
-      pageLink.setAttribute("class", "single-resource__button js-modal");
+      pageLink.setAttribute("class", "single-resource__button");
       pageLink.setAttribute("data-resource-number", model[data].id);
       pageLink.setAttribute("href", window.location.pathname + "/" + model[data].href);
       pageLink.innerHTML =  "Why it's good?";
