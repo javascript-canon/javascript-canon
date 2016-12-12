@@ -1,0 +1,12 @@
+files:
+  include: 'css-build/**/*.scss'
+
+rules:
+  no-vendor-prefixes:
+    - 0
+  no-css-comments:
+    - 0
+  no-empty-rulesets:
+    - 0
+  bem-depth:
+    - 1
