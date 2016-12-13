@@ -3,17 +3,22 @@
   <% if(pageID == 'about') { %>
     <title>The JavaScript Canon - About the JS Canon</title>
     <link rel="canonical" href="http://jscanon.io/about"/>
+    <meta name="description" content="JavaScript Canon: about the JavaScript Canon">
   <% } else{ %>
    <title>The JavaScript Canon</title>
    <link rel="canonical" href="http://jscanon.io/"/>
+    <meta name="description" content="JavaScript Canon: a curated list of the best JavaScript learning resources and a code practice site for Kai Gittens">
   <% } %>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="kaidez - Tutorials &amp; Articles about Web Development"/>
-  <meta property="og:description" content="The plain, non-framework Vanilla JS Version of the JavaScript Canon...written in MVC"/>
-  <meta property="og:url" content="http://jscanon.io/<%= canonical %>"/>
+  <% if(pageID == 'about') { %>
+    <meta property="og:title" content="The JavaScript Canon - About the JS Canon"/>
+    <meta property="og:description" content="JavaScript Canon: about the JavaScript Canon">
+  <% } else{ %>
+    <meta property="og:title" content="The JavaScript Canon"/>
+    <meta property="og:description" content="JavaScript Canon: a curated list of the best JavaScript learning resources and a code practice site for Kai Gittens" />
+  <% } %>
   <meta property="og:site_name" content="kaidez"/>
-  <meta name="description" content="The plain, non-framework Vanilla JS Version of the JavaScript Canon">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
   <link href="/css/style-home.css" media="all" rel="stylesheet">
 </head>
