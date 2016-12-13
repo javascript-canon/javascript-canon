@@ -12,15 +12,13 @@ var
     // Create "app" & export it out so the root "app.js" can access it
     app = module.exports = express(),
 
+    env = process.env.NODE_ENV || "development",
+
     // Bring in "node-rest-client" to get the already-existing API
     Client = require('node-rest-client').Client,
 
     // Create a new client instance
-    client = new Client(),
-
-    // Get either the production API or the development API
-    getAPI = "http://javascript-canon.heroukuapp.com/api/resources" || "http://localhost:3000/api/resources";
-
+    client = new Client();
 /*
  *   =============================
  * START LOCAL VARIABLE SETTINGS
@@ -36,7 +34,13 @@ app.locals.exampleURL = "vanilla-js-mvc";
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
-  var getAPI = "http://javascript-canon.heroukuapp.com/api/resources";
+  var getAPI;
+
+  if (env == 'development') {
+    getAPI = "http://localhost:3000/api/resources";
+  } else {
+    getAPI = "http://javascript-canon.herokuapp.com/api/resources";
+  }
 
   client.get(getAPI, function (resourceData) {
 
