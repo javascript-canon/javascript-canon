@@ -36,7 +36,7 @@ app.locals.exampleURL = "vanilla-js-mvc";
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
-  var getAPI = "http://localhost:3000/api/resources" || "http://javascript-canon.heroukuapp.com/api/resources";
+  var getAPI = "http://javascript-canon.heroukuapp.com/api/resources";
 
   client.get(getAPI, function (resourceData) {
 
