@@ -2,10 +2,6 @@
 
 @media (max-width: 767px) {
 
-  .container {
-
-  }
-
   .header {
 
     &__logo {
@@ -38,7 +34,7 @@
     padding-bottom: 4px;
 
     &__list {
-      margin: 20px auto 20px;
+      margin: 20px auto;
       text-align: center;
     }
 
@@ -59,7 +55,7 @@
       margin: 16px 0;
 
       border-radius: 50%;
-      border: 1px solid #000;
+      border: 1px solid $standard-black;
     }
   }
 
@@ -87,13 +83,13 @@
 
 
   footer {
-    height:10px;
-    margin-bottom:0;
+    height: 10px;
+    margin-bottom: 0;
     padding: 5px 0;
-    position:fixed;
-    right:0px;
-    bottom:0px;
-    left:0px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     font-size: 12px;
     font-weight: 500;

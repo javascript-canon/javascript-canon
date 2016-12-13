@@ -45,6 +45,7 @@
 
   .nav {
     background-color: darken($js-yellow, 11%);
+
     &__list {
       padding: 20px 0;
     }
@@ -93,21 +94,21 @@
 
   .aside {
 
-    padding:20px 0 2px;
+    padding: 20px 0 2px;
     text-align: center;
 
     &__image {
+      border: 1px solid $standard-black;
+      border-radius: 50%;
+
       width: 100px;
       height: 100px;
       display: inline-block;
-
-      border-radius: 50%;
-      border: 1px solid #000;
     }
 
     &__text {
-      margin-left: 14px;
       display: inline-block;
+      margin-left: 14px;
 
       position: relative;
       top: -43px;

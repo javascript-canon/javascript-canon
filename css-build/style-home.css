@@ -10,18 +10,12 @@
 /*
  * HELPER CLASSES END
  */
-@media only screen and (min-width: 320px) {
-  /* Small screen, non-retina */ }
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min-resolution: 192dpi) and (min-width: 320px), only screen and (min-resolution: 2dppx) and (min-width: 320px) {
-  /* Small screen, retina, stuff to override above media query */ }
-
+/* Small screen, non-retina */
+/* Small screen, retina, stuff to override above media query */
 @media only screen and (min-width: 1300px) {
   /* Large screen, non-retina */ }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 1300px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1300px), only screen and (min-resolution: 192dpi) and (min-width: 1300px), only screen and (min-resolution: 2dppx) and (min-width: 1300px) {
-  /* Large screen, retina, stuff to override above media query */ }
-
+/* Large screen, retina, stuff to override above media query */
 /* Generic fade in and fade out animations...pretty reusable */
 /* For Webkit */
 @-webkit-keyframes fadeIn {
@@ -56,7 +50,7 @@
 /* For Webkit */
 @-webkit-keyframes scaleOut {
   from {
-    -webkit-transform: scale(1) translateY(0px); }
+    -webkit-transform: scale(1) translateY(0); }
   to {
     -webkit-transform: scale(0.6) translateY(-22px); } }
 
@@ -64,12 +58,12 @@
   from {
     -webkit-transform: scale(0.6) translateY(-22px); }
   to {
-    -webkit-transform: scale(1) translateY(0px); } }
+    -webkit-transform: scale(1) translateY(0); } }
 
 /* For other browsers */
 @keyframes scaleOut {
   from {
-    transform: scale(1) translateY(0px); }
+    transform: scale(1) translateY(0); }
   to {
     transform: scale(0.6) translateY(-22px); } }
 
@@ -77,7 +71,7 @@
   from {
     transform: scale(0.6) translateY(-22px); }
   to {
-    transform: scale(1) translateY(0px); } }
+    transform: scale(1) translateY(0); } }
 
 /* Stop header scaling animations */
 /* Very specific animations for moving the title up and down on mobile
@@ -85,8 +79,8 @@
  */
 @-webkit-keyframes moveHeaderUp {
   from {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); }
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
   to {
     -webkit-transform: translateY(-38px);
     transform: translateY(-38px); } }
@@ -96,14 +90,14 @@
     -webkit-transform: translateY(-38px);
     transform: translateY(-38px); }
   to {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); } }
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
 
 /* Stop title moving animations */
 /* Style things mostly using the BEM pattern */
 body {
   overflow-x: hidden;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 .header {
   background-color: #f9e034;
@@ -221,14 +215,14 @@ a:hover {
     padding: 20px 0 2px;
     text-align: center; }
     .aside__image {
+      border: 1px solid #000;
+      border-radius: 50%;
       width: 100px;
       height: 100px;
-      display: inline-block;
-      border-radius: 50%;
-      border: 1px solid #000; }
+      display: inline-block; }
     .aside__text {
-      margin-left: 14px;
       display: inline-block;
+      margin-left: 14px;
       position: relative;
       top: -43px; }
   .footer {
@@ -257,7 +251,7 @@ a:hover {
   .nav {
     padding-bottom: 4px; }
     .nav__list {
-      margin: 20px auto 20px;
+      margin: 20px auto;
       text-align: center; }
   .main {
     margin: 70px 10px; }
@@ -286,9 +280,9 @@ a:hover {
     margin-bottom: 0;
     padding: 5px 0;
     position: fixed;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
     font-size: 12px;
     font-weight: 500; } }
 

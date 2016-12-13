@@ -5,10 +5,8 @@
 // Use the old school Yahoo trick for hiding page elements
 // Read more at: http://yhoo.it/1vz3NVW
 @mixin hide-element {
-  position: absolute !important;
   clip: rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
 }
 
 
@@ -46,7 +44,7 @@
  * HELPER CLASSES END
  */
 
- @mixin mobile-element {
+@mixin mobile-element {
   margin: 10px auto;
   max-width: $shared-mobile-element-width;
- }
+}

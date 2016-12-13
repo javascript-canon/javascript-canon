@@ -30,14 +30,14 @@
  * devices
  */
 
- /* For Webkit */
- @-webkit-keyframes scaleOut {
+/* For Webkit */
+@-webkit-keyframes scaleOut {
   from {
-    -webkit-transform: scale(1) translateY(0px);
+    -webkit-transform: scale(1) translateY(0);
   }
 
   to {
-    -webkit-transform: scale(0.6) translateY(-22px);
+    -webkit-transform: scale(.6) translateY(-22px);
   }
 }
 
@@ -45,33 +45,33 @@
 
 @-webkit-keyframes scaleUp {
   from {
-    -webkit-transform: scale(0.6) translateY(-22px);
+    -webkit-transform: scale(.6) translateY(-22px);
   }
 
   to {
-    -webkit-transform: scale(1) translateY(0px);
+    -webkit-transform: scale(1) translateY(0);
   }
 }
 
 /* For other browsers */
 @keyframes scaleOut {
   from {
-    transform: scale(1) translateY(0px);
+    transform: scale(1) translateY(0);
   }
 
   to {
-    transform: scale(0.6) translateY(-22px);
+    transform: scale(.6) translateY(-22px);
   }
 }
 
 
 @-webkit-keyframes scaleUp {
   from {
-    transform: scale(0.6) translateY(-22px);
+    transform: scale(.6) translateY(-22px);
   }
 
   to {
-    transform: scale(1) translateY(0px);
+    transform: scale(1) translateY(0);
   }
 }
 
@@ -82,10 +82,10 @@
  * devices
  */
 
- @-webkit-keyframes moveHeaderUp {
+@-webkit-keyframes moveHeaderUp {
   from {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 
   to {
@@ -102,8 +102,8 @@
   }
 
   to {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
