@@ -143,6 +143,9 @@ body {
   background-color: #fae866; }
 
 .footer {
+  height: 32px;
+  padding-top: 14px;
+  text-align: center;
   background-color: #dabf06; }
 
 a:link {
@@ -224,11 +227,7 @@ a:hover {
       display: inline-block;
       margin-left: 14px;
       position: relative;
-      top: -43px; }
-  .footer {
-    height: 32px;
-    padding-top: 14px;
-    text-align: center; } }
+      top: -43px; } }
 
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {

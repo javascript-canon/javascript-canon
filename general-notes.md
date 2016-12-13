@@ -14,7 +14,6 @@
 
 -Update GitHub organization page.
 
-
 ## DATABASE TODOS
 -Write a db user story.
 

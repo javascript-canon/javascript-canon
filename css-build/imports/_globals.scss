@@ -74,6 +74,10 @@ body {
 }
 
 .footer {
+  height: 32px;
+  padding-top: 14px;
+
+  text-align: center;
   background-color: darken($js-yellow, 15%);
 }
 
