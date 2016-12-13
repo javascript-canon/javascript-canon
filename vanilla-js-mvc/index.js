@@ -12,12 +12,17 @@ var
     // Create "app" & export it out so the root "app.js" can access it
     app = module.exports = express(),
 
-    // Point to the resource JSON data
-    resourceData = require(__dirname + "/data/resources.json");
+    // Bring in "node-rest-client" to get the already-existing API
+    Client = require('node-rest-client').Client,
 
+    // Create a new client instance
+    client = new Client(),
+
+    // Get either the production API or the development API
+    getAPI = "http://javascript-canon.heroukuapp.com/api/resources" || "http://localhost:3000/api/resources";
 
 /*
- * =============================
+ *   =============================
  * START LOCAL VARIABLE SETTINGS
  * =============================
  */
@@ -31,37 +36,45 @@ app.locals.exampleURL = "vanilla-js-mvc";
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
-  var
+  var getAPI = "http://localhost:3000/api/resources" || "http://javascript-canon.heroukuapp.com/api/resources";
 
-      // Array that will contain a list of resource types
-      getTypes = [],
+  client.get(getAPI, function (resourceData) {
 
-      // Array that will contain a list of filtered resource types
-      linkType;
+    var
 
-  // Loop through the model data to build the nav
-  for (var data in resourceData) {
+        // Array that will contain a list of resource types
+        getTypes = [],
 
-    // Do a standard hasOwnProperty() check against the model
-    if(resourceData.hasOwnProperty(data)) {
+        // Array that will contain a list of filtered resource types
+        linkType;
 
-      // Get "types" in the JSON & add them to the "getTypes" array
-      getTypes.push(resourceData[data].type);
+    // Loop through the model data to build the nav
+    for (var resourceTypes in resourceData) {
 
-    } // end hasOwnProperty() check
+      // Do a standard hasOwnProperty() check against the model
+      if(resourceData.hasOwnProperty(resourceTypes)) {
 
-  } // end for...in loop
+        // Get "types" in the JSON & add them to the "getTypes" array
+        getTypes.push(resourceData[resourceTypes].type);
 
-  /* The "getTypes" array contains duplicate items at this point.
-   * Remove them with underscore's "uniq" method, store the results in
-   * a new array and assign it to the "linkType" variable.
-   */
-   linkType = _.uniq(getTypes);
+      } // end hasOwnProperty() check
+
+    } // end for...in loop
+
+    /* The "getTypes" array contains duplicate items at this point.
+     * Remove them with underscore's "uniq" method, store the results
+     * in a new array and assign it to the "linkType" variable.
+     */
+    linkType = _.uniq(getTypes);
 
    // Assign "linkType" to a local express variable called "types"
-   return app.locals.types = linkType;
+   return [
+    app.locals.types = linkType,
+    app.set("resources", resourceData)
+   ];
+ });
 
- }
+}
 
 // Run the function
 buildTypeNavigation();
@@ -79,9 +92,6 @@ buildTypeNavigation();
  * START APP SETTINGS
  * ==================
  */
-
-// Set a pointer the resource data so routes can easily access it
-app.set("resources", resourceData);
 
 // Point to views in the local folder
 app.set("views", __dirname + "/views");
