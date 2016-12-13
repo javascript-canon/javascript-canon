@@ -79,11 +79,17 @@ function buildTypeNavigation() {
      */
     linkType = _.uniq(getTypes);
 
-   // Assign "linkType" to a local express variable called "types"
-   return [
+   /* Return both the "linkType" array and the API data settings so
+    * the app can access them.
+    *
+    * TODO: return two different values is doable, but not elegant.
+    * Research using functional programming to create a reusable
+    * function to perform separate operations for each returned value.
+    */
+  return [
     app.locals.types = linkType,
     app.set("resources", resourceData)
-   ];
+  ];
  });
 
 }
