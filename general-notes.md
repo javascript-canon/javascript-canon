@@ -6,12 +6,11 @@
 
 
 ## GENERAL TODOS
--Set up Open Graph stuff...Twitter Cards, other og tags, etc..
+-Set up Open Graph stuff...Twitter Cards, og images, etc..
 
 -Set up Google Analytics & GWT stuff.
 
 -Set up HTTP/2 and Let's Encrypt stuff.
-
 
 
 ## DATABASE TODOS
