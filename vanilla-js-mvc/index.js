@@ -44,7 +44,7 @@ function buildTypeNavigation() {
   if (env == 'development') {
     getAPI = "http://localhost:3000/api/resources";
   } else {
-    getAPI = "/api/resources";
+    getAPI = "http://javascript-canon.herokuapp.com/api/resources";
   }
 
   /* Use the client instance to get the API & pass the API's data as
