@@ -36,7 +36,7 @@ function buildExampleList() {
     /* Point to the object that contains the examples...kind of a hack
      * for Mongo
      */
-    var examples =  exampleData[0];
+    var examples = exampleData[0];
 
     // Loop through the examples with a for...in loop
     for(var singleExample in examples) {
