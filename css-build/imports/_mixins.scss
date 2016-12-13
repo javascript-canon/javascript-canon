@@ -45,6 +45,6 @@
  */
 
 @mixin mobile-element {
-  margin: 10px auto;
+  margin: 0 auto;
   max-width: $shared-mobile-element-width;
 }

@@ -104,7 +104,7 @@ body {
   text-align: center; }
   .header__title {
     position: absolute;
-    text-indent: -999px; }
+    text-indent: -9999px; }
 
 .nav__header {
   position: absolute;
@@ -161,14 +161,14 @@ a:hover {
   .header {
     width: 100%; }
     .header__logo {
-      width: 150px;
-      height: 150px; }
+      width: 200px;
+      height: 200px; }
     .header__inner-div {
       max-width: 700px;
       margin: 0 auto; }
     .header__logo-image {
-      width: 150px;
-      height: 150px; }
+      width: 200px;
+      height: 200px; }
     .header__logo-link {
       margin-right: 80px;
       padding-top: 30px;
@@ -181,7 +181,7 @@ a:hover {
       margin: 0 0 0 80px;
       display: inline-block;
       position: relative;
-      top: -12px;
+      top: -45px;
       bottom: 42px;
       left: 52px;
       font-size: 20px;
@@ -233,20 +233,20 @@ a:hover {
 /* Style things mostly using the BEM pattern */
 @media (max-width: 767px) {
   .header__logo {
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto;
     display: block; }
   .header__logo-image {
     width: 150px;
     height: 150px; }
   .header__logo-link {
-    padding: 14px 0 20px;
+    padding: 14px 0 0;
     display: block; }
   .header__subtitle {
     font-size: 16px;
     font-weight: 300;
-    margin: 10px auto;
+    margin: 0 auto;
     max-width: 300px; }
   .nav {
     padding-bottom: 4px; }
@@ -273,7 +273,7 @@ a:hover {
     margin: 0 auto;
     display: inherit; }
   .content__about-text {
-    margin: 10px auto;
+    margin: 0 auto;
     max-width: 300px; }
   footer {
     height: 10px;
