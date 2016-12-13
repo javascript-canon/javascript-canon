@@ -16,10 +16,8 @@ var
     Client = require('node-rest-client').Client,
 
     // Create a new client instance
-    client = new Client(),
+    client = new Client();
 
-    // Set up Node environment detection
-    env = process.env.NODE_ENV || "development";
 /*
  *   =============================
  * START LOCAL VARIABLE SETTINGS
@@ -35,8 +33,13 @@ app.locals.exampleURL = "vanilla-js-mvc";
 // buildTypeNavigation(): builds the main nav that lists resource types
 function buildTypeNavigation() {
 
-  // Create an variable that will store a reference to the API
-  var getAPI;
+  var
+
+      // Create an variable that will store a reference to the API
+      getAPI,
+
+       // Set up Node environment detection
+      env = process.env.NODE_ENV || "development";
 
   /* If this the dev environment, point to the dev API, otherwise
    * point to the production API
