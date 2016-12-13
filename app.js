@@ -111,7 +111,7 @@ app.use(function (req, res, next) {
   res.status(404).render("404-page");
 });
 
-// Set the development site port
+// Depending on the environment, use either the production or dev port
 app.set("port", process.env.PORT || 3000);
 
 // Run a local server via the "server" variable
