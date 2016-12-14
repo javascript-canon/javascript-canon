@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+  <% include partials/head-resource.ejs %>
+  <body>
+    <div class="container">
+      <% include partials/header.ejs %>
+      <main class="right-column">
+        <section class="single-resource-container">
+        <% links.forEach(function(item) { %>
+          <h2 class="page-modal__header">Why is <em><%= item.title %></em> good?</h2>
+
+          <img class="page-modal__img" src="/img/book-images/<%= item.image %>" alt="<%= item.title %>">
+
+          <div class="page-modal__content js-modal-content">
+            <%= item.about_text %>
+          </div> <!-- .page-modal__content -->
+
+        <% }); %>
+        </section> <!-- .page-modal__container -->
+      </main> <!-- .right-column -->
+      <% include partials/footer.ejs %>
+      <% include partials/scripts.ejs %>
+    </div> <!-- .container -->
+  </body>
+</html>
