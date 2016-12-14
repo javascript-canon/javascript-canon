@@ -14,6 +14,8 @@
 
 -Update GitHub organization page.
 
+-Remember this [great `rsync` link](http://stackoverflow.com/questions/2193584/copy-folder-recursively-excluding-some-folders).
+
 ## DATABASE TODOS
 -Write a db user story.
 
