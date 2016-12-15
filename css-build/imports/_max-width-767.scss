@@ -48,7 +48,7 @@
     padding: 10px 10px 40px;
 
     text-align: center;
-    color: #000;
+    color: $standard-black;
 
     &__image {
       width: 100px;
@@ -58,6 +58,7 @@
       border-radius: 50%;
       border: 1px solid $standard-black;
     }
+
     &__text {
       position: relative;
       top: -25px;
