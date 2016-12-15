@@ -53,12 +53,7 @@ function makeRequest (method, url) {
         });
       }
     };
-    xhr.onerror = function () {
-      reject({
-        status: this.status,
-        statusText: xhr.statusText
-      });
-    };
+
     xhr.send();
   });
 }
