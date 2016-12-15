@@ -9,8 +9,6 @@ var
     // Create a new express application called "app"
     app = express(),
 
-    cors = require("cors"),
-
     // Require mongoose
     mongoose = require("mongoose"),
 
