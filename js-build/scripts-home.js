@@ -64,7 +64,7 @@ function makeRequest (url) {
 
 // Example:
 
-makeRequest('GET', '/api/resources')
+makeRequest('/api/resources')
 .then(function (datums) {
     console.log(datums);
 }).catch(function(error) {
