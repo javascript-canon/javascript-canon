@@ -53,14 +53,19 @@ function makeRequest (method, url) {
         });
       }
     };
-
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText
+      });
+    };
     xhr.send();
   });
 }
 
 // Example:
 
-makeRequest('GET', 'http://javascript-canon.herokuapp.com/api/resources')
+makeRequest('GET', '/api/resources')
 .then(function (datums) {
   console.log(datums);
 })
