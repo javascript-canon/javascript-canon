@@ -65,7 +65,7 @@ function makeRequest (method, url) {
 
 // Example:
 
-makeRequest('GET', '/api/resources')
+makeRequest('GET', 'http://javascript-canon.herokuapp.com/api/resources')
 .then(function (datums) {
   console.log(datums);
 })
