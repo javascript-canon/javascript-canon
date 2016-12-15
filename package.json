@@ -18,7 +18,7 @@
     "url": "https://github.com/kaidez/javascript-canon"
   },
   "engines": {
-    "node": ">=5",
+    "node": ">=5"
   },
   "sasslintConfig": ".sass-lint.yml",
   "scripts": {
