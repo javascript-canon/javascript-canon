@@ -77,8 +77,6 @@ app.use(bodyParser.json());
 // Parse a request as UTF-8
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(cors());
-
 /*
  * ========================
  * STOP MIDDLEWARE SETTINGS
