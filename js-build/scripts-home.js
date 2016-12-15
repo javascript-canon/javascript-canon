@@ -18,7 +18,7 @@ var
  */
 (function(){
   if(ulTargetElement) {
-    return buildExampleList();
+    return buildExampleListTwo();
   } else {
     return false;
   }
@@ -46,28 +46,9 @@ function buildExampleListTwo(method, url) {
 
 buildExampleListTwo('GET', '/api/examples')
   .then(function (e) {
-    console.log(e.target.response);
-  }, function (e) {
-    // handle errors
-  });
+    var examples = JSON.parse(e.target.response)[0];
 
-
-
-/* buildExampleList(): look at the examples listed at "/api/examples"
- * and places them on the home page. This should only run on the home
- * page.
- */
-function buildExampleList() {
-
-  // Wait for the API to ge AJAX'd in, then do stuff
-  $.getJSON("/api/examples").done(function(exampleData) {
-
-    /* Point to the object that contains the examples...kind of a hack
-     * for Mongo
-     */
-    var examples = exampleData[0];
-
-    // Loop through the examples with a for...in loop
+     // Loop through the examples with a for...in loop
     for(var singleExample in examples) {
 
       /* Only run the for...in loop if it's a property of the object
@@ -103,6 +84,13 @@ function buildExampleList() {
 
     }  // end for...in loop
 
-  }); // end $.getJSON()
+  }, function (e) {
+    // handle errors
+  });
 
-} //end buildExampleList()
+
+
+/* buildExampleList(): look at the examples listed at "/api/examples"
+ * and places them on the home page. This should only run on the home
+ * page.
+ */
