@@ -39,36 +39,35 @@ var
 
 
 
-function makeRequest (method, url) {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open(method, url);
-    xhr.onload = function () {
-      if (this.status == 200) {
-        resolve(xhr.response);
-      } else {
-        reject({
-          status: this.status,
-          statusText: xhr.statusText
+function makeRequest(method, url) {
+    return new Promise(
+        function (resolve, reject) {
+            const request = new XMLHttpRequest();
+            request.onload = function () {
+                if (this.status === 200) {
+                    // Success
+                    resolve(this.response);
+                } else {
+                    // Something went wrong (404 etc.)
+                    reject(new Error(this.statusText));
+                }
+            };
+            request.onerror = function () {
+                reject(new Error(
+                    'XMLHttpRequest Error: '+this.statusText));
+            };
+            request.open(method, url);
+            request.send();
         });
-      }
-    };
-    xhr.onerror = function () {
-      reject({
-        status: this.status,
-        statusText: xhr.statusText
-      });
-    };
-    xhr.send();
-  });
 }
 
 // Example:
 
 makeRequest('GET', '/api/resources')
-.then(function (datums) {
-  console.log(datums);
-})
-.catch(function (err) {
-  console.error('Augh, there was an error!', err.statusText);
-});
+.then(
+    function (value) {
+        console.log('Contents: ' + value);
+    },
+    function (reason) {
+        console.error('Something went wrong', reason);
+    });
