@@ -42,7 +42,7 @@ function buildExampleListTwo(method, url) {
     exampleList.send();
   });
 
-}
+} // end 'buildExampleListTwo()'
 
 buildExampleListTwo('GET', '/api/examples')
   .then(function (e) {
