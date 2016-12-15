@@ -20,7 +20,7 @@ var
  */
 (function(){
   if(ulTargetElement) {
-    return makeRequest();
+    return getJSON();
   } else {
     return false;
   }
@@ -35,39 +35,28 @@ var
  * http://bit.ly/2hvEK5U
  */
 
+function getJSON(url) {
+  var promise = new RSVP.Promise(function(resolve, reject){
+    var client = new XMLHttpRequest();
+    client.open("GET", url);
+    client.onreadystatechange = handler;
+    client.responseType = "json";
+    client.setRequestHeader("Accept", "application/json");
+    client.send();
 
+    function handler() {
+      if (this.readyState === this.DONE) {
+        if (this.status === 200) { resolve(this.response); }
+        else { reject(this); }
+      }
+    };
+  });
 
+  return promise;
+};
 
-
-function makeRequest(method, url) {
-    return new Promise(
-        function (resolve, reject) {
-            const request = new XMLHttpRequest();
-            request.onload = function () {
-                if (this.status === 200) {
-                    // Success
-                    resolve(this.response);
-                } else {
-                    // Something went wrong (404 etc.)
-                    reject(new Error(this.statusText));
-                }
-            };
-            request.onerror = function () {
-                reject(new Error(
-                    'XMLHttpRequest Error: '+this.statusText));
-            };
-            request.open(method, url);
-            request.send();
-        });
-}
-
-// Example:
-
-makeRequest('GET', '/api/resources')
-.then(
-    function (value) {
-        console.log('Contents: ' + value);
-    },
-    function (reason) {
-        console.error('Something went wrong', reason);
-    });
+getJSON("/api/resources").then(function(json) {
+  console.log(json);
+}).catch(function(error) {
+  // handle errors
+});
