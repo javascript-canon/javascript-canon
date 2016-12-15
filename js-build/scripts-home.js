@@ -24,6 +24,35 @@ var
   }
 })();
 
+
+/* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
+ * implementation I found here on S.O...I went with the simplest
+ * example and I'm fine with that.
+ *
+ * S.O. Link
+ * http://bit.ly/2hvEK5U
+ */
+function buildExampleListTwo(method, url) {
+
+  return new Promise(function (resolve, reject) {
+    var exampleList = new XMLHttpRequest();
+    exampleList.open(method, url);
+    exampleList.onload = resolve;
+    exampleList.onerror = reject;
+    exampleList.send();
+  });
+
+}
+
+buildExampleListTwo('GET', '/api/examples')
+  .then(function (e) {
+    console.log(e.target.response);
+  }, function (e) {
+    // handle errors
+  });
+
+
+
 /* buildExampleList(): look at the examples listed at "/api/examples"
  * and places them on the home page. This should only run on the home
  * page.
