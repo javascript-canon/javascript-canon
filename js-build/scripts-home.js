@@ -6,7 +6,7 @@ var
     // "require" jQuery core
     $ = require("jquery"),
 
-    // Create document fragment to batch load the data all at once
+    // Create document fragment to batch-load page elements all at once
     documentFragment = document.createDocumentFragment(),
 
     // Point to the <ul> target where the examples links will load into
@@ -30,7 +30,7 @@ var
  */
 function buildExampleList() {
 
-  // Wait for the API to ge AJAX'd in, then do stuff
+  // Wait for the API to get AJAX'd in, then do stuff
   $.getJSON("/api/examples").done(function(exampleData) {
 
     /* Point to the object that contains the examples...kind of a hack
