@@ -45,9 +45,10 @@
   }
 
   .aside {
-    padding: 10px 10px 20px;
+    padding: 10px 10px 40px;
 
     text-align: center;
+    color: #000;
 
     &__image {
       width: 100px;
@@ -56,6 +57,12 @@
 
       border-radius: 50%;
       border: 1px solid $standard-black;
+    }
+    &__text {
+      position: relative;
+      top: -25px;
+
+      color: $standard-black;
     }
   }
 
