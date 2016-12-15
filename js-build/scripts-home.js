@@ -20,7 +20,7 @@ var
  */
 (function(){
   if(ulTargetElement) {
-    return getJSON();
+    return makeRequest();
   } else {
     return false;
   }
@@ -35,28 +35,38 @@ var
  * http://bit.ly/2hvEK5U
  */
 
-function getJSON(url) {
-  var promise = new RSVP.Promise(function(resolve, reject){
-    var client = new XMLHttpRequest();
-    client.open("GET", url);
-    client.onreadystatechange = handler;
-    client.responseType = "json";
-    client.setRequestHeader("Accept", "application/json");
-    client.send();
 
-    function handler() {
-      if (this.readyState === this.DONE) {
-        if (this.status === 200) { resolve(this.response); }
-        else { reject(this); }
+
+function makeRequest (url) {
+  return new RSVP.Promise(function (resolve, reject) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.onload = function () {
+      if (this.status >= 200 && this.status < 300) {
+        resolve(xhr.response);
+      } else {
+        reject({
+          status: this.status,
+          statusText: xhr.statusText
+        });
       }
     };
+    xhr.onerror = function () {
+      reject({
+        status: this.status,
+        statusText: xhr.statusText
+      });
+    };
+    xhr.send();
   });
+}
 
-  return promise;
-};
+// Example:
 
-getJSON("/api/resources").then(function(json) {
-  console.log(json);
+makeRequest('GET', '/api/resources')
+.then(function (datums) {
+    console.log(datums);
 }).catch(function(error) {
   // handle errors
 });
