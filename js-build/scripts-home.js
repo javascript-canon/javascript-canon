@@ -38,14 +38,14 @@ var
 /* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
  * implementation I found on Stack Overflow at: http://bit.ly/2hvEK5U.
  */
-function makeRequest() {
+function makeRequest(method, url) {
 
   // Create a Promise instance that does a standard resolve/reject
   return new Promise(function (resolve, reject) {
 
     // Create a standard AJAX request that gets the resources API
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", '/api/resources');
+    xhr.open(method, url);
 
     // Give the API data a JSON header on page-load
     xhr.setRequestHeader("Accept", "application/json");
@@ -86,7 +86,7 @@ function makeRequest() {
 /* Request the data using the above method...if it fails, it will be
  * caught and send an error message to the console
  */
-makeRequest()
+makeRequest("GET", '/api/resources')
   .then(function (datums) {
     console.log(datums);
   }).catch(function(error) {
