@@ -1,13 +1,16 @@
-  // use strict mode
-  "use strict";
+/*jslint node: true, strict: true */
+/* globals window: true, document: true, window: true, XMLHttpRequest: true */
 
-  var
+// use strict mode
+"use strict";
 
-      // "require" jQuery core
-      $ = require("jquery"),
+var
 
-      // Require RSVP to polyfill Promise support...for IE mostly
-      RSVP = require("RSVP"),
+    // "require" jQuery core
+    $ = require("jquery"),
+
+    // Require RSVP to polyfill Promise support...for IE mostly
+    RSVP = require("RSVP"),
 
       /* Use Promises if there's native browser support for them...use
        * RSVP if there isn't
