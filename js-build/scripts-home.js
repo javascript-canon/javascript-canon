@@ -35,13 +35,11 @@ var
  * S.O. Link
  * http://bit.ly/2hvEK5U
  */
-
-
-function makeRequest (url) {
+function makeRequest() {
   return new RSVP.Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.setRequestHeader("Accept", "application/json");
+    xhr.open("GET", '/api/resources');
+    //xhr.setRequestHeader("Accept", "application/json");
     xhr.onload = function () {
       if (this.status >= 200 && this.status < 300) {
         resolve(xhr.response);
@@ -64,7 +62,7 @@ function makeRequest (url) {
 
 // Example:
 
-makeRequest('/api/resources')
+makeRequest()
 .then(function (datums) {
     console.log(datums);
 }).catch(function(error) {
