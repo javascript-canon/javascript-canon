@@ -66,6 +66,9 @@ function makeRequest() {
       }
     }; // end "xhr.onload"
 
+    /* On an AJAX error, do the Promise reject stuff and set up a
+     * status message.
+     */
     xhr.onerror = function () {
       reject({
         status: this.status,
@@ -77,8 +80,12 @@ function makeRequest() {
     xhr.send();
 
   }); // End the Promise return
+
 }
 
+/* Request the data using the above method...if it fails, it will be
+ * caught and send an error message to the console
+ */
 makeRequest()
   .then(function (datums) {
     console.log(datums);
