@@ -88,41 +88,41 @@ function makeRequest() {
  */
 function buildExampleList(examples) {
 
-    // Loop through the examples with a for...in loop
-    for(var singleExample in examples) {
+  // Loop through the examples with a for...in loop
+  for(var singleExample in examples) {
 
-      /* Only run the for...in loop if it's a property of the object
-       * AND the property key id NOT "_id". Another Mongo-based hack
-       * since Mongo inserts this property by default and there
-       * currently isn't a really good way to remove it.
-       */
-      if(examples.hasOwnProperty(singleExample) && singleExample != "_id") {
+    /* Only run the for...in loop if it's a property of the object AND
+     * the property key id NOT "_id". Another Mongo-based hack since
+     * Mongo inserts this property by default and there
+     * ~currently~ isn't a really good way to remove it.
+     */
+    if(examples.hasOwnProperty(singleExample) && singleExample != "_id") {
 
-        // Dynamically create an <li> and <a> tag
-        var exampleItem = document.createElement("li"),
-            exampleLink = document.createElement("a");
+      // Dynamically create an <li> and <a> tag
+      var exampleItem = document.createElement("li"),
+          exampleLink = document.createElement("a");
 
-        // Place the text in the object key inside the <a> tag
-        exampleLink.innerHTML = singleExample;
+      // Place the text in the object key inside the <a> tag
+      exampleLink.innerHTML = singleExample;
 
-        // Set the <a> tag's href attribute
-        exampleLink.setAttribute("href", "/" + examples[singleExample]);
+      // Set the <a> tag's href attribute
+      exampleLink.setAttribute("href", "/" + examples[singleExample]);
 
-        // Set the <li> tag's class attribute
-        exampleItem.setAttribute("class", "examples__list-item");
+      // Set the <li> tag's class attribute
+      exampleItem.setAttribute("class", "examples__list-item");
 
-        // Place the <a> tag inside the <li> tag
-        exampleItem.appendChild(exampleLink);
+      // Place the <a> tag inside the <li> tag
+      exampleItem.appendChild(exampleLink);
 
-        // Place <li> with all content inside the document fragment
-        documentFragment.appendChild(exampleItem);
+      // Place <li> with all content inside the document fragment
+      documentFragment.appendChild(exampleItem);
 
-        // Place the document fragment in the <ul> on the homepage
-        ulTargetElement.appendChild(documentFragment);
+      // Place the document fragment in the <ul> on the homepage
+      ulTargetElement.appendChild(documentFragment);
 
-      } // end hasOwnProperty() check
+    } // end hasOwnProperty() check
 
-    }  // end for...in loop
+  }  // end for...in loop
 
 } //end buildExampleList()
 
