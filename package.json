@@ -22,7 +22,7 @@
   },
   "sasslintConfig": ".sass-lint.yml",
   "scripts": {
-    "server": "nodemon -e scss,ejs,js,css --watch",
+    "server": "nodemon -e scss,ejs,js,css --watch app",
     "build-js": "browserify js-build/*.js | uglifyjs -mc > public/js/scripts-home.js",
     "build-sass": "node-sass css-build/style-home.scss css-build/style-home.css",
     "concat-css": "cat css-build/*.css > public/css/style-home.css",
