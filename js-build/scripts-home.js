@@ -43,9 +43,9 @@ function makeRequest() {
   // Create a Promise instance that does a standard resolve/reject
   return new Promise(function (resolve, reject) {
 
-    // Create a standard AJAX request that gets the resources API
+    // Create an AJAX request that gets the JS Canon Examples API
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", '/api/resources');
+    xhr.open("GET", '/api/examples');
 
     // Give the API data a JSON header on page-load
     xhr.setRequestHeader("Accept", "application/json");
@@ -91,8 +91,6 @@ function makeRequest() {
  */
 function buildExampleList(examples) {
 
-
-
     // Loop through the examples with a for...in loop
     for(var singleExample in examples) {
 
@@ -136,8 +134,8 @@ function buildExampleList(examples) {
  * caught and send an error message to the console
  */
 makeRequest()
-  .then(function (datums) {
-    console.log(datums);
+  .then(function (examples) {
+    buildExampleList(examples[0])
   }).catch(function(error) {
     console.error(error);
   });
