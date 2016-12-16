@@ -8,6 +8,8 @@ var
 
     RSVP = require("RSVP"),
 
+    Promise = window.Promise ||  RSVP.Promise,
+
     // Create document fragment to batch load the data all at once
     documentFragment = document.createDocumentFragment(),
 
@@ -29,17 +31,13 @@ var
 
 
 /* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
- * implementation I found here on S.O...I went with the simplest
- * example and I'm fine with that.
- *
- * S.O. Link
- * http://bit.ly/2hvEK5U
+ * implementation I found on Stack Overflow at: http://bit.ly/2hvEK5U.
  */
 function makeRequest() {
-  return new RSVP.Promise(function (resolve, reject) {
+  return new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", '/api/resources');
-    //xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Accept", "application/json");
     xhr.onload = function () {
       if (this.status >= 200 && this.status < 300) {
         resolve(xhr.response);
@@ -66,6 +64,6 @@ makeRequest()
 .then(function (datums) {
     console.log(datums);
 }).catch(function(error) {
-  // handle errors
+  console.error(error);
 });
 
