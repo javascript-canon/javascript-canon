@@ -23,8 +23,8 @@
   "sasslintConfig": ".sass-lint.yml",
   "scripts": {
     "server": "nodemon -e scss,ejs,js,css --watch app",
-    "jshint": "jshint js-build/scripts-home.js || true",
-    "browserify": "browserify js-build/*.js | uglifyjs -mc > public/js/scripts-home.js",
+    "jshint": "jshint js-build/scripts-home.js --show-non-errors || true",
+    "browserify": "browserify js-build/*.js | uglifyjs -mc > public/js/*.js",
     "build-js": "npm run browserify && npm run jshint",
     "build-sass": "node-sass css-build/style-home.scss css-build/style-home.css",
     "concat-css": "cat css-build/*.css > public/css/style-home.css",
