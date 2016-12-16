@@ -20,17 +20,27 @@ var
   // Point to the <ul> target where the examples links will load into
   ulTargetElement = document.getElementById("examples-target");
 
-/* An IIFE that checks if <ul id="examples-target" /> is on the page.
- * If it is run the buildHomePage ExampleList()...if not, just do a
- * "return false".
+
+
+/* An IIFE that checks if <ul id="examples-target" /> is on the page,
+ * meaning we're on the home page. If it is, run the getExampleData()
+ * method that places the examples list on the home page using a
+ * Promise.  If it's not, just do a "return false".
  */
 (function(){
   if(ulTargetElement) {
-    return getExampleData();
+    return getExampleData()
+      .then(function (examples) {
+      buildHomePageExampleList(examples[0]);
+    }).catch(function(error) {
+      console.error(error);
+    });
   } else {
-    return false;
+      return false;
   }
 })();
+
+
 
 /* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
  * implementation I found on Stack Overflow at: http://bit.ly/2hvEK5U.
@@ -124,13 +134,3 @@ function buildHomePageExampleList(examples) {
   }  // end for...in loop
 
 } //end buildHomePageExampleList()
-
-/* Request the data using the above method...if it fails, it will be
- * caught and send an error message to the console
- */
-getExampleData()
-  .then(function (examples) {
-    buildHomePageExampleList(examples[0]);
-  }).catch(function(error) {
-    console.error(error);
-  });
