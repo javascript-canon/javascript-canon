@@ -85,7 +85,7 @@ function getExampleData() {
 /* buildHomePage ExampleList(): look at the examples listed at
  * "/api/examples" and places them on the home page.
  */
-function buildHomePage ExampleList(examples) {
+function buildHomePageExampleList(examples) {
 
   // Loop through the examples with a for...in loop
   for(var singleExample in examples) {
@@ -123,14 +123,14 @@ function buildHomePage ExampleList(examples) {
 
   }  // end for...in loop
 
-} //end buildHomePage ExampleList()
+} //end buildHomePageExampleList()
 
 /* Request the data using the above method...if it fails, it will be
  * caught and send an error message to the console
  */
 getExampleData()
   .then(function (examples) {
-    buildHomePage ExampleList(examples[0]);
+    buildHomePageExampleList(examples[0]);
   }).catch(function(error) {
     console.error(error);
   });
