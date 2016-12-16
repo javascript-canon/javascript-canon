@@ -24,7 +24,8 @@
   "scripts": {
     "server": "nodemon -e scss,ejs,js,css --watch app",
     "jshint": "jshint js-build/scripts-home.js || true",
-    "build-js": "browserify js-build/*.js | uglifyjs -mc > public/js/scripts-home.js",
+    "browserify": "browserify js-build/*.js | uglifyjs -mc > public/js/scripts-home.js",
+    "build-js": "npm run browserify && npm run jshint",
     "build-sass": "node-sass css-build/style-home.scss css-build/style-home.css",
     "concat-css": "cat css-build/*.css > public/css/style-home.css",
     "clean-css": "cleancss public/css/style-home.css --s0 -o public/css/style-home.css",
