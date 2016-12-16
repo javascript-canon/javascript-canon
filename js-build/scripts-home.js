@@ -6,9 +6,6 @@
 
 var
 
-  // "require" jQuery core
-  $ = require("jquery"),
-
   // Require RSVP to polyfill Promise support...for IE mostly
   RSVP = require("RSVP"),
 
@@ -127,7 +124,6 @@ function buildExampleList(examples) {
 
     }  // end for...in loop
 
-
 } //end buildExampleList()
 
 /* Request the data using the above method...if it fails, it will be
@@ -135,7 +131,7 @@ function buildExampleList(examples) {
  */
 makeRequest()
   .then(function (examples) {
-    buildExampleList(examples[0])
+    buildExampleList(examples[0]);
   }).catch(function(error) {
     console.error(error);
   });
