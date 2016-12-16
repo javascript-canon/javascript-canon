@@ -21,12 +21,12 @@ var
   ulTargetElement = document.getElementById("examples-target");
 
 /* An IIFE that checks if <ul id="examples-target" /> is on the page.
- * If it is run the buildExampleList()...if not, just do a "return
- * false". This should ONLY run on the home page.
+ * If it is run the buildHomePage ExampleList()...if not, just do a
+ * "return false".
  */
 (function(){
   if(ulTargetElement) {
-    return makeRequest();
+    return getExampleData();
   } else {
     return false;
   }
@@ -35,7 +35,7 @@ var
 /* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
  * implementation I found on Stack Overflow at: http://bit.ly/2hvEK5U.
  */
-function makeRequest() {
+function getExampleData() {
 
   // Create a Promise instance that does a standard resolve/reject
   return new Promise(function (resolve, reject) {
@@ -82,11 +82,10 @@ function makeRequest() {
 
 
 
-/* buildExampleList(): look at the examples listed at "/api/examples"
- * and places them on the home page. This should only run on the home
- * page.
+/* buildHomePage ExampleList(): look at the examples listed at
+ * "/api/examples" and places them on the home page.
  */
-function buildExampleList(examples) {
+function buildHomePage ExampleList(examples) {
 
   // Loop through the examples with a for...in loop
   for(var singleExample in examples) {
@@ -124,14 +123,14 @@ function buildExampleList(examples) {
 
   }  // end for...in loop
 
-} //end buildExampleList()
+} //end buildHomePage ExampleList()
 
 /* Request the data using the above method...if it fails, it will be
  * caught and send an error message to the console
  */
-makeRequest()
+getExampleData()
   .then(function (examples) {
-    buildExampleList(examples[0]);
+    buildHomePage ExampleList(examples[0]);
   }).catch(function(error) {
     console.error(error);
   });
