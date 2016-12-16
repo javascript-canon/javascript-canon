@@ -27,6 +27,7 @@ var
 })();
 
 
+
 /* Use Vanilla JS to AJAX in data after a Promise resolves. A simple
  * implementation I found here on S.O...I went with the simplest
  * example and I'm fine with that.
@@ -34,7 +35,6 @@ var
  * S.O. Link
  * http://bit.ly/2hvEK5U
  */
-
 
 
 function makeRequest (url) {
@@ -70,3 +70,4 @@ makeRequest('/api/resources')
 }).catch(function(error) {
   // handle errors
 });
+
