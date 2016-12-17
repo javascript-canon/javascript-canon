@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "browserify": "^13.1.1",
-    "clean-css": "^3.4.22",
+    "clean-css": "^3.4.23",
     "ncp": "^2.0.0",
     "node-sass": "^4.0.0",
     "nodemon": "1.11.0",
