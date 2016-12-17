@@ -17,6 +17,7 @@ var
 
     // Require the various versions of JS Canon via their folders
     vanillaJS = require("./vanilla-js-mvc"),
+    emberComponents = require("./ember-components"),
 
     /* Grab the database from the Heroku config variables. If that's
      * not accessible, use the local "test" db that should be running
@@ -65,6 +66,7 @@ app.set("view engine", "ejs");
 
 // Plug in the various versions of JS Canon as middleware
 app.use(vanillaJS);
+app.use(emberComponents);
 
 // Point to asset files...images, .css, .js, etc.
 app.use(express.static(__dirname + "/public/"));
