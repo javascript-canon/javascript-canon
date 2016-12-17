@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+  <% include partials/head.ejs %>
+  <body>
+    <div class="container">
+      <% include partials/header.ejs %>
+      <main class="right-column">
+        <section class="single-resource-container">
+        <h2> JavaScript Canon <%= typeTitle %></h2>
+        <% singleTypes.forEach(function(item) { %>
+
+          <article id="<%= item.id %>" class="single-resource" data-resource-type="<%= item.type %>">
+
+            <h2 class="single-resource__header">
+              <%= item.title %><span class="single-resource__author"> &nbsp;by <%= item.author %></span>
+            </h2>
+
+            <img src="/img/book-images/<%= item.image %>" class="single-resource__book-image">
+
+            <a class="single-resource__button js-book" href="<%= item.link %>" itemprop="url">Get This!</a>
+
+            <a class="single-resource__button js-modal" data-resource-number="<%= item.id %>" href="/<%=exampleURL %>/<%=item.href %>" itemprop="url">Why it's good?</a>
+
+          </article>
+        <% }); %>
+        </section> <!-- .page-modal__container -->
+      </main> <!-- .right-column -->
+      <% include partials/footer.ejs %>
+      <% include partials/scripts.ejs %>
+    </div> <!-- .container -->
+  </body>
+</html>

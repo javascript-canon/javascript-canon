@@ -1,0 +1,20 @@
+<head>
+  <meta charset="utf-8">
+
+  <% links.forEach(function(item) { %>
+  <title>The JavaScript Canon - <%= item.title %></title>
+  <meta name="description" content="The <%= item.title %> page on non-framework Vanilla JS Version of the JavaScript Canon...written in MVC">
+  <% });%>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+  <meta name="robots" content="noodp"/>
+  <link rel="canonical" href="http://jscanon.io/<%= canonical %>"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:type" content="website"/>
+  <% links.forEach(function(item) { %>
+  <meta property="og:title" content="The JavaScript Canon - <%= item.title %>"/>
+  <meta property="og:description" content="The <%= item.title %> page on non-framework Vanilla JS Version of the JavaScript Canon...written in MVC"/>
+   <% });%>
+  <meta property="og:url" content="http://jscanon.io/<%= canonical %>"/>
+  <meta property="og:site_name" content="JavaScript Canon"/>
+  <link href="/css/style.css" media="all" rel="stylesheet">
+</head>
