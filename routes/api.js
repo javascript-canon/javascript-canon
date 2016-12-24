@@ -15,9 +15,6 @@ var
     // Get the examples model
     examples = require("../models/examples");
 
-// The GET route for the API data...the only thing needed right now
-
-
 /* The GET routes for the both the "resources" and "examples" data in
  * the API...the only route needed right now.
  */
