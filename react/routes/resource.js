@@ -5,7 +5,7 @@
 var router = require("express").Router();
 
 // Route for a single resource
-router.get("/vanilla-js-mvc/:singleresourceid", function(req, res) {
+router.get("/react/:singleresourceid", function(req, res) {
 
   // Require the resource data
   var
@@ -34,7 +34,7 @@ router.get("/vanilla-js-mvc/:singleresourceid", function(req, res) {
   res.render("resource", {
     links: resourceLinks,
     pageTitle: req.params.singleresourceid,
-    canonical: "vanilla-js-mvc/" + req.params.singleresourceid + "/"
+    canonical: "react/" + req.params.singleresourceid + "/"
   });
 
 });

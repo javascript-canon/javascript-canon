@@ -5,7 +5,7 @@
 var router = require("express").Router();
 
 // Route for a single resource type
-router.get("/vanilla-js-mvc/type/:typeid", function(req, res) {
+router.get("/react/type/:typeid", function(req, res) {
 
   // Require the resource data
   var
@@ -35,7 +35,7 @@ router.get("/vanilla-js-mvc/type/:typeid", function(req, res) {
     singleTypes: resourceType,
     pageTitle: req.params.typeid,
     typeTitle: req.params.typeid,
-    canonical: "vanilla-js-mvc/type/" + req.params.typeid + "/"
+    canonical: "react/type/" + req.params.typeid + "/"
   });
 
 });
