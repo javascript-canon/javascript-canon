@@ -1,10 +1,8 @@
 // use strict mode
 "use strict";
+var express = require("express")  ;
 
 var
-
-    // Bring in express
-    express = require("express"),
 
     // Bring in underscore
     _ = require("underscore"),
@@ -158,7 +156,7 @@ app.use(require('./routes/resource'));
  */
 
 // grab asset files...images, .css, .js, etc.
-app.use(express.static(__dirname + "/public/"));
+//app.use(express.static(__dirname + "/public/"));
 
 /*
  * ========================
