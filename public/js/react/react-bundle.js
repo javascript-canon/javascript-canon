@@ -58,5 +58,11 @@
 	  'Hello World'
 	), document.getElementById('navigation'));
 
+	axios.get('http://localhost:3000/api/resources').then(function (response) {
+	  console.log(response);
+	}).catch(function (error) {
+	  console.log(error);
+	});
+
 /***/ }
 /******/ ]);
