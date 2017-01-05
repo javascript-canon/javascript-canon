@@ -49,6 +49,18 @@
 	var _ReactDOM = ReactDOM,
 	    render = _ReactDOM.render;
 
+	// AJAX in the resources API with Axios after the component renders
+	// componentDidMount: function() {
+	//   var _this = this;
+	//   this.serverRequest =
+	//     axios.get('http://localhost:3000/api/resources')
+	//       .then(function (response) {
+	//         console.log(response.data);
+	//       })
+	//       .catch(function (error) {
+	//         console.log(error);
+	//       });
+	//   },
 
 	render(React.createElement(
 	  'h1',
@@ -57,12 +69,6 @@
 	    style: { backgroundColor: 'orange', color: 'white', fontFamily: 'verdana' } },
 	  'Hello World'
 	), document.getElementById('navigation'));
-
-	axios.get('http://localhost:3000/api/resources').then(function (response) {
-	  console.log(response);
-	}).catch(function (error) {
-	  console.log(error);
-	});
 
 /***/ }
 /******/ ]);
