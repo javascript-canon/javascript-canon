@@ -38,7 +38,7 @@
     "start": "npm run build-css && npm run build-js && npm run server & npm run watch-js & npm run watch-css"
   },
   "devDependencies": {
-    "browserify": "^13.1.1",
+    "browserify": "^13.3.0",
     "clean-css": "^3.4.23",
     "jshint": "^2.9.4",
     "ncp": "^2.0.0",
