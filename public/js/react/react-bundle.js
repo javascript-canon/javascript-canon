@@ -21508,8 +21508,6 @@
 
 	var _React = __webpack_require__(179);
 
-	var _React2 = _interopRequireDefault(_React);
-
 	var _jquery = __webpack_require__(204);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
@@ -21541,17 +21539,18 @@
 	 * where a parent component fetches data via AJAX and passes it down
 	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
 	 * data being fetched contains duplicates...they're removed by
-	 * underscore before being passed down to the child component.
+	 * underscore before being passed down to the child component. The
+	 * code to render it is in "react-buildout.js."
 	 */
 
 	/* Create a component called '<NavListContainer />' and execute
-	 * 'super()'inside 'constructor()' so that 'this' can be properly
+	 * 'super()' inside 'constructor()' so that 'this' can be properly
 	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
 	 * more info. Then let the component state contain an array called
 	 * 'resourceTypes'
 	 */
-	var NavListContainer = exports.NavListContainer = function (_React$Component) {
-	  _inherits(NavListContainer, _React$Component);
+	var NavListContainer = exports.NavListContainer = function (_Component) {
+	  _inherits(NavListContainer, _Component);
 
 	  function NavListContainer() {
 	    _classCallCheck(this, NavListContainer);
@@ -21605,17 +21604,17 @@
 
 	    /* Render the child <NavList /> component where its properties are
 	     * the <NavListContainer /> filter resource types
-	    */
+	     */
 
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _React2.default.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
+	      return React.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
 	    }
 	  }]);
 
 	  return NavListContainer;
-	}(_React2.default.Component);
+	}(_React.Component);
 
 /***/ },
 /* 179 */
@@ -36984,8 +36983,6 @@
 
 	var _React = __webpack_require__(179);
 
-	var _React2 = _interopRequireDefault(_React);
-
 	var _reactDom = __webpack_require__(32);
 
 	var _CoreSiteNavigation = __webpack_require__(207);
@@ -37002,8 +36999,8 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var NavList = exports.NavList = function (_React$Component) {
-	  _inherits(NavList, _React$Component);
+	var NavList = exports.NavList = function (_Component) {
+	  _inherits(NavList, _Component);
 
 	  function NavList(props) {
 	    _classCallCheck(this, NavList);
@@ -37014,21 +37011,21 @@
 	  _createClass(NavList, [{
 	    key: 'render',
 	    value: function render() {
-	      return _React2.default.createElement(
+	      return React.createElement(
 	        'nav',
 	        { className: 'nav nav--notVisible', id: 'navigation', role: 'navigation' },
-	        _React2.default.createElement(
+	        React.createElement(
 	          'h2',
 	          { className: 'nav__header' },
 	          'display by resource type'
 	        ),
-	        _React2.default.createElement(
+	        React.createElement(
 	          'ul',
 	          { className: 'nav__list' },
-	          _React2.default.createElement(
+	          React.createElement(
 	            'li',
 	            { className: 'nav__list-item' },
-	            _React2.default.createElement(
+	            React.createElement(
 	              'a',
 	              { href: '/react', className: 'nav__button' },
 	              'show all types'
@@ -37036,16 +37033,16 @@
 	          ),
 	          this.props.resourceTypes.map(this.renderResourceTypes)
 	        ),
-	        _React2.default.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
+	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
 	      );
 	    }
 	  }, {
 	    key: 'renderResourceTypes',
 	    value: function renderResourceTypes(i) {
-	      return _React2.default.createElement(
+	      return React.createElement(
 	        'li',
 	        { className: 'nav__list-item', key: i },
-	        _React2.default.createElement(
+	        React.createElement(
 	          'a',
 	          { className: 'nav__button' },
 	          i
@@ -37055,7 +37052,7 @@
 	  }]);
 
 	  return NavList;
-	}(_React2.default.Component);
+	}(_React.Component);
 
 /***/ },
 /* 207 */
