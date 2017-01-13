@@ -55,13 +55,18 @@
 
 	var _NavListContainer = __webpack_require__(178);
 
+	var _ResourceListContainer = __webpack_require__(208);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Make sure React is attached to the window object to avoid bugs
 	window.React = _react2.default;
 
-	// Build the <nav>
+	// Build the <nav> and place it on the page
 	(0, _reactDom.render)(_react2.default.createElement(_NavListContainer.NavListContainer, null), document.getElementById('nav__react-target'));
+
+	// Build all the resources and place them on the page
+	(0, _reactDom.render)(_react2.default.createElement(_ResourceListContainer.ResourceListContainer, null), document.getElementById('container__react-target'));
 
 /***/ },
 /* 1 */
@@ -36987,12 +36992,6 @@
 
 	var _CoreSiteNavigation = __webpack_require__(207);
 
-	var _underscore = __webpack_require__(205);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -37107,6 +37106,193 @@
 	    )
 	  );
 	};
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.ResourceListContainer = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(179);
+
+	var _jquery = __webpack_require__(204);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _underscore = __webpack_require__(205);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _ResourceList = __webpack_require__(209);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Import jQuery
+
+
+	// Import core jQuery
+
+
+	// Import the ResourceList child component
+
+
+	/* An implementation of the React Container Components design pattern,
+	 * where a parent component fetches data via AJAX and passes it down
+	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
+	 * data being fetched contains duplicates...they're removed by
+	 * underscore before being passed down to the child component. The
+	 * code to render it is in "react-buildout.js."
+	 */
+
+	/* Create a component called '<ResourceListContainer />' and execute
+	 * 'super()' inside 'constructor()' so that 'this' can be properly
+	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
+	 * more info. Then let the component state contain an array called
+	 * 'resources'
+	 */
+	var ResourceListContainer = exports.ResourceListContainer = function (_Component) {
+	  _inherits(ResourceListContainer, _Component);
+
+	  function ResourceListContainer() {
+	    _classCallCheck(this, ResourceListContainer);
+
+	    var _this = _possibleConstructorReturn(this, (ResourceListContainer.__proto__ || Object.getPrototypeOf(ResourceListContainer)).call(this));
+
+	    _this.state = { resources: [] };
+	    return _this;
+	  }
+
+	  /* After <ResourceListContainer /> lands on the page, AJAX in the
+	   * resources API with jQuery and let that be the returned data
+	   * that's named 'resources...
+	   */
+
+
+	  _createClass(ResourceListContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      _jquery2.default.ajax({
+	        url: "http://localhost:3000/api/resources",
+	        dataType: 'json',
+	        success: function (resources) {
+	          this.setState({ resources: resources });
+	        }.bind(this)
+	      });
+	    }
+
+	    /* Render the child <ResourceList /> component where its properties
+	     * are the <ResourceListContainer /> filter resource types
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(_ResourceList.ResourceList, { resources: this.state.resources });
+	    }
+	  }]);
+
+	  return ResourceListContainer;
+	}(_React.Component);
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.ResourceList = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(179);
+
+	var _reactDom = __webpack_require__(32);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ResourceList = exports.ResourceList = function (_Component) {
+	  _inherits(ResourceList, _Component);
+
+	  function ResourceList(props) {
+	    _classCallCheck(this, ResourceList);
+
+	    return _possibleConstructorReturn(this, (ResourceList.__proto__ || Object.getPrototypeOf(ResourceList)).call(this, props));
+	  }
+
+	  _createClass(ResourceList, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'section',
+	        { id: 'targetEl', className: 'single-resource-container' },
+	        this.props.resources.map(this.renderResources)
+	      );
+	    }
+	  }, {
+	    key: 'renderResources',
+	    value: function renderResources(_ref) {
+	      var i = _ref.i,
+	          title = _ref.title,
+	          author = _ref.author,
+	          image = _ref.image,
+	          link = _ref.link,
+	          href = _ref.href;
+
+	      return React.createElement(
+	        'article',
+	        { className: 'single-resource', key: i },
+	        React.createElement(
+	          'h2',
+	          { className: 'single-resource__header' },
+	          title,
+	          React.createElement(
+	            'span',
+	            { className: 'single-resource__author' },
+	            ' \xA0by ',
+	            author
+	          )
+	        ),
+	        React.createElement('img', { className: 'single-resource__book-image', src: '/img/book-images/' + image }),
+	        React.createElement(
+	          'a',
+	          { className: 'single-resource__button js-book', href: link },
+	          'Get This!'
+	        ),
+	        React.createElement(
+	          'a',
+	          { className: 'single-resource__button', href: '/react/' + href },
+	          'Why it\'s good?'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ResourceList;
+	}(_React.Component);
 
 /***/ }
 /******/ ]);
