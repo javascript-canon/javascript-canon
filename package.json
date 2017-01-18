@@ -49,12 +49,12 @@
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
-    "body-parser": "^1.15.2",
+    "body-parser": "^1.16.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
     "http2": "^3.3.6",
     "jquery": "^3.1.1",
-    "mongoose": "^4.7.6",
+    "mongoose": "^4.7.7",
     "node-rest-client": "^2.0.1",
     "node-restful": "^0.2.5",
     "rsvp": "^3.3.3",
