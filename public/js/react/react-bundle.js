@@ -37233,7 +37233,7 @@
 	      }
 
 	      _jquery2.default.ajax({
-	        url: "http://localhost:3000/api/resources",
+	        url: getAPI,
 	        dataType: 'json',
 	        success: function (resources) {
 	          this.setState({ resources: resources });
