@@ -21505,7 +21505,7 @@
 /* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// use strict mode
+	/* WEBPACK VAR INJECTION */(function(process) {// use strict mode
 	"use strict";
 
 	// Import React
@@ -21581,8 +21581,26 @@
 	  _createClass(NavListContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var
+
+	      // Create an variable that will store a reference to the API
+	      getAPI,
+
+
+	      // Set up Node environment detection
+	      env = process.env.NODE_ENV || "development";
+
+	      /* If this the dev environment, point to the dev API, otherwise
+	       * point to the production API
+	       */
+	      if (env == 'development') {
+	        getAPI = "http://localhost:3000/api/resources";
+	      } else {
+	        getAPI = "http://javascript-canon.herokuapp.com/api/resources";
+	      }
+
 	      _jquery2.default.ajax({
-	        url: "http://localhost:3000/api/resources",
+	        url: getAPI,
 	        dataType: 'json',
 	        success: function (resourceTypes) {
 
@@ -21626,6 +21644,7 @@
 
 	  return NavListContainer;
 	}(_React.Component);
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 179 */
