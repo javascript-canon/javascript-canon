@@ -21601,7 +21601,7 @@
 	      }
 
 	      _jquery2.default.ajax({
-	        url: getAPI,
+	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resourceTypes) {
 
@@ -37233,7 +37233,7 @@
 	      }
 
 	      _jquery2.default.ajax({
-	        url: getAPI,
+	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resources) {
 	          this.setState({ resources: resources });
