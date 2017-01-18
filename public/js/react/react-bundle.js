@@ -21581,8 +21581,9 @@
 	  _createClass(NavListContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+
 	      _jquery2.default.ajax({
-	        url: "http://localhost:3000/api/resources",
+	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resourceTypes) {
 
@@ -37193,8 +37194,9 @@
 	  _createClass(ResourceListContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+
 	      _jquery2.default.ajax({
-	        url: "http://localhost:3000/api/resources",
+	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resources) {
 	          this.setState({ resources: resources });
