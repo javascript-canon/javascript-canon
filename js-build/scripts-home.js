@@ -115,7 +115,7 @@ function buildHomePageExampleList(examples) {
       exampleLink.innerHTML = singleExample;
 
       // Set the <a> tag's href attribute
-      exampleLink.setAttribute("href", "/" + examples[singleExample]);
+      exampleLink.setAttribute("href", "/" + examples[singleExample] + "/");
 
       // Set the <li> tag's class attribute
       exampleItem.setAttribute("class", "examples__list-item");
