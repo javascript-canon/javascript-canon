@@ -61,6 +61,8 @@
 
 	var _reactRouter = __webpack_require__(211);
 
+	var _SingleResource = __webpack_require__(266);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Make sure React is attached to the window object to avoid bugs
@@ -76,6 +78,7 @@
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _ResourceListContainer.ResourceListContainer }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'single-resource', component: _SingleResource.SingleResource }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Page.Page404 })
 	), document.getElementById('container__react-target'));
 
@@ -37038,7 +37041,7 @@
 	            { className: 'nav__list-item' },
 	            React.createElement(
 	              'a',
-	              { href: '/react', className: 'nav__button' },
+	              { href: '/react/', className: 'nav__button' },
 	              'show all types'
 	            )
 	          ),
@@ -42379,6 +42382,23 @@
 	  });
 	};
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 266 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var SingleResource = exports.SingleResource = function SingleResource() {
+	  return React.createElement(
+	    "h1",
+	    null,
+	    "Single Resource"
+	  );
+	};
 
 /***/ }
 /******/ ]);
