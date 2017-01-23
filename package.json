@@ -30,15 +30,18 @@
     "build-sass-home": "node-sass css-build/style-home.scss css-build/style-home.css",
     "build-sass-example": "node-sass css-build/style-example.scss css-build/style-example.css",
     "concat-css-home": "cat css-build/normalize.css css-build/style-home.css > public/css/style-home.css",
+    "concat-css-example": "cat css-build/normalize.css css-build/style-example.css > public/css/style-example.css",
     "clean-css-example": "cleancss public/css/style-example.css --s0 -o public/css/style-example.css",
+    "clean-css-home": "cleancss public/css/style-home.css --s0 -o public/css/style-home.css",
     "sass-lint": "sass-lint -c .sass-lint.yml 'css-build/**/*.scss' -v -q",
     "build-css-home": "npm run build-sass-home && npm run concat-css-home && npm run clean-css-home && npm run sass-lint",
     "build-css-example": "npm run build-sass-example && npm run concat-css-example && npm run clean-css-example && npm run sass-lint",
     "watch-js": "nodemon -e js -w js-build -x 'npm run build-js'",
     "watch-css-home": "nodemon -w css-build/style-home.scss -e scss -w css-build/imports-home -x 'npm run build-css-home'",
+    "watch-css-example": "nodemon -w css-build/style-examples.scss -e scss -w css-build/imports-example -x 'npm run build-css-example'",
     "image-minify": "imagemin image-build/* --out-dir=public/img/",
     "copy-normalize": "ncp node_modules/normalize.css/normalize.css css-build/normalize.css css-build/normalize.css",
-    "start": "npm run build-css-home && npm run build-js && npm run server & npm run watch-js & npm run watch-css-home"
+    "start": "npm run build-css-home && npm run build-js && npm run server & npm run watch-js & npm run watch-css-home & npm run watch-css-example"
   },
   "devDependencies": {
     "browserify": "^13.3.0",
