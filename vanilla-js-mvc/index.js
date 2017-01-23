@@ -148,20 +148,3 @@ app.use(require('./routes/resource'));
  * STOP ROUTE SETTINGS
  * ===================
  */
-
-
-
-/*
- * =========================
- * START MIDDLEWARE SETTINGS
- * =========================
- */
-
-// grab asset files...images, .css, .js, etc.
-app.use(express.static(__dirname + "/public/"));
-
-/*
- * ========================
- * STOP MIDDLEWARE SETTINGS
- * ========================
- */
