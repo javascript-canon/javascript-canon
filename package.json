@@ -43,7 +43,7 @@
     "watch-css-example": "nodemon -w css-build/style-example.scss -e scss -w css-build/imports-example -x 'npm run build-css-example'",
     "image-minify": "imagemin image-build/* --out-dir=public/img/",
     "copy-normalize": "ncp node_modules/normalize.css/normalize.css css-build/normalize.css css-build/normalize.css",
-    "start": "npm run build-css-home && npm run build-js && npm run server & npm run watch-js & npm run watch-css-home & npm run watch-css-example"
+    "start": "npm run server & npm run watch-js & npm run watch-css-home & npm run watch-css-example"
   },
   "devDependencies": {
     "browserify": "^13.3.0",
