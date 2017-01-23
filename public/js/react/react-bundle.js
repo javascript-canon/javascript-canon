@@ -55,9 +55,9 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _NavListContainer = __webpack_require__(233);
+	var _App = __webpack_require__(233);
 
-	var _App = __webpack_require__(263);
+	var _NavListContainer = __webpack_require__(263);
 
 	var _Page = __webpack_require__(266);
 
@@ -26545,6 +26545,31 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.App = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _ResourceListContainer = __webpack_require__(234);
+
+	var App = exports.App = (0, _react.createClass)({
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'App' },
+	      React.createElement(_ResourceListContainer.ResourceListContainer, null)
+	    );
+	  }
+	});
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// use strict mode
 	"use strict";
 
@@ -26553,21 +26578,21 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.NavListContainer = undefined;
+	exports.ResourceListContainer = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _React = __webpack_require__(234);
+	var _React = __webpack_require__(235);
 
-	var _jquery = __webpack_require__(259);
+	var _jquery = __webpack_require__(260);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _underscore = __webpack_require__(260);
+	var _underscore = __webpack_require__(261);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _NavList = __webpack_require__(261);
+	var _ResourceList = __webpack_require__(262);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26583,7 +26608,7 @@
 	// Import core jQuery
 
 
-	// Import the NavList child component
+	// Import the ResourceList child component
 
 
 	/* An implementation of the React Container Components design pattern,
@@ -26594,91 +26619,68 @@
 	 * code to render it is in "react-buildout.js."
 	 */
 
-	/* Create a component called '<NavListContainer />' and execute
+	/* Create a component called '<ResourceListContainer />' and execute
 	 * 'super()' inside 'constructor()' so that 'this' can be properly
 	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
 	 * more info. Then let the component state contain an array called
-	 * 'resourceTypes'
+	 * 'resources'
 	 */
-	var NavListContainer = exports.NavListContainer = function (_Component) {
-	  _inherits(NavListContainer, _Component);
+	var ResourceListContainer = exports.ResourceListContainer = function (_Component) {
+	  _inherits(ResourceListContainer, _Component);
 
-	  function NavListContainer() {
-	    _classCallCheck(this, NavListContainer);
+	  function ResourceListContainer() {
+	    _classCallCheck(this, ResourceListContainer);
 
-	    var _this = _possibleConstructorReturn(this, (NavListContainer.__proto__ || Object.getPrototypeOf(NavListContainer)).call(this));
+	    var _this = _possibleConstructorReturn(this, (ResourceListContainer.__proto__ || Object.getPrototypeOf(ResourceListContainer)).call(this));
 
-	    _this.state = { resourceTypes: [] };
+	    _this.state = { resources: [] };
 	    return _this;
 	  }
 
-	  /* After <NavListContainer /> lands on the page, AJAX in the
+	  /* After <ResourceListContainer /> lands on the page, AJAX in the
 	   * resources API with jQuery and let that be the returned data
-	   * that's named 'resourceTypes...
+	   * that's named 'resources...
 	   */
 
 
-	  _createClass(NavListContainer, [{
+	  _createClass(ResourceListContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 
 	      _jquery2.default.ajax({
 	        url: "/api/resources",
 	        dataType: 'json',
-	        success: function (resourceTypes) {
-
-	          /* ...create two variables: one that will be an array of
-	           * resource types and another that will be an array of
-	           * resources types with its multiple copies removed.
-	           */
-	          var typesArray = [],
-	              filteredTypesArray;
-
-	          /* ...loop through resources API, find the types, add them to
-	           * 'typesArray', and then remove any multiple copies it
-	           * contains using undescore's 'uniq' method. The array with
-	           * out the duplicates is called 'filteredTypesArray'.
-	           */
-	          resourceTypes.forEach(function (item, index) {
-	            typesArray.push(item.type);
-	            return filteredTypesArray = _underscore2.default.uniq(typesArray);
-	          });
-
-	          /* ...finally, let the resourcesTypes equal the new filtered
-	           * array update the component's state with this new array
-	           * using this.setState.
-	           */
-	          this.resourceTypes = filteredTypesArray;
-	          this.setState({ resourceTypes: filteredTypesArray });
+	        success: function (resources) {
+	          this.setState({ resources: resources });
 	        }.bind(this)
 	      });
 	    }
 
-	    /* Render the child <NavList /> component where its properties are
-	     * the <NavListContainer /> filter resource types
+	    /* Render the child <ResourceList /> component where its properties
+	     * are the <ResourceListContainer /> filter resource types
 	     */
 
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return React.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
+	      return React.createElement(_ResourceList.ResourceList, { resources: this.state.resources });
 	    }
 	  }]);
 
-	  return NavListContainer;
+	  return ResourceListContainer;
 	}(_React.Component);
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(235);
+	module.exports = __webpack_require__(236);
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26695,16 +26697,16 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactChildren = __webpack_require__(236);
-	var ReactComponent = __webpack_require__(246);
-	var ReactPureComponent = __webpack_require__(248);
-	var ReactClass = __webpack_require__(249);
-	var ReactDOMFactories = __webpack_require__(251);
-	var ReactElement = __webpack_require__(239);
-	var ReactPropTypes = __webpack_require__(256);
-	var ReactVersion = __webpack_require__(257);
+	var ReactChildren = __webpack_require__(237);
+	var ReactComponent = __webpack_require__(247);
+	var ReactPureComponent = __webpack_require__(249);
+	var ReactClass = __webpack_require__(250);
+	var ReactDOMFactories = __webpack_require__(252);
+	var ReactElement = __webpack_require__(240);
+	var ReactPropTypes = __webpack_require__(257);
+	var ReactVersion = __webpack_require__(258);
 
-	var onlyChild = __webpack_require__(258);
+	var onlyChild = __webpack_require__(259);
 	var warning = __webpack_require__(11);
 
 	var createElement = ReactElement.createElement;
@@ -26712,7 +26714,7 @@
 	var cloneElement = ReactElement.cloneElement;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(252);
+	  var ReactElementValidator = __webpack_require__(253);
 	  createElement = ReactElementValidator.createElement;
 	  createFactory = ReactElementValidator.createFactory;
 	  cloneElement = ReactElementValidator.cloneElement;
@@ -26772,7 +26774,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26787,11 +26789,11 @@
 
 	'use strict';
 
-	var PooledClass = __webpack_require__(237);
-	var ReactElement = __webpack_require__(239);
+	var PooledClass = __webpack_require__(238);
+	var ReactElement = __webpack_require__(240);
 
 	var emptyFunction = __webpack_require__(12);
-	var traverseAllChildren = __webpack_require__(243);
+	var traverseAllChildren = __webpack_require__(244);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -26967,7 +26969,7 @@
 	module.exports = ReactChildren;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26983,7 +26985,7 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
 	var invariant = __webpack_require__(8);
 
@@ -27084,7 +27086,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports) {
 
 	/**
@@ -27127,7 +27129,7 @@
 	module.exports = reactProdInvariant;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27144,13 +27146,13 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactCurrentOwner = __webpack_require__(240);
+	var ReactCurrentOwner = __webpack_require__(241);
 
 	var warning = __webpack_require__(11);
-	var canDefineProperty = __webpack_require__(241);
+	var canDefineProperty = __webpack_require__(242);
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-	var REACT_ELEMENT_TYPE = __webpack_require__(242);
+	var REACT_ELEMENT_TYPE = __webpack_require__(243);
 
 	var RESERVED_PROPS = {
 	  key: true,
@@ -27473,7 +27475,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports) {
 
 	/**
@@ -27508,7 +27510,7 @@
 	module.exports = ReactCurrentOwner;
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27539,7 +27541,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports) {
 
 	/**
@@ -27563,7 +27565,7 @@
 	module.exports = REACT_ELEMENT_TYPE;
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27578,14 +27580,14 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
-	var ReactCurrentOwner = __webpack_require__(240);
-	var REACT_ELEMENT_TYPE = __webpack_require__(242);
+	var ReactCurrentOwner = __webpack_require__(241);
+	var REACT_ELEMENT_TYPE = __webpack_require__(243);
 
-	var getIteratorFn = __webpack_require__(244);
+	var getIteratorFn = __webpack_require__(245);
 	var invariant = __webpack_require__(8);
-	var KeyEscapeUtils = __webpack_require__(245);
+	var KeyEscapeUtils = __webpack_require__(246);
 	var warning = __webpack_require__(11);
 
 	var SEPARATOR = '.';
@@ -27744,7 +27746,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports) {
 
 	/**
@@ -27789,7 +27791,7 @@
 	module.exports = getIteratorFn;
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports) {
 
 	/**
@@ -27852,7 +27854,7 @@
 	module.exports = KeyEscapeUtils;
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27867,11 +27869,11 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
-	var ReactNoopUpdateQueue = __webpack_require__(247);
+	var ReactNoopUpdateQueue = __webpack_require__(248);
 
-	var canDefineProperty = __webpack_require__(241);
+	var canDefineProperty = __webpack_require__(242);
 	var emptyObject = __webpack_require__(20);
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -27975,7 +27977,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28076,7 +28078,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28093,8 +28095,8 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactComponent = __webpack_require__(246);
-	var ReactNoopUpdateQueue = __webpack_require__(247);
+	var ReactComponent = __webpack_require__(247);
+	var ReactNoopUpdateQueue = __webpack_require__(248);
 
 	var emptyObject = __webpack_require__(20);
 
@@ -28122,7 +28124,7 @@
 	module.exports = ReactPureComponent;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28137,13 +28139,13 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238),
+	var _prodInvariant = __webpack_require__(239),
 	    _assign = __webpack_require__(4);
 
-	var ReactComponent = __webpack_require__(246);
-	var ReactElement = __webpack_require__(239);
-	var ReactPropTypeLocationNames = __webpack_require__(250);
-	var ReactNoopUpdateQueue = __webpack_require__(247);
+	var ReactComponent = __webpack_require__(247);
+	var ReactElement = __webpack_require__(240);
+	var ReactPropTypeLocationNames = __webpack_require__(251);
+	var ReactNoopUpdateQueue = __webpack_require__(248);
 
 	var emptyObject = __webpack_require__(20);
 	var invariant = __webpack_require__(8);
@@ -28844,7 +28846,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28874,7 +28876,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28889,7 +28891,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(239);
+	var ReactElement = __webpack_require__(240);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -28898,7 +28900,7 @@
 	 */
 	var createDOMFactory = ReactElement.createFactory;
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(252);
+	  var ReactElementValidator = __webpack_require__(253);
 	  createDOMFactory = ReactElementValidator.createFactory;
 	}
 
@@ -29049,7 +29051,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29071,14 +29073,14 @@
 
 	'use strict';
 
-	var ReactCurrentOwner = __webpack_require__(240);
-	var ReactComponentTreeHook = __webpack_require__(253);
-	var ReactElement = __webpack_require__(239);
+	var ReactCurrentOwner = __webpack_require__(241);
+	var ReactComponentTreeHook = __webpack_require__(254);
+	var ReactElement = __webpack_require__(240);
 
-	var checkReactTypeSpec = __webpack_require__(254);
+	var checkReactTypeSpec = __webpack_require__(255);
 
-	var canDefineProperty = __webpack_require__(241);
-	var getIteratorFn = __webpack_require__(244);
+	var canDefineProperty = __webpack_require__(242);
+	var getIteratorFn = __webpack_require__(245);
 	var warning = __webpack_require__(11);
 
 	function getDeclarationErrorAddendum() {
@@ -29288,7 +29290,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29304,9 +29306,9 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
-	var ReactCurrentOwner = __webpack_require__(240);
+	var ReactCurrentOwner = __webpack_require__(241);
 
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -29627,7 +29629,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29642,10 +29644,10 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
-	var ReactPropTypeLocationNames = __webpack_require__(250);
-	var ReactPropTypesSecret = __webpack_require__(255);
+	var ReactPropTypeLocationNames = __webpack_require__(251);
+	var ReactPropTypesSecret = __webpack_require__(256);
 
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -29658,7 +29660,7 @@
 	  // https://github.com/facebook/react/issues/7240
 	  // Remove the inline requires when we don't need them anymore:
 	  // https://github.com/facebook/react/pull/7178
-	  ReactComponentTreeHook = __webpack_require__(253);
+	  ReactComponentTreeHook = __webpack_require__(254);
 	}
 
 	var loggedTypeFailures = {};
@@ -29700,7 +29702,7 @@
 
 	        if (process.env.NODE_ENV !== 'production') {
 	          if (!ReactComponentTreeHook) {
-	            ReactComponentTreeHook = __webpack_require__(253);
+	            ReactComponentTreeHook = __webpack_require__(254);
 	          }
 	          if (debugID !== null) {
 	            componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -29719,7 +29721,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports) {
 
 	/**
@@ -29740,7 +29742,7 @@
 	module.exports = ReactPropTypesSecret;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29755,12 +29757,12 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(239);
-	var ReactPropTypeLocationNames = __webpack_require__(250);
-	var ReactPropTypesSecret = __webpack_require__(255);
+	var ReactElement = __webpack_require__(240);
+	var ReactPropTypeLocationNames = __webpack_require__(251);
+	var ReactPropTypesSecret = __webpack_require__(256);
 
 	var emptyFunction = __webpack_require__(12);
-	var getIteratorFn = __webpack_require__(244);
+	var getIteratorFn = __webpack_require__(245);
 	var warning = __webpack_require__(11);
 
 	/**
@@ -30179,7 +30181,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports) {
 
 	/**
@@ -30197,7 +30199,7 @@
 	module.exports = '15.4.2';
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30211,9 +30213,9 @@
 	 */
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(238);
+	var _prodInvariant = __webpack_require__(239);
 
-	var ReactElement = __webpack_require__(239);
+	var ReactElement = __webpack_require__(240);
 
 	var invariant = __webpack_require__(8);
 
@@ -30240,7 +30242,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -40466,7 +40468,7 @@
 
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -42020,271 +42022,7 @@
 
 
 /***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// use strict mode
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.NavList = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(234);
-
-	var _reactDom = __webpack_require__(32);
-
-	var _CoreSiteNavigation = __webpack_require__(262);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var NavList = exports.NavList = function (_Component) {
-	  _inherits(NavList, _Component);
-
-	  function NavList(props) {
-	    _classCallCheck(this, NavList);
-
-	    return _possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
-	  }
-
-	  _createClass(NavList, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'nav',
-	        { className: 'nav nav--notVisible', id: 'navigation', role: 'navigation' },
-	        React.createElement(
-	          'h2',
-	          { className: 'nav__header' },
-	          'display by resource type'
-	        ),
-	        React.createElement(
-	          'ul',
-	          { className: 'nav__list' },
-	          React.createElement(
-	            'li',
-	            { className: 'nav__list-item' },
-	            React.createElement(
-	              'a',
-	              { href: '/react/', className: 'nav__button' },
-	              'show all types'
-	            )
-	          ),
-	          this.props.resourceTypes.map(this.renderResourceTypes)
-	        ),
-	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
-	      );
-	    }
-	  }, {
-	    key: 'renderResourceTypes',
-	    value: function renderResourceTypes(i) {
-	      return React.createElement(
-	        'li',
-	        { className: 'nav__list-item', key: i },
-	        React.createElement(
-	          'a',
-	          { className: 'nav__button' },
-	          i
-	        )
-	      );
-	    }
-	  }]);
-
-	  return NavList;
-	}(_React.Component);
-
-/***/ },
 /* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// use strict mode
-	"use strict";
-
-	/* Import React
-	 *
-	 * TODO: Component was ES6 destructured from the React object once
-	 * (i.e. import { Component } from 'react') but that didn't work after
-	 * converting to the Container component pattern
-	 * (http://bit.ly/2i5j7ZT). Learn why.
-	 */
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.CoreSiteNavigation = undefined;
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/* Create a stateless "CoreSiteNavigation" component that contains the
-	 * the links to the core site pages.
-	 */
-	var CoreSiteNavigation = exports.CoreSiteNavigation = function CoreSiteNavigation() {
-	  return _react2.default.createElement(
-	    "ul",
-	    { className: "nav__list" },
-	    _react2.default.createElement(
-	      "li",
-	      { className: "nav__list-item-home nav--link-top-padding" },
-	      _react2.default.createElement(
-	        "a",
-	        { href: "/", className: "nav--homepage-link nav__button-home" },
-	        "return to main sites"
-	      )
-	    ),
-	    _react2.default.createElement(
-	      "li",
-	      { className: "nav__list-item-home" },
-	      _react2.default.createElement(
-	        "a",
-	        { href: "/about", className: "nav--homepage-link nav__button-home" },
-	        "about"
-	      )
-	    )
-	  );
-	};
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.App = undefined;
-
-	var _react = __webpack_require__(1);
-
-	var _ResourceListContainer = __webpack_require__(264);
-
-	var App = exports.App = (0, _react.createClass)({
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'App' },
-	      React.createElement(_ResourceListContainer.ResourceListContainer, null)
-	    );
-	  }
-	});
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// use strict mode
-	"use strict";
-
-	// Import React
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.ResourceListContainer = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(234);
-
-	var _jquery = __webpack_require__(259);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _underscore = __webpack_require__(260);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
-
-	var _ResourceList = __webpack_require__(265);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Import jQuery
-
-
-	// Import core jQuery
-
-
-	// Import the ResourceList child component
-
-
-	/* An implementation of the React Container Components design pattern,
-	 * where a parent component fetches data via AJAX and passes it down
-	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
-	 * data being fetched contains duplicates...they're removed by
-	 * underscore before being passed down to the child component. The
-	 * code to render it is in "react-buildout.js."
-	 */
-
-	/* Create a component called '<ResourceListContainer />' and execute
-	 * 'super()' inside 'constructor()' so that 'this' can be properly
-	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
-	 * more info. Then let the component state contain an array called
-	 * 'resources'
-	 */
-	var ResourceListContainer = exports.ResourceListContainer = function (_Component) {
-	  _inherits(ResourceListContainer, _Component);
-
-	  function ResourceListContainer() {
-	    _classCallCheck(this, ResourceListContainer);
-
-	    var _this = _possibleConstructorReturn(this, (ResourceListContainer.__proto__ || Object.getPrototypeOf(ResourceListContainer)).call(this));
-
-	    _this.state = { resources: [] };
-	    return _this;
-	  }
-
-	  /* After <ResourceListContainer /> lands on the page, AJAX in the
-	   * resources API with jQuery and let that be the returned data
-	   * that's named 'resources...
-	   */
-
-
-	  _createClass(ResourceListContainer, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-
-	      _jquery2.default.ajax({
-	        url: "/api/resources",
-	        dataType: 'json',
-	        success: function (resources) {
-	          this.setState({ resources: resources });
-	        }.bind(this)
-	      });
-	    }
-
-	    /* Render the child <ResourceList /> component where its properties
-	     * are the <ResourceListContainer /> filter resource types
-	     */
-
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(_ResourceList.ResourceList, { resources: this.state.resources });
-	    }
-	  }]);
-
-	  return ResourceListContainer;
-	}(_React.Component);
-
-/***/ },
-/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// use strict mode
@@ -42297,7 +42035,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _React = __webpack_require__(234);
+	var _React = __webpack_require__(235);
 
 	var _reactDom = __webpack_require__(32);
 
@@ -42366,6 +42104,268 @@
 
 	  return ResourceList;
 	}(_React.Component);
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.NavListContainer = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(235);
+
+	var _jquery = __webpack_require__(260);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _underscore = __webpack_require__(261);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _NavList = __webpack_require__(264);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Import jQuery
+
+
+	// Import core jQuery
+
+
+	// Import the NavList child component
+
+
+	/* An implementation of the React Container Components design pattern,
+	 * where a parent component fetches data via AJAX and passes it down
+	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
+	 * data being fetched contains duplicates...they're removed by
+	 * underscore before being passed down to the child component. The
+	 * code to render it is in "react-buildout.js."
+	 */
+
+	/* Create a component called '<NavListContainer />' and execute
+	 * 'super()' inside 'constructor()' so that 'this' can be properly
+	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
+	 * more info. Then let the component state contain an array called
+	 * 'resourceTypes'
+	 */
+	var NavListContainer = exports.NavListContainer = function (_Component) {
+	  _inherits(NavListContainer, _Component);
+
+	  function NavListContainer() {
+	    _classCallCheck(this, NavListContainer);
+
+	    var _this = _possibleConstructorReturn(this, (NavListContainer.__proto__ || Object.getPrototypeOf(NavListContainer)).call(this));
+
+	    _this.state = { resourceTypes: [] };
+	    return _this;
+	  }
+
+	  /* After <NavListContainer /> lands on the page, AJAX in the
+	   * resources API with jQuery and let that be the returned data
+	   * that's named 'resourceTypes...
+	   */
+
+
+	  _createClass(NavListContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+
+	      _jquery2.default.ajax({
+	        url: "/api/resources",
+	        dataType: 'json',
+	        success: function (resourceTypes) {
+
+	          /* ...create two variables: one that will be an array of
+	           * resource types and another that will be an array of
+	           * resources types with its multiple copies removed.
+	           */
+	          var typesArray = [],
+	              filteredTypesArray;
+
+	          /* ...loop through resources API, find the types, add them to
+	           * 'typesArray', and then remove any multiple copies it
+	           * contains using undescore's 'uniq' method. The array with
+	           * out the duplicates is called 'filteredTypesArray'.
+	           */
+	          resourceTypes.forEach(function (item, index) {
+	            typesArray.push(item.type);
+	            return filteredTypesArray = _underscore2.default.uniq(typesArray);
+	          });
+
+	          /* ...finally, let the resourcesTypes equal the new filtered
+	           * array update the component's state with this new array
+	           * using this.setState.
+	           */
+	          this.resourceTypes = filteredTypesArray;
+	          this.setState({ resourceTypes: filteredTypesArray });
+	        }.bind(this)
+	      });
+	    }
+
+	    /* Render the child <NavList /> component where its properties are
+	     * the <NavListContainer /> filter resource types
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
+	    }
+	  }]);
+
+	  return NavListContainer;
+	}(_React.Component);
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.NavList = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(235);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _CoreSiteNavigation = __webpack_require__(265);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NavList = exports.NavList = function (_Component) {
+	  _inherits(NavList, _Component);
+
+	  function NavList(props) {
+	    _classCallCheck(this, NavList);
+
+	    return _possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
+	  }
+
+	  _createClass(NavList, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'nav',
+	        { className: 'nav nav--notVisible', id: 'navigation', role: 'navigation' },
+	        React.createElement(
+	          'h2',
+	          { className: 'nav__header' },
+	          'display by resource type'
+	        ),
+	        React.createElement(
+	          'ul',
+	          { className: 'nav__list' },
+	          React.createElement(
+	            'li',
+	            { className: 'nav__list-item' },
+	            React.createElement(
+	              'a',
+	              { href: '/react/', className: 'nav__button' },
+	              'show all types'
+	            )
+	          ),
+	          this.props.resourceTypes.map(this.renderResourceTypes)
+	        ),
+	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
+	      );
+	    }
+	  }, {
+	    key: 'renderResourceTypes',
+	    value: function renderResourceTypes(i) {
+	      return React.createElement(
+	        'li',
+	        { className: 'nav__list-item', key: i },
+	        React.createElement(
+	          'a',
+	          { className: 'nav__button' },
+	          i
+	        )
+	      );
+	    }
+	  }]);
+
+	  return NavList;
+	}(_React.Component);
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	/* Import React
+	 *
+	 * TODO: Component was ES6 destructured from the React object once
+	 * (i.e. import { Component } from 'react') but that didn't work after
+	 * converting to the Container component pattern
+	 * (http://bit.ly/2i5j7ZT). Learn why.
+	 */
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.CoreSiteNavigation = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "CoreSiteNavigation" component that contains the
+	 * the links to the core site pages.
+	 */
+	var CoreSiteNavigation = exports.CoreSiteNavigation = function CoreSiteNavigation() {
+	  return _react2.default.createElement(
+	    "ul",
+	    { className: "nav__list" },
+	    _react2.default.createElement(
+	      "li",
+	      { className: "nav__list-item-home nav--link-top-padding" },
+	      _react2.default.createElement(
+	        "a",
+	        { href: "/", className: "nav--homepage-link nav__button-home" },
+	        "return to main sites"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "li",
+	      { className: "nav__list-item-home" },
+	      _react2.default.createElement(
+	        "a",
+	        { href: "/about", className: "nav--homepage-link nav__button-home" },
+	        "about"
+	      )
+	    )
+	  );
+	};
 
 /***/ },
 /* 266 */
