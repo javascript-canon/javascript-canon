@@ -9,6 +9,7 @@
     "app.js",
     "models",
     "public",
+    "react",
     "routes",
     "views",
     "vanilla-js-mvc"
