@@ -17,9 +17,9 @@
 
   /* Where the content is */
   .right-column {
-    max-width: 1010px;
-    padding-left: 241px;
-    float: left;
+    max-width: 954px;
+    margin-left: 274px;
+    display: inline-block;
   }
 
   /* STOP COLUMNS */
@@ -128,7 +128,7 @@
   /* Non-BEM container for the learning resources */
   .single-resource-container {
     max-width: 992px;
-    margin: 15px 0 0 50px;
+    margin: 15px 0 0 2px;
   }
 
   /* Start ".single-resource"...BEM style */
