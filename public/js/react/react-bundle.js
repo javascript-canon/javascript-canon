@@ -42352,7 +42352,7 @@
 	      _react2.default.createElement(
 	        "a",
 	        { href: "/", className: "nav--homepage-link nav__button-home" },
-	        "return to main sites"
+	        "return to main site"
 	      )
 	    ),
 	    _react2.default.createElement(
