@@ -12,4 +12,9 @@
   <meta property="og:url" content="http://jscanon.io/<%= canonical %>"/>
   <meta property="og:site_name" content="JavaScript Canon"/>
   <link href="/css/style.css" media="all" rel="stylesheet">
+  <%if (settings.env === 'development') { %>
+    <link href="http://localhost:3000/css/style.css" media="all" rel="stylesheet">
+  <% } else{ %>
+    <link href="http://javascript-canon.herokuapp.com/css/style.css" media="all" rel="stylesheet">
+  <% } %>
 </head>
