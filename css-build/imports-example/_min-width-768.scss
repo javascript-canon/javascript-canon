@@ -5,14 +5,14 @@
    * Defines the responsive positioning of the key content
    */
 
-   /* Where the header and nav are */
-   .left-column {
+  /* Where the header and nav are */
+  .left-column {
     width: 250px;
     height: 100%;
     padding: 22px 0 0 22px;
     float: left;
 
-    background-color:$js-yellow;
+    background-color: $js-yellow;
   }
 
   /* Where the content is */
@@ -31,7 +31,7 @@
     height: 200px;
     top: 0;
 
-    &__innerText{
+    &__innerText {
       width: 220px;
     }
 
@@ -60,6 +60,7 @@
 
       font-size: 18px;
     }
+
     &__list {
       margin-top: 4px;
       padding-left: 0;
@@ -83,16 +84,16 @@
     &__button {
 
       &:link {
-        color:#000;
+        color: $black;
         text-decoration: none;
       }
 
       &:hover {
-        color:#000;
+        color: $black;
       }
 
       &:visited {
-        color:#000;
+        color: $black;
         text-decoration: none;
       }
 
@@ -101,17 +102,17 @@
     &__button-home {
 
       &:link {
-        color:#000;
+        color: $black;
         text-decoration: none;
       }
 
       &:hover {
-        color:#000;
+        color: $black;
         text-decoration: underline;
       }
 
       &:visited {
-        color:#000;
+        color: $black;
         text-decoration: none;
       }
 
@@ -158,9 +159,10 @@
       margin: 0 4px 16px;
       cursor: pointer;
 
-      color: #000;
+      color: $black;
       display: inline-block;
       text-decoration: none;
+
       &:hover {
         text-decoration: underline;
 
@@ -176,9 +178,9 @@
   .page-modal {
 
     &__header {
-        margin-top: 0;
+      margin-top: 0;
 
-        font-size: 26px;
+      font-size: 26px;
     }
 
     &__container {
@@ -193,6 +195,7 @@
       margin-right: 10px;
       float: left;
     }
+
     &__button {
       position: absolute;
       top: 10px;

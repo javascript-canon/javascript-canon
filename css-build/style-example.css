@@ -23,7 +23,7 @@
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 320px), only screen and (-o-min-device-pixel-ratio: 2 / 1) and (min-width: 320px), only screen and (min-device-pixel-ratio: 2) and (min-width: 320px), only screen and (min-resolution: 192dpi) and (min-width: 320px), only screen and (min-resolution: 2dppx) and (min-width: 320px) {
   /* Small screen, retina, stuff to override above media query */
   .header-logo {
-    background: url(../img/image-sprite@2x.png) -304px 3px no-repeat;
+    background: url("../img/image-sprite@2x.png") -304px 3px no-repeat;
     background-size: 455px 300px;
     min-height: 150px; } }
 
@@ -67,7 +67,7 @@
 /* For Webkit */
 @-webkit-keyframes scaleOut {
   from {
-    -webkit-transform: scale(1) translateY(0px); }
+    -webkit-transform: scale(1) translateY(0); }
   to {
     -webkit-transform: scale(0.6) translateY(-22px); } }
 
@@ -75,12 +75,12 @@
   from {
     -webkit-transform: scale(0.6) translateY(-22px); }
   to {
-    -webkit-transform: scale(1) translateY(0px); } }
+    -webkit-transform: scale(1) translateY(0); } }
 
 /* For other browsers */
 @keyframes scaleOut {
   from {
-    transform: scale(1) translateY(0px); }
+    transform: scale(1) translateY(0); }
   to {
     transform: scale(0.6) translateY(-22px); } }
 
@@ -88,16 +88,16 @@
   from {
     transform: scale(0.6) translateY(-22px); }
   to {
-    transform: scale(1) translateY(0px); } }
+    transform: scale(1) translateY(0); } }
 
 /* Stop header scaling animations */
-/* Very specific animations for moving the title up and down on mobile 
+/* Very specific animations for moving the title up and down on mobile
  * devices
  */
 @-webkit-keyframes moveHeaderUp {
   from {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); }
+    -webkit-transform: translateY(0);
+    transform: translateY(0); }
   to {
     -webkit-transform: translateY(-38px);
     transform: translateY(-38px); } }
@@ -107,14 +107,14 @@
     -webkit-transform: translateY(-38px);
     transform: translateY(-38px); }
   to {
-    -webkit-transform: translateY(0px);
-    transform: translateY(0px); } }
+    -webkit-transform: translateY(0);
+    transform: translateY(0); } }
 
 /* Stop title moving animations */
 /* Style things mostly using the BEM pattern */
 body {
   overflow-x: hidden;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
 
 /*
  * COLUMNS:
@@ -171,7 +171,6 @@ body {
 /* Stop ".single-resource"...BEM style */
 /* Start ".page-modal"...BEM style */
 .page-modal {
-  height: 50%;
   position: fixed;
   /* Stay in place */
   z-index: 1;
@@ -227,15 +226,15 @@ body {
     .page-modal__slide--moveUp {
       -webkit-transform: translate(0, -100%);
       transform: translate(0, -100%);
-      -webkit-transition: 0.5s;
-      transition: 0.5s;
-      -webkit-box-shadow: 0px 0px 8px 2px black;
-      box-shadow: 0px 0px 8px 2px black; }
+      -webkit-transition: .5s;
+      transition: .5s;
+      -webkit-box-shadow: 0 0 8px 2px black;
+      box-shadow: 0 0 8px 2px black; }
     .page-modal__slide--moveDown {
       -webkit-transform: translate(0, 100%);
       transform: translate(0, 100%);
-      -webkit-transition: 0.5s;
-      transition: 0.5s;
+      -webkit-transition: .5s;
+      transition: .5s;
       -webkit-box-shadow: inset 0 20px 20px -20px black;
       box-shadow: inset 0 20px 20px -20px black; }
 
@@ -391,23 +390,23 @@ body {
       font-weight: 900; }
       .header__title--moveUp {
         -webkit-animation-name: moveHeaderUp;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: moveHeaderUp;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
       .header__title--moveDown {
         -webkit-animation-name: moveHeaderDown;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: moveHeaderDown;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
@@ -419,23 +418,23 @@ body {
       font-size: 14px; }
       .header__subtitle--fadeout {
         -webkit-animation-name: fadeOut;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: fadeOut;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
       .header__subtitle--fadein {
         -webkit-animation-name: fadeIn;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: fadeIn;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
@@ -444,23 +443,23 @@ body {
       display: block; }
       .header__logo--scaleout {
         -webkit-animation-name: scaleOut;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: scaleOut;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
       .header__logo--scalein {
         -webkit-animation-name: scaleUp;
-        -webkit-animation-duration: 0.3s;
+        -webkit-animation-duration: .3s;
         -webkit-animation-iteration-count: 1;
         -webkit-animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-name: scaleUp;
-        animation-duration: 0.3s;
+        animation-duration: .3s;
         animation-iteration-count: 1;
         animation-timing-function: ease;
         animation-fill-mode: forwards; }
@@ -468,8 +467,8 @@ body {
       text-align: center; }
     .header--expanded {
       height: 220px;
-      -webkit-transition: 0.1s;
-      transition: 0.1s; }
+      -webkit-transition: .1s;
+      transition: .1s; }
   /* Stop ".header"...BEM style */
   /* Start ".nav"...BEM style */
   .nav__header {
@@ -533,12 +532,12 @@ body {
     border-top: 1px solid #000;
     background: #fbeb7e;
     -webkit-animation-name: fadeIn;
-    -webkit-animation-duration: 0.3s;
+    -webkit-animation-duration: .3s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease;
     -webkit-animation-fill-mode: forwards;
     animation-name: fadeIn;
-    animation-duration: 0.3s;
+    animation-duration: .3s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
     animation-fill-mode: forwards; }
@@ -546,12 +545,12 @@ body {
     display: none;
     /* Animation */
     -webkit-animation-name: fadeOut;
-    -webkit-animation-duration: 0.3s;
+    -webkit-animation-duration: .3s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-timing-function: ease;
     -webkit-animation-fill-mode: forwards;
     animation-name: fadeOut;
-    animation-duration: 0.3s;
+    animation-duration: .3s;
     animation-iteration-count: 1;
     animation-timing-function: ease;
     animation-fill-mode: forwards; }
@@ -561,7 +560,7 @@ body {
     position: absolute;
     top: 6px;
     cursor: pointer;
-    border: none;
+    border: 0;
     border-radius: 3px;
     background-color: transparent; }
     .mobile-menu--bar {
@@ -624,9 +623,9 @@ body {
     margin-bottom: 0;
     padding: 5px 0;
     position: fixed;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background-color: #f9e034;
     text-align: center;
     font-size: 12px;

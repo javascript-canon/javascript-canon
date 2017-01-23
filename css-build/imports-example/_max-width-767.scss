@@ -12,8 +12,8 @@
    * Defines the responsive positioning of the key content
    */
 
-   /* Where the header and nav are */
-   .left-column {
+  /* Where the header and nav are */
+  .left-column {
     width: 100%;
   }
 
@@ -32,7 +32,7 @@
     padding-bottom: 4px;
 
     border: 1px solid darken($js-yellow, 10%);
-    background-color:$js-yellow;
+    background-color: $js-yellow;
 
     &__title {
       font-size: 18px;
@@ -53,7 +53,7 @@
       margin: 0 auto;
       padding: 10px 0;
 
-      border-top: 1px solid #000;
+      border-top: 1px solid $black;
       font-size: 14px;
 
       &--fadeout {
@@ -84,11 +84,10 @@
       text-align: center;
     }
 
-
     &--expanded {
       height: 220px;
-      -webkit-transition: 0.1s;
-      transition: 0.1s;
+      -webkit-transition: .1s;
+      transition: .1s;
     }
   }
   /* Stop ".header"...BEM style */
@@ -106,7 +105,7 @@
     }
 
     &__list {
-      width:100%;
+      width: 100%;
       height: 103px;
       margin: 0;
       padding: 5px;
@@ -114,10 +113,10 @@
 
     &__list-item {
       margin: 0 10px 15px;
-      display:inline-block;
+      display: inline-block;
 
-      border-radius:20px;
-      background-color: #000;
+      border-radius: 20px;
+      background-color: $black;
     }
 
     &__list-item-home {
@@ -142,8 +141,7 @@
       }
     }
 
-
-    &__button-home{
+    &__button-home {
       display: inline-block;
 
       @include coreButton;
@@ -167,9 +165,9 @@
       display: block;
       position: absolute;
       top: 74px;
-      left:0;
+      left: 0;
 
-      border-top: 1px solid #000;
+      border-top: 1px solid $black;
       background: lighten($js-yellow, 15%);
 
       @include scaling(fadeIn);
@@ -194,7 +192,7 @@
     top: 6px;
 
     cursor: pointer;
-    border: none;
+    border: 0;
     border-radius: 3px;
     background-color: transparent;
 
@@ -205,14 +203,14 @@
       height: 4px;
       margin: 4px auto;
 
-      background-color: #000;
+      background-color: $black;
     }
   }
   /* Stop ".mobile-menu"...BEM style */
 
-.single-resource-container {
-  text-align: center;
-}
+  .single-resource-container {
+    text-align: center;
+  }
 
   /* Start ".single-resource"...BEM style */
   .single-resource {
@@ -254,7 +252,7 @@
   .page-modal {
 
     &__header {
-    margin-top: 16px;
+      margin-top: 16px;
 
       font-size: 18px;
       text-align: center;
@@ -280,13 +278,13 @@
 
   /* Style <footer> */
   footer {
-    height:10px;
-    margin-bottom:0;
+    height: 10px;
+    margin-bottom: 0;
     padding: 5px 0;
-    position:fixed;
-    right:0px;
-    bottom:0px;
-    left:0px;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     background-color: $js-yellow;
     text-align: center;
@@ -296,4 +294,4 @@
 
 }
 
-  /* Stop ".page-modal"...BEM style */
+/* Stop ".page-modal"...BEM style */

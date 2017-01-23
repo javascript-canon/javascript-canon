@@ -7,8 +7,6 @@
 @mixin hide-element {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
-  /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
 }
 
 
@@ -56,10 +54,10 @@
 
   text-decoration: none;
   color: $js-yellow;
-  background-color: #000;
+  background-color: $black;
   border-radius: 16px;
   cursor: pointer;
-  
+
   &:hover {
     color: $js-yellow;
     text-decoration: underline;
@@ -83,13 +81,13 @@
 
 @mixin scaling($animationName) {
   -webkit-animation-name: $animationName;
-  -webkit-animation-duration:0.3s;
+  -webkit-animation-duration: .3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: ease;
   -webkit-animation-fill-mode: forwards;
 
   animation-name: $animationName;
-  animation-duration:0.3s;
+  animation-duration: .3s;
   animation-iteration-count: 1;
   animation-timing-function: ease;
   animation-fill-mode: forwards;
