@@ -74,13 +74,12 @@
 	/* Build all the resources and place them on the page via a bound
 	 * router
 	 */
-	// render(
-	//   <Router history={hashHistory}>
-	//     <Route path="/" component={App} />
-	//     <Route path="*" component={Page404} />
-	//   </Router>,
-	//   document.getElementById('container__react-target')
-	// )
+	(0, _reactDom.render)(_react2.default.createElement(
+	  _reactRouter.Router,
+	  { history: _reactRouter.hashHistory },
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App.App }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Page.Page404 })
+	), document.getElementById('container__react-target'));
 
 /***/ },
 /* 1 */
@@ -26639,7 +26638,10 @@
 
 	  /* After <ResourceListContainer /> lands on the page, AJAX in the
 	   * resources API with jQuery and let that be the returned data
-	   * that's named 'resources...
+	   * that's named 'resources. Check to see if the the component is
+	   * mounted before setting state with data and set mounting to false
+	   * on unmount to prevent a memory leak. Read more at
+	   * http://bit.ly/2jVWNUe and http://bit.ly/2jW1mhc.
 	   */
 
 
@@ -26651,9 +26653,16 @@
 	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resources) {
-	          this.setState({ resources: resources });
+	          if (this._mounted != false) {
+	            this.setState({ resources: resources });
+	          }
 	        }.bind(this)
 	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this._mounted = false;
 	    }
 
 	    /* Render the child <ResourceList /> component where its properties
