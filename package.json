@@ -46,8 +46,8 @@
     "start": "npm run server & npm run watch-js & npm run watch-css-home & npm run watch-css-example"
   },
   "devDependencies": {
-    "browserify": "^13.3.0",
-    "clean-css": "^4.0.0",
+    "browserify": "^14.0.0",
+    "clean-css": "^4.0.1",
     "clean-css-cli": "^4.0.0",
     "jshint": "^2.9.4",
     "ncp": "^2.0.0",
