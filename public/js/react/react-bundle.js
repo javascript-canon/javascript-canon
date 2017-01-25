@@ -55,11 +55,15 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _App = __webpack_require__(233);
+	var _NavListContainer = __webpack_require__(233);
 
-	var _NavListContainer = __webpack_require__(263);
+	var _App = __webpack_require__(263);
 
-	var _Page = __webpack_require__(266);
+	var _SingleType = __webpack_require__(267);
+
+	var _SingleResource = __webpack_require__(266);
+
+	var _Page = __webpack_require__(268);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69,11 +73,6 @@
 	// Build the <nav> and place it in the sidebar
 	(0, _reactDom.render)(_react2.default.createElement(_NavListContainer.NavListContainer, null), document.getElementById('nav__react-target'));
 
-	// Build the core <App> container and place it in the main content area
-	// render(
-	//   <App />,
-	//   document.getElementById('container__react-target')
-	// )
 	/* Build all the resources and place them on the page via a bound
 	 * router
 	 */
@@ -81,6 +80,8 @@
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
 	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App.App }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/type', component: _App.App }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/resource', component: _App.App }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Page.Page404 })
 	), document.getElementById('container__react-target'));
 
@@ -26547,31 +26548,6 @@
 /* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.App = undefined;
-
-	var _react = __webpack_require__(1);
-
-	var _ResourceListContainer = __webpack_require__(234);
-
-	var App = exports.App = (0, _react.createClass)({
-	  render: function render() {
-	    return React.createElement(
-	      'div',
-	      { className: 'App' },
-	      React.createElement(_ResourceListContainer.ResourceListContainer, null)
-	    );
-	  }
-	});
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
 	// use strict mode
 	"use strict";
 
@@ -26580,21 +26556,21 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.ResourceListContainer = undefined;
+	exports.NavListContainer = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _React = __webpack_require__(235);
+	var _React = __webpack_require__(234);
 
-	var _jquery = __webpack_require__(260);
+	var _jquery = __webpack_require__(259);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _underscore = __webpack_require__(261);
+	var _underscore = __webpack_require__(260);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _ResourceList = __webpack_require__(262);
+	var _NavList = __webpack_require__(261);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26610,7 +26586,7 @@
 	// Import core jQuery
 
 
-	// Import the ResourceList child component
+	// Import the NavList child component
 
 
 	/* An implementation of the React Container Components design pattern,
@@ -26621,25 +26597,25 @@
 	 * code to render it is in "react-buildout.js."
 	 */
 
-	/* Create a component called '<ResourceListContainer />' and execute
+	/* Create a component called '<NavListContainer />' and execute
 	 * 'super()' inside 'constructor()' so that 'this' can be properly
 	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
 	 * more info. Then let the component state contain an array called
-	 * 'resources'
+	 * 'resourceTypes'
 	 */
-	var ResourceListContainer = exports.ResourceListContainer = function (_Component) {
-	  _inherits(ResourceListContainer, _Component);
+	var NavListContainer = exports.NavListContainer = function (_Component) {
+	  _inherits(NavListContainer, _Component);
 
-	  function ResourceListContainer() {
-	    _classCallCheck(this, ResourceListContainer);
+	  function NavListContainer() {
+	    _classCallCheck(this, NavListContainer);
 
-	    var _this = _possibleConstructorReturn(this, (ResourceListContainer.__proto__ || Object.getPrototypeOf(ResourceListContainer)).call(this));
+	    var _this = _possibleConstructorReturn(this, (NavListContainer.__proto__ || Object.getPrototypeOf(NavListContainer)).call(this));
 
-	    _this.state = { resources: [] };
+	    _this.state = { resourceTypes: [] };
 	    return _this;
 	  }
 
-	  /* After <ResourceListContainer /> lands on the page, AJAX in the
+	  /* After <NavListContainer /> lands on the page, AJAX in the
 	   * resources API with jQuery and let that be the returned data
 	   * that's named 'resources. Check to see if the the component is
 	   * mounted before setting state with data and set mounting to false
@@ -26648,16 +26624,38 @@
 	   */
 
 
-	  _createClass(ResourceListContainer, [{
+	  _createClass(NavListContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 
 	      _jquery2.default.ajax({
 	        url: "/api/resources",
 	        dataType: 'json',
-	        success: function (resources) {
+	        success: function (resourceTypes) {
 	          if (this._mounted != false) {
-	            this.setState({ resources: resources });
+	            /* ...create two variables: one that will be an array of
+	             * resource types and another that will be an array of
+	             * resources types with its multiple copies removed.
+	             */
+	            var typesArray = [],
+	                filteredTypesArray;
+
+	            /* ...loop through resources API, find the types, add them to
+	             * 'typesArray', and then remove any multiple copies it
+	             * contains using undescore's 'uniq' method. The array with
+	             * out the duplicates is called 'filteredTypesArray'.
+	             */
+	            resourceTypes.forEach(function (item, index) {
+	              typesArray.push(item.type);
+	              return filteredTypesArray = _underscore2.default.uniq(typesArray);
+	            });
+
+	            /* ...finally, let the resourcesTypes equal the new filtered
+	             * array update the component's state with this new array
+	             * using this.setState.
+	             */
+	            this.resourceTypes = filteredTypesArray;
+	            this.setState({ resourceTypes: filteredTypesArray });
 	          }
 	        }.bind(this)
 	      });
@@ -26668,31 +26666,31 @@
 	      this._mounted = false;
 	    }
 
-	    /* Render the child <ResourceList /> component where its properties
-	     * are the <ResourceListContainer /> filter resource types
+	    /* Render the child <NavList /> component where its properties are
+	     * the <NavListContainer /> filter resource types
 	     */
 
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return React.createElement(_ResourceList.ResourceList, { resources: this.state.resources });
+	      return React.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
 	    }
 	  }]);
 
-	  return ResourceListContainer;
+	  return NavListContainer;
 	}(_React.Component);
 
 /***/ },
-/* 235 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(236);
+	module.exports = __webpack_require__(235);
 
 
 /***/ },
-/* 236 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26709,16 +26707,16 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactChildren = __webpack_require__(237);
-	var ReactComponent = __webpack_require__(247);
-	var ReactPureComponent = __webpack_require__(249);
-	var ReactClass = __webpack_require__(250);
-	var ReactDOMFactories = __webpack_require__(252);
-	var ReactElement = __webpack_require__(240);
-	var ReactPropTypes = __webpack_require__(257);
-	var ReactVersion = __webpack_require__(258);
+	var ReactChildren = __webpack_require__(236);
+	var ReactComponent = __webpack_require__(246);
+	var ReactPureComponent = __webpack_require__(248);
+	var ReactClass = __webpack_require__(249);
+	var ReactDOMFactories = __webpack_require__(251);
+	var ReactElement = __webpack_require__(239);
+	var ReactPropTypes = __webpack_require__(256);
+	var ReactVersion = __webpack_require__(257);
 
-	var onlyChild = __webpack_require__(259);
+	var onlyChild = __webpack_require__(258);
 	var warning = __webpack_require__(11);
 
 	var createElement = ReactElement.createElement;
@@ -26726,7 +26724,7 @@
 	var cloneElement = ReactElement.cloneElement;
 
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(253);
+	  var ReactElementValidator = __webpack_require__(252);
 	  createElement = ReactElementValidator.createElement;
 	  createFactory = ReactElementValidator.createFactory;
 	  cloneElement = ReactElementValidator.cloneElement;
@@ -26786,7 +26784,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 237 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26801,11 +26799,11 @@
 
 	'use strict';
 
-	var PooledClass = __webpack_require__(238);
-	var ReactElement = __webpack_require__(240);
+	var PooledClass = __webpack_require__(237);
+	var ReactElement = __webpack_require__(239);
 
 	var emptyFunction = __webpack_require__(12);
-	var traverseAllChildren = __webpack_require__(244);
+	var traverseAllChildren = __webpack_require__(243);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -26981,7 +26979,7 @@
 	module.exports = ReactChildren;
 
 /***/ },
-/* 238 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26997,7 +26995,7 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
 	var invariant = __webpack_require__(8);
 
@@ -27098,7 +27096,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 239 */
+/* 238 */
 /***/ function(module, exports) {
 
 	/**
@@ -27141,7 +27139,7 @@
 	module.exports = reactProdInvariant;
 
 /***/ },
-/* 240 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27158,13 +27156,13 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactCurrentOwner = __webpack_require__(241);
+	var ReactCurrentOwner = __webpack_require__(240);
 
 	var warning = __webpack_require__(11);
-	var canDefineProperty = __webpack_require__(242);
+	var canDefineProperty = __webpack_require__(241);
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 
-	var REACT_ELEMENT_TYPE = __webpack_require__(243);
+	var REACT_ELEMENT_TYPE = __webpack_require__(242);
 
 	var RESERVED_PROPS = {
 	  key: true,
@@ -27487,7 +27485,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 241 */
+/* 240 */
 /***/ function(module, exports) {
 
 	/**
@@ -27522,7 +27520,7 @@
 	module.exports = ReactCurrentOwner;
 
 /***/ },
-/* 242 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27553,7 +27551,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 243 */
+/* 242 */
 /***/ function(module, exports) {
 
 	/**
@@ -27577,7 +27575,7 @@
 	module.exports = REACT_ELEMENT_TYPE;
 
 /***/ },
-/* 244 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27592,14 +27590,14 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
-	var ReactCurrentOwner = __webpack_require__(241);
-	var REACT_ELEMENT_TYPE = __webpack_require__(243);
+	var ReactCurrentOwner = __webpack_require__(240);
+	var REACT_ELEMENT_TYPE = __webpack_require__(242);
 
-	var getIteratorFn = __webpack_require__(245);
+	var getIteratorFn = __webpack_require__(244);
 	var invariant = __webpack_require__(8);
-	var KeyEscapeUtils = __webpack_require__(246);
+	var KeyEscapeUtils = __webpack_require__(245);
 	var warning = __webpack_require__(11);
 
 	var SEPARATOR = '.';
@@ -27758,7 +27756,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 245 */
+/* 244 */
 /***/ function(module, exports) {
 
 	/**
@@ -27803,7 +27801,7 @@
 	module.exports = getIteratorFn;
 
 /***/ },
-/* 246 */
+/* 245 */
 /***/ function(module, exports) {
 
 	/**
@@ -27866,7 +27864,7 @@
 	module.exports = KeyEscapeUtils;
 
 /***/ },
-/* 247 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -27881,11 +27879,11 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
-	var ReactNoopUpdateQueue = __webpack_require__(248);
+	var ReactNoopUpdateQueue = __webpack_require__(247);
 
-	var canDefineProperty = __webpack_require__(242);
+	var canDefineProperty = __webpack_require__(241);
 	var emptyObject = __webpack_require__(20);
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -27989,7 +27987,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 248 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28090,7 +28088,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 249 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -28107,8 +28105,8 @@
 
 	var _assign = __webpack_require__(4);
 
-	var ReactComponent = __webpack_require__(247);
-	var ReactNoopUpdateQueue = __webpack_require__(248);
+	var ReactComponent = __webpack_require__(246);
+	var ReactNoopUpdateQueue = __webpack_require__(247);
 
 	var emptyObject = __webpack_require__(20);
 
@@ -28136,7 +28134,7 @@
 	module.exports = ReactPureComponent;
 
 /***/ },
-/* 250 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28151,13 +28149,13 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239),
+	var _prodInvariant = __webpack_require__(238),
 	    _assign = __webpack_require__(4);
 
-	var ReactComponent = __webpack_require__(247);
-	var ReactElement = __webpack_require__(240);
-	var ReactPropTypeLocationNames = __webpack_require__(251);
-	var ReactNoopUpdateQueue = __webpack_require__(248);
+	var ReactComponent = __webpack_require__(246);
+	var ReactElement = __webpack_require__(239);
+	var ReactPropTypeLocationNames = __webpack_require__(250);
+	var ReactNoopUpdateQueue = __webpack_require__(247);
 
 	var emptyObject = __webpack_require__(20);
 	var invariant = __webpack_require__(8);
@@ -28858,7 +28856,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 251 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28888,7 +28886,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 252 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -28903,7 +28901,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(240);
+	var ReactElement = __webpack_require__(239);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -28912,7 +28910,7 @@
 	 */
 	var createDOMFactory = ReactElement.createFactory;
 	if (process.env.NODE_ENV !== 'production') {
-	  var ReactElementValidator = __webpack_require__(253);
+	  var ReactElementValidator = __webpack_require__(252);
 	  createDOMFactory = ReactElementValidator.createFactory;
 	}
 
@@ -29063,7 +29061,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 253 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29085,14 +29083,14 @@
 
 	'use strict';
 
-	var ReactCurrentOwner = __webpack_require__(241);
-	var ReactComponentTreeHook = __webpack_require__(254);
-	var ReactElement = __webpack_require__(240);
+	var ReactCurrentOwner = __webpack_require__(240);
+	var ReactComponentTreeHook = __webpack_require__(253);
+	var ReactElement = __webpack_require__(239);
 
-	var checkReactTypeSpec = __webpack_require__(255);
+	var checkReactTypeSpec = __webpack_require__(254);
 
-	var canDefineProperty = __webpack_require__(242);
-	var getIteratorFn = __webpack_require__(245);
+	var canDefineProperty = __webpack_require__(241);
+	var getIteratorFn = __webpack_require__(244);
 	var warning = __webpack_require__(11);
 
 	function getDeclarationErrorAddendum() {
@@ -29302,7 +29300,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 254 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29318,9 +29316,9 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
-	var ReactCurrentOwner = __webpack_require__(241);
+	var ReactCurrentOwner = __webpack_require__(240);
 
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -29641,7 +29639,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 255 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29656,10 +29654,10 @@
 
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
-	var ReactPropTypeLocationNames = __webpack_require__(251);
-	var ReactPropTypesSecret = __webpack_require__(256);
+	var ReactPropTypeLocationNames = __webpack_require__(250);
+	var ReactPropTypesSecret = __webpack_require__(255);
 
 	var invariant = __webpack_require__(8);
 	var warning = __webpack_require__(11);
@@ -29672,7 +29670,7 @@
 	  // https://github.com/facebook/react/issues/7240
 	  // Remove the inline requires when we don't need them anymore:
 	  // https://github.com/facebook/react/pull/7178
-	  ReactComponentTreeHook = __webpack_require__(254);
+	  ReactComponentTreeHook = __webpack_require__(253);
 	}
 
 	var loggedTypeFailures = {};
@@ -29714,7 +29712,7 @@
 
 	        if (process.env.NODE_ENV !== 'production') {
 	          if (!ReactComponentTreeHook) {
-	            ReactComponentTreeHook = __webpack_require__(254);
+	            ReactComponentTreeHook = __webpack_require__(253);
 	          }
 	          if (debugID !== null) {
 	            componentStackInfo = ReactComponentTreeHook.getStackAddendumByID(debugID);
@@ -29733,7 +29731,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 256 */
+/* 255 */
 /***/ function(module, exports) {
 
 	/**
@@ -29754,7 +29752,7 @@
 	module.exports = ReactPropTypesSecret;
 
 /***/ },
-/* 257 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -29769,12 +29767,12 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(240);
-	var ReactPropTypeLocationNames = __webpack_require__(251);
-	var ReactPropTypesSecret = __webpack_require__(256);
+	var ReactElement = __webpack_require__(239);
+	var ReactPropTypeLocationNames = __webpack_require__(250);
+	var ReactPropTypesSecret = __webpack_require__(255);
 
 	var emptyFunction = __webpack_require__(12);
-	var getIteratorFn = __webpack_require__(245);
+	var getIteratorFn = __webpack_require__(244);
 	var warning = __webpack_require__(11);
 
 	/**
@@ -30193,7 +30191,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 258 */
+/* 257 */
 /***/ function(module, exports) {
 
 	/**
@@ -30211,7 +30209,7 @@
 	module.exports = '15.4.2';
 
 /***/ },
-/* 259 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -30225,9 +30223,9 @@
 	 */
 	'use strict';
 
-	var _prodInvariant = __webpack_require__(239);
+	var _prodInvariant = __webpack_require__(238);
 
-	var ReactElement = __webpack_require__(240);
+	var ReactElement = __webpack_require__(239);
 
 	var invariant = __webpack_require__(8);
 
@@ -30254,7 +30252,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 260 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -40480,7 +40478,7 @@
 
 
 /***/ },
-/* 261 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -42034,7 +42032,285 @@
 
 
 /***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.NavList = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(234);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _CoreSiteNavigation = __webpack_require__(262);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NavList = exports.NavList = function (_Component) {
+	  _inherits(NavList, _Component);
+
+	  function NavList(props) {
+	    _classCallCheck(this, NavList);
+
+	    return _possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
+	  }
+
+	  _createClass(NavList, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'nav',
+	        { className: 'nav nav--notVisible', id: 'navigation', role: 'navigation' },
+	        React.createElement(
+	          'h2',
+	          { className: 'nav__header' },
+	          'display by resource type'
+	        ),
+	        React.createElement(
+	          'ul',
+	          { className: 'nav__list' },
+	          React.createElement(
+	            'li',
+	            { className: 'nav__list-item' },
+	            React.createElement(
+	              'a',
+	              { href: '/react/', className: 'nav__button' },
+	              'show all types'
+	            )
+	          ),
+	          this.props.resourceTypes.map(this.renderResourceTypes)
+	        ),
+	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
+	      );
+	    }
+	  }, {
+	    key: 'renderResourceTypes',
+	    value: function renderResourceTypes(i) {
+	      return React.createElement(
+	        'li',
+	        { className: 'nav__list-item', key: i },
+	        React.createElement(
+	          'a',
+	          { className: 'nav__button' },
+	          i
+	        )
+	      );
+	    }
+	  }]);
+
+	  return NavList;
+	}(_React.Component);
+
+/***/ },
 /* 262 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	/* Import React
+	 *
+	 * TODO: Component was ES6 destructured from the React object once
+	 * (i.e. import { Component } from 'react') but that didn't work after
+	 * converting to the Container component pattern
+	 * (http://bit.ly/2i5j7ZT). Learn why.
+	 */
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.CoreSiteNavigation = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "CoreSiteNavigation" component that contains the
+	 * the links to the core site pages.
+	 */
+	var CoreSiteNavigation = exports.CoreSiteNavigation = function CoreSiteNavigation() {
+	  return _react2.default.createElement(
+	    "ul",
+	    { className: "nav__list" },
+	    _react2.default.createElement(
+	      "li",
+	      { className: "nav__list-item-home nav--link-top-padding" },
+	      _react2.default.createElement(
+	        "a",
+	        { href: "/", className: "nav--homepage-link nav__button-home" },
+	        "return to main site"
+	      )
+	    ),
+	    _react2.default.createElement(
+	      "li",
+	      { className: "nav__list-item-home" },
+	      _react2.default.createElement(
+	        "a",
+	        { href: "/about", className: "nav--homepage-link nav__button-home" },
+	        "about"
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.App = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _ResourceListContainer = __webpack_require__(264);
+
+	var _SingleResource = __webpack_require__(266);
+
+	var _SingleType = __webpack_require__(267);
+
+	var App = exports.App = (0, _react.createClass)({
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'App' },
+	      this.props.location.pathname === "/" ? React.createElement(_ResourceListContainer.ResourceListContainer, null) : this.props.location.pathname === "/type" ? React.createElement(_SingleType.SingleType, null) : React.createElement(_SingleResource.SingleResource, null)
+	    );
+	  }
+	});
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.ResourceListContainer = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(234);
+
+	var _jquery = __webpack_require__(259);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _underscore = __webpack_require__(260);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _ResourceList = __webpack_require__(265);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Import jQuery
+
+
+	// Import core jQuery
+
+
+	// Import the ResourceList child component
+
+
+	/* An implementation of the React Container Components design pattern,
+	 * where a parent component fetches data via AJAX and passes it down
+	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
+	 * data being fetched contains duplicates...they're removed by
+	 * underscore before being passed down to the child component. The
+	 * code to render it is in "react-buildout.js."
+	 */
+
+	/* Create a component called '<ResourceListContainer />' and execute
+	 * 'super()' inside 'constructor()' so that 'this' can be properly
+	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
+	 * more info. Then let the component state contain an array called
+	 * 'resources'
+	 */
+	var ResourceListContainer = exports.ResourceListContainer = function (_Component) {
+	  _inherits(ResourceListContainer, _Component);
+
+	  function ResourceListContainer() {
+	    _classCallCheck(this, ResourceListContainer);
+
+	    var _this = _possibleConstructorReturn(this, (ResourceListContainer.__proto__ || Object.getPrototypeOf(ResourceListContainer)).call(this));
+
+	    _this.state = { resources: [] };
+	    return _this;
+	  }
+
+	  /* After <ResourceListContainer /> lands on the page, AJAX in the
+	   * resources API with jQuery and let that be the returned data
+	   * that's named 'resources. Check to see if the the component is
+	   * mounted before setting state with data and set mounting to false
+	   * on unmount to prevent a memory leak. Read more at
+	   * http://bit.ly/2jVWNUe and http://bit.ly/2jW1mhc.
+	   */
+
+
+	  _createClass(ResourceListContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+
+	      _jquery2.default.ajax({
+	        url: "/api/resources",
+	        dataType: 'json',
+	        success: function (resources) {
+	          if (this._mounted != false) {
+	            this.setState({ resources: resources });
+	          }
+	        }.bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this._mounted = false;
+	    }
+
+	    /* Render the child <ResourceList /> component where its properties
+	     * are the <ResourceListContainer /> filter resource types
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(_ResourceList.ResourceList, { resources: this.state.resources });
+	    }
+	  }]);
+
+	  return ResourceListContainer;
+	}(_React.Component);
+
+/***/ },
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// use strict mode
@@ -42047,7 +42323,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _React = __webpack_require__(235);
+	var _React = __webpack_require__(234);
 
 	var _reactDom = __webpack_require__(32);
 
@@ -42118,278 +42394,41 @@
 	}(_React.Component);
 
 /***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
+/* 266 */
+/***/ function(module, exports) {
 
-	// use strict mode
-	"use strict";
-
-	// Import React
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.NavListContainer = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(235);
-
-	var _jquery = __webpack_require__(260);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _underscore = __webpack_require__(261);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
-
-	var _NavList = __webpack_require__(264);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// Import jQuery
-
-
-	// Import core jQuery
-
-
-	// Import the NavList child component
-
-
-	/* An implementation of the React Container Components design pattern,
-	 * where a parent component fetches data via AJAX and passes it down
-	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
-	 * data being fetched contains duplicates...they're removed by
-	 * underscore before being passed down to the child component. The
-	 * code to render it is in "react-buildout.js."
-	 */
-
-	/* Create a component called '<NavListContainer />' and execute
-	 * 'super()' inside 'constructor()' so that 'this' can be properly
-	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
-	 * more info. Then let the component state contain an array called
-	 * 'resourceTypes'
-	 */
-	var NavListContainer = exports.NavListContainer = function (_Component) {
-	  _inherits(NavListContainer, _Component);
-
-	  function NavListContainer() {
-	    _classCallCheck(this, NavListContainer);
-
-	    var _this = _possibleConstructorReturn(this, (NavListContainer.__proto__ || Object.getPrototypeOf(NavListContainer)).call(this));
-
-	    _this.state = { resourceTypes: [] };
-	    return _this;
-	  }
-
-	  /* After <NavListContainer /> lands on the page, AJAX in the
-	   * resources API with jQuery and let that be the returned data
-	   * that's named 'resources. Check to see if the the component is
-	   * mounted before setting state with data and set mounting to false
-	   * on unmount to prevent a memory leak. Read more at
-	   * http://bit.ly/2jVWNUe and http://bit.ly/2jW1mhc.
-	   */
-
-
-	  _createClass(NavListContainer, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-
-	      _jquery2.default.ajax({
-	        url: "/api/resources",
-	        dataType: 'json',
-	        success: function (resourceTypes) {
-	          if (this._mounted != false) {
-	            /* ...create two variables: one that will be an array of
-	             * resource types and another that will be an array of
-	             * resources types with its multiple copies removed.
-	             */
-	            var typesArray = [],
-	                filteredTypesArray;
-
-	            /* ...loop through resources API, find the types, add them to
-	             * 'typesArray', and then remove any multiple copies it
-	             * contains using undescore's 'uniq' method. The array with
-	             * out the duplicates is called 'filteredTypesArray'.
-	             */
-	            resourceTypes.forEach(function (item, index) {
-	              typesArray.push(item.type);
-	              return filteredTypesArray = _underscore2.default.uniq(typesArray);
-	            });
-
-	            /* ...finally, let the resourcesTypes equal the new filtered
-	             * array update the component's state with this new array
-	             * using this.setState.
-	             */
-	            this.resourceTypes = filteredTypesArray;
-	            this.setState({ resourceTypes: filteredTypesArray });
-	          }
-	        }.bind(this)
-	      });
-	    }
-	  }, {
-	    key: 'componentWillUnmount',
-	    value: function componentWillUnmount() {
-	      this._mounted = false;
-	    }
-
-	    /* Render the child <NavList /> component where its properties are
-	     * the <NavListContainer /> filter resource types
-	     */
-
-	  }, {
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(_NavList.NavList, { resourceTypes: this.state.resourceTypes });
-	    }
-	  }]);
-
-	  return NavListContainer;
-	}(_React.Component);
-
-/***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// use strict mode
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.NavList = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _React = __webpack_require__(235);
-
-	var _reactDom = __webpack_require__(32);
-
-	var _CoreSiteNavigation = __webpack_require__(265);
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var NavList = exports.NavList = function (_Component) {
-	  _inherits(NavList, _Component);
-
-	  function NavList(props) {
-	    _classCallCheck(this, NavList);
-
-	    return _possibleConstructorReturn(this, (NavList.__proto__ || Object.getPrototypeOf(NavList)).call(this, props));
-	  }
-
-	  _createClass(NavList, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'nav',
-	        { className: 'nav nav--notVisible', id: 'navigation', role: 'navigation' },
-	        React.createElement(
-	          'h2',
-	          { className: 'nav__header' },
-	          'display by resource type'
-	        ),
-	        React.createElement(
-	          'ul',
-	          { className: 'nav__list' },
-	          React.createElement(
-	            'li',
-	            { className: 'nav__list-item' },
-	            React.createElement(
-	              'a',
-	              { href: '/react/', className: 'nav__button' },
-	              'show all types'
-	            )
-	          ),
-	          this.props.resourceTypes.map(this.renderResourceTypes)
-	        ),
-	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
-	      );
-	    }
-	  }, {
-	    key: 'renderResourceTypes',
-	    value: function renderResourceTypes(i) {
-	      return React.createElement(
-	        'li',
-	        { className: 'nav__list-item', key: i },
-	        React.createElement(
-	          'a',
-	          { className: 'nav__button' },
-	          i
-	        )
-	      );
-	    }
-	  }]);
-
-	  return NavList;
-	}(_React.Component);
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// use strict mode
-	"use strict";
-
-	/* Import React
-	 *
-	 * TODO: Component was ES6 destructured from the React object once
-	 * (i.e. import { Component } from 'react') but that didn't work after
-	 * converting to the Container component pattern
-	 * (http://bit.ly/2i5j7ZT). Learn why.
-	 */
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.CoreSiteNavigation = undefined;
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/* Create a stateless "CoreSiteNavigation" component that contains the
-	 * the links to the core site pages.
-	 */
-	var CoreSiteNavigation = exports.CoreSiteNavigation = function CoreSiteNavigation() {
-	  return _react2.default.createElement(
-	    "ul",
-	    { className: "nav__list" },
-	    _react2.default.createElement(
-	      "li",
-	      { className: "nav__list-item-home nav--link-top-padding" },
-	      _react2.default.createElement(
-	        "a",
-	        { href: "/", className: "nav--homepage-link nav__button-home" },
-	        "return to main site"
-	      )
-	    ),
-	    _react2.default.createElement(
-	      "li",
-	      { className: "nav__list-item-home" },
-	      _react2.default.createElement(
-	        "a",
-	        { href: "/about", className: "nav--homepage-link nav__button-home" },
-	        "about"
-	      )
-	    )
+	var SingleResource = exports.SingleResource = function SingleResource() {
+	  return React.createElement(
+	    "h1",
+	    null,
+	    "Single Resource"
 	  );
 	};
 
 /***/ },
-/* 266 */
+/* 267 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var SingleType = exports.SingleType = function SingleType() {
+	  return React.createElement(
+	    "h1",
+	    null,
+	    "Single Type"
+	  );
+	};
+
+/***/ },
+/* 268 */
 /***/ function(module, exports) {
 
 	"use strict";
