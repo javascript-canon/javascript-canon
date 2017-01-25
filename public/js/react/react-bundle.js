@@ -70,7 +70,10 @@
 	(0, _reactDom.render)(_react2.default.createElement(_NavListContainer.NavListContainer, null), document.getElementById('nav__react-target'));
 
 	// Build the core <App> container and place it in the main content area
-	(0, _reactDom.render)(_react2.default.createElement(_App.App, null), document.getElementById('container__react-target'));
+	// render(
+	//   <App />,
+	//   document.getElementById('container__react-target')
+	// )
 	/* Build all the resources and place them on the page via a bound
 	 * router
 	 */
