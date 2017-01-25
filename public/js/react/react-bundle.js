@@ -42190,7 +42190,10 @@
 
 	  /* After <NavListContainer /> lands on the page, AJAX in the
 	   * resources API with jQuery and let that be the returned data
-	   * that's named 'resourceTypes...
+	   * that's named 'resources. Check to see if the the component is
+	   * mounted before setting state with data and set mounting to false
+	   * on unmount to prevent a memory leak. Read more at
+	   * http://bit.ly/2jVWNUe and http://bit.ly/2jW1mhc.
 	   */
 
 
@@ -42202,32 +42205,38 @@
 	        url: "/api/resources",
 	        dataType: 'json',
 	        success: function (resourceTypes) {
+	          if (this._mounted != false) {
+	            /* ...create two variables: one that will be an array of
+	             * resource types and another that will be an array of
+	             * resources types with its multiple copies removed.
+	             */
+	            var typesArray = [],
+	                filteredTypesArray;
 
-	          /* ...create two variables: one that will be an array of
-	           * resource types and another that will be an array of
-	           * resources types with its multiple copies removed.
-	           */
-	          var typesArray = [],
-	              filteredTypesArray;
+	            /* ...loop through resources API, find the types, add them to
+	             * 'typesArray', and then remove any multiple copies it
+	             * contains using undescore's 'uniq' method. The array with
+	             * out the duplicates is called 'filteredTypesArray'.
+	             */
+	            resourceTypes.forEach(function (item, index) {
+	              typesArray.push(item.type);
+	              return filteredTypesArray = _underscore2.default.uniq(typesArray);
+	            });
 
-	          /* ...loop through resources API, find the types, add them to
-	           * 'typesArray', and then remove any multiple copies it
-	           * contains using undescore's 'uniq' method. The array with
-	           * out the duplicates is called 'filteredTypesArray'.
-	           */
-	          resourceTypes.forEach(function (item, index) {
-	            typesArray.push(item.type);
-	            return filteredTypesArray = _underscore2.default.uniq(typesArray);
-	          });
-
-	          /* ...finally, let the resourcesTypes equal the new filtered
-	           * array update the component's state with this new array
-	           * using this.setState.
-	           */
-	          this.resourceTypes = filteredTypesArray;
-	          this.setState({ resourceTypes: filteredTypesArray });
+	            /* ...finally, let the resourcesTypes equal the new filtered
+	             * array update the component's state with this new array
+	             * using this.setState.
+	             */
+	            this.resourceTypes = filteredTypesArray;
+	            this.setState({ resourceTypes: filteredTypesArray });
+	          }
 	        }.bind(this)
 	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this._mounted = false;
 	    }
 
 	    /* Render the child <NavList /> component where its properties are
