@@ -85,9 +85,12 @@
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
-	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App.App }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/type', component: _App.App }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/resource', component: _App.App }),
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _App.App },
+	    _react2.default.createElement(_reactRouter.Route, { path: '/type', component: _SingleType.SingleType }),
+	    _react2.default.createElement(_reactRouter.Route, { path: '/resource', component: _SingleResource.SingleResource })
+	  ),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _Page.Page404 })
 	), document.getElementById('container__react-target'));
 
@@ -42055,6 +42058,8 @@
 
 	var _reactDom = __webpack_require__(32);
 
+	var _reactRouter = __webpack_require__(178);
+
 	var _CoreSiteNavigation = __webpack_require__(262);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -42097,6 +42102,28 @@
 	          ),
 	          this.props.resourceTypes.map(this.renderResourceTypes)
 	        ),
+	        React.createElement(
+	          'ul',
+	          null,
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              _reactRouter.Link,
+	              { to: '/type' },
+	              'Type'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              _reactRouter.Link,
+	              { to: '/resource' },
+	              'Resource'
+	            )
+	          )
+	        ),
 	        React.createElement(_CoreSiteNavigation.CoreSiteNavigation, null)
 	      );
 	    }
@@ -42107,8 +42134,8 @@
 	        'li',
 	        { className: 'nav__list-item', key: i },
 	        React.createElement(
-	          'a',
-	          { className: 'nav__button', href: '#/' + i },
+	          _reactRouter.Link,
+	          { className: 'nav__button', to: '#/' + i },
 	          i
 	        )
 	      );
@@ -42201,7 +42228,7 @@
 	      'div',
 	      { className: 'App' },
 	      React.createElement(_LeftColumn.LeftColumn, null),
-	      this.props.location.pathname === "/" ? React.createElement(_ResourceListContainer.ResourceListContainer, null) : this.props.location.pathname === "/type" ? React.createElement(_SingleResourceContainer.SingleResourceContainer, null) : React.createElement(_SingleResourceContainer.SingleResourceContainer, null)
+	      this.props.children
 	    );
 	  }
 	});
@@ -42406,34 +42433,50 @@
 
 /***/ },
 /* 266 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.SingleResource = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var SingleResource = exports.SingleResource = function SingleResource() {
-	  return React.createElement(
+	  return _react2.default.createElement(
 	    "h1",
-	    null,
+	    { className: "foo" },
 	    "Single Resource"
 	  );
 	};
 
 /***/ },
 /* 267 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	exports.SingleType = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	var SingleType = exports.SingleType = function SingleType() {
-	  return React.createElement(
+	  return _react2.default.createElement(
 	    "h1",
-	    null,
+	    { className: "foo" },
 	    "Single Type"
 	  );
 	};
