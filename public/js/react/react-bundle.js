@@ -63,15 +63,21 @@
 
 	var _SingleResource = __webpack_require__(266);
 
-	var _Page = __webpack_require__(268);
+	var _Page = __webpack_require__(274);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// Make sure React is attached to the window object to avoid bugs
 	window.React = _react2.default;
 
+	/* Old code that renders the man nav on page-load. This now loads in
+	 * <Header /> via 'Header.js' but keep this code close by for now.
+	 */
 	// Build the <nav> and place it in the sidebar
-	(0, _reactDom.render)(_react2.default.createElement(_NavListContainer.NavListContainer, null), document.getElementById('nav__react-target'));
+	// render(
+	//   <NavListContainer />,
+	//   document.getElementById('nav__react-target')
+	// )
 
 	/* Build all the resources and place them on the page via a bound
 	 * router
@@ -42102,7 +42108,7 @@
 	        { className: 'nav__list-item', key: i },
 	        React.createElement(
 	          'a',
-	          { className: 'nav__button' },
+	          { className: 'nav__button', href: '#/' + i },
 	          i
 	        )
 	      );
@@ -42185,12 +42191,17 @@
 
 	var _SingleType = __webpack_require__(267);
 
+	var _LeftColumn = __webpack_require__(268);
+
+	var _SingleResourceContainer = __webpack_require__(273);
+
 	var App = exports.App = (0, _react.createClass)({
 	  render: function render() {
 	    return React.createElement(
 	      'div',
 	      { className: 'App' },
-	      this.props.location.pathname === "/" ? React.createElement(_ResourceListContainer.ResourceListContainer, null) : this.props.location.pathname === "/type" ? React.createElement(_SingleType.SingleType, null) : React.createElement(_SingleResource.SingleResource, null)
+	      React.createElement(_LeftColumn.LeftColumn, null),
+	      this.props.location.pathname === "/" ? React.createElement(_ResourceListContainer.ResourceListContainer, null) : this.props.location.pathname === "/type" ? React.createElement(_SingleResourceContainer.SingleResourceContainer, null) : React.createElement(_SingleResourceContainer.SingleResourceContainer, null)
 	    );
 	  }
 	});
@@ -42429,6 +42440,308 @@
 
 /***/ },
 /* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.LeftColumn = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Header = __webpack_require__(269);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "LeftColumn" component that contains both the
+	 * <Header /> element and the target element where the main nav loads
+	 */
+	var LeftColumn = exports.LeftColumn = function LeftColumn() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'left-column' },
+	    _react2.default.createElement(_Header.Header, null),
+	    _react2.default.createElement('div', { id: 'nav__react-target' })
+	  );
+	};
+
+/***/ },
+/* 269 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React, lots of stateless components & the core nav component
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Header = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MobileButton = __webpack_require__(270);
+
+	var _Logo = __webpack_require__(271);
+
+	var _InnerHeader = __webpack_require__(272);
+
+	var _NavListContainer = __webpack_require__(233);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "Header" component that contains many other
+	 * stateless components as well has the core nav component
+	 */
+	var Header = exports.Header = function Header() {
+	  return _react2.default.createElement(
+	    'header',
+	    { className: 'header', id: 'headerElement', itemType: 'http://schema.org/Organization', role: 'banner' },
+	    _react2.default.createElement(_Logo.Logo, null),
+	    _react2.default.createElement(_MobileButton.MobileButton, null),
+	    _react2.default.createElement(_InnerHeader.InnerHeader, null),
+	    _react2.default.createElement(_NavListContainer.NavListContainer, null)
+	  );
+	};
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.MobileButton = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "MobileButton" component that contains mobile
+	 * button.
+	 */
+	var MobileButton = exports.MobileButton = function MobileButton() {
+	  return _react2.default.createElement(
+	    "button",
+	    { className: "mobile-menu", type: "button", id: "mobile-button" },
+	    _react2.default.createElement("span", { className: "mobile-menu--bar" }),
+	    _react2.default.createElement("span", { className: "mobile-menu--bar" }),
+	    _react2.default.createElement("span", { className: "mobile-menu--bar" })
+	  );
+	};
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.Logo = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// Create a stateless "Logo" component that contains the main logo
+	var Logo = exports.Logo = function Logo() {
+	  return _react2.default.createElement(
+	    "a",
+	    { href: "/react/", className: "header--link", rel: "home", itemProp: "url" },
+	    _react2.default.createElement(
+	      "svg",
+	      { className: "header__logo", width: "70px", height: "70px", alt: "Logo for the JavaScript Canon", id: "logo" },
+	      _react2.default.createElement("image", { className: "header__logo", xmlnsXlink: "http://www.w3.org/1999/xlink", xlinkHref: "/img/js-logo.svg", src: "/img/js-logo.png", width: "70px", height: "70px", alt: "Logo for the JavaScript Canon", id: "logo" })
+	    )
+	  );
+	};
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.InnerHeader = undefined;
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/* Create a stateless "InnerHeader" component that contains the inner
+	 * header text
+	 */
+	var InnerHeader = exports.InnerHeader = function InnerHeader() {
+	  return _react2.default.createElement(
+	    "div",
+	    { className: "header__innerText" },
+	    _react2.default.createElement(
+	      "h1",
+	      { className: "header__title", id: "title" },
+	      "The JavaScript Canon"
+	    ),
+	    _react2.default.createElement(
+	      "h2",
+	      { className: "header__subtitle", id: "subtitle" },
+	      "Top-notch JavaScript learning resources curated by ",
+	      _react2.default.createElement(
+	        "a",
+	        { href: "http://twitter.com/kaidez", className: "header--twitterLink" },
+	        "@kaidez"
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// use strict mode
+	"use strict";
+
+	// Import React
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.SingleResourceContainer = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _React = __webpack_require__(234);
+
+	var _jquery = __webpack_require__(259);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _underscore = __webpack_require__(260);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _SingleResource = __webpack_require__(266);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// Import jQuery
+
+
+	// Import core jQuery
+
+
+	// Import the SingleResource child component
+
+
+	/* An implementation of the React Container Components design pattern,
+	 * where a parent component fetches data via AJAX and passes it down
+	 * to a child component (read more at: http://bit.ly/2jiTEdg). The
+	 * data being fetched contains duplicates...they're removed by
+	 * underscore before being passed down to the child component. The
+	 * code to render it is in "react-buildout.js."
+	 */
+
+	/* Create a component called '<SingleResourceContainer />' and execute
+	 * 'super()' inside 'constructor()' so that 'this' can be properly
+	 * used. Read 'Exploring ES6', (15.2.3.2 Superconstructor calls) for
+	 * more info. Then let the component state contain an array called
+	 * 'resourceTypes'
+	 */
+	var SingleResourceContainer = exports.SingleResourceContainer = function (_Component) {
+	  _inherits(SingleResourceContainer, _Component);
+
+	  function SingleResourceContainer() {
+	    _classCallCheck(this, SingleResourceContainer);
+
+	    var _this = _possibleConstructorReturn(this, (SingleResourceContainer.__proto__ || Object.getPrototypeOf(SingleResourceContainer)).call(this));
+
+	    _this.state = { resources: [] };
+	    return _this;
+	  }
+
+	  /* After <SingleResourceContainer /> lands on the page, AJAX in the
+	   * resources API with jQuery and let that be the returned data
+	   * that's named 'resources. Check to see if the the component is
+	   * mounted before setting state with data and set mounting to false
+	   * on unmount to prevent a memory leak. Read more at
+	   * http://bit.ly/2jVWNUe and http://bit.ly/2jW1mhc.
+	   */
+
+
+	  _createClass(SingleResourceContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+
+	      _jquery2.default.ajax({
+	        url: "/api/resources",
+	        dataType: 'json',
+	        success: function (resources) {
+	          if (this._mounted != false) {
+	            this.setState({ resources: resources });
+	          }
+	        }.bind(this)
+	      });
+	    }
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
+	      this._mounted = false;
+	    }
+
+	    /* Render the child <SingleResource /> component where its
+	     * properties are the <SingleResourceContainer /> filter resource
+	     * types
+	     */
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(_SingleResource.SingleResource, { resources: this.state.resources });
+	    }
+	  }]);
+
+	  return SingleResourceContainer;
+	}(_React.Component);
+
+/***/ },
+/* 274 */
 /***/ function(module, exports) {
 
 	"use strict";
