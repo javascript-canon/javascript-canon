@@ -42467,8 +42467,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'left-column' },
-	    _react2.default.createElement(_Header.Header, null),
-	    _react2.default.createElement('div', { id: 'nav__react-target' })
+	    _react2.default.createElement(_Header.Header, null)
 	  );
 	};
 
