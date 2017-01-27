@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "browserify": "^14.0.0",
-    "clean-css": "^4.0.1",
+    "clean-css": "^4.0.2",
     "clean-css-cli": "^4.0.0",
     "jshint": "^2.9.4",
     "ncp": "^2.0.0",
