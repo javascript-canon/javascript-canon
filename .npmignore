@@ -1,0 +1,9 @@
+assets/
+css-build/
+image-build/
+js-build/
+old-code-backup/
+.sass-lint.yml
+.*.md
+.gitignore
+Procfile
